@@ -1,0 +1,94 @@
+@import 'styleVariables.scss';
+
+.footer-f {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: $black;
+  color: white;
+  width: 100%;
+  padding: 40px;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, $black), color-stop(50%, $blue));
+  background: linear-gradient(180deg, #23272A 50%, #216AA7 50%);
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 530px;
+}
+
+.footer p {
+  color: white;
+}
+
+.footer h2 {
+  margin: 40px 0px 0px 0px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+}
+
+.footer .alinhar-footer {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .btn {
+  max-height: 80px;
+  padding: 25px 100px;
+  background: white;
+  margin-top: 20px;
+}
+
+.icon-arrow {
+  width: 4px;
+  height: 90px;
+  background-color: white;
+  position: absolute;
+  top: 105px;
+  right: 950px;
+}
+
+.icon-arrow:after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: 10px;
+  left: -24px;
+}
+
+.icon-arrow:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  transform: rotate(-45deg);
+  position: absolute;
+  bottom: 10px;
+  left: -2px;
+}

@@ -1,0 +1,248 @@
+@import 'styleVariables.scss';
+
+#navbarNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  border-bottom: 3px solid $gray;  
+  padding: 15px 0px;
+}
+
+.headerinside {
+  width: 80%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+a {
+  color: $gray-dark;
+  &:hover {
+    color: $blue;
+  }
+}
+
+.nav-link {
+  color: $gray-dark;
+}
+
+#acessar {
+  border-radius: 10px;
+  padding: 8px 53px 8px 53px;
+  border: 3px solid $blue;
+  background-color: white;
+  color: $blue;
+  &:hover {
+    background-color: $blue;
+    color: white;
+  }
+}
+
+.principal {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  .alinhar {
+    margin: 130px 0;
+  }
+  button {
+    width: 250px;
+    height: 75px;
+  }
+}
+
+.alinhar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 80%;
+  -webkit-box-pack: justify !important;
+      -ms-flex-pack: justify !important;
+          justify-content: space-between !important;
+          margin: 0px;
+}
+
+#usar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  background: $blue;
+  align-items: center;
+  padding: 20px 0px;
+  .alinhar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+  }
+  p {
+    max-width: 220px;
+  }
+}
+
+#geral {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 80px;
+  .alinhar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  label {
+    padding: 21px 159px;
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+.btn-outline-primary {
+  background-color: $gray-light;
+}
+
+.titulo {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+}
+
+.botoes {
+  width: 100%;
+  max-height: 72px;
+}
+
+.centralizargeral {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#funcionalidades {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  background-color: $blue;
+  width: 100%;
+  height: 1067px;
+  margin-top: 110px;
+  padding-top: 80px;
+  h2 {
+    color: white;
+  }
+  .titulo {
+    width: 100%;
+  }
+  .alinhar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+    width: 80%;
+    height: 100%;
+  }
+}
+
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 80%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 120px;
+}
+
+.form-control {
+  width: 100%;
+  border: 3px solid $gray !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  margin: 10px 0px 40px 0px;
+  height: 75px;
+  line-height: 75px;
+  font-size: 1.5rem;
+  padding-left: 15px !important;
+}
+
+.card {
+  display: block;
+  background: white;
+  width: 32%;
+  height: 400px;
+  padding: 50px 36px;
+  margin-bottom: 30px;
+  h3 {
+    margin: 35px 0px;
+  }
+}
+
+#depoimentos {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .alinhar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1750px) {
+  main {
+      max-width: 55%;
+  }
+}

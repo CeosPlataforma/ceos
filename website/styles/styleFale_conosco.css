@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap");
+h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+.text-lg {
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: block;
+}
+
+.text-md {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+* {
+  padding: 0;
+  border: 0;
+  font-family: 'Baloo Bhai 2', cursive;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+* {
+  font-family: 'Baloo Bhai 2', cursive;
+}
+
+.headerinside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main {
+  max-width: 76%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-2 {
+  width: 55%;
+  margin-top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 55px;
+}
+
+a {
+  text-decoration: none;
+  color: #216AA7;
+}
+
+p {
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  margin-bottom: 35px;
+}
+
+form {
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 15px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.tituloContainer .text-lg {
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  padding: 20px 14.84375%;
+}
+
+.navbar {
+  max-width: 200px;
+}
+
+.remember-me {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #707070;
+}
+
+.bottom {
+  margin-bottom: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#checkbox {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+}
+
+.hasborder {
+  border: 2px solid #707070;
+  margin-left: 10px;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 0px 4px white inset;
+          box-shadow: 0px 0px 0px 4px white inset;
+}
+
+.filled {
+  background-color: #216AA7;
+}
+
+.formContainer {
+  width: 90%;
+}
+
+textarea {
+  resize: vertical;
+  height: auto;
+  min-height: 200px;
+  line-height: normal !important;
+}
+
+@media (max-width: 1500px) {
+  main {
+    max-width: 55%;
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    max-width: 80%;
+  }
+}
+/*# sourceMappingURL=styleFale_conosco.css.map */

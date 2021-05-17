@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceos - Organize seus estudos rápido e fácil!</title>
+    <meta name="description"
+        content="Organize facilmente seus estudos, administre suas notas e tarefas, crie resumos e muito mais rápidamente com uma interface fácil e bonita de se utilizar!">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../styles/styleGlobal.css">
+    <link rel="stylesheet" type="text/css" href="../styles/styleSign.css">
+</head>
+
+<body>
+    <header id="top">
+        <div class='headerinside'>
+            <nav class="navbar navbar-light"
+                style="padding: 0; display: block; display: flex; align-items: flex-start;">
+                <a class="navbar-brand" href="../landing-page/index.html" style="display: block;">
+                    <img src="../imgs/LogoHP.png" alt="" width="250" style='margin: 0;'>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="titulo">Crie sua conta no Ceos</h2>
+        <p class="text-lg">Você já possui uma conta? <a href='../acessar/acessar.html'>Entre agora mesmo</a></p>
+        <form action="acessar.html" id="form">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="text-lg">Nome completo</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="text-lg">E-mail</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="text-lg senha">Senha</label>
+
+                <div class="inputWrapper">
+                    <input type="password" class="form-control" id="password" minlength=5 maxlength=50>
+                    <span class="showPassword text-md">Mostrar senha</span>
+                    <span class="hidePassword text-md">Ocultar senha</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="text-lg">Confirme sua senha</label>
+                <div class="inputWrapper">
+                    <input type="password" class="form-control" id="confirmPassword" minlength=5 maxlength=50>
+                    <span id='message'></span>
+                    <span class="showPassword text-md">Mostrar senha</span>
+                    <span class="hidePassword text-md">Ocultar senha</span>
+                </div>
+            </div>
+
+            <div>
+                <!-- Button trigger modal -->
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modalCenter"
+                    class="btn btn-primary text-md" id="triggerModal">Cadastrar</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+
+                            <div class="container">
+                                <div class="row justify-content-end">
+
+                                    <div class="col-10">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title" id="exampleModalLongTitle">Verificação de e-mail
+                                            </h2>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <p class="text-lg">Para finalizar a criação de sua conta e começar a usar a
+                                                plataforma, você precisa verificar seu endereço de e-mail e seguir as
+                                                instruções enviadas</p>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary text-md"
+                                                onclick="location.href='../acessar/acessar.html'">Fechar</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1">
+                                        <button type="button" class="btn-close close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="../script.js"></script>
+    <script>
+        /* $('#password, #confirmPassword').on('keyup', function () {
+            if ($('#password').val() == $('#confirmPassword').val() && $('#password').val() != null) {
+                $('#confirmPassword').attr('style', 'border-color: #0f0 !important');
+            } else
+                $('#confirmPassword').attr('style', 'border-color: #f00 !important');
+        }); */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br" style="overflow-y: hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceos - Organize seus estudos rápido e fácil!</title>
+    <meta name="description"
+        content="Organize facilmente seus estudos, administre suas notas e tarefas, crie resumos e muito mais rápidamente com uma interface fácil e bonita de se utilizar!">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../styles/styleGlobal.css">
+    <link rel="stylesheet" type="text/css" href="../styles/styleSign.css">
+</head>
+
+<body>
+
+    <header id="top">
+        <div class='headerinside'>
+            <nav class="navbar navbar-light"
+                style="padding: 0; display: block; display: flex; align-items: flex-start;">
+                <a class="navbar-brand" href="../landing-page/index.html" style="display: block;">
+                    <img src="../imgs/LogoHP.png" alt="" width="250" style='margin: 0;'>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="tituloContainer">
+            <h2>Entre com a sua conta no Ceos</h2>
+            <p class="text-lg" style="margin-top: 0 !important">Novo por aqui? <a
+                    href='../cadastrar/cadastrar.html'>Crie sua conta</a></p>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="text-lg">E-mail</label>
+
+                <input type="email" class="form-control" aria-describedby="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="text-lg">Senha</label>
+
+                <div class="inputWrapper">
+                    <input type="password" class="form-control" id="password" minlength=5 maxlength=50>
+                    <span class="showPassword text-md noselect">Mostrar senha</span>
+                    <span class="hidePassword text-md noselect">Ocultar senha</span>
+                </div>
+            </div>
+
+            <div class="bottom">
+
+                <div class="remember-me" style="cursor: pointer;">
+                    <label class="text-lg" for="checkbox" style="pointer-events: none;">Permanecer conectado</label>
+                    <label class='hasborder' for="checkbox" style="pointer-events: none;"><input type="checkbox"
+                            id="checkbox" style="pointer-events: none;"></label>
+                </div>
+
+                <div>
+                    <!-- Button trigger modal -->
+                    <a class="text-lg" data-bs-toggle="modal" data-bs-target="#modalCenter"
+                        style="text-decoration: none; color: #707070; cursor: pointer;">Esqueci minha senha</a>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+
+                                <div class="container">
+                                    <div class="row justify-content-end">
+
+                                        <div class="col-10">
+                                            <div class="modal-header" style="justify-content: center;">
+                                                <h2 class="modal-title" id="exampleModalLongTitle">Esqueceu sua senha?
+                                                </h2>
+                                                <p class="text-lg">Sem problemas! É fácil recuperá-la!</p>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <p class="text-lg">Informe o e-mail vinculado a sua conta para enviarmos
+                                                    as
+                                                    instruções de como recuperar sua senha</p>
+                                                <input type="email" class="form-control" placeholder="E-mail"
+                                                    aria-describedby="emailRecover">
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary text-md"
+                                                    data-dismiss="modal">Recuperar senha</button>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-1">
+                                            <button type="button" class="btn-close close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary text-md">Entrar</button>
+        </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="../script.js"></script>
+    <script>
+        $('.remember-me').on('click', function () {
+
+            let checkbox_value = $('#checkbox').prop('checked');
+
+            if (checkbox_value === false) {
+                $('#checkbox').prop('checked', true);
+                $('.hasborder').toggleClass('filled');
+            }
+
+            if (checkbox_value) {
+                $('#checkbox').prop('checked', false);
+                $('.hasborder').toggleClass('filled');
+            }
+        });
+    </script>
+</body>
+
+</html>
