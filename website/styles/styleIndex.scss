@@ -126,9 +126,12 @@ a {
     flex-wrap: wrap;
   }
   label {
-    padding: 21px 159px;
+    padding: 21px 8.10%;
     border: none;
     border-radius: 10px;
+  }
+  .textos {
+    max-width: 40%;
   }
 }
 
@@ -167,7 +170,6 @@ a {
   justify-content: center;
   background-color: $blue;
   width: 100%;
-  height: 1067px;
   margin-top: 110px;
   padding-top: 80px;
   h2 {
@@ -195,7 +197,7 @@ a {
   height: 80%;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 120px;
+  margin-bottom: 40px;
 }
 
 .form-control {
@@ -214,7 +216,6 @@ a {
   display: block;
   background: white;
   width: 32%;
-  height: 400px;
   padding: 50px 36px;
   margin-bottom: 30px;
   h3 {
@@ -244,5 +245,79 @@ a {
 @media (max-width: 1750px) {
   main {
       max-width: 55%;
+  }
+}
+
+@media (max-width: 1560px) {
+  .headerinside {
+      width: 95%;
+  }
+  .alinhar {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .nav-link {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .principal {
+    height: 790px;
+    .alinhar {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    img {
+      width: 500px;
+      margin-bottom: 40px;
+    }
+  }
+  .card {
+    width: 49%;
+  }
+  #funcionalidades .alinhar {
+    align-content: flex-start;
+  }
+}
+
+@media (max-width: 840px) {
+  .card {
+    width: auto;
+    padding: 25px 18px;
+    margin-bottom: 15px; 
+    h3 {
+      margin: 15px 0px;
+    }
+  }
+  .cards {
+    margin-bottom: 80px;
+  }
+}
+
+
+@media (max-width: 715px) {
+  .principal {
+    height: 1000px;
+  }
+  .centralizargeral {
+    flex-direction: column;
+  }
+  #geral .textos {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  #geral label {
+    padding: 21px 2%;
+  }
+  .principal {
+    height: 1050px;
+  }
+  #funcionalidades .alinhar {
+    margin-bottom: 20px;
   }
 }

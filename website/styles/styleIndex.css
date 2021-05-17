@@ -187,9 +187,13 @@ a:hover {
 }
 
 #geral label {
-  padding: 21px 159px;
+  padding: 21px 8.10%;
   border: none;
   border-radius: 10px;
+}
+
+#geral .textos {
+  max-width: 40%;
 }
 
 .btn-outline-primary {
@@ -235,7 +239,6 @@ a:hover {
           justify-content: center;
   background-color: #216AA7;
   width: 100%;
-  height: 1067px;
   margin-top: 110px;
   padding-top: 80px;
 }
@@ -270,7 +273,7 @@ a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 120px;
+  margin-bottom: 40px;
 }
 
 .form-control {
@@ -289,7 +292,6 @@ a:hover {
   display: block;
   background: white;
   width: 32%;
-  height: 400px;
   padding: 50px 36px;
   margin-bottom: 30px;
 }
@@ -326,6 +328,87 @@ a:hover {
 @media (max-width: 1750px) {
   main {
     max-width: 55%;
+  }
+}
+
+@media (max-width: 1560px) {
+  .headerinside {
+    width: 95%;
+  }
+  .alinhar {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .nav-link {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .principal {
+    height: 790px;
+  }
+  .principal .alinhar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .principal img {
+    width: 500px;
+    margin-bottom: 40px;
+  }
+  .card {
+    width: 49%;
+  }
+  #funcionalidades .alinhar {
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+}
+
+@media (max-width: 840px) {
+  .card {
+    width: auto;
+    padding: 25px 18px;
+    margin-bottom: 15px;
+  }
+  .card h3 {
+    margin: 15px 0px;
+  }
+  .cards {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 715px) {
+  .principal {
+    height: 1000px;
+  }
+  .centralizargeral {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #geral .textos {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  #geral label {
+    padding: 21px 2%;
+  }
+  .principal {
+    height: 1050px;
+  }
+  #funcionalidades .alinhar {
+    margin-bottom: 20px;
   }
 }
 /*# sourceMappingURL=styleIndex.css.map */
