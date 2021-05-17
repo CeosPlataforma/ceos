@@ -13,9 +13,9 @@ $(document).ready(function () {
     });
 });
 
-var modalCenter = document.getElementById('modalCenter')
+/* var modalCenter = document.getElementById('modalCenter')
 var triggerModal = document.getElementById('triggerModal')
 
 modalCenter.addEventListener('shown.bs.modal', function () {
   triggerModal.focus()
-})
+}) */

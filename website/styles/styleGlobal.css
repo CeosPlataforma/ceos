@@ -270,4 +270,8 @@ a:hover {
 .svg-33 {
   height: 33px;
 }
+
+label[class="error"] {
+  display: none !important;
+}
 /*# sourceMappingURL=styleGlobal.css.map */
