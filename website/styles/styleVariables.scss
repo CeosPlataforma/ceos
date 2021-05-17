@@ -13,7 +13,6 @@ $gray-light: #E5E5E5;
 $gray-semidark: #909293;
 $white: #FFFFFF;
 
-//-------------------------------------
 // Tipografia -------------------------
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap');
@@ -45,8 +44,7 @@ h3 {
     margin: 0;
 }
 
-//-------------------------------------
-    // Funções ------------------------
+// Funções ------------------------
 
 * {
     padding: 0;
@@ -62,5 +60,3 @@ h3 {
           -ms-user-select: none;
               user-select: none;
 }
-
-//-------------------------------------
