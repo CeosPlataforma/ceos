@@ -33,7 +33,7 @@
             <p class="text-lg" style="margin-top: 0 !important">Novo por aqui? <a
                     href='../cadastrar/cadastrar.html'>Crie sua conta</a></p>
         </div>
-        <form>
+        <form method="post" action="">
             <div class="form-group">
                 <label for="exampleInputEmail1" class="text-lg">E-mail</label>
 
@@ -61,48 +61,6 @@
                     <!-- Button trigger modal -->
                     <a class="text-lg" data-bs-toggle="modal" data-bs-target="#modalCenter"
                         style="text-decoration: none; color: #707070; cursor: pointer;">Esqueci minha senha</a>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                            <div class="modal-content">
-
-                                <div class="container">
-                                    <div class="row justify-content-end">
-
-                                        <div class="col-10">
-                                            <div class="modal-header" style="justify-content: center;">
-                                                <h2 class="modal-title" id="exampleModalLongTitle">Esqueceu sua senha?
-                                                </h2>
-                                                <p class="text-lg">Sem problemas! É fácil recuperá-la!</p>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <p class="text-lg">Informe o e-mail vinculado a sua conta para enviarmos
-                                                    as
-                                                    instruções de como recuperar sua senha</p>
-                                                <input type="email" class="form-control" placeholder="E-mail"
-                                                    aria-describedby="emailRecover">
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary text-md"
-                                                    data-dismiss="modal">Recuperar senha</button>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-1">
-                                            <button type="button" class="btn-close close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
@@ -110,6 +68,49 @@
             </div>
             <button type="submit" class="btn btn-primary text-md">Entrar</button>
         </form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+
+                    <div class="container">
+                        <div class="row justify-content-end">
+
+                            <div class="col-10">
+                                <div class="modal-header" style="justify-content: center;">
+                                    <h2 class="modal-title" id="exampleModalLongTitle">Esqueceu sua senha?
+                                    </h2>
+                                    <p class="text-lg">Sem problemas! É fácil recuperá-la!</p>
+                                </div>
+                                <form method="post" action="">
+                                    <div class="modal-body">
+                                        <p class="text-lg">Informe o e-mail vinculado a sua conta para
+                                            enviarmos
+                                            as
+                                            instruções de como recuperar sua senha</p>
+                                        <input type="email" class="form-control" placeholder="E-mail"
+                                            aria-describedby="emailRecover" required>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary text-md">Recuperar
+                                            senha</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-1">
+                                <button type="button" class="btn-close close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
