@@ -438,11 +438,6 @@ a:hover {
   left: -34px;
 }
 
-/* add bg color to the active dot/circle */
-.active {
-  background-color: #23272A;
-}
-
 .author {
   font-size: 2rem;
   margin-left: 40px;
@@ -453,7 +448,9 @@ a:hover {
 .author-img {
   height: 100px;
   width: 100px;
-  background-color: #23272A;
+  background: url("../imgs/icones/depoimento.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 50%;
 }
 

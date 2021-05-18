@@ -278,16 +278,7 @@
                     </div>
 
                 </div>
-
-                <!-- Dots/bullets/indicators -->
-                <div class="dot-container">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-
             </section>
-
         </div>
     </div>
 
@@ -318,7 +309,6 @@
 <script src="script.js"></script>
 <script>
     let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
     let prev = document.querySelector(".prev");
     let next = document.querySelector(".next");
 
@@ -347,12 +337,7 @@
                 slides[i].style.display = "none";
             }
 
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-
             slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
         }
     }
 

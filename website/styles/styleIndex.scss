@@ -346,11 +346,6 @@ a {
   }
 }
 
-/* add bg color to the active dot/circle */
-.active {
-  background-color: $black;
-}
-
 .author {
   font-size: 2rem;
   margin-left: 40px;
@@ -361,7 +356,9 @@ a {
 .author-img {
   height: 100px;
   width: 100px;
-  background-color: $black;
+  background: url("../imgs/icones/depoimento.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 50%;
 }
 
