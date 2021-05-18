@@ -1,0 +1,29 @@
+// abstracts
+@import
+  'abstracts/variables',
+  'abstracts/mixins',
+  'abstracts/functions';
+
+// base
+@import
+  'base/reset',
+  'base/typography',
+  'base/base';
+
+// layout
+@import
+  'layout/navigation',
+  'layout/header',
+  'layout/footer';
+
+// components
+@import
+  'components/buttons',
+  'components/carousel';
+
+// pages
+@import
+  'pages/acessar',
+  'pages/cadastrar',
+  'pages/fale-conosco',
+  'pages/landing-page';
