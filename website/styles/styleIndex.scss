@@ -49,6 +49,10 @@ a {
   color: $gray-dark;
 }
 
+.svg-55 {
+  margin-bottom: 20px;
+}
+
 #acessar {
   border-radius: 10px;
   padding: 8px 53px 8px 53px;
@@ -252,7 +256,6 @@ a {
   margin: 0 auto 0 auto;
 }
 
-/* slideshow container */
 .slideshow-container {
   position: relative;
   width: 80rem;
@@ -260,7 +263,6 @@ a {
   margin: 0 auto;
 }
 
-/* Slides */
 .mySlides {
   display: none;
   padding: 2rem 5rem 0 5rem;
@@ -273,7 +275,6 @@ a {
   background: $gray-light 0% 0% no-repeat padding-box;
 }
 
-/* next & previous buttons */
 .prev,
 .next {
   cursor: pointer;
@@ -356,9 +357,6 @@ a {
 .author-img {
   height: 100px;
   width: 100px;
-  background: url("../imgs/icones/depoimento.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 50%;
 }
 
