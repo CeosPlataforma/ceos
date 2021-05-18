@@ -1,0 +1,24 @@
+@import
+  'abstracts/variables',
+  'abstracts/mixins',
+  'abstracts/functions';
+
+@import
+  'base/reset',
+  'base/typography',
+  'base/base';
+
+@import
+  'layout/navigation',
+  'layout/header',
+  'layout/footer';
+
+@import
+  'components/buttons',
+  'components/carousel';
+
+@import
+  'pages/acessar',
+  'pages/cadastrar',
+  'pages/fale-conosco',
+  'pages/landing-page';
