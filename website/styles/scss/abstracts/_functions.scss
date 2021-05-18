@@ -1,6 +1,6 @@
 // Tipografia
 
 @function toRem($pixels, $base: 16) {
-    @return $pixels / $base + rem;
+    @return ($pixels / $base) + rem;
 }
 

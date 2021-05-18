@@ -1,29 +1,25 @@
 // abstracts
-@import
-  'abstracts/variables',
-  'abstracts/mixins',
-  'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
 
 // base
-@import
-  'base/reset',
-  'base/typography',
-  'base/base';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
 
 // layout
-@import
-  'layout/navigation',
-  'layout/header',
-  'layout/footer';
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
 
 // components
-@import
-  'components/buttons',
-  'components/carousel';
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/modal';
 
 // pages
-@import
-  'pages/acessar',
-  'pages/cadastrar',
-  'pages/fale-conosco',
-  'pages/landing-page';
+@import 'pages/acessar';
+@import 'pages/cadastrar';
+@import 'pages/fale-conosco';
+@import 'pages/landing-page';
