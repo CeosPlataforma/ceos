@@ -309,6 +309,7 @@ a:hover {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  margin-top: 80px;
 }
 
 #depoimentos .alinhar {
@@ -317,12 +318,180 @@ a:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-bottom: 80px;
+  margin-bottom: 150px;
   width: 70%;
   height: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#depoimentos p {
+  color: #23272A;
+}
+
+.customer-revs {
+  margin: 0 auto 0 auto;
+}
+
+/* slideshow container */
+.slideshow-container {
+  position: relative;
+  width: 80rem;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 2rem 5rem 0 5rem;
+  text-align: center;
+}
+
+.mySlidesContainer {
+  min-height: 5rem;
+  padding: 3.5rem 2.5rem;
+  background: #E5E5E5 0% 0% no-repeat padding-box;
+}
+
+/* next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 55%;
+  width: auto;
+  margin-top: -1.875rem;
+  padding: 1rem;
+  color: #23272A;
+  font-size: 3rem;
+  border-radius: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  height: 150px;
+}
+
+.prev {
+  left: -120px;
+}
+
+.next {
+  position: absolute;
+  right: -120px;
+  border-radius: 3px;
+}
+
+/* on hover, add a black bg color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: #23272A;
+  color: white;
+  text-decoration: none;
+}
+
+.prev-icon {
+  width: 70px;
+  height: 2px;
+  margin-top: 34px;
+  background-color: #AFAFAF;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.prev-icon:after {
+  content: '';
+  display: inline-block;
+  width: 70px;
+  height: 2px;
+  background-color: #AFAFAF;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  position: absolute;
+  bottom: -34px;
+  left: -34px;
+}
+
+.next-icon {
+  width: 70px;
+  height: 2px;
+  margin-top: 82px;
+  background-color: #AFAFAF;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.next-icon:after {
+  content: '';
+  display: inline-block;
+  width: 70px;
+  height: 2px;
+  background-color: #AFAFAF;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  position: absolute;
+  bottom: -34px;
+  left: -34px;
+}
+
+/* add bg color to the active dot/circle */
+.active {
+  background-color: #23272A;
+}
+
+.author {
+  font-size: 2rem;
+  margin-left: 40px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.author-img {
+  height: 100px;
+  width: 100px;
+  background-color: #23272A;
+  border-radius: 50%;
+}
+
+.author-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+hr {
+  border: 1px solid #23272A;
+  opacity: 1;
+  margin: 40px 0px;
+}
+
+.deco-quotes {
+  color: #216AA7;
+  font-size: 12rem;
+  position: absolute;
+  z-index: -10;
+}
+
+#quote-left {
+  left: 100px;
+  top: 30px;
+}
+
+#quote-right {
+  right: 100px;
+  bottom: -100px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 @media (max-width: 1750px) {

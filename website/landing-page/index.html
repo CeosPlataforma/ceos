@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Organize facilmente seus estudos, administre suas atividades, gerencia seu desempenho e muito mais com uma interface com a plataforma Ceos!">
-    <meta name="keywords" content="Estudos, Escolar, Organização, Organização escolar">    
+    <meta name="description"
+        content="Organize facilmente seus estudos, administre suas atividades, gerencia seu desempenho e muito mais com uma interface com a plataforma Ceos!">
+    <meta name="keywords" content="Estudos, Escolar, Organização, Organização escolar">
 
     <!-- Title -->
     <title> Ceos - Plataforma de organização escolar </title>
@@ -16,7 +17,8 @@
     <link rel="icon" href="../imgs/favicon.ico">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Style -->
     <link rel="stylesheet" type="text/css" href="../styles/styleGlobal.css">
@@ -206,14 +208,85 @@
 
     <div id="depoimentos">
         <div class="alinhar">
+            <section class="customer-revs">
+                <div class="rectangle"></div>
 
-            <div class="titulo">
-                <h2>Depoimentos</h2>
-            </div>
+                <div class="slideshow-container">
 
-            <div id='depoimentos'>
+                    <div class="titulo">
+                        <h2>Depoimentos</h2>
+                    </div>
 
-            </div>
+                    <span class="deco-quotes" id="quote-left">❝</span>
+                    <span class="deco-quotes" id="quote-right">❝</span>
+
+                    <div class="mySlides">
+                        <div class="mySlidesContainer">
+                            <p class="text-md">
+                                Fusce semper ligula sed mauris posuere, a viverra felis volutpat. Nullam fermentum nunc
+                                eget ex laoreet
+                                imperdiet. Nunc id lectus quis lectus molestie fermentum. Aliquam euismod suscipit dui
+                                eu faucibus. Donec
+                                ligula tellus, luctus. maximus magna finibus quis. Fusce semper ligula sed mauris
+                                posuere a viverra felis
+                                volutpat. Nullam fermentum nunc eget ex laoreet imperdiet.
+                            </p>
+                            <hr>
+                            <div class="author-container">
+                                <div class="author-img"></div>
+                                <p class="author">Nome 1</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="mySlidesContainer">
+                            <p class="text-md">
+                                Vivamus est felis, tempor sed mauris ac, malesuada sollicitudin ipsum. Etiam nec
+                                ullamcorper nibh, ac
+                                pretium sapien. Donec pharetra sollicitudin ligula, sit amet ornare nisi vestibulum et.
+                            </p>
+                            <hr>
+                            <div class="author-container">
+                                <div class="author-img"></div>
+                                <p class="author">Nome 2</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="mySlidesContainer">
+                            <p class="text-md">
+                                Mauris malesuada, ex at volutpat euismod, velit diam placerat lacus, eu rhoncus enim
+                                metus ultricies nisi.
+                                Mauris pharetra tristique nisl.</p>
+                            <hr>
+                            <div class="author-container">
+                                <div class="author-img"></div>
+                                <p class="author">Nome 3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prev">
+                        <div class="prev-icon"></div>
+                    </div>
+                    <div class="next">
+                        <div class="next-icon"></div>
+                    </div>
+
+                </div>
+
+                <!-- Dots/bullets/indicators -->
+                <div class="dot-container">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+            </section>
 
         </div>
     </div>
@@ -243,6 +316,55 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
 <script src="script.js"></script>
+<script>
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    let prev = document.querySelector(".prev");
+    let next = document.querySelector(".next");
+
+    if (!slides.length == 0) {
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides((slideIndex += n));
+        }
+
+        let currentSlide = function (n) {
+            showSlides((slideIndex = n));
+        };
+
+        function showSlides(n) {
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    }
+
+    prev.addEventListener("click", () => {
+        plusSlides(-1);
+    });
+
+    next.addEventListener("click", () => {
+        plusSlides(1);
+    });
+</script>
+</script>
 
 
 </html>
