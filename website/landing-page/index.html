@@ -162,13 +162,14 @@
 
             <div class="centralizargeral">
                 <div class='textos'>
-                    <h3 id="title-visao-geral">Organização</h3><br><br>
-                    <p class='text-md' id="texto-visao-geral">É de conhecimento geral que a organização nos estudos é
-                        de suma importância para
-                        o sucesso de um estudante em diversos aspectos.
-                        <br><br>A plataforma permite a categorização de atividades e matérias, de modo a te
-                        ajudar
-                        efetivamente neste elemento tão importante da vida estudantil: a organização.
+                    <h3 id="title-visao-geral">Organização</h3>
+                    <br><br>
+                    <p class='text-md' id="texto-visao-geral">
+                        É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.
+                    </p>
+                    <br>
+                    <p class="text-md" id="texto-visao-geral-2">
+                        Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar.
                     </p>
                 </div>
                 <div class='img-main'>
@@ -489,21 +490,35 @@
 
     $('.btn-organizacao').on('click', function () {
         // $('#title-visao-geral').fadeOut();
-        $('#text-visao-geral').text('É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.<br><br>A plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente neste elemento tão importante da vida estudantil: a organização.');
-        $('#image-visao-geral').attr('src', '../imgs/organizacao.svg');
         $('#title-visao-geral')./*fadeIn(100)*/text('Organização');
+        
+        $('#texto-visao-geral').text('É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.');
+
+        $('#texto-visao-geral-2').text('Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar.');
+        
+        $('#image-visao-geral').attr('src', '../imgs/organizacao.svg');
     });
+
     $('.btn-gerenciamento').on('click', function () {
         // $('#title-visao-geral').fadeOut();
-        $('#text-visao-geral').text('É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.<br><br>A plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente neste elemento tão importante da vida estudantil: a organização.');
-        $('#image-visao-geral').attr('src', '../imgs/gerenciamento.svg');
         $('#title-visao-geral')./*fadeIn(100)*/text('Gerenciamento');
+        
+        $('#texto-visao-geral').text('Administrar as atividades disciplinares de forma produtiva é essencial para garantir o êxito no contexto estudantil.');
+
+        $('#texto-visao-geral-2').text('Assim, de modo intuitivo e prático, a plataforma possibilita um melhor gerenciamento das atividades escolares.');
+        
+        $('#image-visao-geral').attr('src', '../imgs/gerenciamento.svg');
     });
+
     $('.btn-desempenho').on('click', function () {
         // $('#title-visao-geral').fadeOut();
-        $('#text-visao-geral').text('É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.<br><br>A plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente neste elemento tão importante da vida estudantil: a organização.');
-        $('#image-visao-geral').attr('src', '../imgs/desempenho.svg');
         $('#title-visao-geral')./*fadeIn(100)*/text('Desempenho');
+        
+        $('#texto-visao-geral').text('Ter uma boa visão do desempenho em variados aspectos escolares é relevante para verificar falhas e melhor gerir a performance nos estudos.');
+
+        $('#texto-visao-geral-2').text('Diante disso, na plataforma, o controle do desempenho nas atividades estudantis é caracterizado pela agilidade e eficiência.');
+        
+        $('#image-visao-geral').attr('src', '../imgs/desempenho.svg');
     });
 </script>
 </script>
