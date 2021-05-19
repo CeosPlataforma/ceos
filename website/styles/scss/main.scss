@@ -1,24 +1,29 @@
 // abstracts
+
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'abstracts/functions';
 
 // base
+
 @import 'base/reset';
 @import 'base/typography';
 @import 'base/base';
 
 // layout
+
 @import 'layout/navigation';
 @import 'layout/header';
 @import 'layout/footer';
 
 // components
+
 @import 'components/buttons';
 @import 'components/carousel';
 @import 'components/modal';
 
 // pages
+
 @import 'pages/acessar';
 @import 'pages/cadastrar';
 @import 'pages/fale-conosco';
