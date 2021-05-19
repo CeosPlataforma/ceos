@@ -234,6 +234,11 @@ a:hover {
           justify-content: space-between;
 }
 
+#image-visao-geral {
+  height: 500px;
+  width: 100%;
+}
+
 #funcionalidades {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -546,11 +551,9 @@ hr {
   .cards {
     margin-bottom: 80px;
   }
-}
-
-@media (max-width: 715px) {
-  .principal {
-    height: 1000px;
+  #geral .textos {
+    max-width: 100%;
+    margin-bottom: 40px;
   }
   .centralizargeral {
     -webkit-box-orient: vertical;
@@ -558,9 +561,11 @@ hr {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  #geral .textos {
-    max-width: 100%;
-    margin-bottom: 40px;
+}
+
+@media (max-width: 715px) {
+  .principal {
+    height: 1000px;
   }
 }
 

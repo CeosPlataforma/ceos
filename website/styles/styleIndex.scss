@@ -167,6 +167,11 @@ a {
   justify-content: space-between;
 }
 
+#image-visao-geral {
+  height: 500px;
+  width: 100%;
+}
+
 #funcionalidades {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -443,19 +448,19 @@ hr {
   .cards {
     margin-bottom: 80px;
   }
+  #geral .textos {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  .centralizargeral {
+    flex-direction: column;
+  }
 }
 
 
 @media (max-width: 715px) {
   .principal {
     height: 1000px;
-  }
-  .centralizargeral {
-    flex-direction: column;
-  }
-  #geral .textos {
-    max-width: 100%;
-    margin-bottom: 40px;
   }
 }
 
