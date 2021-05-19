@@ -1,0 +1,12 @@
+.navbar--main {
+    padding: 15px 0;
+    border-bottom: 3px solid $gray;
+
+    .nav-link {
+        font: $font-sm;
+        color: $gray-dark;
+        opacity: 1;
+        padding: 0 !important;
+        margin: 0 15px;
+    }
+}

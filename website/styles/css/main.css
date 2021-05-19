@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap");
+html, body {
+  font-family: 'Baloo Bhai 2' !important;
+}
+
 /* Convert px to rem
 
 @function toRem($pixels, $base: 16) {
@@ -5,5 +10,55 @@
 }
 
 */
-html {
-  font-family: 'Baloo Bhai 2', cursive; }
+textarea:hover,
+textarea:active,
+textarea:focus,
+input:hover,
+input:active,
+input:focus,
+button:hover,
+button:active,
+button:focus,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0 !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+::selection {
+  color: #23272A;
+  background: #A9BFD2;
+}
+
+.navbar--main {
+  padding: 15px 0;
+  border-bottom: 3px solid #AFAFAF;
+}
+
+.navbar--main .nav-link {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #707070;
+  opacity: 1;
+  padding: 0 !important;
+  margin: 0 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 3px;
+  background: #ccc;
+  font-size: 16px;
+  color: #333;
+}
+
+.btn-large {
+  padding: 20px 30px;
+  display: inline-block;
+  border-radius: 3px;
+  background: #ccc;
+  font-size: 22px;
+  color: #333;
+}

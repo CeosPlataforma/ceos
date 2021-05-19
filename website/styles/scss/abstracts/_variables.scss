@@ -1,5 +1,4 @@
 // Cores
-
 $blue: #216AA7;
 $blue-light: #A9BFD2;
 $yellow: #FFBF5B;
@@ -8,12 +7,13 @@ $red: #C24D4D;
 $green: #2B9E33;
 $black: #23272A;
 $gray-dark: #707070;
+$gray-semidark: #909293;
 $gray: #AFAFAF;
 $gray-light: #E5E5E5;
-$gray-semidark: #909293;
 $white: #FFFFFF;
 
 // Tipografia
+$primary-font: 'Baloo Bhai 2', cursive;
 
 $regular: 400;
 $medium: 500;
@@ -21,7 +21,14 @@ $semi-bold: 600;
 $bold: 700;
 $extra-bold: 800;
 
-$font-size-h1: $bold 60px;
-$font-size-h2: $bold 48px;
-$font-size-h3: $bold 36px;
-$font-size-text-md: $medium 20px/33px;
+$font-xl: $bold 60px;
+$font-lg: $bold 48px;
+$font-md: $bold 36px;
+$font-sm: $medium 20px $primary-font;
+
+// Devices
+$device-xl: 1399.98px;
+$device-lg: 1199.98px;
+$device-md: 991.98px;
+$device-sm: 767.98px;
+$device-xs: 575.98px;

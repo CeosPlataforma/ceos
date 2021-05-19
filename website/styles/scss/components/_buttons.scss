@@ -1,0 +1,7 @@
+.btn {
+	@include button;
+}
+
+.btn-large {
+	@include button(20px 30px, 22px);
+}

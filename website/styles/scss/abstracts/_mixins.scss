@@ -1,0 +1,29 @@
+// Media Queries
+@mixin device($device-size) {
+    @if $device-size == l {
+        @media device and (min-width: $l-device) {
+            @content;
+        }
+    }
+
+    @else if $device-size == m {
+        @media screen and (min-width: $m-device) and (max-width: $l-device - 1) {
+            @content;
+        }
+    }
+
+    @if $device-size == s {
+        @media screen and (max-width: $m-device - 1) {
+            @content;
+        }
+    }
+}
+
+// Buttons
+@mixin button($padding, $font-size, $bg-color, $font-color) {
+	border-radius: 50px !important; // 10px
+	padding: $padding;
+	font-size: $font-size;
+	background: $bg-color;
+	color: $font-color;
+}
