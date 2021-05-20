@@ -4,6 +4,10 @@ textarea:focus,
 input:hover, 
 input:active, 
 input:focus,
+a,
+a:hover,
+a:active,
+a:focus,
 button:hover,
 button:active,
 button:focus,
@@ -14,4 +18,5 @@ label:focus,
     outline: 0 !important;
     -webkit-appearance: none;
     box-shadow: none !important;
+    text-decoration: none !important;
 }

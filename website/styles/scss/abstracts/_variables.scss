@@ -21,9 +21,9 @@ $semi-bold: 600;
 $bold: 700;
 $extra-bold: 800;
 
-$font-xl: $bold 60px;
-$font-lg: $bold 48px;
-$font-md: $bold 36px;
+$font-xl: $bold 60px $primary-font;
+$font-lg: $bold 48px $primary-font;
+$font-md: $bold 36px $primary-font;
 $font-sm: $medium 20px $primary-font;
 
 // Devices

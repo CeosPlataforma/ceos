@@ -1,7 +1,24 @@
-.btn {
-	@include button;
-}
+.btn--common {
+	border: 3px solid;
+	border-radius: 10px;
+	font: $font-sm;
 
-.btn-large {
-	@include button(20px 30px, 22px);
+	&--acessar {
+		border-color: $blue;
+		color: $blue;
+		padding: 5px 40px;		
+		/*
+		width: 175px;
+		height: 50px;
+		text-align: center;
+		line-height: 50px;
+		*/
+		transition: .2s;
+
+		&:hover {
+			background-color: $blue;
+			color: $white;
+			transition: .2s;
+		}
+	}
 }

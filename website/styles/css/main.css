@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap");
-html, body {
+*, html, body {
   font-family: 'Baloo Bhai 2' !important;
 }
 
@@ -16,6 +16,10 @@ textarea:focus,
 input:hover,
 input:active,
 input:focus,
+a,
+a:hover,
+a:active,
+a:focus,
 button:hover,
 button:active,
 button:focus,
@@ -25,6 +29,7 @@ label:focus,
   outline: 0 !important;
   -webkit-appearance: none;
   box-shadow: none !important;
+  text-decoration: none !important;
 }
 
 ::selection {
@@ -37,28 +42,106 @@ label:focus,
   border-bottom: 3px solid #AFAFAF;
 }
 
-.navbar--main .nav-link {
+@media screen and (max-width: 1199.98px) {
+  .navbar--main .nav-item:last-child a {
+    margin-bottom: 30px;
+  }
+}
+
+.navbar--main .nav-item .nav-link {
   font: 500 20px "Baloo Bhai 2", cursive;
   color: #707070;
   opacity: 1;
   padding: 0 !important;
   margin: 0 15px;
+  position: relative;
+  /*
+            &:before {
+                position: absolute;
+                transform: translateX(-100%);
+                left: -10px;
+                color: red;
+                opacity: .3;
+                font-weight: 100;
+                font-size: .8em;
+            }
+            */
 }
 
-.btn {
-  padding: 10px 20px;
-  display: inline-block;
-  border-radius: 3px;
-  background: #ccc;
-  font-size: 16px;
-  color: #333;
+.navbar--main .nav-item .nav-link:hover {
+  color: #216AA7;
 }
 
-.btn-large {
-  padding: 20px 30px;
-  display: inline-block;
-  border-radius: 3px;
-  background: #ccc;
-  font-size: 22px;
-  color: #333;
+.navbar--main .nav-item .nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: -.2em;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: #216AA7;
+  transition: .2s;
+}
+
+.navbar--main .nav-item .nav-link:hover:after {
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .navbar--main .nav-item .nav-link {
+    margin: 10px 0;
+  }
+}
+
+.navbar--main .navbar-toggler {
+  border: 3px solid #707070;
+  transition: .2s;
+}
+
+.navbar--main .navbar-toggler:hover {
+  opacity: .65;
+  transition: .2s;
+}
+
+.navbar--main .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(112, 112, 112, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  transition: .2s;
+}
+
+.navbar--main .navbar-toggler-icon:hover {
+  opacity: .65;
+  transition: .2s;
+}
+
+@media screen and (max-width: 767.98px) {
+  .navbar--main {
+    padding: 15px 30px !important;
+  }
+}
+
+.btn--common {
+  border: 3px solid;
+  border-radius: 10px;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+
+.btn--common--acessar {
+  border-color: #216AA7;
+  color: #216AA7;
+  padding: 5px 40px;
+  /*
+		width: 175px;
+		height: 50px;
+		text-align: center;
+		line-height: 50px;
+		*/
+  transition: .2s;
+}
+
+.btn--common--acessar:hover {
+  background-color: #216AA7;
+  color: #FFFFFF;
+  transition: .2s;
 }
