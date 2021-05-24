@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap");
 *, html, body {
   font-family: 'Baloo Bhai 2' !important;
@@ -35,6 +36,12 @@ label:focus,
 ::selection {
   color: #23272A;
   background: #A9BFD2;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .container-padding {
+    padding: 0 40px !important;
+  }
 }
 
 .navbar--main {
@@ -115,33 +122,387 @@ label:focus,
   transition: .2s;
 }
 
-@media screen and (max-width: 767.98px) {
-  .navbar--main {
-    padding: 15px 30px !important;
+.hero {
+  margin: 110px auto 180px auto;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .hero {
+    margin: 50px auto;
   }
 }
 
+.hero--title {
+  font: 700 60px "Baloo Bhai 2", cursive;
+  line-height: 1.15;
+  color: #23272A;
+  /*
+        span {
+            border-bottom: $underline;
+            display: inline-block;
+            line-height: .1;
+        }
+        */
+}
+
+.hero--text {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #707070;
+  max-width: 97%;
+}
+
+.por-que-usar {
+  background-color: #216AA7;
+}
+
+.por-que-usar .row {
+  padding: 60px 0;
+}
+
+.por-que-usar--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  line-height: 1.15;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .por-que-usar--title {
+    text-align: center;
+  }
+}
+
+.por-que-usar--item--icon {
+  height: 55px;
+  fill: #FFBF5B;
+}
+
+.por-que-usar--item--text {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #FFFFFF;
+  max-width: 65%;
+}
+
+@media screen and (max-width: 1199.98px) {
+  .por-que-usar--item--text {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .por-que-usar--item--text {
+    max-width: 85%;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .por-que-usar--item--text {
+    max-width: 100%;
+  }
+}
+
+.visao-geral {
+  margin: 80px auto 110px auto;
+}
+
+.visao-geral--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  color: #23272A;
+}
+
+.visao-geral--content--title {
+  font: 700 36px "Baloo Bhai 2", cursive;
+  color: #23272A;
+}
+
+.visao-geral--content--text--1, .visao-geral--content--text--2 {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #707070;
+  max-width: 85%;
+}
+
+@media screen and (max-width: 991.98px) {
+  .visao-geral--content--text--1, .visao-geral--content--text--2 {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1199.98px) {
+  .visao-geral--content--img {
+    margin: -45px auto auto auto;
+  }
+}
+
+.funcionalidades {
+  background-color: #216AA7;
+}
+
+.funcionalidades--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  line-height: 1.15;
+  color: #FFFFFF;
+  padding-top: 80px;
+}
+
+.funcionalidades--item--icon {
+  height: 55px;
+  fill: #FFBF5B;
+}
+
+.funcionalidades--item--title {
+  font: 700 36px "Baloo Bhai 2", cursive;
+  color: #23272A;
+}
+
+.funcionalidades--item--text {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #707070;
+}
+
+.funcionalidades--item--last {
+  padding-bottom: 80px;
+}
+
+.funcionalidades .card {
+  border: none;
+  border-radius: 0;
+}
+
+.depoimentos {
+  margin: 80px auto 110px auto;
+}
+
+.depoimentos--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  color: #23272A;
+}
+
+.cta {
+  background-color: #23272A;
+}
+
+.cta--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  line-height: 1.15;
+  color: #FFFFFF;
+  padding-top: 80px;
+}
+
+.cta .cta--arrow {
+  background: #fff;
+  height: 3px;
+  width: 130px;
+  margin: 60px auto 60px auto;
+  position: relative;
+  transform: rotate(90deg);
+}
+
+.cta .cta--arrow:before, .cta .cta--arrow:after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  height: 3px;
+  width: 15px;
+}
+
+.cta .cta--arrow:before {
+  right: -3px;
+  bottom: -4px;
+  transform: rotate(-45deg);
+}
+
+.cta .cta--arrow:after {
+  right: -3px;
+  top: -4px;
+  transform: rotate(45deg);
+}
+
+.footer {
+  background-color: #216AA7;
+  padding: 80px 0;
+}
+
+.footer--text {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.footer--direitos {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.footer--navbar--title {
+  font: 700 36px "Baloo Bhai 2", cursive;
+  color: #FFBF5B;
+}
+
+.footer--navbar .nav-link {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  font-weight: 400;
+  color: #FFFFFF;
+  transition: .2s;
+}
+
+.footer--navbar .nav-link:hover {
+  opacity: .5;
+  transition: .2s;
+}
+
+/*
 .btn--common {
+	border: 3px solid;
+	border-radius: 10px;
+	font: $font-sm;
+	text-align: center;
+
+	// Navbar
+	&--navbar--acessar {
+		@extend .btn--common;
+
+		border-color: $blue;
+		color: $blue;
+		padding: 5px 40px;	
+		transition: .2s;
+
+		&:hover {
+			background-color: $blue;
+			color: $white;
+			transition: .2s;
+		}
+	}
+
+	// Hero
+	&--hero--acessar {
+		@extend .btn--common;
+
+		color: $white;
+		border: none;
+		padding: 20px 90px;		
+		background-color: $blue;
+		transition: .2s;
+
+		&:hover {
+			background-color: $blue-dark;
+			color: $white;
+			transition: .2s;
+		}
+	}
+
+	// Visão geral
+	&--visao-geral {
+		@extend .btn--common;
+		
+		padding: 20px 0;
+		width: 100%;
+		border: none;
+
+		&--active {
+			@extend .btn--common--visao-geral;
+
+			background-color: $blue;
+			color: $white;
+			transition: .2s;
+
+			&:hover {
+				background-color: $blue-dark;
+				color: $white;
+				transition: .2s;
+			}
+		}
+
+		&--inactive {
+			@extend .btn--common--visao-geral;
+
+			background-color: $gray-light;
+			color: $gray-dark;
+			transition: .2s;
+
+			&:hover {
+				opacity: .5;
+				transition: .2s;
+			}
+		}
+	}
+}
+*/
+.btn--common, .navbar--btn, .hero--btn, .visao-geral--btn, .visao-geral--btn--active, .visao-geral--btn--inactive, .cta--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
+  text-align: center;
 }
 
-.btn--common--acessar {
+.navbar--btn {
   border-color: #216AA7;
   color: #216AA7;
   padding: 5px 40px;
-  /*
-		width: 175px;
-		height: 50px;
-		text-align: center;
-		line-height: 50px;
-		*/
   transition: .2s;
 }
 
-.btn--common--acessar:hover {
+.navbar--btn:hover {
   background-color: #216AA7;
   color: #FFFFFF;
   transition: .2s;
+}
+
+.hero--btn {
+  color: #FFFFFF;
+  border: none;
+  padding: 20px 90px;
+  background-color: #216AA7;
+  transition: .2s;
+}
+
+.hero--btn:hover {
+  background-color: #0c375a;
+  color: #FFFFFF;
+  transition: .2s;
+}
+
+.visao-geral--btn, .visao-geral--btn--active, .visao-geral--btn--inactive {
+  padding: 20px 0;
+  width: 100%;
+  border: none;
+}
+
+.visao-geral--btn--active {
+  background-color: #216AA7;
+  color: #FFFFFF;
+  transition: .2s;
+}
+
+.visao-geral--btn--active:hover {
+  background-color: #0c375a;
+  color: #FFFFFF;
+  transition: .2s;
+}
+
+.visao-geral--btn--inactive {
+  background-color: #E5E5E5;
+  color: #707070;
+  transition: .2s;
+}
+
+.visao-geral--btn--inactive:hover {
+  opacity: .5;
+  transition: .2s;
+}
+
+.cta--btn {
+  color: #23272A;
+  border: none;
+  padding: 20px 90px;
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 999;
+  top: 40px;
+}
+
+.cta--btn:hover {
+  background-color: #FFFFFF;
+  color: #23272A;
 }

@@ -1,0 +1,28 @@
+// Hero general
+.hero {
+    margin: 110px auto 180px auto;
+
+    @include device(lg) {
+        margin: 50px auto;
+    }
+    
+    &--title {
+        font: $font-xl;
+        line-height: 1.15;
+        color: $black;
+
+        /*
+        span {
+            border-bottom: $underline;
+            display: inline-block;
+            line-height: .1;
+        }
+        */
+    }
+
+    &--text {
+        font: $font-sm;
+        color: $gray-dark;
+        max-width: 97%;
+    }
+}

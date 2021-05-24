@@ -1,0 +1,37 @@
+.footer {
+    background-color: $blue;
+    padding: 80px 0;
+
+    &--text {
+        font: $font-sm;
+        font-weight: $regular;
+        color: $white;
+    }
+
+    &--direitos {
+        font: $font-sm;
+        font-weight: $regular;
+        font-size: 16px;
+        color: $white;
+        text-transform: uppercase;
+    }
+
+    &--navbar {
+        &--title {
+            font: $font-md;
+            color: $yellow;
+        }
+        
+        .nav-link {
+            font: $font-sm;
+            font-weight: $regular;
+            color: $white;
+            transition: .2s;
+        
+            &:hover {
+                opacity: .5;
+                transition: .2s;
+            }
+        }
+    }
+}

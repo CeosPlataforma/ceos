@@ -1,0 +1,33 @@
+.visao-geral {
+    margin: 80px auto 110px auto;
+
+    &--title {
+        font: $font-lg;
+        color: $black;
+    }
+
+    &--content {
+        &--title {
+            font: $font-md;
+            color: $black;
+        }
+
+        &--text {
+            &--1, &--2 {
+                font: $font-sm;
+                color: $gray-dark;
+                max-width: 85%;
+
+                @include device(md) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        &--img {
+            @include device(lg) {
+                margin: -45px auto auto auto;
+            }
+        }
+    }
+}

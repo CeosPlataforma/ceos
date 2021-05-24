@@ -1,31 +1,31 @@
-// Media Queries
+// Media queries
 @mixin device($device-size) {
     @if $device-size == xl {
-        @media screen and (max-width: 1399.98px) {
+        @media screen and (max-width: $device-xl) {
             @content;
         }
     }
 
     @if $device-size == lg {
-        @media screen and (max-width: 1199.98px) {
+        @media screen and (max-width: $device-lg) {
             @content;
         }
     }
 
     @if $device-size == md {
-        @media screen and (max-width: 991.98px) {
+        @media screen and (max-width: $device-md) {
             @content;
         }
     }
 
     @if $device-size == sm {
-        @media screen and (max-width: 767.98px) {
+        @media screen and (max-width: $device-sm) {
             @content;
         }
     }
 
     @if $device-size == xs {
-        @media screen and (max-width: 575.98px) {
+        @media screen and (max-width: $device-xs) {
             @content;
         }
     }

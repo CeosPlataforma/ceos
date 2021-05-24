@@ -84,9 +84,4 @@
             transition: .2s;
         }
     }
-
-    // Responsive navbar main
-    @include device(sm) {
-        padding: 15px 30px !important;
-    }
 }

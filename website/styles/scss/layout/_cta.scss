@@ -1,0 +1,41 @@
+.cta {
+    background-color: $black;
+    
+
+    &--title {
+        font: $font-lg;
+        line-height: 1.15;
+        color: $white;
+        padding-top: 80px;
+    }
+
+    .cta--arrow {
+        background: #fff;
+        height: 3px;
+        width: 130px;
+        margin: 60px auto 60px auto;
+        position: relative;
+        transform: rotate(90deg);
+        
+        &:before,
+        &:after {
+            content: "";
+            background: #fff;
+            position: absolute;
+            height: 3px;
+            width: 15px;
+        }
+        
+        &:before {
+            right: -3px;
+            bottom: -4px;
+            transform: rotate(-45deg);
+        }
+        
+        &:after {
+            right: -3px;
+            top: -4px;
+            transform: rotate(45deg);
+        }
+    }
+}

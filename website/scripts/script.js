@@ -22,4 +22,3 @@ modalCenter.addEventListener('shown.bs.modal', function () {
 })
 */
 
-/* Smooth Scroll */

@@ -1,0 +1,42 @@
+.por-que-usar {
+    background-color: $blue;
+
+    .row {
+        padding: 60px 0;
+    }
+
+    &--title {
+        font: $font-lg;
+        line-height: 1.15;
+        color: $white;
+
+        @include device(lg) {
+            text-align: center;
+        }
+    }
+
+    &--item {
+        &--icon {
+            height: 55px;
+            fill: $yellow;
+        }
+
+        &--text {
+            font: $font-sm;
+            color: $white;
+            max-width: 65%;
+
+            @include device(lg) {
+                max-width: 100%;
+            }
+
+            @include device(md) {
+                max-width: 85%;
+            }
+
+            @include device(sm) {
+                max-width: 100%;
+            }
+        }
+    }
+}

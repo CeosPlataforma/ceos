@@ -1,5 +1,6 @@
 // Cores
 $blue: #216AA7;
+$blue-dark: #0c375a;
 $blue-light: #A9BFD2;
 $yellow: #FFBF5B;
 $yellow-light: #FFDEAC;
@@ -32,3 +33,6 @@ $device-lg: 1199.98px;
 $device-md: 991.98px;
 $device-sm: 767.98px;
 $device-xs: 575.98px;
+
+// General
+$underline: 30px solid $yellow;

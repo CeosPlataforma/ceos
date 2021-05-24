@@ -1,0 +1,37 @@
+.funcionalidades {
+    background-color: $blue;
+
+    &--title {
+        font: $font-lg;
+        line-height: 1.15;
+        color: $white;
+        padding-top: 80px;
+    }
+
+    &--item {
+        &--icon {
+            height: 55px;
+            fill: $yellow;
+        }
+
+        &--title {
+            font: $font-md;
+            color: $black;
+        }
+
+        &--text {
+            font: $font-sm;
+            color: $gray-dark
+        }
+
+        &--last {
+            padding-bottom: 80px;
+        }
+    }
+
+    .card {
+        border: none;
+        border-radius: 0;
+    }    
+}
+

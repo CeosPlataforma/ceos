@@ -1,18 +1,17 @@
+/*
 .btn--common {
 	border: 3px solid;
 	border-radius: 10px;
 	font: $font-sm;
+	text-align: center;
 
-	&--acessar {
+	// Navbar
+	&--navbar--acessar {
+		@extend .btn--common;
+
 		border-color: $blue;
 		color: $blue;
-		padding: 5px 40px;		
-		/*
-		width: 175px;
-		height: 50px;
-		text-align: center;
-		line-height: 50px;
-		*/
+		padding: 5px 40px;	
 		transition: .2s;
 
 		&:hover {
@@ -20,5 +19,155 @@
 			color: $white;
 			transition: .2s;
 		}
+	}
+
+	// Hero
+	&--hero--acessar {
+		@extend .btn--common;
+
+		color: $white;
+		border: none;
+		padding: 20px 90px;		
+		background-color: $blue;
+		transition: .2s;
+
+		&:hover {
+			background-color: $blue-dark;
+			color: $white;
+			transition: .2s;
+		}
+	}
+
+	// Visão geral
+	&--visao-geral {
+		@extend .btn--common;
+		
+		padding: 20px 0;
+		width: 100%;
+		border: none;
+
+		&--active {
+			@extend .btn--common--visao-geral;
+
+			background-color: $blue;
+			color: $white;
+			transition: .2s;
+
+			&:hover {
+				background-color: $blue-dark;
+				color: $white;
+				transition: .2s;
+			}
+		}
+
+		&--inactive {
+			@extend .btn--common--visao-geral;
+
+			background-color: $gray-light;
+			color: $gray-dark;
+			transition: .2s;
+
+			&:hover {
+				opacity: .5;
+				transition: .2s;
+			}
+		}
+	}
+}
+*/
+
+.btn--common {
+	border: 3px solid;
+	border-radius: 10px;
+	font: $font-sm;
+	text-align: center;
+}
+
+// Navbar
+.navbar--btn {
+	@extend .btn--common;
+
+	border-color: $blue;
+	color: $blue;
+	padding: 5px 40px;	
+	transition: .2s;
+
+	&:hover {
+		background-color: $blue;
+		color: $white;
+		transition: .2s;
+	}
+}
+
+// Hero
+.hero--btn {
+	@extend .btn--common;
+
+	color: $white;
+	border: none;
+	padding: 20px 90px;		
+	background-color: $blue;
+	transition: .2s;
+
+	&:hover {
+		background-color: $blue-dark;
+		color: $white;
+		transition: .2s;
+	}
+}
+
+// Visão geral
+.visao-geral--btn {
+	@extend .btn--common;
+	
+	padding: 20px 0;
+	width: 100%;
+	border: none;
+
+	&--active {
+		@extend .visao-geral--btn;
+
+		background-color: $blue;
+		color: $white;
+		transition: .2s;
+
+		&:hover {
+			background-color: $blue-dark;
+			color: $white;
+			transition: .2s;
+		}
+	}
+
+	&--inactive {
+		@extend .visao-geral--btn;
+
+		background-color: $gray-light;
+		color: $gray-dark;
+		transition: .2s;
+
+		&:hover {
+			opacity: .5;
+			transition: .2s;
+		}
+	}
+}
+
+// CTA
+.cta--btn {
+	@extend .btn--common;
+
+	color: $black;
+	border: none;
+	padding: 20px 90px;		
+	background-color: $white;
+	position: relative;
+	z-index: 999;
+	top: 40px;
+	// transition: .2s;
+
+	&:hover {
+		background-color: $white;
+		color: $black;
+		// transition: .2s;
 	}
 }

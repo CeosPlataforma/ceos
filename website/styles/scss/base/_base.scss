@@ -2,4 +2,11 @@
 ::selection {
     color: $black;
     background: $blue-light;
-}  
+}
+
+// Container padding
+.container-padding {
+    @include device(lg) {
+        padding: 0 40px !important;
+    }
+}
