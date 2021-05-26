@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" style="overflow-y: hidden;">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,17 +32,18 @@
             <p class="text-lg" style="margin-top: 0 !important">Novo por aqui? <a
                     href='../cadastrar/cadastrar.html'>Crie sua conta</a></p>
         </div>
-        <form method="post" action="">
+        <form enctype="application/x-www-form-urlencoded" action="/login" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1" class="text-lg">E-mail</label>
 
-                <input type="email" class="form-control" aria-describedby="email" required>
+                <input type="email" name="email" class="form-control" aria-describedby="email" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1" class="text-lg">Senha</label>
 
                 <div class="inputWrapper">
-                    <input type="password" class="form-control" id="password" minlength=5 maxlength=50 required>
+                    <input type="password" name="password" class="form-control" id="password" minlength=5 maxlength=50
+                        required>
                     <span class="showPassword text-md noselect">Mostrar senha</span>
                     <span class="hidePassword text-md noselect">Ocultar senha</span>
                 </div>
@@ -84,7 +84,7 @@
                                     </h2>
                                     <p class="text-lg">Sem problemas! É fácil recuperá-la!</p>
                                 </div>
-                                <form method="post" action="">
+                                <form action="/api/auth/login" method="post">
                                     <div class="modal-body">
                                         <p class="text-lg">Informe o e-mail vinculado a sua conta para
                                             enviarmos

@@ -59,8 +59,8 @@ main {
   display: -ms-flexbox;
   display: flex;
   margin-top: 35px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -294,4 +294,17 @@ h2 {
     height: 980px;
   }
 }
+
+@media (max-width: 1800px) {
+  main {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 1700px) {
+  main {
+    max-width: 50%;
+  }
+}
+
 /*# sourceMappingURL=styleSign.css.map */
