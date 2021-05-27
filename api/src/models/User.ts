@@ -14,7 +14,8 @@ interface User {
 let schema = new Schema<User>({
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     name: {
         type: String,

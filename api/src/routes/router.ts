@@ -16,12 +16,12 @@ router.post('/login', urlencodedparser, async (request, response) => {
     const { email, password } = request.body;
     UserModel.findOne({ email }, (error, user) => {
         if (user === null) {
-            return response.status(400).send({ message: 'Invalid username/password' })
+            return response.status(400).send({ message: 'Invalid email' })
         } else {
             if (user.validPassword(request.body.password)) {
-                return response.status(201).send({ message: "User logged in" });
+                return response.status(201).send({ message: "User logged in" })
             } else {
-                return response.status(400).send({ message: "Wrong password" })
+                return response.status(400).send({ message: "Invalid password" })
             }
         }
     });
@@ -29,17 +29,24 @@ router.post('/login', urlencodedparser, async (request, response) => {
 
 router.post('/register', urlencodedparser, async (request, response) => {
 
+    /*UserModel.exists({ email: request.body.email }, (error, user) => {
+        if (error) {
+            console.log(error);
+        } else {
+            return response.status(400).json({ message: "This email has already been used" });
+        }
+    });*/
+
     const newUser = new UserModel();
     newUser.name = request.body.name;
     newUser.email = request.body.email;
     newUser.salt = crypto.randomBytes(16).toString('base64');
     newUser.hash = crypto.pbkdf2Sync(request.body.password, newUser.salt, 1000, 64, 'sha512').toString('base64');
 
-  /*schema.methods.setPassword = function(password) {
+    /*schema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('base64');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64');
-    };
-   */
+    };*/
 
     try {
         const savedUser = await newUser.save();
@@ -49,20 +56,20 @@ router.post('/register', urlencodedparser, async (request, response) => {
         response.status(500).json(err);
     }
 
-    // const user = new UserModel({
-    //     email: request.body.email,
-    //     name:  request.body.name,
-    //     password: request.body.password
-    // });
+    /*const user = new UserModel({
+        email: request.body.email,
+        name:  request.body.name,
+        password: request.body.password
+    });
 
-    // try {
-    //     const savedUser = await user.save();
-    //     console.log(savedUser);
-    //     response.status(200).redirect('/acessar/acessar.html');
-    // }
-    // catch (err) {
-    //     response.status(500).json(err);
-    // }
+    try {
+        const savedUser = await user.save();
+        console.log(savedUser);
+        response.status(200).redirect('/acessar/acessar.html');
+    }
+    catch (err) {
+        response.status(500).json(err);
+    }*/
 });
 
 export { router };
