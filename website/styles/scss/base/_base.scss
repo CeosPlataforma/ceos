@@ -11,6 +11,12 @@
     }
 }
 
+.container-padding--light {
+    @include device(lg) {
+        padding: 80px 40px !important;
+    }
+}
+
 // Scrollbar
 ::-webkit-scrollbar {
     width: 15px;

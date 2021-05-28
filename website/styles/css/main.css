@@ -44,6 +44,12 @@ label:focus,
   }
 }
 
+@media screen and (max-width: 1199.98px) {
+  .container-padding--light {
+    padding: 80px 40px !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -61,6 +67,14 @@ label:focus,
   border-bottom: 3px solid #AFAFAF;
 }
 
+.navbar--main .navbar-brand span {
+  font-size: 28px;
+  color: #23272a;
+  font-weight: 800;
+  position: relative;
+  top: 5px;
+}
+
 @media screen and (max-width: 1199.98px) {
   .navbar--main .nav-item:last-child a {
     margin-bottom: 30px;
@@ -74,17 +88,6 @@ label:focus,
   padding: 0 !important;
   margin: 0 15px;
   position: relative;
-  /*
-            &:before {
-                position: absolute;
-                transform: translateX(-100%);
-                left: -10px;
-                color: red;
-                opacity: .3;
-                font-weight: 100;
-                font-size: .8em;
-            }
-            */
 }
 
 .navbar--main .nav-item .nav-link:hover {
@@ -135,12 +138,24 @@ label:focus,
 }
 
 .hero {
-  margin: 110px auto 180px auto;
+  margin: 120px auto 170px auto;
 }
 
 @media screen and (max-width: 1199.98px) {
   .hero {
-    margin: 70px auto 90px auto;
+    margin: 120px auto;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .hero {
+    margin: 80px auto 120px;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .hero {
+    margin: 40px auto 80px auto;
   }
 }
 
@@ -148,13 +163,6 @@ label:focus,
   font: 700 60px "Baloo Bhai 2", cursive;
   line-height: 1.15;
   color: #23272a;
-  /*
-        span {
-            border-bottom: $underline;
-            display: inline-block;
-            line-height: .1;
-        }
-        */
 }
 
 .hero--text {
@@ -377,6 +385,14 @@ label:focus,
 .footer {
   background-color: #23272a;
   padding: 70px 0 40px 0;
+}
+
+.footer .navbar-brand span {
+  font-size: 28px;
+  color: #FFFFFF;
+  font-weight: 800;
+  position: relative;
+  top: 5px;
 }
 
 .footer--text {

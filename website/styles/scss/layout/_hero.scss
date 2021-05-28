@@ -1,23 +1,23 @@
 // Hero general
 .hero {
-    margin: 110px auto 180px auto;
+    margin: 120px auto 170px auto;
 
     @include device(lg) {
-        margin: 70px auto 90px auto;
+        margin: 120px auto;
+    }
+
+    @include device(md) {
+        margin: 80px auto 120px;
+    }
+
+    @include device(sm) {
+        margin: 40px auto 80px auto;
     }
     
     &--title {
         font: $font-xl;
         line-height: 1.15;
         color: $black;
-
-        /*
-        span {
-            border-bottom: $underline;
-            display: inline-block;
-            line-height: .1;
-        }
-        */
     }
 
     &--text {

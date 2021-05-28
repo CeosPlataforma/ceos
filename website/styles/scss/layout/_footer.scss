@@ -2,6 +2,16 @@
     background-color: $black;
     padding: 70px 0 40px 0;
 
+    .navbar-brand {
+        span {
+            font-size: 28px;
+            color: $white;
+            font-weight: $extra-bold;
+            position: relative;
+            top: 5px;
+        }
+    }
+
     &--text {
         font: $font-sm;
         font-weight: $regular;

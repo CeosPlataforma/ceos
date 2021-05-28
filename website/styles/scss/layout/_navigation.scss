@@ -3,7 +3,16 @@
     padding: 12px 0;
     border-bottom: 3px solid $gray;
 
-    // Navbar links
+    .navbar-brand {
+        span {
+            font-size: 28px;
+            color: $black;
+            font-weight: $extra-bold;
+            position: relative;
+            top: 5px;
+        }
+    }
+
     .nav-item {
         // Responsive
         @include device(lg) {
@@ -42,18 +51,6 @@
                 right: 0;
                 height: 3px;
             } 
-            
-            /*
-            &:before {
-                position: absolute;
-                transform: translateX(-100%);
-                left: -10px;
-                color: red;
-                opacity: .3;
-                font-weight: 100;
-                font-size: .8em;
-            }
-            */
 
             // Responsive
             @include device(lg) {
