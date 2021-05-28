@@ -1,11 +1,16 @@
 .footer {
-    background-color: $blue;
-    padding: 80px 0;
+    background-color: $black;
+    padding: 70px 0 40px 0;
 
     &--text {
         font: $font-sm;
         font-weight: $regular;
+        font-size: 16px;
         color: $white;
+
+        span {
+            font-weight: $bold;
+        }
     }
 
     &--direitos {
@@ -16,12 +21,15 @@
         text-transform: uppercase;
     }
 
-    &--navbar {
+    &--item {
         &--title {
             font: $font-md;
+            line-height: 1.15;
             color: $yellow;
         }
-        
+    }
+
+    &--navbar {        
         .nav-link {
             font: $font-sm;
             font-weight: $regular;

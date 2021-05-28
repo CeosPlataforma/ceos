@@ -10,3 +10,16 @@
         padding: 0 40px !important;
     }
 }
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $gray-dark;
+}
+
+::-webkit-scrollbar-track {
+    background: $gray-light;
+}

@@ -34,7 +34,7 @@ label:focus,
 }
 
 ::selection {
-  color: #23272A;
+  color: #23272a;
   background: #A9BFD2;
 }
 
@@ -42,6 +42,18 @@ label:focus,
   .container-padding {
     padding: 0 40px !important;
   }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #707070;
+}
+
+::-webkit-scrollbar-track {
+  background: #E5E5E5;
 }
 
 .navbar--main {
@@ -128,14 +140,14 @@ label:focus,
 
 @media screen and (max-width: 1199.98px) {
   .hero {
-    margin: 50px auto;
+    margin: 70px auto 90px auto;
   }
 }
 
 .hero--title {
   font: 700 60px "Baloo Bhai 2", cursive;
   line-height: 1.15;
-  color: #23272A;
+  color: #23272a;
   /*
         span {
             border-bottom: $underline;
@@ -148,11 +160,11 @@ label:focus,
 .hero--text {
   font: 500 20px "Baloo Bhai 2", cursive;
   color: #707070;
-  max-width: 97%;
+  max-width: 95%;
 }
 
 .por-que-usar {
-  background-color: #216AA7;
+  background: linear-gradient(rgba(33, 106, 167, 0.8), rgba(33, 106, 167, 0.8)), url("https://wallpaperaccess.com/full/951548.jpg") center center/cover no-repeat fixed;
 }
 
 .por-que-usar .row {
@@ -163,11 +175,13 @@ label:focus,
   font: 700 48px "Baloo Bhai 2", cursive;
   line-height: 1.15;
   color: #FFFFFF;
+  max-width: 80%;
 }
 
 @media screen and (max-width: 1199.98px) {
   .por-que-usar--title {
     text-align: center;
+    max-width: 100%;
   }
 }
 
@@ -206,12 +220,13 @@ label:focus,
 
 .visao-geral--title {
   font: 700 48px "Baloo Bhai 2", cursive;
-  color: #23272A;
+  color: #23272a;
+  line-height: 1.15;
 }
 
 .visao-geral--content--title {
   font: 700 36px "Baloo Bhai 2", cursive;
-  color: #23272A;
+  color: #23272a;
 }
 
 .visao-geral--content--text--1, .visao-geral--content--text--2 {
@@ -233,14 +248,14 @@ label:focus,
 }
 
 .funcionalidades {
-  background-color: #216AA7;
+  padding: 80px 0 110px 0;
+  background: linear-gradient(rgba(33, 106, 167, 0.8), rgba(33, 106, 167, 0.8)), url("https://wallpaperaccess.com/full/951548.jpg") center center/cover no-repeat fixed;
 }
 
 .funcionalidades--title {
   font: 700 48px "Baloo Bhai 2", cursive;
   line-height: 1.15;
   color: #FFFFFF;
-  padding-top: 80px;
 }
 
 .funcionalidades--item--icon {
@@ -250,7 +265,7 @@ label:focus,
 
 .funcionalidades--item--title {
   font: 700 36px "Baloo Bhai 2", cursive;
-  color: #23272A;
+  color: #23272a;
 }
 
 .funcionalidades--item--text {
@@ -258,13 +273,15 @@ label:focus,
   color: #707070;
 }
 
-.funcionalidades--item--last {
-  padding-bottom: 80px;
-}
-
 .funcionalidades .card {
   border: none;
   border-radius: 0;
+}
+
+@media screen and (min-width: 1199.98px) {
+  .funcionalidades .card {
+    min-height: 400px;
+  }
 }
 
 .depoimentos {
@@ -273,18 +290,59 @@ label:focus,
 
 .depoimentos--title {
   font: 700 48px "Baloo Bhai 2", cursive;
-  color: #23272A;
+  color: #23272a;
+  line-height: 1.15;
+}
+
+.depoimentos blockquote {
+  background: #216AA7;
+}
+
+.depoimentos blockquote p {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #FFFFFF;
+  font-style: italic;
+}
+
+.depoimentos blockquote footer {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.depoimentos .blockquote-custom {
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.depoimentos .blockquote-custom-icon {
+  background: #216AA7;
+  color: #FFBF5B;
+  font-size: 60px;
+  padding-top: 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -35px;
+  left: 25px;
 }
 
 .cta {
-  background-color: #23272A;
+  background: linear-gradient(rgba(33, 106, 167, 0.8), rgba(33, 106, 167, 0.8)), url("https://wallpaperaccess.com/full/951548.jpg") center center/cover no-repeat fixed;
 }
 
 .cta--title {
-  font: 700 48px "Baloo Bhai 2", cursive;
+  font: 700 36px "Baloo Bhai 2", cursive;
   line-height: 1.15;
   color: #FFFFFF;
-  padding-top: 80px;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-top: 40px;
 }
 
 .cta .cta--arrow {
@@ -317,14 +375,19 @@ label:focus,
 }
 
 .footer {
-  background-color: #216AA7;
-  padding: 80px 0;
+  background-color: #23272a;
+  padding: 70px 0 40px 0;
 }
 
 .footer--text {
   font: 500 20px "Baloo Bhai 2", cursive;
   font-weight: 400;
+  font-size: 16px;
   color: #FFFFFF;
+}
+
+.footer--text span {
+  font-weight: 700;
 }
 
 .footer--direitos {
@@ -335,8 +398,9 @@ label:focus,
   text-transform: uppercase;
 }
 
-.footer--navbar--title {
+.footer--item--title {
   font: 700 36px "Baloo Bhai 2", cursive;
+  line-height: 1.15;
   color: #FFBF5B;
 }
 
@@ -493,7 +557,7 @@ label:focus,
 }
 
 .cta--btn {
-  color: #23272A;
+  color: #23272a;
   border: none;
   padding: 20px 90px;
   background-color: #FFFFFF;
@@ -504,5 +568,5 @@ label:focus,
 
 .cta--btn:hover {
   background-color: #FFFFFF;
-  color: #23272A;
+  color: #23272a;
 }

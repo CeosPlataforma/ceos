@@ -3,7 +3,7 @@
     margin: 110px auto 180px auto;
 
     @include device(lg) {
-        margin: 50px auto;
+        margin: 70px auto 90px auto;
     }
     
     &--title {
@@ -23,6 +23,6 @@
     &--text {
         font: $font-sm;
         color: $gray-dark;
-        max-width: 97%;
+        max-width: 95%;
     }
 }
