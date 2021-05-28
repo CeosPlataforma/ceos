@@ -57,7 +57,7 @@ label:focus,
 }
 
 .navbar--main {
-  padding: 15px 0;
+  padding: 12px 0;
   border-bottom: 3px solid #AFAFAF;
 }
 
@@ -215,7 +215,7 @@ label:focus,
 }
 
 .visao-geral {
-  margin: 80px auto 110px auto;
+  padding: 80px 0 110px 0;
 }
 
 .visao-geral--title {
@@ -285,7 +285,7 @@ label:focus,
 }
 
 .depoimentos {
-  margin: 80px auto 110px auto;
+  padding: 80px 0 110px 0;
 }
 
 .depoimentos--title {
