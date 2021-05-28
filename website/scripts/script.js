@@ -27,9 +27,14 @@ modalCenter.addEventListener('shown.bs.modal', function () {
 // Organização
 $('#btn--organizacao').on('click', function () {
     // Buttons
-    // $('#btn--organizacao').toggleClass('visao-geral--btn--inactive');
-    // $('#btn--gerenciamento').toggleClass('visao-geral--btn--inactive');
-    // $('#btn--desempenho').toggleClass('visao-geral--btn--inactive');
+    $('#btn--organizacao').addClass('visao-geral--btn--active');
+    $('#btn--organizacao').removeClass('visao-geral--btn--inactive');
+
+    $('#btn--gerenciamento').addClass('visao-geral--btn--inactive');
+    $('#btn--gerenciamento').removeClass('visao-geral--btn--active');
+
+    $('#btn--desempenho').addClass('visao-geral--btn--inactive');
+    $('#btn--desempenho').removeClass('visao-geral--btn--active');
 
     // Title
     $('#visao-geral--title').text('Organização');
@@ -46,9 +51,14 @@ $('#btn--organizacao').on('click', function () {
 // Gerenciamento
 $('#btn--gerenciamento').on('click', function () {
     // Buttons
-    // $('#btn--organizacao').toggleClass('visao-geral--btn--active');
-    // $('#btn--gerenciamento').toggleClass('visao-geral--btn--inactive');
-    // $('#btn--desempenho').toggleClass('visao-geral--btn--inactive');
+    $('#btn--organizacao').addClass('visao-geral--btn--inactive');
+    $('#btn--organizacao').removeClass('visao-geral--btn--active');
+
+    $('#btn--gerenciamento').addClass('visao-geral--btn--active');
+    $('#btn--gerenciamento').removeClass('visao-geral--btn--inactive');
+
+    $('#btn--desempenho').addClass('visao-geral--btn--inactive');
+    $('#btn--desempenho').removeClass('visao-geral--btn--active');
 
     // Title
     $('#visao-geral--title').text('Gerenciamento');
@@ -65,9 +75,14 @@ $('#btn--gerenciamento').on('click', function () {
 // Desempenho
 $('#btn--desempenho').on('click', function () {
     // Buttons
-    // $('#btn--organizacao').toggleClass('visao-geral--btn--inactive');
-    // $('#btn--gerenciamento').toggleClass('visao-geral--btn--inactive');
-    // $('#btn--desempenho').toggleClass('visao-geral--btn--inactive');
+    $('#btn--organizacao').addClass('visao-geral--btn--inactive');
+    $('#btn--organizacao').removeClass('visao-geral--btn--active');
+
+    $('#btn--gerenciamento').addClass('visao-geral--btn--inactive');
+    $('#btn--gerenciamento').removeClass('visao-geral--btn--active');
+
+    $('#btn--desempenho').addClass('visao-geral--btn--active');
+    $('#btn--desempenho').removeClass('visao-geral--btn--inactive');
 
     // Title
     $('#visao-geral--title').text('Desempenho');
