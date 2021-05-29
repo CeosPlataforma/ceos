@@ -1,5 +1,8 @@
 .depoimentos {
-    padding: 80px 0 110px 0;
+    padding-top: 80px;
+    padding-bottom: 110px;
+    padding-left: auto;
+    padding-right: auto;
 
     &--title {
         font: $font-lg;

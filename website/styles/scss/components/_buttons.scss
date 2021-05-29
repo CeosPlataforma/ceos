@@ -171,3 +171,20 @@
 		// transition: .2s;
 	}
 }
+
+// Contato
+.contato--btn, .acessar--btn, .cadastrar--btn {
+	@extend .btn--common;
+
+	color: $white;
+	border: none;
+	padding: 14px 0;		
+	background-color: $blue;
+	transition: .2s;
+
+	&:hover {
+		background-color: $blue-dark;
+		color: $white;
+		transition: .2s;
+	}
+}
