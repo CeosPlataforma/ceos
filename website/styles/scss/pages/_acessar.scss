@@ -35,7 +35,7 @@
             color: $black;
         }
 
-        input {
+        .acessar--input {
             font: $font-sm;
             color: $black;
             font-weight: $regular;
@@ -49,29 +49,43 @@
         }
 
         .esqueci-minha-senha {
-            font: $font-sm;
-            color: $gray-dark;
             float: right;
+            &--text {
+                font: $font-sm;
+                color: $gray-dark;
+                float: right;
 
-            @include device(lg) {
-                float: none;
+                @include device(lg) {
+                    float: none;
+                }
             }
         }
 
         .permanecer-conectado {
             font: $font-sm !important;
             color: $gray-dark !important;
-        }
-
-        .hasborder {
-            border: 2px solid $gray-dark;
-            margin-left: 10px;
-            height: 35px;
-            width: 35px;
-            position: relative; 
-            overflow: hidden; 
-            border-radius: 50%;
-            box-shadow:0px 0px 0px 4px white inset;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            user-select: none;
+            float: left;
+            cursor: pointer;
+            &--hidden-checkbox {
+                display: none;
+            }
+            &--checkbox {
+                border: 2px solid $gray-dark;
+                margin-left: 10px;
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                box-shadow: 0px 0px 0px 4px $white inset;
+                transition: .3s ease;
+                cursor: pointer;
+            }
+            .filled {
+                background-color: $blue;
+            }
         }
     }
 }

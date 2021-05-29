@@ -73,16 +73,31 @@ $('#btn--desempenho').on('click', function () {
 });
 
 // Acessar
-$('#permanecer-conectado').on('click', function () {
-    let checkbox_value = $('#checkbox').prop('checked');
+// Permanecer conectado
+$('.permanecer-conectado').on('click', function () {
+    let checkbox_value = $('.permanecer-conectado--hidden-checkbox').prop('checked');
 
     if (checkbox_value === false) {
-        $('#checkbox').prop('checked', true);
-        $('.hasborder').toggleClass('filled');
+        $('.permanecer-conectado--hidden-checkbox').prop('checked', true);
+        $('.permanecer-conectado--checkbox').toggleClass('filled');
     }
 
     if (checkbox_value) {
-        $('#checkbox').prop('checked', false);
-        $('.hasborder').toggleClass('filled');
+        $('.permanecer-conectado--hidden-checkbox').prop('checked', false);
+        $('.permanecer-conectado--checkbox').toggleClass('filled');
+    }
+});
+
+// Mostrar/Ocultar senha
+$(".show-password, .hide-password").on('click', function () {
+    var passwordId = $(this).parent('.senha--container:first').find('input').attr('id');
+    if ($(this).hasClass('show-password')) {
+        $("#" + passwordId).attr("type", "text");
+        $(this).parent().find(".show-password").hide();
+        $(this).parent().find(".hide-password").show();
+    } else {
+        $("#" + passwordId).attr("type", "password");
+        $(this).parent().find(".hide-password").hide();
+        $(this).parent().find(".show-password").show();
     }
 });
