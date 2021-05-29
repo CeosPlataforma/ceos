@@ -48,16 +48,13 @@
             }
         }
 
-        .esqueci-minha-senha {
-            float: right;
-            &--text {
-                font: $font-sm;
-                color: $gray-dark;
-                float: right;
+        .extras {
+            display: flex;
+            align-items:baseline;
+            justify-content: space-between;
 
-                @include device(lg) {
-                    float: none;
-                }
+            @include device(xs) {
+                display: block;
             }
         }
 
@@ -68,11 +65,12 @@
             align-items: center;
             margin: 0;
             user-select: none;
-            float: left;
             cursor: pointer;
+
             &--hidden-checkbox {
                 display: none;
             }
+
             &--checkbox {
                 border: 2px solid $gray-dark;
                 margin-left: 10px;
@@ -85,6 +83,19 @@
             }
             .filled {
                 background-color: $blue;
+            }
+        }
+
+        .esqueci-minha-senha {
+            cursor: pointer;
+
+            @include device(xs) {
+                margin-top: 20px;
+            }
+
+            &--text {
+                font: $font-sm;
+                color: $gray-dark;
             }
         }
     }
