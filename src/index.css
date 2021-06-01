@@ -1,0 +1,18 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}

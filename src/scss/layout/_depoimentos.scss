@@ -1,0 +1,50 @@
+.depoimentos {
+    padding-top: 80px;
+    padding-bottom: 110px;
+    padding-left: auto;
+    padding-right: auto;
+
+    &--title {
+        font: $font-lg;
+        color: $black;
+        line-height: 1.15;
+    }
+
+    blockquote {
+        background: $blue;
+
+        p {
+            font: $font-sm;
+            color: $white;
+            font-style: italic;
+        }
+
+        footer {
+            font: $font-sm;
+            font-weight: $regular;
+            color: $white;
+        }
+    }
+
+    .blockquote-custom {
+        position: relative;
+        font-size: 1.1rem;
+    }
+      
+    .blockquote-custom-icon {
+        background: $blue;
+        color: $yellow;
+        font-size: 60px;
+        padding-top: 30px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -35px;
+        left: 25px;
+    }
+}

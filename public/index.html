@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Ceos - Plataforma de organização escolar </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+        integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="../script.js"></script>
+    <script>
+        // Visão geral
+
+        // Organização
+        $('#btn--organizacao').on('click', function () {
+            // Buttons
+            $('#btn--organizacao').addClass('visao-geral--btn--active');
+            $('#btn--organizacao').removeClass('visao-geral--btn--inactive');
+
+            $('#btn--gerenciamento').addClass('visao-geral--btn--inactive');
+            $('#btn--gerenciamento').removeClass('visao-geral--btn--active');
+
+            $('#btn--desempenho').addClass('visao-geral--btn--inactive');
+            $('#btn--desempenho').removeClass('visao-geral--btn--active');
+
+            // Title
+            $('#visao-geral--title').text('Organização');
+
+            // Text
+            $('#visao-geral--text--1').text('É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.');
+
+            $('#visao-geral--text--2').text('Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar');
+
+            // Image
+            $('#visao-geral--img').attr('src', '../assets/illustrations/organizacao.svg');
+        });
+
+        // Gerenciamento
+        $('#btn--gerenciamento').on('click', function () {
+            // Buttons
+            $('#btn--organizacao').addClass('visao-geral--btn--inactive');
+            $('#btn--organizacao').removeClass('visao-geral--btn--active');
+
+            $('#btn--gerenciamento').addClass('visao-geral--btn--active');
+            $('#btn--gerenciamento').removeClass('visao-geral--btn--inactive');
+
+            $('#btn--desempenho').addClass('visao-geral--btn--inactive');
+            $('#btn--desempenho').removeClass('visao-geral--btn--active');
+
+            // Title
+            $('#visao-geral--title').text('Gerenciamento');
+
+            // Text
+            $('#visao-geral--text--1').text('Administrar as atividades disciplinares de forma produtiva é essencial para garantir o êxito no contexto estudantil.');
+
+            $('#visao-geral--text--2').text('Assim, de modo intuitivo e prático, a plataforma possibilita um melhor gerenciamento das atividades escolares.');
+
+            // Image
+            $('#visao-geral--img').attr('src', '../assets/illustrations/gerenciamento.svg');
+        });
+
+        // Desempenho
+        $('#btn--desempenho').on('click', function () {
+            // Buttons
+            $('#btn--organizacao').addClass('visao-geral--btn--inactive');
+            $('#btn--organizacao').removeClass('visao-geral--btn--active');
+
+            $('#btn--gerenciamento').addClass('visao-geral--btn--inactive');
+            $('#btn--gerenciamento').removeClass('visao-geral--btn--active');
+
+            $('#btn--desempenho').addClass('visao-geral--btn--active');
+            $('#btn--desempenho').removeClass('visao-geral--btn--inactive');
+
+            // Title
+            $('#visao-geral--title').text('Desempenho');
+
+            // Text
+            $('#visao-geral--text--1').text('Ter uma boa visão do desempenho em variados aspectos escolares é relevante para verificar falhas e melhor gerir a performance nos estudos.');
+
+            $('#visao-geral--text--2').text('Diante disso, na plataforma, o controle do desempenho nas atividades estudantis é caracterizado pela agilidade e eficiência.');
+
+            // Image
+            $('#visao-geral--img').attr('src', '../assets/illustrations/desempenho.svg');
+        });
+    </script>
+</body>
+
+</html>
