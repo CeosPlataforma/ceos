@@ -95,11 +95,11 @@ router.post('/contato', urlencodedparser, async (request, response) => {
     }
 
     try {
-        await SendMail.execute("sistema@ceos.xyz", assunto, variables, hbsPath);
+        await SendMail.execute("suporte@ceos.com", assunto, variables, hbsPath);
         return response.status(200).json({ message: "logo a equipe entrara em contato com você" });
     } catch (err) {
         console.log(err);
-        return response.status(500).json({ message: "deu erro patrão" });
+        return response.status(500).json({ message: "erro para realizar o envio da mensagem de contato" });
     }
 });
 
