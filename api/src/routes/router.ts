@@ -1,7 +1,9 @@
 import { request, response, Router } from 'express';
 import { UserModel } from '../models/User'
+import { resolve } from 'path';
 import * as bodyparser from 'body-parser';
 import crypto from 'crypto';
+import SendMail from '../services/SendMail';
 import('../database/')
 const router = Router();
 
@@ -10,6 +12,8 @@ router.get('/', (request, response) => {
 });
 
 const urlencodedparser = bodyparser.urlencoded({ extended: false });
+
+/* user login session stuff TODO */
 
 router.post('/login', urlencodedparser, async (request, response) => {
 
@@ -70,6 +74,33 @@ router.post('/register', urlencodedparser, async (request, response) => {
     catch (err) {
         response.status(500).json(err);
     }*/
+});
+
+/* contato */
+
+router.post('/contato', urlencodedparser, async (request, response) => {
+
+    const nome = request.body.nome;
+    const email = request.body.email;
+    const assunto = request.body.assunto;
+    const mensagem = request.body.mensagem;
+
+    const hbsPath = resolve(__dirname, "..", "views", "email", "supportMail.hbs");
+
+    const variables = {
+        nome,
+        email,
+        assunto,
+        msg: mensagem
+    }
+
+    try {
+        await SendMail.execute("sistema@ceos.xyz", assunto, variables, hbsPath);
+        return response.status(200).json({ message: "logo a equipe entrara em contato com você" });
+    } catch (err) {
+        console.log(err);
+        return response.status(500).json({ message: "deu erro patrão" });
+    }
 });
 
 export { router };
