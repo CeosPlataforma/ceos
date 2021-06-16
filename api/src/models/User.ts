@@ -4,14 +4,20 @@ import crypto from 'crypto';
 
 interface User {
     email: string;
-    name: string,
+    name: string;
     hash: string;
     salt: string;
     createdAt: Date;
     uuid: string;
+    verifiedMail: boolean;
 }
 
 let schema = new Schema<User>({
+
+    verifiedMail: {
+        type: Boolean,
+        default: false
+    },
     email: {
         type: String,
         required: true,
@@ -19,7 +25,7 @@ let schema = new Schema<User>({
     },
     name: {
         type: String,
-        require: true
+        required: true
     },
 
     hash: String,

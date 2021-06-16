@@ -1,84 +1,101 @@
 import { request, response, Router } from 'express';
 import { UserModel } from '../models/User'
 import { resolve } from 'path';
-import * as bodyparser from 'body-parser';
 import crypto from 'crypto';
+import { validate } from 'uuid';
 import SendMail from '../services/SendMail';
 import('../database/')
 const router = Router();
 
 router.get('/', (request, response) => {
-    response.status(200).sendFile('D:/Programacao/ceos-main/website/landing-page/')
+    response.status(200).sendFile('D:/Programacao/ceos-main/website/landing-page/');
 });
-
-const urlencodedparser = bodyparser.urlencoded({ extended: false });
 
 /* user login session stuff TODO */
 
-router.post('/login', urlencodedparser, async (request, response) => {
+router.post('/login', async (request, response) => {
 
     const { email, password } = request.body;
     UserModel.findOne({ email }, (error, user) => {
         if (user === null) {
-            return response.status(400).send({ message: 'Invalid email' })
+            return response.status(400).send({ message: 'Invalid email' });
         } else {
             if (user.validPassword(request.body.password)) {
-                return response.status(201).send({ message: "User logged in" })
+                if(user.verifiedMail == true) {
+                    return response.status(201).send({ message: "User logged in" });
+                } else {
+                    return response.status(400).send({ message: "You need to verify your email address before logging in"});
+                }
             } else {
-                return response.status(400).send({ message: "Invalid password" })
+                return response.status(400).send({ message: "Invalid password" });
             }
         }
     });
 });
 
-router.post('/register', urlencodedparser, async (request, response) => {
-
-    /*UserModel.exists({ email: request.body.email }, (error, user) => {
-        if (error) {
-            console.log(error);
-        } else {
-            return response.status(400).json({ message: "This email has already been used" });
-        }
-    });*/
+router.post('/register', async (request, response) => {
 
     const newUser = new UserModel();
     newUser.name = request.body.name;
     newUser.email = request.body.email;
+    // newUser.uuid = uuid();
     newUser.salt = crypto.randomBytes(16).toString('base64');
     newUser.hash = crypto.pbkdf2Sync(request.body.password, newUser.salt, 1000, 64, 'sha512').toString('base64');
-
-    /*schema.methods.setPassword = function(password) {
-    this.salt = crypto.randomBytes(16).toString('base64');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64');
-    };*/
 
     try {
         const savedUser = await newUser.save();
         console.log(savedUser);
-        response.status(200).redirect('/acessar/acessar.html');
+
+        const hbsPath = resolve(__dirname, "..", "views", "email", "confirmEmail.hbs");
+        const variables = {
+            nome: request.body.name,
+            link: `localhost:3333/register/${savedUser.uuid}` 
+        }
+        
+        try {
+            await SendMail.execute("suporte@ceos.com", "Confirmação do Email", variables, hbsPath);
+            return response.status(200).redirect('/acessar/acessar.html');
+        } catch (err) {
+            console.log(err);
+            return response.status(500).json({ message: "erro para realizar o envio da mensagem de verificar email" });
+        }
+        
     } catch (err) {
         response.status(500).json(err);
     }
 
-    /*const user = new UserModel({
-        email: request.body.email,
-        name:  request.body.name,
-        password: request.body.password
-    });
+});
 
-    try {
-        const savedUser = await user.save();
-        console.log(savedUser);
-        response.status(200).redirect('/acessar/acessar.html');
+router.get('/register/:userID', async (request, response) => {
+
+    const uuid = request.params.userID;
+
+    if (!validate(uuid)) {
+        return response.status(500).json({
+            msg: "invalid uuid given"
+        });
+    } else {
+        UserModel.findOne({ uuid }, async (error, user) => {
+            if (user === null) {
+                return response.status(400).send({ message: `Couldn't find this user`});
+            } else {
+                try {
+                    user.verifiedMail = true;
+                    await user.save().then(saved => {
+                        console.log(saved);
+                    });
+                    return response.status(200).send({ message: `Successfully verified the user's email address` });
+                } catch (err) {
+                    return response.status(500).send(err);
+                }
+            }
+        });
     }
-    catch (err) {
-        response.status(500).json(err);
-    }*/
 });
 
 /* contato */
 
-router.post('/contato', urlencodedparser, async (request, response) => {
+router.post('/contato', async (request, response) => {
 
     const nome = request.body.nome;
     const email = request.body.email;
