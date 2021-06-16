@@ -1,78 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <!-- Meta tags gerais -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ceos - Organize seus estudos rápido e fácil!</title>
     <meta name="description"
-        content="Organize facilmente seus estudos, administre suas notas e tarefas, crie resumos e muito mais rápidamente com uma interface fácil e bonita de se utilizar!">
+        content="Organize sua vida escolar com a plataforma Ceos, gerenciando seu desempenho e administrando suas matérias e atividades!">
+    <meta name="keywords" content="Estudos, Escolar, Organização, Organização escolar">
+
+    <!-- Title -->
+    <title> Ceos - Plataforma de organização escolar </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon/favicon.ico">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/e19ebf8253.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../styles/styleGlobal.css">
-    <link rel="stylesheet" type="text/css" href="../styles/styleSign.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="../styles/css/main.css">
 </head>
 
 <body>
-    <header id="top">
-        <div class='headerinside'>
-            <nav class="navbar navbar-light"
-                style="padding: 0; display: block; display: flex; align-items: flex-start;">
-                <a class="navbar-brand" href="../landing-page/index.html" style="display: block;">
-                    <img src="../imgs/LogoHP.png" alt="" width="250" style='margin: 0;'>
-                </a>
-            </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar--main">
+        <div class="container container-padding">
+            <!-- Navbar logo -->
+            <a class="navbar-brand" href="../landing-page/index.html">
+                <img src="../assets/logo/svg/LogoVP(SemNome).svg" height="55px" alt="Logo - Ceos">
+                <span> CEOS </span>
+            </a>
+
+            <!-- Responsive Navbar -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-main"
+                aria-controls="nav-main" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar itens -->
+            <div class="collapse navbar-collapse" id="nav-main">
+                <!-- Navbar links -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../landing-page/index.html#por-que-usar"> Por que
+                            usar </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../landing-page/index.html#visao-geral"> Visão
+                            geral </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../landing-page/index.html#funcionalidades">
+                            Funcionalidades </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../landing-page/index.html#depoimentos">
+                            Depoimentos </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../fale-conosco/fale-conosco.html"> Fale conosco
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Navbar button -->
+                <a class="navbar--btn" href="#"> Acessar </a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <h2 class="titulo">Crie sua conta no Ceos</h2>
-        <p class="text-lg">Você já possui uma conta? <a href='../acessar/acessar.html'>Entre agora mesmo</a></p>
-        <form enctype="application/x-www-form-urlencoded" method="post" action="/register" id="form">
-            <div class="form-group">
-                <label for="exampleInputEmail1" class="text-lg">Nome completo</label>
-                <input type="text" name="name" class="form-control" id="inputText1" required>
+    <!-- Cadastrar -->
+    <div class="container cadastrar" id="acessar">
+        <!-- Cadastrar title -->
+        <h2 class="cadastrar--title text-center mb-4">
+            Crie sua conta
+        </h2>
 
+        <!-- Cadastrar text -->
+        <p class="cadastrar--text">
+            Já possui uma conta? <span> <a href="../acessar/acessar.html"> Entre agora mesmo. </a> </span>
+        </p>
+
+        <!-- Cadastrar form -->
+        <form class="cadastrar--form col-lg-6 mx-auto">
+            <!-- Cadastrar form nome -->
+            <div class="mb-4">
+                <label for="cadastrar--nome" class="form-label"> Nome completo </label>
+                <input type="text" class="form-control cadastrar--input" id="cadastrar--nome" required>
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1" class="text-lg">E-mail</label>
-                <input type="email" name="email" class="form-control" id="inputEmail1" required>
 
+            <!-- Cadastrar form e-mail -->
+            <div class="mb-4">
+                <label for="cadastrar--email" class="form-label"> E-mail </label>
+                <input type="email" class="form-control acessar--input" id="cadastrar--email" required>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1" class="text-lg senha">Senha</label>
 
-                <div class="inputWrapper">
-                    <input type="password" name="password" class="form-control" id="password" minlength=5 maxlength=25
-                        required>
-                    <span class="showPassword text-md">Mostrar senha</span>
-                    <span class="hidePassword text-md">Ocultar senha</span>
+            <!-- Cadastrar form senha -->
+            <div class="mb-4">
+                <label for="cadastrar--senha" class="form-label"> Senha </label>
+                <div class="cadastrar--senha--container senha--container">
+                    <input type="password" class="form-control cadastrar--input" id="cadastrar--senha" required>
+                    <span class="show-password text-md">Mostrar senha</span>
+                    <span class="hide-password text-md">Ocultar senha</span>
                 </div>
             </div>
-            <div>
-                <!-- Button trigger modal -->
-                <button type="submit" class="btn btn-primary text-md" id="triggerModal">Cadastrar</button>
 
-                <!-- Modal -->
-                
+            <!-- Cadastrar form confirme sua senha -->
+            <div class="mb-4">
+                <label for="cadastrar--confirme-sua-senha" class="form-label"> Confirme sua senha </label>
+                <div class="cadastrar--senha--container senha--container">
+                    <input type="password" class="form-control cadastrar--input" id="cadastrar--confirme-sua-senha"
+                        required>
+                    <span class="show-password text-md">Mostrar senha</span>
+                    <span class="hide-password text-md">Ocultar senha</span>
+                </div>
             </div>
-            </div>
+
+            <!-- Cadastrar form submit -->
+            <button type="submit" class="cadastrar--btn w-100"> Cadastrar </button>
         </form>
-    </main>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
-        integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Footer -->
+    <footer class="footer container-fluid px-0">
+        <div class="footer-top">
+            <div class="container container-padding">
+                <div class="row">
+                    <!-- Footer main -->
+                    <div class="col-lg-3">
+                        <!-- Footer logo -->
+                        <a class="navbar-brand" href="../landing-page/index.html">
+                            <img src="../assets/logo/svg/LogoVB(SemNome).svg" height="55px" alt="Logo - Ceos">
+                            <span> CEOS </span>
+                        </a>
+
+                        <!-- Footer text -->
+                        <p class="footer--text mt-3">
+                            <span> Ceos: </span> a plataforma que te auxilia a estruturar de forma melhor suas
+                            atividades escolares e melhor abordar seu desempenho em tais aspectos da vida estudantil.
+                        </p>
+
+                        <!-- Footer direitos -->
+                        <p class="footer--direitos mt-3">
+                            Todos os direitos reservados © 2021 Ceos
+                        </p>
+                    </div>
+
+                    <!-- Footer nav  -->
+                    <div class="col-lg-4 offset-lg-2 col-md-6">
+                        <h3 class="footer--item--title">
+                            Links <br> gerais
+                        </h3>
+
+                        <ul class="footer--navbar navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../landing-page/index.html#por-que-usar">
+                                    Por que usar </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../landing-page/index.html#visao-geral">
+                                    Visão geral </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page"
+                                    href="../landing-page/index.html#funcionalidades"> Funcionalidades </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../landing-page/index.html#depoimentos">
+                                    Depoimentos </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../fale-conosco/fale-conosco.html"> Fale
+                                    conosco </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Footer social media -->
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="footer--item--title">
+                            Redes <br> sociais
+                        </h3>
+
+                        <ul class="footer--navbar navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#"> Instagram </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#"> Twitter </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#"> Facebook </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#"> YouTube </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-    <script src="../script.js"></script>
-    <script>
-    </script>
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+        </script>
+
+    <!-- Scripts -->
+    <script src="../scripts/script.js"></script>
 </body>
 
 </html>
