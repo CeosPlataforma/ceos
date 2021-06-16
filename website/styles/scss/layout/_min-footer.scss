@@ -1,0 +1,17 @@
+.min-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $blue;
+    padding: 20px 10px;
+    position: absolute;
+    bottom: 0;
+    &--logo {
+        height: 80px;
+        font-weight: bold;
+    }
+    &--text {
+        color: $white;
+        margin-bottom: 0;
+    }
+}

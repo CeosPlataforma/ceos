@@ -1,0 +1,35 @@
+// abstracts
+@import 'abstracts/fonts';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+// base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// layout
+@import 'layout/navigation';
+@import 'layout/hero';
+@import 'layout/min-footer';
+@import 'layout/por-que-usar';
+@import 'layout/visao-geral';
+@import 'layout/funcionalidades';
+@import 'layout/depoimentos';
+@import 'layout/cta';
+@import 'layout/footer';
+
+// components
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/modal';
+@import 'components/mostrar-senha';
+@import 'components/sidebar';
+
+// pages
+@import 'pages/acessar';
+@import 'pages/cadastrar';
+@import 'pages/dados-pessoais';
+@import 'pages/fale-conosco';
+@import 'pages/landing-page';
