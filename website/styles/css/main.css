@@ -161,12 +161,13 @@ label:focus,
   justify-content: space-around;
   align-items: center;
   background-color: #216AA7;
-  padding: 20px 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   position: absolute;
   bottom: 0;
 }
 .min-footer--logo {
-  height: 80px;
+  height: 60px;
   font-weight: bold;
 }
 .min-footer--text {
@@ -693,7 +694,12 @@ label:focus,
 .sidebar ul li .active {
   color: #FFBF5B;
   cursor: default;
-  pointer-events: none;
+}
+.sidebar ul li .active:hover svg {
+  fill: #23272a;
+}
+.sidebar ul li .active svg {
+  fill: #FFBF5B;
 }
 .sidebar ul li a {
   color: #FFFFFF;
@@ -707,6 +713,9 @@ label:focus,
 .sidebar ul li a:hover {
   color: #23272a;
   background: #FFFFFF;
+}
+.sidebar ul li a:hover svg {
+  fill: black;
 }
 .sidebar ul li .tooltip {
   position: absolute;
@@ -725,14 +734,17 @@ label:focus,
   pointer-events: none;
   display: block;
 }
-.sidebar ul li i {
+.sidebar ul li svg {
   font-size: 18px;
   font-weight: 400;
-  height: 50px;
+  height: 35px;
   min-width: 50px;
   border-radius: 12px;
   line-height: 50px;
   text-align: center;
+  fill: white;
+  margin-right: 5px;
+  transition: all 0.5s ease;
 }
 .sidebar .links_name {
   font-size: 1.25rem;
@@ -921,7 +933,7 @@ ol, ul {
 .dados-pessoais--alterar {
   border-color: #216AA7;
   color: #216AA7;
-  padding: 5px 40px;
+  padding: 5px 20px;
   transition: 0.2s;
   display: block;
   margin-bottom: 40px;
