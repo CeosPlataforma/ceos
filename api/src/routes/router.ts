@@ -1,10 +1,5 @@
 import { request, response, Router } from 'express';
 import { MailController } from '../controllers/MailController';
-import { UserModel } from '../models/User'
-import { resolve } from 'path';
-import crypto from 'crypto';
-import { validate } from 'uuid';
-import SendMail from '../services/SendMail';
 import { UserController } from '../controllers/UserController';
 import('../database/')
 const router = Router();

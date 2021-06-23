@@ -2,3 +2,6 @@
 website/styles/obsoleto
 .vscode
 react
+node_modules
+dist
+.env
