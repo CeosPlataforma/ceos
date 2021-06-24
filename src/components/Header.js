@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import logo from "../assets/logo/svg/LogoVP(SemNome).svg";
 import { Link } from "react-router-dom";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
+import logo from "../assets/logo/svg/LogoVP(SemNome).svg";
 class Header extends Component {
     render() {
         return (
@@ -20,23 +21,23 @@ class Header extends Component {
                     <div class="collapse navbar-collapse" id="nav-main">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/"> Por que
-                                    usar </Link>
+                                <AnchorLink class="nav-link" aria-current="page" href="#por-que-usar"> Por que
+                                    usar </AnchorLink>
                             </li>
 
                             <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/"> Visão
-                                    geral </Link>
+                                <AnchorLink class="nav-link" aria-current="page" href="#visao-geral"> Visão
+                                    geral </AnchorLink>
                             </li>
 
                             <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/">
-                                    Funcionalidades </Link>
+                                <AnchorLink class="nav-link" aria-current="page" href="#funcionalidades">
+                                    Funcionalidades </AnchorLink>
                             </li>
 
                             <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/">
-                                    Depoimentos </Link>
+                                <AnchorLink class="nav-link" aria-current="page" href="#depoimentos">
+                                    Depoimentos </AnchorLink>
                             </li>
 
                             <li class="nav-item">

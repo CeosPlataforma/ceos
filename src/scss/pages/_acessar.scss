@@ -51,6 +51,7 @@
 
         .esqueci-minha-senha {
             float: right;
+            cursor: pointer;
             &--text {
                 font: $font-sm;
                 color: $gray-dark;

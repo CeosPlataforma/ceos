@@ -63,6 +63,11 @@ label:focus,
     background: $gray-light;
 }
 */
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1320px;
+  }
+}
 .navbar--main {
   padding: 12px 0;
   border-bottom: 3px solid #AFAFAF;
@@ -468,6 +473,7 @@ label:focus,
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
   text-align: center;
+  cursor: pointer;
 }
 
 .navbar--btn {
@@ -547,6 +553,79 @@ label:focus,
   transition: 0.2s;
 }
 
+.modal {
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.modal--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  text-align: center;
+}
+.modal--input {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #23272a;
+  font-weight: 400;
+  padding: 12px;
+  border: 2px solid #AFAFAF;
+  border-radius: 10px;
+}
+.modal--input:focus, .modal--input:active {
+  border: 2px solid #AFAFAF;
+}
+.modal--btn {
+  padding: 16px 14.84375%;
+  border-radius: 10px;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+
+.modal-backdrop.show {
+  background-color: #216AA7;
+  opacity: 0.9;
+}
+
+.modal-align {
+  height: 100%;
+}
+
+.modal-header {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal-header p {
+  color: #707070;
+  margin-bottom: 0;
+}
+
+.modal-body {
+  padding-bottom: 8px;
+}
+
+.modal-body p {
+  color: #23272a;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-footer {
+  padding-top: 0;
+}
+
+.modal-content {
+  border-radius: 0;
+  border: none;
+  padding: 60px 0;
+}
+
+.close {
+  position: absolute;
+  top: -45px;
+  right: 13px;
+}
+
+.close span {
+  font-size: 2.5rem;
+}
+
 .senha--container {
   position: relative;
 }
@@ -563,6 +642,156 @@ label:focus,
 }
 .senha--container .hide-password {
   display: none;
+}
+
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 78px;
+  background: #23272A;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.sidebar.active {
+  width: 240px;
+}
+.sidebar.active .logo_content .logo {
+  opacity: 1;
+  pointer-events: none;
+}
+.sidebar.active #btn {
+  left: 90%;
+}
+.sidebar.active ul li .tooltip {
+  display: none;
+}
+.sidebar.active .links--name {
+  transition: 0s;
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar .logo_content {
+  display: flex;
+  justify-content: center;
+}
+.sidebar .logo_content .logo {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  width: 80px;
+  height: 80px;
+}
+.sidebar .logo_content .logo img {
+  font-family: "Baloo Bhai 2" !important;
+}
+.sidebar #btn {
+  position: absolute;
+  color: #fff;
+  top: 6px;
+  left: 50%;
+  font-size: 22px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+}
+.sidebar ul {
+  margin-top: 20px;
+}
+.sidebar ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+  margin: 60px 0;
+}
+.sidebar ul li .tooltip {
+  position: absolute;
+  left: 125px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 120px;
+  background: #fff;
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+}
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  opacity: 1;
+  top: 50%;
+}
+.sidebar ul li a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+}
+.sidebar ul li a:hover {
+  color: #11101d;
+  background: #fff;
+}
+.sidebar ul li .active {
+  color: #FFBF5B;
+  cursor: default;
+  pointer-events: none;
+}
+.sidebar ul li i {
+  font-size: 18px;
+  font-weight: 400;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+.sidebar .links--name {
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.home_content {
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 78px);
+  left: 78px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.002);
+  transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .home_content {
+  z-index: 100;
+}
+
+.sidebar.active ~ .home_content {
+  width: calc(100% - 240px);
+  left: 240px;
 }
 
 .acessar {
@@ -611,6 +840,7 @@ label:focus,
 }
 .acessar--form .esqueci-minha-senha {
   float: right;
+  cursor: pointer;
 }
 .acessar--form .esqueci-minha-senha--text {
   font: 500 20px "Baloo Bhai 2", cursive;

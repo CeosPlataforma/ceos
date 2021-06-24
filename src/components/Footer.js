@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
 import logo from "../assets/logo/svg/LogoVB(SemNome).svg";
 import { Link } from "react-router-dom";
 
@@ -32,22 +34,22 @@ class Footer extends Component {
 
                                 <ul className="footer--navbar navbar-nav">
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/">
-                                            Por que usar </Link>
+                                        <AnchorLink className="nav-link" aria-current="page" href="#por-que-usar">
+                                            Por que usar </AnchorLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/">
-                                            Visão geral </Link>
+                                        <AnchorLink className="nav-link" aria-current="page" href="#visao-geral">
+                                            Visão geral </AnchorLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/"> Funcionalidades </Link>
+                                        <AnchorLink className="nav-link" aria-current="page" href="#funcionalidades"> Funcionalidades </AnchorLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/">
-                                            Depoimentos </Link>
+                                        <AnchorLink className="nav-link" aria-current="page" href="#depoimentos">
+                                            Depoimentos </AnchorLink>
                                     </li>
 
                                     <li className="nav-item">
