@@ -46,25 +46,30 @@ class UserController {
         await UserModel.findOne({ email }, (error, user) => {
             if (user === null) {
                 console.log("inexistente")
-                return response.status(400).json({ message: 'User doesn\'t exist' });
+                return response.json({ error: 'inexistent' });
             } else {
                 console.log("existente")
                 if (user.validPassword(request.body.password)) {
                     if (user.verifiedMail == true) {
-                        request.session.user = user;
+                        request.session.user = {
+                            email,
+                            name: user.name,
+                            id: user.id
+                        };
+                        request.session.save()
                         console.log({
                             message: "session",
-                            request: request.session.user
+                            "session.user": request.session.user
                         });
                         console.log("sucesso")
                         return response.status(201).json({ message: "User logged in" });
                     } else {
                         console.log("verificar")
-                        return response.status(400).json({ message: "Please verify your email address before logging in" });
+                        return response.json({ error: "verify" });
                     }
                 } else {
                     console.log("senha")
-                    return response.status(400).json({ message: "Wrong password" });
+                    return response.json({ error: "password" });
                 }
             }
         });
@@ -87,7 +92,7 @@ class UserController {
                         await user.save().then(saved => {
                             console.log(saved);
                         });
-                        return response.status(200).send({ message: `Successfully verified the user's email address` });
+                        return response.status(200).redirect('http://localhost:3000/acessar');
                     } catch (err) {
                         return response.status(500).send(err);
                     }
@@ -96,8 +101,12 @@ class UserController {
         }
     }
 
-    async session(request: Request, response: Response) {
-
+    async userinfo(request: Request, response: Response) {
+        response.json({
+            email: request.session.user.email,
+            name: request.session.user.name
+        });
+        console.log(request.session)
     }
 }
 
