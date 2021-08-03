@@ -110,6 +110,10 @@ label:focus,
     max-width: 1320px;
   }
 }
+.d-grid {
+  display: grid;
+}
+
 .navbar--main {
   padding: 12px 0;
   border-bottom: 3px solid #AFAFAF;
@@ -364,7 +368,7 @@ label:focus,
   margin: 0 auto;
   padding-top: 40px;
 }
-.cta .cta--arrow {
+.cta--arrow {
   background: #fff;
   height: 3px;
   width: 130px;
@@ -372,19 +376,19 @@ label:focus,
   position: relative;
   transform: rotate(90deg);
 }
-.cta .cta--arrow:before, .cta .cta--arrow:after {
+.cta--arrow:before, .cta--arrow:after {
   content: "";
   background: #fff;
   position: absolute;
   height: 3px;
   width: 15px;
 }
-.cta .cta--arrow:before {
+.cta--arrow:before {
   right: -3px;
   bottom: -4px;
   transform: rotate(-45deg);
 }
-.cta .cta--arrow:after {
+.cta--arrow:after {
   right: -3px;
   top: -4px;
   transform: rotate(45deg);
@@ -529,7 +533,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -601,14 +605,14 @@ label:focus,
   color: #23272a;
 }
 
-.contato--btn, .acessar--btn, .cadastrar--btn {
+.contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn {
   color: #FFFFFF;
   border: none;
   padding: 14px 0;
   background-color: #216AA7;
   transition: 0.2s;
 }
-.contato--btn:hover, .acessar--btn:hover, .cadastrar--btn:hover {
+.contato--btn:hover, .acessar--btn:hover, .cadastrar--btn:hover, .dados-pessoais--btn:hover {
   background-color: #0c375a;
   color: #FFFFFF;
   transition: 0.2s;
@@ -751,7 +755,7 @@ label:focus,
 .sidebar--collapse {
   position: absolute;
   color: #FFFFFF;
-  top: 30px;
+  top: 15px;
   left: 50%;
   font-size: 22px;
   height: 50px;
@@ -1105,7 +1109,7 @@ ol, ul {
   transition: 0.2s;
 }
 .dados-pessoais--desativar {
-  color: #C24D4D;
+  color: #C24D4D !important;
   cursor: pointer;
   text-decoration: none;
   font: 500 20px "Baloo Bhai 2", cursive;

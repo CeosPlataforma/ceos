@@ -34,7 +34,7 @@
         }
     }
     &--desativar {
-        color: $red;
+        color: $red !important;
         cursor: pointer;
         text-decoration: none;
         font: $font-sm;

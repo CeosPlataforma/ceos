@@ -13,22 +13,6 @@ componentDidMount = () => {
     collapse.on("click", function () {
         sidebar.toggleClass("active");
     })
-
-    // Dados pessoais
-    let dados_btn = $(".dados-pessoais--btn");
-    let dados_inputs = $(".dados-pessoais--input");
-
-    dados_btn.on("click", function () {
-        if (dados_btn.text() == "Alterar dados") {
-            dados_btn.text("Salvar alterações");
-            dados_inputs.css("cursor", "text");
-            dados_inputs.attr("readonly", false);
-        } else {
-            dados_btn.text("Alterar dados");
-            dados_inputs.css("cursor", "default");
-            dados_inputs.attr("readonly", true);
-        }
-    });
 }
 
     render() {

@@ -16,6 +16,24 @@ componentDidMount = () => {
             $(this).parent().find(".show-password").show();
         }
     });
+
+    // Dados pessoais
+    let dados_btn = $(".dados-pessoais--btn");
+    let dados_inputs = $(".dados-pessoais--input");
+
+    dados_btn.on("click", function () {
+        if (dados_btn.text() === "Alterar dados") {
+            dados_btn.text("Salvar alterações");
+            dados_inputs.css("cursor", "text");
+            dados_inputs.attr("readonly", false);
+            dados_btn.attr("type", "submit"); // arrudas, tem q dar um jeito do submit funcionar como gente
+        } else {
+            dados_btn.text("Alterar dados");
+            dados_inputs.css("cursor", "default");
+            dados_inputs.attr("readonly", true);
+            dados_btn.attr("type", "button");
+        }
+    });
 }
 
     render() {
@@ -36,21 +54,21 @@ componentDidMount = () => {
                                     c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
                             </svg>
                             <button className="dados-pessoais--alterar">Alterar foto</button>
-                            <a className="dados-pessoais--desativar">Desativar conta</a>
+                            <a className="dados-pessoais--desativar">> Desativar conta</a>
                         </div>
 
                         <div className="col-sm-12 col-xl-7 mx-auto">
                             <form className="dados-pessoais--form" name="form" action="#" method="">
                                 <label for="dados-pessoais--nome" className="form-label">Nome</label>
                                 <input type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--nome"
-                                    value="Nome de usuário" readonly />
+                                    defaultValue="Nome de usuário" readonly="true" />
                                 <label for="dados-pessoais--email" className="form-label">E-mail</label>
                                 <input type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--email"
-                                    value="emaildousuario@gmail.com" readonly />
+                                    defaultValue="emaildousuario@gmail.com" readonly="true" />
                                 <label for="dados-pessoais--senha" className="form-label">Senha</label>
                                 <div className="dados-pessoais--senha--container senha--container">
                                     <input type="password" className="form-control dados-pessoais--input mb-5"
-                                        id="dados-pessoais--senha" value="senhadousuario" readonly />
+                                        id="dados-pessoais--senha" defaultValue="senhadousuario" readonly="true" />
                                     <span className="show-password text-md">Mostrar senha</span>
                                     <span className="hide-password text-md">Ocultar senha</span>
                                 </div>
