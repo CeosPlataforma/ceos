@@ -4,14 +4,15 @@ import ReactDOM from "react-dom";
 // COMPONENTS
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar"; 
+import MiniFooter from "./components/MiniFooter";
 
 // PAGES
 import Home from "./pages/LandingPage";
 import Acessar from "./pages/Acessar";
 import Cadastrar from "./pages/Cadastrar";
 import Contato from "./pages/Contato";
-// import DadosPessoais from "./pages/DadosPessoais";
+import DadosPessoais from "./pages/DadosPessoais";
 import "./css/main.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -38,10 +39,11 @@ ReactDOM.render(
                 <Contato />
                 <Footer />
             </Route>
-            {/*<Route path="/dados-pessoais">
-                <Sidebar />
+            <Route path="/dados-pessoais">
+                <Sidebar />                
                 <DadosPessoais />
-            </Route>*/}
+                <MiniFooter />                
+            </Route>
         </Switch>
     </BrowserRouter>,
     document.getElementById("root")

@@ -11,6 +11,48 @@
 }
 
 */
+.st0 {
+  fill: #F6F6F8;
+}
+
+.st1 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #FFBF5B;
+}
+
+.st2 {
+  fill: #23272A;
+}
+
+.st3 {
+  fill: #216AA7;
+}
+
+.st4 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #F6F6F8;
+}
+
+.st5 {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #23272A;
+}
+
+.st6 {
+  font-family: "Baloo Bhai 2";
+}
+
+.st7 {
+  font-size: 132.4004px;
+}
+
+.st8 {
+  letter-spacing: 5.05;
+}
+
 textarea:hover,
 textarea:active,
 textarea:focus,
@@ -391,6 +433,25 @@ label:focus,
   transition: 0.2s;
 }
 
+.min-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #216AA7;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: absolute;
+  bottom: 0;
+}
+.min-footer--logo {
+  height: 60px;
+  font-weight: bold;
+}
+.min-footer--text {
+  color: #FFFFFF;
+  margin-bottom: 0;
+}
+
 /*
 .btn--common {
 	border: 3px solid;
@@ -468,7 +529,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .contato--btn, .acessar--btn, .cadastrar--btn, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -653,7 +714,7 @@ label:focus,
   left: 0;
   height: 100%;
   width: 78px;
-  background: #23272A;
+  background: #23272a;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -662,43 +723,35 @@ label:focus,
 }
 .sidebar.active {
   width: 240px;
+  /*mudar dps pra mobile responsivo e pa @include device(sm) {
+      width: 90%;
+  } */
+  /*n sei como faz dscp vinavo &~ .dados-pessoais {
+      @include device(sm) {
+          position: absolute;
+          left: 0;
+      }
+  } */
 }
 .sidebar.active .logo_content .logo {
   opacity: 1;
   pointer-events: none;
 }
-.sidebar.active #btn {
+.sidebar.active .sidebar--collapse {
   left: 90%;
 }
 .sidebar.active ul li .tooltip {
   display: none;
 }
-.sidebar.active .links--name {
+.sidebar.active .links_name {
   transition: 0s;
   opacity: 1;
   pointer-events: auto;
 }
-.sidebar .logo_content {
-  display: flex;
-  justify-content: center;
-}
-.sidebar .logo_content .logo {
-  color: #fff;
-  display: flex;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  width: 80px;
-  height: 80px;
-}
-.sidebar .logo_content .logo img {
-  font-family: "Baloo Bhai 2" !important;
-}
-.sidebar #btn {
+.sidebar--collapse {
   position: absolute;
-  color: #fff;
-  top: 6px;
+  color: #FFFFFF;
+  top: 30px;
   left: 50%;
   font-size: 22px;
   height: 50px;
@@ -707,7 +760,32 @@ label:focus,
   line-height: 50px;
   transform: translateX(-50%);
 }
-.sidebar ul {
+.sidebar .logo_content {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-height: 675px) {
+  .sidebar .logo_content {
+    display: none;
+  }
+}
+.sidebar .logo_content .logo {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+}
+@media screen and (max-height: 675px) {
+  .sidebar ul {
+    margin: 50px 0px 0px 0px;
+  }
+}
+.sidebar ul:first-child {
   margin-top: 20px;
 }
 .sidebar ul li {
@@ -717,7 +795,48 @@ label:focus,
   margin: 0 5px;
   list-style: none;
   line-height: 50px;
-  margin: 60px 0;
+  margin: 60px 0px;
+}
+@media screen and (max-height: 950px) {
+  .sidebar ul li {
+    margin: 40px 0px;
+  }
+}
+@media screen and (max-height: 825px) {
+  .sidebar ul li {
+    margin: 20px 0px;
+  }
+}
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  opacity: 1;
+  top: 50%;
+}
+.sidebar ul li .active {
+  color: #FFBF5B;
+  cursor: default;
+}
+.sidebar ul li .active:hover svg {
+  fill: #23272a;
+}
+.sidebar ul li .active svg {
+  fill: #FFBF5B;
+}
+.sidebar ul li a {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+}
+.sidebar ul li a:hover {
+  color: #23272a;
+  background: #FFFFFF;
+}
+.sidebar ul li a:hover svg {
+  fill: black;
 }
 .sidebar ul li .tooltip {
   position: absolute;
@@ -727,7 +846,7 @@ label:focus,
   border-radius: 6px;
   height: 35px;
   width: 120px;
-  background: #fff;
+  background: #FFFFFF;
   line-height: 35px;
   text-align: center;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -736,39 +855,19 @@ label:focus,
   pointer-events: none;
   display: block;
 }
-.sidebar ul li:hover .tooltip {
-  transition: all 0.5s ease;
-  opacity: 1;
-  top: 50%;
-}
-.sidebar ul li a {
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  border-radius: 12px;
-  white-space: nowrap;
-  transition: all 0.4s ease;
-}
-.sidebar ul li a:hover {
-  color: #11101d;
-  background: #fff;
-}
-.sidebar ul li .active {
-  color: #FFBF5B;
-  cursor: default;
-  pointer-events: none;
-}
-.sidebar ul li i {
+.sidebar ul li svg {
   font-size: 18px;
   font-weight: 400;
-  height: 50px;
+  height: 35px;
   min-width: 50px;
   border-radius: 12px;
   line-height: 50px;
   text-align: center;
+  fill: white;
+  margin-right: 5px;
+  transition: all 0.5s ease;
 }
-.sidebar .links--name {
+.sidebar .links_name {
   font-size: 1.25rem;
   font-weight: 400;
   opacity: 0;
@@ -776,22 +875,9 @@ label:focus,
   transition: all 0.3s ease;
 }
 
-.home_content {
-  position: absolute;
-  height: 100%;
-  width: calc(100% - 78px);
-  left: 78px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.002);
-  transition: all 0.5s ease;
-}
-
-.sidebar.active ~ .home_content {
-  z-index: 100;
-}
-
-.sidebar.active ~ .home_content {
-  width: calc(100% - 240px);
-  left: 240px;
+/* BS */
+ol, ul {
+  padding-left: 0;
 }
 
 .acessar {
@@ -983,4 +1069,69 @@ label:focus,
 }
 .contato .contato--form textarea {
   min-height: 160px;
+}
+
+.dados-pessoais {
+  margin: 120px auto 160px auto;
+  position: absolute;
+  width: calc(100% - 78px);
+  left: 15.63%;
+  transition: all 0.5s ease;
+}
+.dados-pessoais--title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  margin-bottom: 20px;
+  color: #23272a;
+}
+.dados-pessoais--sub-title {
+  margin-bottom: 40px;
+}
+.dados-pessoais--user-img {
+  display: block;
+  margin-bottom: 40px;
+  height: 150px;
+}
+.dados-pessoais--alterar {
+  border-color: #216AA7;
+  color: #216AA7;
+  padding: 5px 20px;
+  transition: 0.2s;
+  display: block;
+  margin-bottom: 40px;
+}
+.dados-pessoais--alterar:hover {
+  background-color: #216AA7;
+  color: #FFFFFF;
+  transition: 0.2s;
+}
+.dados-pessoais--desativar {
+  color: #C24D4D;
+  cursor: pointer;
+  text-decoration: none;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus {
+  color: #C24D4D;
+}
+.dados-pessoais--form label {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #23272a;
+}
+.dados-pessoais--form input {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #23272a;
+  font-weight: 400;
+  padding: 12px;
+  border: 2px solid #AFAFAF;
+  border-radius: 10px;
+  cursor: default;
+}
+.dados-pessoais--form input:focus, .dados-pessoais--form input:active {
+  border: 2px solid #AFAFAF;
+}
+
+.sidebar.active ~ .dados-pessoais {
+  z-index: 100;
+  width: calc(100% - 240px);
+  left: calc(78px + 240px);
 }
