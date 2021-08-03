@@ -46,6 +46,7 @@ class UserController {
             } else {
                 if (user.validPassword(request.body.password)) {
                     if(user.verifiedMail == true) {
+                        //request.session.
                         return response.status(201).send({ message: "User logged in" });
                     } else {
                         return response.status(400).send({ message: "You need to verify your email address before logging in"});

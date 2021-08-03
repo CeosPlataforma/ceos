@@ -16,4 +16,10 @@ router.post('/login', userController.login);
 router.post('/register', userController.registerUser);
 router.get('/register/:userID', userController.verifyEmail);
 
+router.post('/fuck', (req, res) => {
+    console.log(req.body)
+    const returnMsg = req.body.fodase + "" + req.body.fods;
+    return res.json({return: returnMsg})
+});
+
 export { router };
