@@ -3,23 +3,32 @@ import { router } from './routes/router';
 import * as dotenv from 'dotenv';
 import session from 'express-session';
 import cors from 'cors';
+import MongoStore from 'connect-mongo';
 const app = express();
 dotenv.config();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
-const semana =  1000 * 60 * 60 * 24 * 7  
-
-app.use(cors())
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true
+}));
 
 app.use(session({
-    secret: "cool secret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: semana
-    }
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({
+        mongoUrl: process.env.MONGO_CONN,
+        mongoOptions: {
+            autoReconnect: true
+        }
+    })
+    // cookie: {
+    //     maxAge: 1000 * 60 * 60 * 24 * 7 //uma semana ?
+    // }
 }));
 
 app.use(express.static('../website'));

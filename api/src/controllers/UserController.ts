@@ -11,7 +11,7 @@ class UserController {
 
         const newUser = new UserModel();
         newUser.name = request.body.name;
-        newUser.email = request.body.email;
+        newUser.email = request.body.email.toLowerCase();
         newUser.salt = crypto.randomBytes(16).toString('base64');
         newUser.hash = crypto.pbkdf2Sync(request.body.password, newUser.salt, 1000, 64, 'sha512').toString('base64');
 
@@ -30,7 +30,7 @@ class UserController {
                 return response.status(200).redirect('/acessar/acessar.html');
             } catch (err) {
                 console.log(err);
-                return response.status(500).json({ message: "erro para realizar o envio da mensagem de verificar email" });
+                return response.status(500).json({ message: "Erro ao enviar email de verificação" });
             }
         } catch (err) {
             response.status(500).json(err);
@@ -38,21 +38,31 @@ class UserController {
     }
 
     async login(request: Request, response: Response){
-
         const { email, password } = request.body;
-        UserModel.findOne({ email }, (error, user) => {
+        console.log({email, password});
+        await UserModel.findOne({ email }, (error, user) => {
+            console.log("findone");
             if (user === null) {
-                return response.status(400).send({ message: 'Invalid email' });
+                return response.status(400).json({ message: 'User doesn\'t exist' });
+                console.log("inexistente")
             } else {
+                console.log("existente")
                 if (user.validPassword(request.body.password)) {
                     if(user.verifiedMail == true) {
-                        //request.session.
-                        return response.status(201).send({ message: "User logged in" });
+                        request.session.user = user;
+                        console.log({
+                            message: "session",
+                            request: request.session.user
+                        });
+                        console.log("sucesso")
+                        return response.status(201).json({ message: "User logged in" });
                     } else {
-                        return response.status(400).send({ message: "You need to verify your email address before logging in"});
+                        console.log("verificar")
+                        return response.status(400).json({ message: "Please verify your email address before logging in"});
                     }
                 } else {
-                    return response.status(400).send({ message: "Invalid password" });
+                    console.log("senha")
+                    return response.status(400).json({ message: "Wrong password" });
                 }
             }
         });
