@@ -51,11 +51,15 @@ class UserController {
                 console.log("existente")
                 if (user.validPassword(request.body.password)) {
                     if (user.verifiedMail == true) {
-                        request.session.user = user.email;
+                        request.session.user = {
+                            email,
+                            name: user.name,
+                            id: user.id
+                        };
                         request.session.save()
                         console.log({
                             message: "session",
-                            request: request.session.user
+                            "session.user": request.session.user
                         });
                         console.log("sucesso")
                         return response.status(201).json({ message: "User logged in" });
@@ -88,7 +92,7 @@ class UserController {
                         await user.save().then(saved => {
                             console.log(saved);
                         });
-                        return response.status(200).send({ message: `Successfully verified the user's email address` });
+                        return response.status(200).redirect('http://localhost:3000/acessar');
                     } catch (err) {
                         return response.status(500).send(err);
                     }
@@ -97,8 +101,12 @@ class UserController {
         }
     }
 
-    async session(request: Request, response: Response) {
-
+    async userinfo(request: Request, response: Response) {
+        response.json({
+            email: request.session.user.email,
+            name: request.session.user.name
+        });
+        console.log(request.session)
     }
 }
 
