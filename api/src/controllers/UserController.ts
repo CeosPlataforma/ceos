@@ -46,12 +46,13 @@ class UserController {
         await UserModel.findOne({ email }, (error, user) => {
             if (user === null) {
                 console.log("inexistente")
-                return response.status(400).json({ message: 'User doesn\'t exist' });
+                return response.json({ error: 'inexistent' });
             } else {
                 console.log("existente")
                 if (user.validPassword(request.body.password)) {
                     if (user.verifiedMail == true) {
-                        request.session.user = user;
+                        request.session.user = user.email;
+                        request.session.save()
                         console.log({
                             message: "session",
                             request: request.session.user
@@ -60,11 +61,11 @@ class UserController {
                         return response.status(201).json({ message: "User logged in" });
                     } else {
                         console.log("verificar")
-                        return response.status(400).json({ message: "Please verify your email address before logging in" });
+                        return response.json({ error: "verify" });
                     }
                 } else {
                     console.log("senha")
-                    return response.status(400).json({ message: "Wrong password" });
+                    return response.json({ error: "password" });
                 }
             }
         });

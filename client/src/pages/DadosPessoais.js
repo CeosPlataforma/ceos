@@ -54,7 +54,7 @@ componentDidMount = () => {
                                     c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
                             </svg>
                             <button className="dados-pessoais--alterar">Alterar foto</button>
-                            <a className="dados-pessoais--desativar">> Desativar conta</a>
+                            <a className="dados-pessoais--desativar"> Desativar conta</a>
                         </div>
 
                         <div className="col-sm-12 col-xl-7 mx-auto">
