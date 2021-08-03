@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import $ from 'jquery';
-import ScriptTag from 'react-script-tag';
 
 import hero from "../assets/illustrations/hero.svg";
 import org from "../assets/illustrations/organizacao.svg";

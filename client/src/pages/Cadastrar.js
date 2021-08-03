@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup';
-import { Formik, Field, Form, ErrorMessage} from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
 import Modal from "../components/Modal";
 
@@ -12,7 +12,7 @@ export default function Cadastrar() {
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
-    
+
     const [textoConfirmMostrar, setTextoConfirmMostrar] = useState("Mostrar")
     const [passwordConfirmShown, setPasswordConfirmShown] = useState(false)
 
@@ -26,7 +26,7 @@ export default function Cadastrar() {
             setTextoMostrar("Ocultar")
         }
     }
-    
+
     const toggleSenhaConfirmar = () => {
         if (passwordConfirmShown) {
             setPasswordConfirmShown(false);
@@ -43,7 +43,7 @@ export default function Cadastrar() {
         password: '',
         confirmPassword: ''
     };
-    
+
     const validationSchema = Yup.object({
         email: Yup.string().email("Email inválido").required('Obrigatório'),
         name: Yup.string().required('Obrigatório'),
@@ -54,7 +54,7 @@ export default function Cadastrar() {
     axios.defaults.withCredentials = true
     const onSubmit = async (values, actions) => {
         console.log(values);
-        await axios.post("http://localhost:3333/register", {name: values.name, email: values.email, password: values.password})
+        await axios.post("http://localhost:3333/register", { name: values.name, email: values.email, password: values.password })
             .then(function (response) {
                 if (response.data.emailInUse) {
                     actions.setFieldError("email", response.data.message);
@@ -65,14 +65,15 @@ export default function Cadastrar() {
                 //console.log(response);
             })
             .catch(function (error) {
-               console.log(error); 
+                console.log(error);
             });
     }
 
     return (
         <div>
+            {show && <Modal closeModal={setShow} />}
             <div className="container cadastrar" id="acessar">
-                {show && <Modal closeModal={setShow}/>}
+
                 <h2 className="cadastrar--title text-center mb-4">
                     Crie sua conta
                 </h2>
@@ -82,42 +83,42 @@ export default function Cadastrar() {
                 </p>
 
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                    
-                        <Form className="cadastrar--form col-lg-6 mx-auto">
 
-                            <div className="mb-4">
-                                <label htmlFor="cadastrar--nome" className="form-label"> Nome completo </label>
-                                <Field name="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
-                                <ErrorMessage name="name" />
+                    <Form className="cadastrar--form col-lg-6 mx-auto">
+
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--nome" className="form-label"> Nome completo </label>
+                            <Field name="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
+                            <ErrorMessage name="name" />
+                        </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--email" className="form-label"> E-mail </label>
+                            <Field name="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
+                            <ErrorMessage name="email" />
+                        </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--senha" className="form-label"> Senha </label>
+                            <div className="cadastrar--senha--container senha--container">
+                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
+                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                                <ErrorMessage name="password" />
                             </div>
+                        </div>
 
-                            <div className="mb-4">
-                                <label htmlFor="cadastrar--email" className="form-label"> E-mail </label>
-                                <Field name="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
-                                <ErrorMessage name="email" />
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
+                            <div className="cadastrar--senha--container senha--container">
+                                <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
+                                <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
+                                <ErrorMessage name="confirmPassword" />
                             </div>
+                        </div>
 
-                            <div className="mb-4">
-                                <label htmlFor="cadastrar--senha" className="form-label"> Senha </label>
-                                <div className="cadastrar--senha--container senha--container">
-                                    <Field name="password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
-                                    <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                    <ErrorMessage name="password" />
-                                </div>
-                            </div>
+                        <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
+                    </Form>
 
-                            <div className="mb-4">
-                                <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
-                                <div className="cadastrar--senha--container senha--container">
-                                    <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
-                                    <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
-                                    <ErrorMessage name="confirmPassword" />
-                                </div>
-                            </div>
-
-                            <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
-                        </Form>
-                    
                 </Formik>
 
             </div>
