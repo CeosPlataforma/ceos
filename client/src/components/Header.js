@@ -44,12 +44,6 @@ class Header extends Component {
                                 <Link class="nav-link" aria-current="page" to="/contato"> Fale conosco
                                 </Link>
                             </li>
-
-                            <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/fuck"> fycj
-                                </Link>
-                            </li>
-
                         </ul>
 
                         <Link class="navbar--btn" to="/acessar"> Acessar </Link>

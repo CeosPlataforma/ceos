@@ -1,0 +1,171 @@
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background: $black;
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    &.active {
+        width: 240px;
+        /*mudar dps pra mobile responsivo e pa @include device(sm) {
+            width: 90%;
+        } */
+        .logo_content .logo {
+            opacity: 1;
+            pointer-events: none;
+        }
+        .sidebar--collapse {
+            left: 90%;
+        }
+        ul li .tooltip {
+            display: none;
+        }
+        .links_name {
+            transition: 0s;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        /*n sei como faz dscp vinavo &~ .dados-pessoais {
+            @include device(sm) {
+                position: absolute;
+                left: 0;
+            }
+        } */
+    }
+    &--collapse {
+        position: absolute;
+        color: $white;
+        top: 15px;
+        left: 50%;
+        font-size: 22px;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        transform: translateX(-50%);
+    }
+    .logo_content {
+        display: flex;
+        justify-content: center;
+        @media screen and (max-height: 675px) {
+            display: none;
+        }
+        .logo {
+            color: $white;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            width: 80px;
+            height: 80px;
+            font-weight: bold;
+        }
+    }
+    ul {
+        @media screen and (max-height: 675px) {
+            margin: 50px 0px 0px 0px;
+        }
+        &:first-child {
+            margin-top: 20px;
+        }
+        li {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin: 0 5px;
+            list-style: none;
+            line-height: 50px;
+            margin: 60px 0px;
+            @media screen and (max-height: 950px) {
+                margin: 40px 0px;
+            }
+            @media screen and (max-height: 825px) {
+                margin: 20px 0px;
+            }
+            &:hover .tooltip {
+                transition: all 0.5s ease;
+                opacity: 1;
+                top: 50%
+            }
+            .active {
+                color: $yellow;
+                cursor: default;
+                &:hover {
+                    svg {
+                        fill: $black;
+                    }
+                }
+                svg {
+                    fill: $yellow;
+                }
+            }
+            a {
+                color: $white;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                border-radius: 12px;
+                white-space: nowrap;
+                transition: all 0.4s ease;
+                &:hover {
+                    color: $black;
+                    background: $white;
+                    svg {
+                        fill: black;
+                    }
+                }
+            }
+            .tooltip {
+                position: absolute;
+                left: 125px;
+                top: 0;
+                transform: translate(-50% , -50%);
+                border-radius: 6px;
+                height: 35px;
+                width: 120px;
+                background: $white;
+                line-height: 35px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: 0s;
+                opacity: 0;
+                pointer-events: none;
+                display: block;
+            }
+            svg {
+                font-size: 18px;
+                font-weight: 400;
+                height: 35px;
+                min-width: 50px;
+                border-radius: 12px;
+                line-height: 50px;
+                text-align: center;
+                fill: white;
+                margin-right: 5px;
+                transition: all 0.5s ease;
+            }
+        }
+    }
+    .links_name {
+        font-size: 1.25rem;
+        font-weight: 400;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+}
+
+/* BS */
+
+ol, ul {
+    padding-left: 0;
+}
