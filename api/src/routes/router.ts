@@ -13,6 +13,7 @@ router.post('/contato', mailController.contato);
 
 const userController = new UserController();
 router.post('/login', userController.login);
+router.get('/login', userController.session)
 router.post('/register', userController.registerUser);
 router.get('/register/:userID', userController.verifyEmail);
 
