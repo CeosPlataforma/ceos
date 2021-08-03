@@ -1,0 +1,73 @@
+.modal {
+    font: $font-sm;
+    &--title {
+        font: $font-lg;
+        text-align: center;
+    }
+    &--input {
+        font: $font-sm;
+        color: $black;
+        font-weight: $regular;
+        padding: 12px;
+        border: 2px solid $gray;
+        border-radius: 10px;
+    
+        &:focus, &:active {
+            border: 2px solid $gray;
+        }
+    }
+    &--btn {
+        padding: 16px 14.84375%;
+        border-radius: 10px;
+        font: $font-sm;
+    }
+}
+
+.modal-backdrop.show {
+    background-color: $blue;
+    opacity: 0.9;
+}
+
+.modal-align {
+    height: 100%;
+}
+
+.modal-header {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.modal-header p {
+    color: $gray-dark;
+    margin-bottom: 0;
+}
+
+.modal-body {
+    padding-bottom: 8px;
+}
+
+.modal-body p {
+    color: $black;
+    justify-content: center;
+    text-align: center;
+}
+
+.modal-footer {
+    padding-top: 0;
+}
+
+.modal-content {
+    border-radius: 0;
+    border: none;
+    padding: 60px 0;
+}
+
+.close {
+    position: absolute;
+    top: -45px;
+    right: 13px;
+}
+
+.close span {
+    font-size: 2.5rem;
+}

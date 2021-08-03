@@ -1,9 +1,2 @@
-/plataforma/painel
-website/styles/obsoleto
-.vscode
-react
-client
-node_modules
-dist
-.env
 website
+.vscode

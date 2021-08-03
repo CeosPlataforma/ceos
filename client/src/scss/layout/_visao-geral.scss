@@ -1,0 +1,37 @@
+.visao-geral {
+    padding-top: 80px;
+    padding-bottom: 110px;
+    padding-left: auto;
+    padding-right: auto;
+
+    &--title {
+        font: $font-lg;
+        color: $black;
+        line-height: 1.15;
+    }
+
+    &--content {
+        &--title {
+            font: $font-md;
+            color: $black;
+        }
+
+        &--text {
+            &--1, &--2 {
+                font: $font-sm;
+                color: $gray-dark;
+                max-width: 85%;
+
+                @include device(md) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        &--img {
+            @include device(lg) {
+                margin: -45px auto auto auto;
+            }
+        }
+    }
+}

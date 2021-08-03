@@ -1,0 +1,28 @@
+// Hero general
+.hero {
+    margin: 140px auto 160px auto;
+
+    @include device(lg) {
+        margin: 120px auto;
+    }
+
+    @include device(md) {
+        margin: 80px auto 120px;
+    }
+
+    @include device(sm) {
+        margin: 40px auto 80px auto;
+    }
+    
+    &--title {
+        font: $font-xl;
+        line-height: 1.15;
+        color: $black;
+    }
+
+    &--text {
+        font: $font-sm;
+        color: $gray-dark;
+        max-width: 95%;
+    }
+}
