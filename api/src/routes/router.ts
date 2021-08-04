@@ -1,6 +1,7 @@
 import { request, response, Router } from 'express';
 import { MailController } from '../controllers/MailController';
 import { UserController } from '../controllers/UserController';
+import { MateriaController } from '../controllers/MateriaController';
 import('../database/')
 const router = Router();
 
@@ -10,6 +11,10 @@ router.get('/', (request, response) => {
 
 const mailController = new MailController();
 router.post('/contato', mailController.contato);
+
+const materiaController = new MateriaController();
+router.post('/materia', materiaController.createMateria);
+router.get('/materia', materiaController.getAllMaterias);
 
 const userController = new UserController();
 router.post('/login', userController.login);

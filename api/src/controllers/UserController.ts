@@ -54,7 +54,7 @@ class UserController {
                         request.session.user = {
                             email,
                             name: user.name,
-                            id: user.id
+                            id: user._id
                         };
                         request.session.save()
                         console.log({

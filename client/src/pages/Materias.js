@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import ModalAddMateria from "../components/ModalAddMateria";
 
 export default function Materias() {
+    
+    const [materias, setMaterias] = useState([]);
+    //const [showMaterias, setShowMaterias] = useState(false);
+
+    axios.defaults.withCredentials = true
+    useEffect(() => {
+        async function fetchMaterias() {
+            await axios.get('http://localhost:3333/materia')
+            .then((response) => {
+
+                if (response.data.message !== "sem-materias") {
+                    setMaterias(response.data)
+                    //setShowMaterias(false)
+                } else {
+                    console.log("sem materia")
+                }
+                console.log(response)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        }
+
+        fetchMaterias()
+    }, [])
+
     return (
         <div>
             <div className="container-xxl container-padding materias content">
@@ -15,8 +43,8 @@ export default function Materias() {
 
                         <button className="materias--btn materias--ver-materias btn btn-secondary btn--common">Ver matérias</button>
 
-                        <button className="materias--btn materias--adicionar-materias  btn btn-outline-secondary btn--common">Adicionar matérias</button>
-
+                        <button className="materias--btn materias--adicionar-materias  btn btn-outline-secondary btn--common" data-bs-toggle="modal" data-bs-target="#modalCenter">Adicionar matérias</button>
+                        
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
@@ -29,48 +57,17 @@ export default function Materias() {
                         </div>
 
                         <div class="materias--holder">
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
 
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
+                            {materias.map((materia) => (
+                                <div class="materias--container">
+                                    <h5>{materia.name}</h5>
+                                    <div class="materias--arrow"></div>
+                                </div>
+                            ))}
 
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
-
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
-
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
-
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
-
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
-
-                            <div class="materias--container">
-                                <h5>Matéria</h5>
-                                <div class="materias--arrow"></div>
-                            </div>
 
                         </div>
-
+                        <ModalAddMateria/>
                     </div>
 
                 </div>
