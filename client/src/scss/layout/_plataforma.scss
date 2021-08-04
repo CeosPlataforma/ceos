@@ -1,0 +1,13 @@
+.content {
+    margin: 50px auto 160px auto;
+    position: absolute;
+    width: calc(100% - 78px);
+    left: 15.63%;
+    transition: all 0.5s ease;
+}
+
+.title {
+    font: $font-lg;
+    margin-bottom: 20px;
+    color: $black;
+}

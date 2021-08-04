@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
-import Modal from "../components/Modal";
+import ModalCadastro from "../components/ModalCadastro";
 
 
 export default function Cadastrar() {
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
@@ -71,7 +71,7 @@ export default function Cadastrar() {
 
     return (
         <div>
-            {show && <Modal closeModal={setShow} />}
+            {show && <ModalCadastro closeModal={setShow} />}
             <div className="container cadastrar" id="acessar">
 
                 <h2 className="cadastrar--title text-center mb-4">

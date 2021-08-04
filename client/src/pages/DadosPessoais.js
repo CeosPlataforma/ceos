@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
+
 export default function DadosPessoais() {
 
     /*componentDidMount = () => {
@@ -88,11 +89,11 @@ export default function DadosPessoais() {
 
     return (
         <div>
-            <div className="container-xxl container-padding dados-pessoais">
+            <div className="container-xxl container-padding dados-pessoais content">
                 <div className="row align-items-center">
 
                     <div className="col-sm-12 col-xl-5">
-                        <h1 className="dados-pessoais--title">Dados pessoais</h1>
+                        <h1 className="title">Dados pessoais</h1>
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 45.532 45.532" xmlSpace="preserve" class="dados-pessoais--user-img">
@@ -103,7 +104,7 @@ export default function DadosPessoais() {
                                 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
                         </svg>
                         <button className="dados-pessoais--alterar">Alterar foto</button>
-                        <a className="dados-pessoais--desativar"> Desativar conta</a>
+                        <a className="dados-pessoais--desativar">&gt; Desativar conta</a>
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto">

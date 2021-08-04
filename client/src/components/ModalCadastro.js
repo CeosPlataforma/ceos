@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import "./Modal.css";
 
-function Modal({ closeModal }) {
+function ModalCadastro({ closeModal }) {
 
     useEffect(() => {
-       
+
     })
 
     const history = useHistory();
@@ -34,9 +34,9 @@ function Modal({ closeModal }) {
                 </div>
             </div>
         </div>
-                
+
 
     )
 }
 
-export default Modal
+export default ModalCadastro

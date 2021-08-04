@@ -1,0 +1,91 @@
+.materias {
+
+    &--classificar-por {
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 250px;
+        margin: 40px 0px;  
+        margin-left: 3px; 
+    }
+
+    &--header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &--user {
+        margin-bottom: 20px;
+        &--name {
+            color: $gray-dark !important;
+            font: $font-sm;
+        }
+    }
+
+    &--btn {
+        @extend .btn--common;
+        padding: 10px 70px;
+    }
+
+    &--ver-materias {   
+        max-width: 256px;
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    h5 {
+        color: #fff;
+        margin: 0;
+    }
+
+    &--holder {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &--container {
+        background-color: $blue;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 45%;
+        margin-bottom: 30px;
+    }
+
+    &--arrow {
+        background: #fff;
+        height: 3px;
+        width: 80px;
+        margin: auto 30px auto 30px;
+        position: relative;
+        transform: rotate(0deg);
+        
+        &:before,
+        &:after {
+            content: "";
+            background: #fff;
+            position: absolute;
+            height: 3px;
+            width: 15px;
+        }
+        
+        &:before {
+            right: -3px;
+            bottom: -4px;
+            transform: rotate(-45deg);
+        }
+        
+        &:after {
+            right: -3px;
+            top: -4px;
+            transform: rotate(45deg);
+        }
+    }
+}
