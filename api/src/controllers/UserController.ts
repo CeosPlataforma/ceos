@@ -62,7 +62,7 @@ class UserController {
                             "session.user": request.session.user
                         });
                         console.log("sucesso")
-                        return response.status(201).json({ message: "User logged in" });
+                        return response.status(201).json({ message: "User logged in", user: request.session.user });
                     } else {
                         console.log("verificar")
                         return response.json({ error: "verify" });
