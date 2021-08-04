@@ -456,6 +456,20 @@ label:focus,
   margin-bottom: 0;
 }
 
+.content {
+  margin: 50px auto 160px auto;
+  position: absolute;
+  width: calc(100% - 78px);
+  left: 15.63%;
+  transition: all 0.5s ease;
+}
+
+.title {
+  font: 700 48px "Baloo Bhai 2", cursive;
+  margin-bottom: 20px;
+  color: #23272a;
+}
+
 /*
 .btn--common {
 	border: 3px solid;
@@ -533,7 +547,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .materias--btn, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -605,14 +619,14 @@ label:focus,
   color: #23272a;
 }
 
-.contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn {
+.contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por {
   color: #FFFFFF;
   border: none;
   padding: 14px 0;
   background-color: #216AA7;
   transition: 0.2s;
 }
-.contato--btn:hover, .acessar--btn:hover, .cadastrar--btn:hover, .dados-pessoais--btn:hover {
+.contato--btn:hover, .acessar--btn:hover, .cadastrar--btn:hover, .dados-pessoais--btn:hover, .materias--classificar-por:hover {
   background-color: #0c375a;
   color: #FFFFFF;
   transition: 0.2s;
@@ -1075,18 +1089,6 @@ ol, ul {
   min-height: 160px;
 }
 
-.dados-pessoais {
-  margin: 120px auto 160px auto;
-  position: absolute;
-  width: calc(100% - 78px);
-  left: 15.63%;
-  transition: all 0.5s ease;
-}
-.dados-pessoais--title {
-  font: 700 48px "Baloo Bhai 2", cursive;
-  margin-bottom: 20px;
-  color: #23272a;
-}
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }
@@ -1138,4 +1140,80 @@ ol, ul {
   z-index: 100;
   width: calc(100% - 240px);
   left: calc(78px + 240px);
+}
+
+.materias--classificar-por {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  margin: 40px 0px;
+  margin-left: 3px;
+}
+.materias--header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.materias--user {
+  margin-bottom: 20px;
+}
+.materias--user--name {
+  color: #707070 !important;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.materias--btn {
+  padding: 10px 70px;
+}
+.materias--ver-materias {
+  max-width: 256px;
+  margin-left: 0;
+  margin-right: 10px;
+}
+.materias h5 {
+  color: #fff;
+  margin: 0;
+}
+.materias--holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.materias--container {
+  background-color: #216AA7;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+  margin-bottom: 30px;
+}
+.materias--arrow {
+  background: #fff;
+  height: 3px;
+  width: 80px;
+  margin: auto 30px auto 30px;
+  position: relative;
+  transform: rotate(0deg);
+}
+.materias--arrow:before, .materias--arrow:after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  height: 3px;
+  width: 15px;
+}
+.materias--arrow:before {
+  right: -3px;
+  bottom: -4px;
+  transform: rotate(-45deg);
+}
+.materias--arrow:after {
+  right: -3px;
+  top: -4px;
+  transform: rotate(45deg);
 }
