@@ -13,18 +13,12 @@ let schema = new Schema<Materia>({
     name: {
         type: String,
         default: '',
-        unique: true,
         required: true
     },
     
     createdAt: {
         type: Date,
         default: Date.now()
-    },
-
-    uuid: {
-        type: String,
-        default: uuid()
     },
 
     user: { 

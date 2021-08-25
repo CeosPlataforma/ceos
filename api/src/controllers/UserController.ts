@@ -108,6 +108,14 @@ class UserController {
         });
         console.log(request.session)
     }
+
+    async logout(request: Request, response: Response) {
+        request.session.destroy((error) => {
+            console.log(error)
+            return response.status(500).json(error)
+        })
+    }
+
 }
 
 export { UserController };

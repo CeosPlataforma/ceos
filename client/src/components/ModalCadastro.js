@@ -23,9 +23,10 @@ function ModalCadastro({ closeModal }) {
                 <div className="modalContainer">
                     {/* <button onClick={() => closeModal(false)}>X</button> */}
                     <div className="modal-header">
-                        <h1>verifica o email ai pf</h1>
+                        <h1>verificação de email</h1>
                     </div>
                     <div className="modal-body">
+                        <p classname="text-xl-center">você vai receber um email para concluir o seu cadastro</p>
                         <p className="text-xl-center">aperte o botão para ser redirecionado pro login</p>
                     </div>
                     <div className="modal-footer">

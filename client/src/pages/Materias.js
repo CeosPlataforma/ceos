@@ -18,9 +18,9 @@ export default function Materias() {
                     setMaterias(response.data)
                     //setShowMaterias(false)
                 } else {
-                    console.log("sem materia")
+                    console.log("sem materia");
                 }
-                console.log(response)
+                console.log(response);
             })
             .catch((error) => {
                 console.log(error);
@@ -65,9 +65,10 @@ export default function Materias() {
                                 </div>
                             ))}
 
-
                         </div>
+
                         <ModalAddMateria/>
+                        
                     </div>
 
                 </div>

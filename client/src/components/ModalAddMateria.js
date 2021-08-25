@@ -11,13 +11,13 @@ export default function ModalAddMateria(props) {
         }
 
         const validationSchema = Yup.object({
-            name: Yup.string().min(3, "Nome muito pequeno").max(40, "Passou do limite de tamanho").required("Necessario")
+            name: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário")
         });
 
-        const button = useRef(null);
+        const botaoFechar = useRef(null);
 
         function handleClick() {
-            button.current.click();
+            botaoFechar.current.click();
         };
 
         axios.defaults.withCredentials = true
@@ -28,6 +28,7 @@ export default function ModalAddMateria(props) {
                     actions.setFieldError("name", response.data.message);
                 } else {
                     console.log()
+                    handleClick()
                 }
             }).catch((error) => {
                 console.log(error)
@@ -65,7 +66,7 @@ export default function ModalAddMateria(props) {
                                     </Formik>
                                 </div>
                                 <div className="col-1">
-                                    <button onClick={handleClick} ref={button} type="button" className="btn-close close" data-bs-dismiss="modal"
+                                    <button ref={botaoFechar} type="button" className="btn-close close" data-bs-dismiss="modal"
                                         aria-label="Close">X</button>
                                 </div>
                             </div>

@@ -23,7 +23,8 @@ app.use(session({
     store: new MongoStore({
         mongoUrl: process.env.MONGO_CONN,
         mongoOptions: {
-            autoReconnect: true
+            autoReconnect: true,
+            useNewUrlParser: true
         }
     })
     // cookie: {

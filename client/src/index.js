@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import MiniFooter from "./components/MiniFooter";
 import ModalSenha from "./components/ModalSenha";
 import ModalCadastro from "./components/ModalCadastro";
+import Logout from "./components/Logout";
 
 // PAGES
 import Home from "./pages/LandingPage";
@@ -52,6 +53,9 @@ ReactDOM.render(
                 <Sidebar Active="materias" />
                 <Materias />
                 <MiniFooter />
+            </Route>
+            <Route path="/logout">
+                <Logout />
             </Route>
         </Switch>
     </BrowserRouter>,
