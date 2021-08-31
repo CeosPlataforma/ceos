@@ -1,0 +1,41 @@
+// Media queries
+@mixin device($device-size) {
+    @if $device-size == xl {
+        @media screen and (max-width: $device-xl) {
+            @content;
+        }
+    }
+
+    @if $device-size == lg {
+        @media screen and (max-width: $device-lg) {
+            @content;
+        }
+    }
+
+    @if $device-size == md {
+        @media screen and (max-width: $device-md) {
+            @content;
+        }
+    }
+
+    @if $device-size == sm {
+        @media screen and (max-width: $device-sm) {
+            @content;
+        }
+    }
+
+    @if $device-size == xs {
+        @media screen and (max-width: $device-xs) {
+            @content;
+        }
+    }
+}
+
+// Buttons
+@mixin button($padding, $font-size, $bg-color, $font-color) {
+	border-radius: 50px !important; // 10px
+	padding: $padding;
+	font-size: $font-size;
+	background: $bg-color;
+	color: $font-color;
+}

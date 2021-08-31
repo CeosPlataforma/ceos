@@ -1,0 +1,39 @@
+// Selection
+::selection {
+    color: $black;
+    background: $blue-light;
+}
+
+// Container padding
+.container-padding {
+    @include device(lg) {
+        padding: 0 40px !important;
+    }
+}
+
+.container-padding--light {
+    @include device(lg) {
+        padding: 80px 40px !important;
+    }
+}
+
+// Scrollbar
+/*
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $gray-dark;
+}
+
+::-webkit-scrollbar-track {
+    background: $gray-light;
+}
+*/
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1320px;
+    }
+}
