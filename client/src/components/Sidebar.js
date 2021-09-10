@@ -121,7 +121,7 @@ class Sidebar extends Component {
                     </div>
                     <ul className="nav_list">
                         <li>
-                            <Link>
+                            <Link to={"painel"}>
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 512 512" xmlSpace="preserve">
                                     <path d="M433,216.061c0-11.046-8.954-20-20-20H297c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h116
@@ -147,7 +147,7 @@ class Sidebar extends Component {
                             <span className="tooltip">Painel</span>
                         </li>
                         <li>
-                            <Link>
+                            <Link to={"cronograma"}>
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 512 512" xmlSpace="preserve">
                                     <path d="M492,352c11.046,0,20-8.954,20-20V120c0-44.112-35.888-80-80-80h-26V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20
@@ -180,7 +180,7 @@ class Sidebar extends Component {
                             <span className="tooltip">Matérias</span>
                         </li>
                         <li>
-                            <Link>
+                            <Link to={"atividades"}>
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 512 512" xmlSpace="preserve">
                                     <path d="M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206
@@ -202,7 +202,7 @@ class Sidebar extends Component {
                             <span className="tooltip">Atividades</span>
                         </li>
                         <li>
-                            <Link>
+                            <Link to={"/desempenho"}>
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 512.001 512.001" xmlSpace="preserve">
                                     <path d="M506.617,46.371C502.833,42.308,497.531,40,491.979,40h-81.152c0.129-6.524,0.193-13.188,0.193-20
@@ -230,7 +230,7 @@ class Sidebar extends Component {
                             <span className="tooltip">Desempenho</span>
                         </li>
                         <li>
-                            <Link /* className="active" */ to="/dados-pessoais">
+                            <Link /* className="active" */ to={"/dados-pessoais"}>
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 456.368 456.368" xmlSpace="preserve">
                                     <path d="M324.194,220.526c-6.172,7.772-13.106,14.947-21.07,21.423c45.459,26.076,76.149,75.1,76.149,131.158
@@ -248,11 +248,8 @@ class Sidebar extends Component {
                             <span className="tooltip">Dados Pessoais</span>
                         </li>
                         <li>
-                            <Link to={"/"}>
+                            <Link to={"/logout"}>
                                 <svg viewBox="0 0 511 512" xmlns="http://www.w3.org/2000/svg" class="sidebar-icon--sair"><path d="m361.5 392v40c0 44.113281-35.886719 80-80 80h-201c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h201c44.113281 0 80 35.886719 80 80v40c0 11.046875-8.953125 20-20 20s-20-8.953125-20-20v-40c0-22.054688-17.945312-40-40-40h-201c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h201c22.054688 0 40-17.945312 40-40v-40c0-11.046875 8.953125-20 20-20s20 8.953125 20 20zm136.355469-170.355469-44.785157-44.785156c-7.8125-7.8125-20.476562-7.8125-28.285156 0-7.8125 7.808594-7.8125 20.472656 0 28.28125l31.855469 31.859375h-240.140625c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h240.140625l-31.855469 31.859375c-7.8125 7.808594-7.8125 20.472656 0 28.28125 3.90625 3.90625 9.023438 5.859375 14.140625 5.859375 5.121094 0 10.238281-1.953125 14.144531-5.859375l44.785157-44.785156c19.496093-19.496094 19.496093-51.214844 0-70.710938zm0 0" /></svg>
-                                <span className="links_name">Sair</span>
-                            </Link>
-                            <Link to="/logout">
                                 <span className="links_name">Sair</span>
                             </Link>
                             <span className="tooltip">Sair</span>

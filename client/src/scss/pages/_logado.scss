@@ -1,0 +1,27 @@
+.logged {
+    &--header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.simpleBox {
+    display: flex;
+    background: $blue;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    h2 {
+        color: $yellow;
+    }
+    h5 {
+        color: $white;
+        text-align: center;
+    }
+}

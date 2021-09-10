@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import ModalAddMateria from "../components/ModalAddMateria";
+import User from "../components/User";
+import MateriaContainer from "../components/MateriaContainer";
 
 export default function Materias() {
-    
+
     const [materias, setMaterias] = useState([]);
     //const [showMaterias, setShowMaterias] = useState(false);
 
@@ -12,19 +14,19 @@ export default function Materias() {
     useEffect(() => {
         async function fetchMaterias() {
             await axios.get('http://localhost:3333/materia')
-            .then((response) => {
+                .then((response) => {
 
-                if (response.data.message !== "sem-materias") {
-                    setMaterias(response.data)
-                    //setShowMaterias(false)
-                } else {
-                    console.log("sem materia");
-                }
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+                    if (response.data.message !== "sem-materias") {
+                        setMaterias(response.data)
+                        //setShowMaterias(false)
+                    } else {
+                        console.log("sem materia");
+                    }
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         }
 
         fetchMaterias()
@@ -35,16 +37,16 @@ export default function Materias() {
             <div className="container-xxl container-padding materias content">
                 <div className="row align-items-center">
 
-                    <div className="col-lg-12">
-                        <div className="materias--header">
+                    <div className="col-12">
+                        <div className="logged--header">
                             <h1 className="title">Gerencie suas matérias</h1>
-                            <div className="materias--user"><Link className="materias--user--name" to={"/dados-pessoais"}>Nome do usuário</Link></div>
+                            <User />
                         </div>
 
                         <button className="materias--btn materias--ver-materias btn btn-secondary btn--common">Ver matérias</button>
 
                         <button className="materias--btn materias--adicionar-materias  btn btn-outline-secondary btn--common" data-bs-toggle="modal" data-bs-target="#modalCenter">Adicionar matérias</button>
-                        
+
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
@@ -67,8 +69,8 @@ export default function Materias() {
 
                         </div>
 
-                        <ModalAddMateria/>
-                        
+                        <ModalAddMateria />
+
                     </div>
 
                 </div>

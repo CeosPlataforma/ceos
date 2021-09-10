@@ -898,6 +898,32 @@ ol, ul {
   padding-left: 0;
 }
 
+.logged--header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.simpleBox {
+  display: flex;
+  background: #216AA7;
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.simpleBox h2 {
+  color: #FFBF5B;
+}
+.simpleBox h5 {
+  color: #FFFFFF;
+  text-align: center;
+}
+
 .acessar {
   padding-top: 40px;
   padding-bottom: 120px;
@@ -1150,13 +1176,6 @@ ol, ul {
   width: 250px;
   margin: 40px 0px;
   margin-left: 3px;
-}
-.materias--header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 .materias--user {
   margin-bottom: 20px;
