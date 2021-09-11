@@ -920,7 +920,7 @@ ol, ul {
   color: #FFBF5B;
 }
 .simpleBox h5 {
-  color: #FFFFFF;
+  color: white;
   text-align: center;
 }
 
@@ -1235,4 +1235,9 @@ ol, ul {
   right: -3px;
   top: -4px;
   transform: rotate(45deg);
+}
+.materias--name {
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
 }

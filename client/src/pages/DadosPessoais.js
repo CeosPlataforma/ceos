@@ -124,7 +124,7 @@ export default function DadosPessoais() {
                                     <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                                     <ErrorMessage name="password" />
                                 </div>
-
+                                <br />
                                 <button type="submit" className="dados-pessoais--btn w-100">Alterar dados</button>
                             </Form>
                         </Formik>
