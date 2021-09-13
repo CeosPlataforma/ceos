@@ -23,11 +23,11 @@ class UserController {
 
             const variables = {
                 nome: request.body.name,
-                link: `localhost:3333/register/${savedUser.uuid}`
+                link: `http://localhost:3333/register/${savedUser.uuid}`
             }
 
             try {
-                await SendMail.execute("suporte@ceos.com", "Confirmação do Email", variables, hbsPath);
+                await SendMail.execute(request.body.email, "Confirmação do Email", variables, hbsPath);
                 return response.status(200).json({ message: "sucesso" });
             } catch (err) {
                 console.log(err);
