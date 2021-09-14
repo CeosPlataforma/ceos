@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap");
+@import "//node_modules/bootstrap/scss/bootstrap";
 *, html, body {
   font-family: "Baloo Bhai 2" !important;
 }
@@ -678,11 +679,13 @@ label:focus,
 .modal-body {
   padding-bottom: 8px;
 }
-
 .modal-body p {
   color: #23272a;
   justify-content: center;
   text-align: center;
+}
+.modal-body h4 {
+  color: #AFAFAF;
 }
 
 .modal-footer {
@@ -692,17 +695,7 @@ label:focus,
 .modal-content {
   border-radius: 0;
   border: none;
-  padding: 60px 0;
-}
-
-.close {
-  position: absolute;
-  top: -45px;
-  right: 13px;
-}
-
-.close span {
-  font-size: 2.5rem;
+  padding: 60px 60px;
 }
 
 .senha--container {

@@ -4,11 +4,13 @@ import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
 import ModalSenha from "../components/ModalSenha";
+import Modal from 'react-bootstrap/Modal';
 
 export default function Acessar() {
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
+    const [modalShow, setModalShow] = React.useState(false);
 
     const toggleSenha = () => {
         if (passwordShown) {
@@ -109,7 +111,7 @@ export default function Acessar() {
                             </div> */}
 
                             <div className="esqueci-minha-senha mb-4">
-                                <span className="esqueci-minha-senha--text" data-bs-toggle="modal" data-bs-target="#modalCenter"> Esqueci minha senha </span>
+                                <span className="esqueci-minha-senha--text" onClick={() => setModalShow(true)}> Esqueci minha senha </span>
                             </div>
                         </div>
 
@@ -117,8 +119,11 @@ export default function Acessar() {
                     </Form>
                 </Formik>
 
-                <ModalSenha />
             </div>
+            <ModalSenha
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </div >
     );
 }

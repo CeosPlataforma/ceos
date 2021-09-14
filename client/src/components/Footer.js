@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { HashLink } from 'react-router-hash-link';
 
 import logo from "../assets/logo/svg/LogoVB(SemNome).svg";
 import { Link } from "react-router-dom";
@@ -34,27 +34,23 @@ class Footer extends Component {
 
                                 <ul className="footer--navbar navbar-nav">
                                     <li className="nav-item">
-                                        <AnchorLink className="nav-link" aria-current="page" href="#por-que-usar">
-                                            Por que usar </AnchorLink>
+                                        <HashLink className="nav-link" aria-current="page" smooth to="/#por-que-usar"> Por que usar </HashLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <AnchorLink className="nav-link" aria-current="page" href="#visao-geral">
-                                            Visão geral </AnchorLink>
+                                        <HashLink className="nav-link" aria-current="page" smooth to="/#visao-geral"> Visão geral </HashLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <AnchorLink className="nav-link" aria-current="page" href="#funcionalidades"> Funcionalidades </AnchorLink>
+                                        <HashLink className="nav-link" aria-current="page" smooth to="/#funcionalidades"> Funcionalidades </HashLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <AnchorLink className="nav-link" aria-current="page" href="#depoimentos">
-                                            Depoimentos </AnchorLink>
+                                        <HashLink className="nav-link" aria-current="page" smooth to="/#depoimentos"> Depoimentos </HashLink>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="/contato"> Fale
-                                            conosco </Link>
+                                        <HashLink className="nav-link" aria-current="page" smooth to="/#fale-conosco"> Fale conosco</HashLink>
                                     </li>
                                 </ul>
                             </div>

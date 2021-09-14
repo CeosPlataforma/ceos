@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { HashLink } from 'react-router-hash-link';
 
 import logo from "../assets/logo/svg/LogoVP(SemNome).svg";
 class Header extends Component {
@@ -21,28 +21,23 @@ class Header extends Component {
                     <div class="collapse navbar-collapse" id="nav-main">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <AnchorLink class="nav-link" aria-current="page" href="#por-que-usar"> Por que
-                                    usar </AnchorLink>
+                                <HashLink class="nav-link" aria-current="page" smooth to="/#por-que-usar"> Por que usar </HashLink>
                             </li>
 
                             <li class="nav-item">
-                                <AnchorLink class="nav-link" aria-current="page" href="#visao-geral"> Visão
-                                    geral </AnchorLink>
+                                <HashLink class="nav-link" aria-current="page" smooth to="/#visao-geral"> Visão geral </HashLink>
                             </li>
 
                             <li class="nav-item">
-                                <AnchorLink class="nav-link" aria-current="page" href="#funcionalidades">
-                                    Funcionalidades </AnchorLink>
+                                <HashLink class="nav-link" aria-current="page" smooth to="/#funcionalidades"> Funcionalidades </HashLink>
                             </li>
 
                             <li class="nav-item">
-                                <AnchorLink class="nav-link" aria-current="page" href="#depoimentos">
-                                    Depoimentos </AnchorLink>
+                                <HashLink class="nav-link" aria-current="page" smooth to="/#depoimentos"> Depoimentos </HashLink>
                             </li>
 
                             <li class="nav-item">
-                                <Link class="nav-link" aria-current="page" to="/contato"> Fale conosco
-                                </Link>
+                                <Link class="nav-link" aria-current="page" to="/contato"> Fale conosco </Link>
                             </li>
                         </ul>
 
