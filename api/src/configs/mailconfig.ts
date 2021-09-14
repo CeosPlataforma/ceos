@@ -1,5 +1,5 @@
 class MailConfig {
-    public host = "";
+    public host = "smtp.gmail";
     public port = 587;
     public user = "";
     public password = "";
