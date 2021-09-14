@@ -16,8 +16,8 @@ function Logout() {
     });
 
     useEffect(() => {
-        return <Redirect to="/"></Redirect>
         console.log("use effect")
+        return <Redirect to="/"></Redirect>
     }, [done])
 
     return (

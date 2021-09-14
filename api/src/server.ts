@@ -22,14 +22,7 @@ app.use(session({
     saveUninitialized: true,
     store: new MongoStore({
         mongoUrl: process.env.MONGO_CONN,
-        mongoOptions: {
-            autoReconnect: true,
-            useNewUrlParser: true
-        }
     })
-    // cookie: {
-    //     maxAge: 1000 * 60 * 60 * 24 * 7 //uma semana ?
-    // }
 }));
 
 app.use(express.static('../website'));
