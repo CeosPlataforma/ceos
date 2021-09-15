@@ -1,127 +1,33 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import $ from 'jquery';
+import StuffComponent from "../components/StuffComponent"
 
 import hero from "../assets/illustrations/hero.svg";
 import org from "../assets/illustrations/organizacao.svg";
 import desempenho from "../assets/illustrations/desempenho.svg";
 import gerenciamento from "../assets/illustrations/gerenciamento.svg";
 
-const data = [
+const stuff = [
     {
-        id: '1',
         title: 'Organização',
-        img: { org },
+        img: org,
         text1: 'É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.',
         text2: 'Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar.',
     },
-
     {
-        id: '2',
         title: 'Desempenho',
-        img: { desempenho },
+        img: desempenho,
         text1: 'Ter uma boa visão do desempenho em variados aspectos escolares é relevante para verificar falhas e melhor gerir a performance nos estudos.',
         text2: 'Assim, de modo intuitivo e prático, a plataforma possibilita um melhor gerenciamento das atividades escolares.',
     },
-
     {
-        id: '3',
         title: 'Gerenciamento',
-        img: { gerenciamento },
+        img: gerenciamento,
         text1: 'Administrar as atividades disciplinares de forma produtiva é essencial para garantir o êxito no contexto estudantil.',
         text2: 'Diante disso, na plataforma, o controle do desempenho nas atividades estudantis é caracterizado pela agilidade e eficiência.',
     }];
 
 export default function Home() {
-
-    /* const [source, setSource] = useState(org);
-
-
-    const fuck = (props) => {
-        if (props === "gerenciamento") {
-            setSource(gerenciamento)
-        } else if (props === "desempenho") {
-            setSource(desempenho)
-        } else if (props === "organizacao") {
-            setSource(org)
-        }
-    } */
-
-    /* componentDidMount = () => {
-        // Visão geral
-
-        // Organização
-        $('#btn--organizacao').on('click', function () {
-            // Buttons
-            $('#btn--organizacao').addClass('visao-geral--btn--active');
-            $('#btn--organizacao').removeClass('visao-geral--btn--inactive');
-
-            $('#btn--gerenciamento').addClass('visao-geral--btn--inactive');
-            $('#btn--gerenciamento').removeClass('visao-geral--btn--active');
-
-            $('#btn--desempenho').addClass('visao-geral--btn--inactive');
-            $('#btn--desempenho').removeClass('visao-geral--btn--active');
-
-            // Title
-            $('#visao-geral--title').text('Organização');
-
-            // Text
-            $('#visao-geral--text--1').text('É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.');
-
-            $('#visao-geral--text--2').text('Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar');
-
-            // Image
-            $('#visao-geral--img').attr('src', '../assets/illustrations/organizacao.svg');
-        });
-
-        // Gerenciamento
-        $('#btn--gerenciamento').on('click', function () {
-            // Buttons
-            $('#btn--organizacao').addClass('visao-geral--btn--inactive');
-            $('#btn--organizacao').removeClass('visao-geral--btn--active');
-
-            $('#btn--gerenciamento').addClass('visao-geral--btn--active');
-            $('#btn--gerenciamento').removeClass('visao-geral--btn--inactive');
-
-            $('#btn--desempenho').addClass('visao-geral--btn--inactive');
-            $('#btn--desempenho').removeClass('visao-geral--btn--active');
-
-            // Title
-            $('#visao-geral--title').text('Gerenciamento');
-
-            // Text
-            $('#visao-geral--text--1').text('Administrar as atividades disciplinares de forma produtiva é essencial para garantir o êxito no contexto estudantil.');
-
-            $('#visao-geral--text--2').text('Assim, de modo intuitivo e prático, a plataforma possibilita um melhor gerenciamento das atividades escolares.');
-
-            // Image
-            $('#visao-geral--img').attr('src', '../assets/illustrations/gerenciamento.svg');
-        });
-
-        // Desempenho
-        $('#btn--desempenho').on('click', function () {
-            // Buttons
-            $('#btn--organizacao').addClass('visao-geral--btn--inactive');
-            $('#btn--organizacao').removeClass('visao-geral--btn--active');
-
-            $('#btn--gerenciamento').addClass('visao-geral--btn--inactive');
-            $('#btn--gerenciamento').removeClass('visao-geral--btn--active');
-
-            $('#btn--desempenho').addClass('visao-geral--btn--active');
-            $('#btn--desempenho').removeClass('visao-geral--btn--inactive');
-
-            // Title
-            $('#visao-geral--title').text('Desempenho');
-
-            // Text
-            $('#visao-geral--text--1').text('Ter uma boa visão do desempenho em variados aspectos escolares é relevante para verificar falhas e melhor gerir a performance nos estudos.');
-
-            $('#visao-geral--text--2').text('Diante disso, na plataforma, o controle do desempenho nas atividades estudantis é caracterizado pela agilidade e eficiência.');
-
-            // Image
-            $('#visao-geral--img').attr('src', '../assets/illustrations/desempenho.svg');
-        }); 
-    } */
 
     return (
         <div>
@@ -206,48 +112,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="container container-padding--light visao-geral" id="visao-geral">
-                <h2 className="visao-geral--title text-center mb-4">
-                    Visão geral sobre a plataforma
-                </h2>
-
-                <div className="row mb-4 mb-xl-0">
-                    <div className="col-sm-4 mb-4 mb-md-0">
-                        <button className="visao-geral--btn--active" id="btn--organizacao" /* onClick={fuck("organizacao")} */>
-                            Organização
-                        </button>
-                    </div>
-
-                    <div className="col-sm-4 mb-4 mb-md-0">
-                        <button className="visao-geral--btn--inactive" id="btn--gerenciamento" /*onClick={fuck("gerencimento")} */>
-                            Gerenciamento
-                        </button>
-                    </div>
-
-                    <div className="col-sm-4">
-                        <button className="visao-geral--btn--inactive" id="btn--desempenho" /* onClick={fuck("desempenho")} */>
-                            Desempenho
-                        </button>
-                    </div>
-                </div>
-
-                <div className="row align-items-center visao-geral--content">
-                    <div className="col-sm-12 col-xl-7">
-                        <h1 className="visao-geral--content--title mb-4" id="visao-geral--title"> Organização </h1>
-
-                        <p className="visao-geral--content--text--1" id="visao-geral--text--1">
-                            É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.
-                        </p>
-                        <p className="visao-geral--content--text--2" id="visao-geral--text--2">
-                            Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar.
-                        </p>
-                    </div>
-
-                    <div className="col-sm-12 col-xl-5">
-                        <img /* src={source} */ className="d-none d-xl-block mx-auto img-fluid visao-geral--content--img" id="visao-geral--img" alt="Imagem de Organização - Ceos" width="700px" height="100%" />
-                    </div>
-                </div>
-            </div>
+            <StuffComponent/>
 
             <div className="container-fluid funcionalidades px-0" id="funcionalidades">
                 <div className="container container-padding">

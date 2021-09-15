@@ -60,20 +60,14 @@ export default function Acessar() {
         <div>
             <div className="container acessar" id="acessar">
                 <h2 className="acessar--title text-center mb-4">
-                    Entre com a sua conta
+                    Esqueceu sua senha?
                 </h2>
 
                 <p className="acessar--text">
-                    Novo por aqui? <span> <Link to="/cadastrar"> Crie sua conta. </Link > </span>
+                    Escolha uma nova senha aqui {/*<span> <Link to="/cadastrar"> Crie sua conta. </Link > </span>*/}
                 </p>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     <Form className="acessar--form col-lg-6 mx-auto">
-                        <div className="mb-4">
-                            <label htmlFor="acessar--email" className="form-label"> E-mail </label>
-                            <Field name="email" type="email" className="form-control acessar--input" id="acessar--email" required />
-                            <ErrorMessage name="email" />
-                        </div>
-
                         <div className="mb-4">
                             <label htmlFor="acessar--senha" className="form-label"> Senha </label>
                             <div className="acessar--senha--container senha--container">
@@ -82,14 +76,7 @@ export default function Acessar() {
                                 <ErrorMessage name="password" />
                             </div>
                         </div>
-
-                        <div className="extras">
-                            <div className="esqueci-minha-senha mb-4">
-                                <span className="esqueci-minha-senha--text" onClick={() => setModalShow(true)}> Esqueci minha senha </span>
-                            </div>
-                        </div>
-
-                        <button type="submit" className="acessar--btn w-100"> Entrar </button>
+                        <button type="submit" className="acessar--btn w-100"> Confirmar </button>
                     </Form>
                 </Formik>
             </div>

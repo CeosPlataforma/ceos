@@ -36,21 +36,14 @@ let schema = new Schema<User>({
         default: Date.now()
     },
     uuid: {
-        type: String,
-        default: uuid()
+        type: String
     }
 });
-
-/*schema.methods.setPassword = function(password) {
-    this.salt = crypto.randomBytes(16).toString('base64');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64');
-};*/
 
 schema.methods.validPassword = function(password) {
     const hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64');
     return this.hash === hash;
 };
-
 const UserModel = model<User>('User', schema);
 
 export { UserModel };

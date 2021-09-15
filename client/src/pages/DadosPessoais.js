@@ -5,76 +5,36 @@ import axios from 'axios';
 
 export default function DadosPessoais() {
 
-    /*componentDidMount = () => {
-        $(".show-password, .hide-password").on('click', function () {
-            var passwordId = $(this).parent('.senha--container:first').find('input').attr('id');
-            if ($(this).hasClass('show-password')) {
-                $("#" + passwordId).attr("type", "text");
-                $(this).parent().find(".show-password").hide();
-                $(this).parent().find(".hide-password").show();
-            } else {
-                $("#" + passwordId).attr("type", "password");
-                $(this).parent().find(".hide-password").hide();
-                $(this).parent().find(".show-password").show();
-            }
-        });
-
-        // Dados pessoais
-        let dados_btn = $(".dados-pessoais--btn");
-        let dados_inputs = $(".dados-pessoais--input");
-
-        dados_btn.on("click", function () {
-            if (dados_btn.text() === "Alterar dados") {
-                dados_btn.text("Salvar alterações");
-                dados_inputs.css("cursor", "text");
-                dados_inputs.attr("readonly", false);
-                dados_btn.attr("type", "submit"); // arrudas, tem q dar um jeito do submit funcionar como gente
-            } else {
-                dados_btn.text("Alterar dados");
-                dados_inputs.css("cursor", "default");
-                dados_inputs.attr("readonly", true);
-                dados_btn.attr("type", "button");
-            }
-        });
-    }*/
-
     axios.defaults.withCredentials = true
 
-    let initialValues = {
-        email: "",
-        name: ""
-    }
+    const [nome, setNome] = useState('')
+    const [email, setEmail] = useState('')
 
-    useEffect(() => {
-        axios.get("http://localhost:3333/userinfo")
-            .then((response) => {
-                initialValues.email = response.data.email;
-                initialValues.name = response.data.name
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
+    axios.get("http://localhost:3333/userinfo")
+    .then((response) => {
+        setNome(response.data.name)
+        setEmail(response.data.email)
     })
-
-    const [show, setShow] = useState(false);
+    .catch((error) => {
+        console.log(error);
+    });
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
-
-    const [textoConfirmMostrar, setTextoConfirmMostrar] = useState("Mostrar")
-    const [passwordConfirmShown, setPasswordConfirmShown] = useState(false)
-
-
 
     const onSubmit = () => {
         console.log("?")
     }
 
+    const initialValues = {
+        name: nome,
+        email
+    }
+
     const validationSchema = Yup.object({
         email: Yup.string().email("Email inválido").required('Obrigatório'),
-        name: Yup.string().required('Obrigatório'),
-        password: Yup.string().required('Obrigatório'),
+        nome: Yup.string().required('Obrigatório'),
+        senha: Yup.string().required('Obrigatório'),
     });
 
     const toggleSenha = () => {
@@ -108,21 +68,21 @@ export default function DadosPessoais() {
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto">
-                        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                        <Formik enableReinitialize={true} initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                             <Form className="dados-pessoais--form">
                                 <label for="dados-pessoais--nome" className="form-label">Nome</label>
                                 <Field name="name" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--nome"
-                                    defaultValue="Nome de usuário" readonly="true" />
+                                    defaultValue={nome} readonly="true" />
 
                                 <label for="dados-pessoais--email" className="form-label">E-mail</label>
                                 <Field name="email" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--email"
-                                    defaultValue="emaildousuario@gmail.com" readonly="true" />
+                                    defaultValue={email} readonly="true" />
 
                                 <label for="dados-pessoais--senha" className="form-label">Senha</label>
                                 <div className="dados-pessoais--senha--container senha--container">
-                                    <Field name="password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
+                                    <Field name="senha" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                     <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                    <ErrorMessage name="password" />
+                                    <ErrorMessage name="senha" />
                                 </div>
                                 <br />
                                 <button type="submit" className="dados-pessoais--btn w-100">Alterar dados</button>

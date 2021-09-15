@@ -5,7 +5,7 @@ interface Materia {
     name: string;
     createdAt: Date;
     uuid: string;
-    user: Schema.Types.ObjectId;
+    user: string;
 }
 
 let schema = new Schema<Materia>({
@@ -22,7 +22,7 @@ let schema = new Schema<Materia>({
     },
 
     user: { 
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: 'User',
         required: true
     }

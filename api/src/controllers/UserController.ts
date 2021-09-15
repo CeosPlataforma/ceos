@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { UserModel } from '../models/User';
-import { validate } from 'uuid';
+import { v4, validate } from 'uuid';
 import SendMail from "../services/SendMail";
 import { resolve } from 'path';
 import crypto from 'crypto';
@@ -14,6 +14,7 @@ class UserController {
         newUser.email = request.body.email.toLowerCase();
         newUser.salt = crypto.randomBytes(16).toString('base64');
         newUser.hash = crypto.pbkdf2Sync(request.body.password, newUser.salt, 1000, 64, 'sha512').toString('base64');
+        newUser.uuid = crypto.randomUUID({disableEntropyCache: true});
         //console.log(newUser);
 
         try {
@@ -54,7 +55,8 @@ class UserController {
                         request.session.user = {
                             email,
                             name: user.name,
-                            id: user._id
+                            id: user._id,
+                            uuid: user.uuid
                         };
                         request.session.save()
                         console.log({
@@ -106,14 +108,14 @@ class UserController {
             email: request.session.user.email,
             name: request.session.user.name
         });
-        console.log(request.session)
+        // console.log(request.session)
     }
 
     async logout(request: Request, response: Response) {
-        request.session.destroy((error) => {
-            console.log(error)
-            return response.status(500).json(error)
+        request.session.destroy((err) => {
+            
         })
+        console.log("session destruida")
     }
 
 }

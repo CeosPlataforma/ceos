@@ -71,7 +71,7 @@ export default function Cadastrar() {
 
     return (
         <div>
-            {show && <ModalCadastro closeModal={setShow} />}
+            
             <div className="container cadastrar" id="acessar">
 
                 <h2 className="cadastrar--title text-center mb-4">
@@ -120,6 +120,8 @@ export default function Cadastrar() {
                     </Form>
 
                 </Formik>
+
+                <ModalCadastro show={show}/>
 
             </div>
         </div>
