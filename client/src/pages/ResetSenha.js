@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router";
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
-import ModalSenha from "../components/ModalSenha";
+import ModalEsqueceuSenha from "../components/ModalEsqueceuSenha";
 
 export default function Acessar() {
+
+    const { userID } = useParams()
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
@@ -28,27 +31,22 @@ export default function Acessar() {
     }
 
     const initialValues = {
-        email: '',
         password: ''
     };
 
     const validationSchema = Yup.object({
-        email: Yup.string().email("Email inválido").required('Obrigatório'),
         password: Yup.string().required('Obrigatório'),
     });
 
     axios.defaults.withCredentials = true
     const onSubmit = async (values, actions) => {
-        await axios.post("http://localhost:3333/login", { email: values.email, password: values.password })
+        await axios.post("http://localhost:3333/redefinir-senha", { password: values.password, user_uuid: userID })
             .then(function (response) {
                 if (response.data.error === "inexistent") {
-                    actions.setFieldError("email", `Este usuário não existe`);
-                } else if (response.data.error === "verify") {
-                    actions.setFieldError("email", `Por favor verifique seu email antes de se logar`);
-                } else if (response.data.error === "password") {
-                    actions.setFieldError("password", `Senha incorreta`);
-                } else if (response.status === 201) {
-                    redirect();
+                    actions.setFieldError("password", `erro: usuario inexistente`);
+                } else if (response.data.success) {
+                    actions.setFieldError("password", `Sucesso!`)
+                    setModalShow(true)
                 }
             })
             .catch(function (error) {
@@ -80,7 +78,7 @@ export default function Acessar() {
                     </Form>
                 </Formik>
             </div>
-            <ModalSenha show={modalShow} onHide={() => setModalShow(false)}/>
+            <ModalEsqueceuSenha show={modalShow} onHide={() => setModalShow(false)}/>
         </div >
     );
 }

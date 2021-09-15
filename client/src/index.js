@@ -18,6 +18,7 @@ import Contato from "./pages/Contato";
 import DadosPessoais from "./pages/DadosPessoais";
 import Materias from "./pages/Materias";
 import Desempenho from "./pages/Desempenho";
+import ResetSenha from "./pages/ResetSenha"
 import "./css/main.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -77,6 +78,9 @@ ReactDOM.render(
                 <Sidebar />
                 <DadosPessoais />
                 <MiniFooter />
+            </Route>
+            <Route path="/redefinir-senha/:userID">
+                <ResetSenha />
             </Route>
             <Route path="/logout">
                 <Logout />

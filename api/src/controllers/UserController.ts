@@ -118,6 +118,51 @@ class UserController {
         console.log("session destruida")
     }
 
+    async resetPassword(request: Request, response: Response) {
+        
+        if (request.body.hasOwnProperty('email')) {
+            const { email } = request.body 
+            await UserModel.findOne({ email: email }, function (error, user_doc) {
+                if (error) {
+                    console.log(error)
+                    return response.json({error: error})
+                } else if (user_doc === null) {
+                    return response.json({error: "inexistent"})
+                } else {
+                    const hbsPath = resolve(__dirname, "..", "views", "email", "forgotPassword.hbs");
+
+                    const variables = {
+                        nome: request.body.name,
+                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}`
+                    }
+
+                    try {
+                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath);
+                        return response.status(200).json({ success: true });
+                    } catch (err) {
+                        console.log(err);
+                        return response.json({ error: "Erro ao enviar email" });
+                    }
+                }
+            });
+        } else if (request.body.user_uuid) {
+            const { user_uuid }  = request.body;
+            const { password } = request.body;
+            const new_salt = crypto.randomBytes(16).toString('base64');
+            const new_hash = crypto.pbkdf2Sync(password, new_salt, 1000, 64, 'sha512').toString('base64');
+            await UserModel.findOneAndUpdate({ uuid: user_uuid }, {salt: new_salt, hash: new_hash}, {new: false, useFindAndModify: false}, function (error, user_doc) {
+                if (error) {
+                    console.log(error)
+                    return response.json({error: error})
+                } else if (user_doc === null) {
+                    return response.json({error: "inexistent"})
+                } else {
+                    return response.json({success: true})
+                }
+            });
+        }
+    }
+
 }
 
 export { UserController };

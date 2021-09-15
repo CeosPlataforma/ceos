@@ -2,8 +2,18 @@ import React, { Component, useEffect } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
+import * as Yup from 'yup'
+import axios from 'axios';
 
 function ModalSenha(props) {
+
+    const initialValues = {
+        email: ''
+    };
+
+    const validationSchema = Yup.object({
+        email: Yup.string().email("Email inválido").required('Obrigatório'),
+    });
 
     return (
         <Modal
@@ -25,16 +35,14 @@ function ModalSenha(props) {
                     as
                     instruções de como recuperar sua senha
                 </p>
-                <Formik>
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
                     <Form>
                         <Field name="email" type="email" className="form-control modal--input mb-4" id="acessar--email" required />
                         <ErrorMessage name="email" />
+                        <button type="submit" className="btn btn-primary text-md w-100 modal--btn">Recuperar senha</button>
                     </Form>
                 </Formik>
             </Modal.Body>
-            <Modal.Footer>
-                <Button type="submit" className="btn btn-primary text-md w-100 modal--btn">Recuperar senha</Button>
-            </Modal.Footer>
         </Modal>
     );
 }

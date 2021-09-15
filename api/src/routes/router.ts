@@ -22,6 +22,7 @@ router.get('/userinfo', userController.userinfo)
 router.post('/register', userController.registerUser);
 router.get('/register/:userID', userController.verifyEmail);
 router.post('/logout', userController.logout)
+router.post('/redefinir-senha/', userController.resetPassword)
 
 router.post('/fuck', (req, res) => {
     console.log(req.body)

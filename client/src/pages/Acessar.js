@@ -56,6 +56,27 @@ export default function Acessar() {
             });
     }
 
+
+    axios.defaults.withCredentials = true
+    const onSubmitModal = async (values, actions) => {
+        await axios.post("http://localhost:3333/redefinir-senha", { email: values.email })
+            .then(function (response) {
+                if (response.data.error === "inexistent") {
+                    actions.setFieldError("email", `Este usuário não existe`);
+                } else if (response.data.success) {
+                    actions.setFieldError("email", `Sucesso! Verifique seu email.`)
+                    setTimeout(function () {
+                        setModalShow(false)
+                    }, 5000)
+                } else {
+                    actions.setFieldError("email", response.data.error)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     return (
         <div>
             <div className="container acessar" id="acessar">
@@ -93,7 +114,7 @@ export default function Acessar() {
                     </Form>
                 </Formik>
             </div>
-            <ModalSenha show={modalShow} onHide={() => setModalShow(false)}/>
+            <ModalSenha onSubmit={onSubmitModal} show={modalShow} onHide={() => setModalShow(false)}/>
         </div >
     );
 }

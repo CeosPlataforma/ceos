@@ -25,7 +25,7 @@ app.use(session({
     })
 }));
 
-app.use(express.static('../website'));
+//app.use(express.static('../website'));
 app.use(router);
 
 app.listen(process.env.PORT);
