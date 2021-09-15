@@ -1,18 +1,22 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useParams } from "react-router";
-import * as Yup from 'yup';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React, { useState } from "react";
+import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
+import * as Yup from 'yup';
 import ModalEsqueceuSenha from "../components/ModalEsqueceuSenha";
 
 export default function Acessar() {
 
     const { userID } = useParams()
+    const [modalShow, setModalShow] = useState(false);
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
-    const [modalShow, setModalShow] = useState(false);
+
+    const [textoConfirmMostrar, setTextoConfirmMostrar] = useState("Mostrar")
+    const [passwordConfirmShown, setPasswordConfirmShown] = useState(false)
+
 
     const toggleSenha = () => {
         if (passwordShown) {
@@ -21,6 +25,16 @@ export default function Acessar() {
         } else {
             setPasswordShown(true);
             setTextoMostrar("Ocultar")
+        }
+    }
+
+    const toggleSenhaConfirmar = () => {
+        if (passwordConfirmShown) {
+            setPasswordConfirmShown(false);
+            setTextoConfirmMostrar("Mostrar")
+        } else {
+            setPasswordConfirmShown(true);
+            setTextoConfirmMostrar("Ocultar")
         }
     }
 
@@ -36,6 +50,7 @@ export default function Acessar() {
 
     const validationSchema = Yup.object({
         password: Yup.string().required('Obrigatório'),
+        confirmPassword: Yup.string().oneOf([Yup.ref('password'), ''], 'As senhas devem ser iguais').required('Obrigatório')
     });
 
     axios.defaults.withCredentials = true
@@ -72,6 +87,14 @@ export default function Acessar() {
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                                 <ErrorMessage name="password" />
+                            </div>
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
+                            <div className="cadastrar--senha--container senha--container">
+                                <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
+                                <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
+                                <ErrorMessage name="confirmPassword" />
                             </div>
                         </div>
                         <button type="submit" className="acessar--btn w-100"> Confirmar </button>

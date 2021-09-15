@@ -1,9 +1,7 @@
-import React, { Component, useEffect } from "react";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import React from "react";
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
-import * as Yup from 'yup'
-import axios from 'axios';
+import * as Yup from 'yup';
 
 function ModalSenha(props) {
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 export default function Contato() {
     return (
@@ -13,25 +14,51 @@ export default function Contato() {
                     Está com alguma dúvida referente à plataforma? Mande já uma mensagem.
                 </p>
 
-                <form className="contato--form col-lg-6 mx-auto">
+                {/* <Formik>
+                    <Form className="contato--form col-lg-6 mx-auto">
+                        <div className="mb-4">
+                            <label htmlFor="contato--nome" className="form-label"> Nome </label>
+                            <Field name="nome" type="text" className="form-control contato--input" id="contato--nome" required />
+                        </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="contato--email" className="form-label"> E-mail </label>
+                            <Field name="email" type="email" className="form-control contato--input" id="contato--email" required />
+                        </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="contato--assunto" className="form-label"> Assunto </label>
+                            <Field name="assunto" type="text" className="form-control contato--input" id="contato--assunto" required />
+                        </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="contato--mensagem" className="form-label"> Mensagem </label>
+                            <Field control="textarea" type="textarea" name="mensagem" className="form-control" id="contato--mensagem" required />
+                        </div>
+
+                        <button type="submit" className="contato--btn w-100"> Enviar mensagem </button>
+                    </Form>
+                </Formik> */}
+
+                <form className="contato--form col-lg-6 mx-auto" method="POST" action="http://localhost:3333/contato">
                     <div className="mb-4">
                         <label htmlFor="contato--nome" className="form-label"> Nome </label>
-                        <input type="text" className="form-control contato--input" id="contato--nome" required />
+                        <input type="text" name="nome" className="form-control contato--input" id="contato--nome" required />
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="contato--email" className="form-label"> E-mail </label>
-                        <input type="email" className="form-control contato--input" id="contato--email" required />
+                        <input type="email" name="email" className="form-control contato--input" id="contato--email" required />
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="contato--assunto" className="form-label"> Assunto </label>
-                        <input type="text" className="form-control contato--input" id="contato--assunto" required />
+                        <input type="text" name="assunto" className="form-control contato--input" id="contato--assunto" required />
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="contato--mensagem" className="form-label"> Mensagem </label>
-                        <textarea className="form-control" id="contato--mensagem" required />
+                        <textarea className="form-control" id="contato--mensagem" name="mensagem" required />
                     </div>
 
                     <button type="submit" className="contato--btn w-100"> Enviar mensagem </button>

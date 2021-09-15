@@ -20,7 +20,7 @@ class MailController {
         }
 
         try {
-            await SendMail.execute("suporte@ceos.com", assunto, variables, hbsPath);
+            await SendMail.execute("ceos.plataforma@gmail.com", assunto, variables, hbsPath);
             return response.status(200).json({ message: "logo a equipe entrara em contato com você" });
         } catch (err) {
             console.log(err);

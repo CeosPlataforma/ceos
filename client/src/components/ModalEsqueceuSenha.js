@@ -1,10 +1,7 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
+import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useHistory } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
-import * as Yup from 'yup'
-import axios from 'axios';
 
 function ModalEsqueceuSenha(props) {
 

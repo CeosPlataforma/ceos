@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
-import { UserModel } from '../models/User';
-import { v4, validate } from 'uuid';
-import SendMail from "../services/SendMail";
-import { resolve } from 'path';
 import crypto from 'crypto';
+import { Request, Response } from 'express';
+import { resolve } from 'path';
+import { validate } from 'uuid';
+import { UserModel } from '../models/User';
+import SendMail from "../services/SendMail";
 
 class UserController {
 
