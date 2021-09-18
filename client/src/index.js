@@ -1,26 +1,26 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Footer from "./components/Footer";
 
 // COMPONENTS
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Sidebar from "./components/Sidebar";
-import MiniFooter from "./components/MiniFooter";
-import ModalSenha from "./components/ModalSenha";
-import ModalCadastro from "./components/ModalCadastro";
 import Logout from "./components/Logout";
-
-// PAGES
-import Home from "./pages/LandingPage";
+import MiniFooter from "./components/MiniFooter";
+import Sidebar from "./components/Sidebar";
+import "./css/main.css";
 import Acessar from "./pages/Acessar";
 import Cadastrar from "./pages/Cadastrar";
 import Contato from "./pages/Contato";
 import DadosPessoais from "./pages/DadosPessoais";
-import Materias from "./pages/Materias";
 import Desempenho from "./pages/Desempenho";
-import ResetSenha from "./pages/ResetSenha"
-import "./css/main.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+// PAGES
+import Home from "./pages/LandingPage";
+import Materias from "./pages/Materias";
+import ResetSenha from "./pages/ResetSenha";
+
+
 
 ReactDOM.render(
     <BrowserRouter>

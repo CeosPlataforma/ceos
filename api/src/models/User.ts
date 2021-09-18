@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose';
-import { v4 as uuid } from 'uuid';
 import crypto from 'crypto';
 
 interface User {

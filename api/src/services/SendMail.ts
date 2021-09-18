@@ -5,7 +5,6 @@ import nodemailer from 'nodemailer';
 class SendMail {
 
     async execute(to: string, subject: string, variables: object, path: string) {
-        
 
         const templateFileContent = fs.readFileSync(path).toString("utf-8");
 

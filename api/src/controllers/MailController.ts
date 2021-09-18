@@ -27,12 +27,6 @@ class MailController {
             return response.status(500).json({ message: "erro para realizar o envio da mensagem de contato" });
         }
     }
-
-    /*
-    async genericMail (from: string, subject: string, variables: object, hbsPath: string) {
-        SendMail.execute(from, subject, variables, hbsPath);
-    }
-    */
 }
 
 export { MailController };

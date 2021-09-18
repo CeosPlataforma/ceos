@@ -6,7 +6,7 @@ import('../database/')
 const router = Router();
 
 router.get('/', (request, response) => {
-    response.status(200).sendFile('D:/Programacao/ceos-main/website/landing-page/');
+    response.status(200).redirect('http://localhost:3000/')
 });
 
 const mailController = new MailController();
@@ -23,11 +23,5 @@ router.post('/register', userController.registerUser);
 router.get('/register/:userID', userController.verifyEmail);
 router.post('/logout', userController.logout)
 router.post('/redefinir-senha/', userController.resetPassword)
-
-router.post('/fuck', (req, res) => {
-    console.log(req.body)
-    const returnMsg = req.body.fodase + "" + req.body.fods;
-    return res.json({return: returnMsg})
-});
 
 export { router };

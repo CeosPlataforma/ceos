@@ -1,13 +1,11 @@
 import { Request, Response } from 'express';
 import { MateriaModel } from '../models/Materia';
 import { UserModel } from '../models/User';
-import { Schema } from 'mongoose';
 
 class MateriaController {
 
     async createMateria(request: Request, response: Response) {
         const userUuid = request.session.user.uuid;
-        //console.log(request.session.user.id)
         const newMateria = new MateriaModel();
         await UserModel.findOne({ uuid: userUuid }).then((user) => {
             newMateria.name = request.body.name;
@@ -34,43 +32,6 @@ class MateriaController {
                 });
             }
         })
-
-
-        /*if () {
-            console.log("existe materia")
-            const materiaExistente = await MateriaModel.find({ name: newMateria.name, user: newMateria.user })
-            console.log(materiaExistente)
-            
-        } else {
-            try {
-                const savedMateria = newMateria.save()
-                console.log(savedMateria)
-                return response.status(200).send({success: true});
-            } catch (err) {
-                console.error(err);
-                return response.status(200).send(err);
-            }
-        }*/
-
-        
-
-        /*try {
-            if () {
-                throw new Error("materiaExistsForUser");
-            } else {
-                const savedMateria = await newMateria.save();
-                return response.status(200).json({ message: "sucesso", materia: savedMateria });
-            }
-        } catch (error) {
-
-            console.error(error);
-            if (error.code === 11000 || error.message === "materiaExistsForUser") {
-                return response.json({ message: "já existe", materiaAlreadyExists: true })
-            } else {
-                return response.json({ error })
-            }
-
-        }*/
     }
 
     async getAllMaterias(request: Request, response: Response) {
@@ -79,17 +40,10 @@ class MateriaController {
             if (!materias.length) {
                 return response.json({ message: "sem-materias" });
             } else {
-
-                materias.forEach((value, index) => {
-                    //console.log(typeof (value))
-                });
-                //console.log(materias)
                 return response.send(materias);
-
             }
         })
     }
-
 
     async deleteMateria(request: Request, response: Response) {
         const materiaName = request.body.name;

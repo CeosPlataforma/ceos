@@ -1,31 +1,7 @@
-import React, { Component, useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import StuffComponent from "../components/StuffComponent"
-
 import hero from "../assets/illustrations/hero.svg";
-import org from "../assets/illustrations/organizacao.svg";
-import desempenho from "../assets/illustrations/desempenho.svg";
-import gerenciamento from "../assets/illustrations/gerenciamento.svg";
-
-const stuff = [
-    {
-        title: 'Organização',
-        img: org,
-        text1: 'É de conhecimento geral que a organização nos estudos é de suma importância para o sucesso de um estudante em diversos aspectos.',
-        text2: 'Nesse sentido, a plataforma permite a categorização de atividades e matérias, de modo a te ajudar efetivamente na organização escolar.',
-    },
-    {
-        title: 'Desempenho',
-        img: desempenho,
-        text1: 'Ter uma boa visão do desempenho em variados aspectos escolares é relevante para verificar falhas e melhor gerir a performance nos estudos.',
-        text2: 'Assim, de modo intuitivo e prático, a plataforma possibilita um melhor gerenciamento das atividades escolares.',
-    },
-    {
-        title: 'Gerenciamento',
-        img: gerenciamento,
-        text1: 'Administrar as atividades disciplinares de forma produtiva é essencial para garantir o êxito no contexto estudantil.',
-        text2: 'Diante disso, na plataforma, o controle do desempenho nas atividades estudantis é caracterizado pela agilidade e eficiência.',
-    }];
+import StuffComponent from "../components/StuffComponent";
 
 export default function Home() {
 

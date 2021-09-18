@@ -15,7 +15,6 @@ class UserController {
         newUser.salt = crypto.randomBytes(16).toString('base64');
         newUser.hash = crypto.pbkdf2Sync(request.body.password, newUser.salt, 1000, 64, 'sha512').toString('base64');
         newUser.uuid = crypto.randomUUID({disableEntropyCache: true});
-        //console.log(newUser);
 
         try {
             const savedUser = await newUser.save();
@@ -108,7 +107,6 @@ class UserController {
             email: request.session.user.email,
             name: request.session.user.name
         });
-        // console.log(request.session)
     }
 
     async logout(request: Request, response: Response) {

@@ -1,10 +1,7 @@
-import React, { Component, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-import hero from "../assets/illustrations/hero.svg";
-import org from "../assets/illustrations/organizacao.svg";
+import React, { useState } from "react";
 import desempenho from "../assets/illustrations/desempenho.svg";
 import gerenciamento from "../assets/illustrations/gerenciamento.svg";
+import org from "../assets/illustrations/organizacao.svg";
 
 const stuff = [
     {
@@ -26,8 +23,6 @@ const stuff = [
         text2: 'Diante disso, na plataforma, o controle do desempenho nas atividades estudantis é caracterizado pela agilidade e eficiência.',
     }
 ];
-
-
 
 function StuffComponent(props) {
 
@@ -57,7 +52,7 @@ function StuffComponent(props) {
 
                 <div className="col-sm-4 mb-4 mb-md-0">
                     <button className={gerButton} onClick={() => {
-                        setIndex(1)
+                        setIndex(2)
                         setOrgButton("visao-geral--btn--inactive")
                         setGerButton("visao-geral--btn--active")
                         setDesButton("visao-geral--btn--inactive")
@@ -68,7 +63,7 @@ function StuffComponent(props) {
 
                 <div className="col-sm-4">
                     <button className={desButton} onClick={() => {
-                        setIndex(2)
+                        setIndex(1)
                         setOrgButton("visao-geral--btn--inactive")
                         setGerButton("visao-geral--btn--inactive")
                         setDesButton("visao-geral--btn--active")

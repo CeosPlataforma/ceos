@@ -17,7 +17,6 @@ export default function Acessar() {
     const [textoConfirmMostrar, setTextoConfirmMostrar] = useState("Mostrar")
     const [passwordConfirmShown, setPasswordConfirmShown] = useState(false)
 
-
     const toggleSenha = () => {
         if (passwordShown) {
             setPasswordShown(false);
@@ -75,9 +74,8 @@ export default function Acessar() {
                 <h2 className="acessar--title text-center mb-4">
                     Esqueceu sua senha?
                 </h2>
-
                 <p className="acessar--text">
-                    Escolha uma nova senha aqui {/*<span> <Link to="/cadastrar"> Crie sua conta. </Link > </span>*/}
+                    Escolha uma nova senha aqui
                 </p>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     <Form className="acessar--form col-lg-6 mx-auto">

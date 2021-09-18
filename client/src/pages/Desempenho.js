@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios';
-import User from "../components/User";
-import SimpleBox from "../components/SimpleBox";
+import React from "react";
 import MateriaContainer from "../components/MateriaContainer";
+import SimpleBox from "../components/SimpleBox";
+import User from "../components/User";
 
 export default function Desempenho() {
 

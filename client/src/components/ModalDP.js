@@ -1,8 +1,7 @@
-// modal penetração dupla???? 
-import React, { Component, useEffect } from "react";
-import Modal from 'react-bootstrap/Modal';
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import React from "react";
 import Button from 'react-bootstrap/Button';
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
+import Modal from 'react-bootstrap/Modal';
 
 function ModalSenha(props) {
 
