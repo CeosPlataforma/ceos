@@ -640,6 +640,9 @@ label:focus,
   font: 700 48px "Baloo Bhai 2", cursive;
   text-align: center;
 }
+.modal--subtitle {
+  text-align: center;
+}
 .modal--input {
   font: 500 20px "Baloo Bhai 2", cursive;
   color: #23272a;
@@ -726,7 +729,7 @@ label:focus,
   height: 100%;
   width: 78px;
   background: #23272a;
-  padding: 6px 14px;
+  padding: 0px 14px 30px 14px;
   z-index: 99;
   transition: all 0.5s ease;
   border-top-right-radius: 50px;
@@ -782,8 +785,8 @@ label:focus,
 }
 .sidebar .logo_content .logo {
   color: #FFFFFF;
-  display: flex;
-  align-items: center;
+  /*display: flex;
+  align-items: center;*/
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -891,14 +894,6 @@ ol, ul {
   padding-left: 0;
 }
 
-.logged--header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .simpleBox {
   display: flex;
   background: #216AA7;
@@ -915,6 +910,49 @@ ol, ul {
 .simpleBox h5 {
   color: white;
   text-align: center;
+}
+
+.atvBox {
+  display: flex;
+  background: #216AA7;
+  width: 300px;
+  height: 320px;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+.atvBox h2 {
+  color: #FFFFFF;
+  text-align: center;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.atvBox hr {
+  width: 100%;
+}
+.atvBox h5 {
+  color: white;
+  margin: 15px 0px;
+}
+.atvBox .btn-light {
+  color: #216AA7;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  padding: 6px 40px;
+  border-radius: 10px;
+}
+.atvBox .btn-danger {
+  color: #FFFFFF;
+  font-weight: regular;
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 0px 13px;
+}
+
+.logged--header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .acessar {
@@ -1233,4 +1271,22 @@ ol, ul {
   color: white;
   text-align: center;
   margin-bottom: 0;
+}
+
+.cronograma td, .cronograma th, .cronograma thead, .cronograma tbody {
+  text-align: center;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  border: 2px solid #216AA7 !important;
+}
+.cronograma th {
+  border: 0;
+  background-color: #216AA7;
+  color: #FFFFFF;
+}
+
+.modal-cronograma p {
+  text-align: justify;
+}
+.modal-cronograma h3 {
+  text-align: center;
 }

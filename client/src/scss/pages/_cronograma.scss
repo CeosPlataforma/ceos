@@ -1,0 +1,21 @@
+.cronograma {
+    td, th, thead, tbody {
+        text-align: center;
+        font: $font-sm;
+        border: 2px solid $blue !important;
+    }
+    th {
+        border: 0;
+        background-color: $blue;
+        color: $white;        
+    }
+}
+
+.modal-cronograma {
+    p {
+        text-align: justify;
+    }
+    h3 {
+        text-align: center;
+    }
+}
