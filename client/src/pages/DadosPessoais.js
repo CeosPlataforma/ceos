@@ -2,6 +2,7 @@ import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useState } from "react";
 import * as Yup from 'yup';
+import ModalExcluirConta from '../components/ModalExcluirConta';
 
 export default function DadosPessoais() {
 
@@ -9,15 +10,20 @@ export default function DadosPessoais() {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
+    const [show, setShow] = useState(false);
+
+    const reload = () => {
+        window.location.reload();
+    }
 
     axios.get("http://localhost:3333/userinfo")
-    .then((response) => {
-        setNome(response.data.name)
-        setEmail(response.data.email)
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+        .then((response) => {
+            setNome(response.data.name)
+            setEmail(response.data.email)
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
@@ -64,7 +70,7 @@ export default function DadosPessoais() {
                                 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
                         </svg>
                         <button className="dados-pessoais--alterar">Alterar foto</button>
-                        <a className="dados-pessoais--desativar">&gt; Desativar conta</a>
+                        <a className="dados-pessoais--desativar" onClick={() => { setShow(true) }}>&gt; Desativar conta</a>
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto">
@@ -91,6 +97,9 @@ export default function DadosPessoais() {
                     </div>
                 </div>
             </div>
+
+            <ModalExcluirConta onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
+
         </div>
     );
 }

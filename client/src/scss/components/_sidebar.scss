@@ -95,19 +95,7 @@
                 transition: all 0.5s ease;
                 opacity: 1;
                 top: 50%
-            }
-            .active {
-                color: $yellow;
-                cursor: default;
-                &:hover {
-                    svg {
-                        fill: $black;
-                    }
-                }
-                svg {
-                    fill: $yellow;
-                }
-            }
+            }            
             a {
                 color: $white;
                 display: flex;
@@ -120,7 +108,19 @@
                     color: $black;
                     background: $white;
                     svg {
-                        fill: black;
+                        fill: $black;
+                    }
+                }
+            }
+            #active {
+                color: $yellow;        
+                svg {
+                    fill: $yellow;
+                }
+                &:hover {
+                    color: $black;
+                    svg {
+                        fill: $black;
                     }
                 }
             }

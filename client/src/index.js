@@ -12,6 +12,7 @@ import "./css/main.css";
 
 // PAGES
 import Home from "./pages/LandingPage";
+import Painel from "./pages/Painel";
 import Materias from "./pages/Materias";
 import ResetSenha from "./pages/ResetSenha";
 import Acessar from "./pages/Acessar";
@@ -50,8 +51,7 @@ ReactDOM.render(
 
             <Route path="/painel">
                 <Sidebar />
-                {//<Painel />
-                }
+                <Painel />
                 <MiniFooter />
             </Route>
             <Route path="/cronograma">

@@ -3,6 +3,11 @@
     &--title {
         font: $font-lg;
         text-align: center;
+        &--desativar-conta {
+            font-size: 23px; /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/;
+            font-weight: bold;
+            text-align: center;
+        }
     }
     &--subtitle {
         text-align: center;

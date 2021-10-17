@@ -22,7 +22,7 @@ export default function Cronograma() {
                 <button className="btn btn-outline-primary" onClick={() => { setShow(true) }}>sem ícone por ora</button>
                 <br /><br />
 
-                <Table striped bordered hover responsive /*tirar responsive se quiser tirar scroll da tabela*/ >
+                <Table striped bordered hover responsive /*tirar responsive se quiser tirar scroll da tabela*/ className="last-element">
                     <thead>
                         <tr>
                             <th>Horário</th>

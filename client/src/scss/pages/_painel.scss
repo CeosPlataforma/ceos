@@ -1,0 +1,38 @@
+.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
+    margin-bottom: 160px;
+}
+
+.painel {
+    &--demais-horarios {
+        @extend .dados-pessoais--alterar;
+    }
+    &--materias-holder {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        @include device(sm) {            
+            flex-direction: column;        
+        }
+    }
+    &--materia {
+        background: $blue;
+        border: none;
+        padding: 40px 150px;
+        color: $white;
+        font: $font-sm;
+        @include device(lg) {            
+            padding: 30px 90px;
+        }
+        @include device(md) {            
+            padding: 20px 75px;
+        }
+        @include device(sm) {            
+            padding: 40px 150px;
+            width: 80%;
+            margin: 15px 0px;          
+        }
+    }
+    .atividades--holder {
+        margin-bottom: 40px;
+    }
+}

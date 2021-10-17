@@ -77,7 +77,7 @@ export default function Materias() {
                             </ul>
                         </div>
 
-                        <div class="materias--holder">
+                        <div class="materias--holder last-element">
 
                             {materias.map((materia) => (
                                 <div class="materias--container">

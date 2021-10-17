@@ -35,30 +35,32 @@ export default function VerAtvs() {
                                 </ul>
                             </div>
 
-                            <AtvBox
-                                title="Título"
-                                materia="Matéria"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                            />
-                            <AtvBox
-                                title="Título"
-                                materia="Matéria"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                            />
-                            <AtvBox
-                                title="Título"
-                                materia="Matéria"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                            />
-                            <AtvBox
-                                title="Título"
-                                materia="Matéria"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                            />
+                            <div class="atividades--holder">
+                                <AtvBox
+                                    title="Título"
+                                    materia="Matéria"
+                                    tipo="Trabalho"
+                                    data="xx/xx/xxxx"
+                                />
+                                <AtvBox
+                                    title="Título"
+                                    materia="Matéria"
+                                    tipo="Trabalho"
+                                    data="xx/xx/xxxx"
+                                />
+                                <AtvBox
+                                    title="Título"
+                                    materia="Matéria"
+                                    tipo="Trabalho"
+                                    data="xx/xx/xxxx"
+                                />
+                                <AtvBox
+                                    title="Título"
+                                    materia="Matéria"
+                                    tipo="Trabalho"
+                                    data="xx/xx/xxxx"
+                                />
+                            </div>
 
                         </div>
 

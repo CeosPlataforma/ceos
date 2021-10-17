@@ -93,6 +93,10 @@ label:focus,
   }
 }
 
+.last-element {
+  margin-bottom: 200px;
+}
+
 /*
 ::-webkit-scrollbar {
     width: 15px;
@@ -445,7 +449,7 @@ label:focus,
   background-color: #216AA7;
   padding-top: 15px;
   padding-bottom: 15px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 .min-footer--logo {
@@ -548,7 +552,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .materias--btn, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .materias--btn, .dados-pessoais--alterar, .painel--demais-horarios, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -638,6 +642,12 @@ label:focus,
 }
 .modal--title {
   font: 700 48px "Baloo Bhai 2", cursive;
+  text-align: center;
+}
+.modal--title--desativar-conta {
+  font-size: 23px;
+  /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/
+  font-weight: bold;
   text-align: center;
 }
 .modal--subtitle {
@@ -826,16 +836,6 @@ label:focus,
   opacity: 1;
   top: 50%;
 }
-.sidebar ul li .active {
-  color: #FFBF5B;
-  cursor: default;
-}
-.sidebar ul li .active:hover svg {
-  fill: #23272a;
-}
-.sidebar ul li .active svg {
-  fill: #FFBF5B;
-}
 .sidebar ul li a {
   color: #FFFFFF;
   display: flex;
@@ -850,7 +850,19 @@ label:focus,
   background: #FFFFFF;
 }
 .sidebar ul li a:hover svg {
-  fill: black;
+  fill: #23272a;
+}
+.sidebar ul li #active {
+  color: #FFBF5B;
+}
+.sidebar ul li #active svg {
+  fill: #FFBF5B;
+}
+.sidebar ul li #active:hover {
+  color: #23272a;
+}
+.sidebar ul li #active:hover svg {
+  fill: #23272a;
 }
 .sidebar ul li .tooltip {
   position: absolute;
@@ -915,8 +927,8 @@ ol, ul {
 .atvBox {
   display: flex;
   background: #216AA7;
-  width: 300px;
-  height: 320px;
+  width: 340px;
+  height: 360px;
   justify-content: center;
   flex-direction: column;
   padding: 30px;
@@ -928,6 +940,7 @@ ol, ul {
 }
 .atvBox hr {
   width: 100%;
+  background-color: #FFFFFF;
 }
 .atvBox h5 {
   color: white;
@@ -945,6 +958,9 @@ ol, ul {
   font-size: 30px;
   border-radius: 50%;
   padding: 0px 13px;
+}
+.atvBox #none {
+  display: none;
 }
 
 .logged--header {
@@ -1146,6 +1162,54 @@ ol, ul {
   min-height: 160px;
 }
 
+.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
+  margin-bottom: 160px;
+}
+
+.painel--materias-holder {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 767.98px) {
+  .painel--materias-holder {
+    flex-direction: column;
+  }
+}
+.painel--materia {
+  background: #216AA7;
+  border: none;
+  padding: 40px 150px;
+  color: #FFFFFF;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+@media screen and (max-width: 1199.98px) {
+  .painel--materia {
+    padding: 30px 90px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .painel--materia {
+    padding: 20px 75px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .painel--materia {
+    padding: 40px 150px;
+    width: 80%;
+    margin: 15px 0px;
+  }
+}
+.painel .atividades--holder {
+  margin-bottom: 40px;
+}
+
+.atividades--holder {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }
@@ -1154,7 +1218,7 @@ ol, ul {
   margin-bottom: 40px;
   height: 150px;
 }
-.dados-pessoais--alterar {
+.dados-pessoais--alterar, .painel--demais-horarios {
   border-color: #216AA7;
   color: #216AA7;
   padding: 5px 20px;
@@ -1162,7 +1226,7 @@ ol, ul {
   display: block;
   margin-bottom: 40px;
 }
-.dados-pessoais--alterar:hover {
+.dados-pessoais--alterar:hover, .painel--demais-horarios:hover {
   background-color: #216AA7;
   color: #FFFFFF;
   transition: 0.2s;
@@ -1273,12 +1337,12 @@ ol, ul {
   margin-bottom: 0;
 }
 
-.cronograma td, .cronograma th, .cronograma thead, .cronograma tbody {
+.cronograma td, .cronograma th, .cronograma thead, .cronograma tbody, .painel td, .painel th, .painel thead, .painel tbody {
   text-align: center;
   font: 500 20px "Baloo Bhai 2", cursive;
   border: 2px solid #216AA7 !important;
 }
-.cronograma th {
+.cronograma th, .painel th {
   border: 0;
   background-color: #216AA7;
   color: #FFFFFF;
