@@ -468,6 +468,16 @@ label:focus,
   left: 15.63%;
   transition: all 0.5s ease;
 }
+@media screen and (max-width: 1650px) {
+  .content {
+    width: calc(80% - 78px);
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .content {
+    width: calc(90% - 78px);
+  }
+}
 
 .title {
   font: 700 48px "Baloo Bhai 2", cursive;
@@ -962,6 +972,23 @@ ol, ul {
 .atvBox #none {
   display: none;
 }
+@media screen and (max-width: 991.98px) {
+  .atvBox {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .atvBox {
+    width: 270px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .atvBox {
+    padding: 30px 10px;
+    width: 230px;
+    height: 320px;
+  }
+}
 
 .logged--header {
   display: flex;
@@ -1195,12 +1222,12 @@ ol, ul {
 }
 @media screen and (max-width: 767.98px) {
   .painel--materia {
-    padding: 40px 150px;
     width: 80%;
     margin: 15px 0px;
+    padding: 20px;
   }
 }
-.painel .atividades--holder {
+.painel--atvs-recentes, .painel--materias {
   margin-bottom: 40px;
 }
 .painel .slick-arrow {
@@ -1390,6 +1417,21 @@ ol, ul {
   fill: #216AA7;
   cursor: pointer;
 }
+@media screen and (max-width: 1199.98px) {
+  .cronograma, .painel {
+    width: calc(85% - 78px) !important;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .cronograma, .painel {
+    width: calc(90% - 78px) !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cronograma, .painel {
+    width: calc(100% - 78px) !important;
+  }
+}
 .cronograma--icon, .cronograma--cancelchange, .painel--cancelchange, .cronograma--confirmchange, .painel--confirmchange, .painel--icon {
   text-align: center;
   border-radius: 50%;
@@ -1439,4 +1481,13 @@ ol, ul {
 }
 .modal-cronograma h3 {
   text-align: center;
+}
+.modal-cronograma--title {
+  margin-bottom: 0 !important;
+}
+.modal-cronograma--body {
+  padding-top: 0 !important;
+}
+.modal-cronograma--header {
+  padding-bottom: 0 !important;
 }

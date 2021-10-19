@@ -35,4 +35,15 @@
     #none {
         display: none;
     }
+    @include device(md) {            
+        width: 300px;
+    }
+    @include device(md) {            
+        width: 270px;
+    }
+    @include device(sm) {            
+        padding: 30px 10px;
+        width: 230px;
+        height: 320px;
+    }
 }

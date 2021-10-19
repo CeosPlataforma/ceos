@@ -18,6 +18,15 @@
             cursor: pointer;
         }
     }
+    @include device(lg) {            
+        width: calc(85% - 78px) !important;
+    }
+    @include device(md) {            
+        width: calc(90% - 78px) !important;
+    }
+    @media screen and (max-width: 600px) {
+        width: calc(100% - 78px) !important;
+    }
 
     // Icons
 
@@ -76,5 +85,14 @@
     }
     h3 {
         text-align: center;
+    }
+    &--title {
+        margin-bottom: 0 !important;
+    }
+    &--body {
+        padding-top: 0 !important;
+    }
+    &--header {
+        padding-bottom: 0 !important;
     }
 }

@@ -9,12 +9,12 @@ import { AddLine, RemoveLine, ConfirmChange, CancelChange } from "../components/
 function ModalCronograma(props) {
     return (
         <Modal {...props} size="lg" className="modal-cronograma" centered>
-            <Modal.Header>
+            <Modal.Header className="modal-cronograma--header">
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title">Como editar?</h1>
+                    <h1 className="modal--title modal-cronograma--title">Como editar?</h1>
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="modal-cronograma--body">
                 <Container>
                     <Row className="justify-content-between">
                         <Col xs="5">

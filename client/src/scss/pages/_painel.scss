@@ -27,12 +27,12 @@
             padding: 20px 75px;
         }
         @include device(sm) {            
-            padding: 40px 150px;
             width: 80%;
-            margin: 15px 0px;          
+            margin: 15px 0px; 
+            padding: 20px;         
         }
     }
-    .atividades--holder {
+    &--atvs-recentes, &--materias {
         margin-bottom: 40px;
     }
 

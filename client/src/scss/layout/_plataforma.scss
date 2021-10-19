@@ -4,6 +4,12 @@
     width: calc(100% - 78px);
     left: 15.63%;
     transition: all 0.5s ease;
+    @media screen and (max-width: 1650px) {
+        width: calc(80% - 78px);
+    }
+    @include device(md) {            
+        width: calc(90% - 78px);
+    }
 }
 
 .title {
