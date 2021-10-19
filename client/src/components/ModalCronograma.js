@@ -17,8 +17,8 @@ function ModalCronograma(props) {
             <Modal.Body className="modal-cronograma--body">
                 <Container>
                     <Row className="justify-content-between">
-                        <Col xs="5">
-                            <h3>Dado</h3>
+                        <Col sm={5} >
+                            <h1 className="modal--subtitle modal-cronograma--subtitle">Dado</h1>
                             <p>1. Clique no dado que quer alterar no cronograma</p>
                             <p>2. Faça a alteração</p>
                             <p>3. Clique em <ConfirmChange /> para confirmar</p>
@@ -26,10 +26,10 @@ function ModalCronograma(props) {
                             <p>- Se quiser deletar o dado, clique em <CancelChange /></p>
                         </Col>
 
-                        <Col xs="5">
-                            <h3>Linha</h3>
-                            <p>- Para deletar uma linha, clique em <RemoveLine /></p>
-                            <p>- Para adicionar uma linha, clique em <AddLine /></p>
+                        <Col sm={5} className="modal-cronograma--linha">
+                            <h1 className="modal--subtitle modal-cronograma--subtitle">Linha</h1>
+                            <p className="modal--text-left">- Para deletar uma linha, clique em <RemoveLine /></p>
+                            <p className="modal--text-left">- Para adicionar uma linha, clique em <AddLine /></p>
                         </Col>
                     </Row>
                 </Container>

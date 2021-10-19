@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import * as Yup from 'yup';
 
 function ModalAddMateria(props) {
-        
+
     const initialValues = {
         name: ''
     }
@@ -18,7 +18,7 @@ function ModalAddMateria(props) {
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title">Verificação de e-mail</h1>
+                    <h1 className="modal--title">Adicione uma matéria</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -28,7 +28,7 @@ function ModalAddMateria(props) {
                             <p className="text-lg">Informe o nome da nova matéria</p>
                             <Field name="name" type="text" className="form-control modal--input mb-4" placeholder="ex. Ciências"
                                 aria-describedby="emailRecover" required />
-                            <ErrorMessage name="name"/>
+                            <ErrorMessage name="name" />
                         </div>
                         <div class="modal-footer">
                             <button type="submit" className="btn btn-primary text-md w-100 modal--btn">Confirmar</button>

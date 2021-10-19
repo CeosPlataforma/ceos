@@ -17,3 +17,32 @@
     margin-bottom: 20px;
     color: $black;
 }
+
+.underline {
+    background: linear-gradient(0deg, $yellow, 30px, transparent 7px) 0 3em;
+}
+
+.user {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    &--name {
+        color: $gray-dark !important;
+        font: $font-sm;
+    }
+    &--photo {
+        height: 50px;
+        width: 50px;
+        background-image: url(https://c.tenor.com/9r1rE1-uyFYAAAAd/social-credit.gif);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 18px;
+        border: 2px solid $gray-dark;
+    }
+    p {
+        margin: 0 !important;
+    }
+}

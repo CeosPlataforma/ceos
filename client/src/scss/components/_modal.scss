@@ -1,16 +1,14 @@
 .modal {
     font: $font-sm;
-    &--title {
-        font: $font-lg;
+    &--title, &--subtitle {
+        font: $font-sm !important;
         text-align: center;
+        font-weight: $extra-bold !important;
         &--desativar-conta {
             font-size: 23px; /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/;
             font-weight: bold;
-            text-align: center;
+            text-align: center;            
         }
-    }
-    &--subtitle {
-        text-align: center;
     }
     &--input {
         font: $font-sm;
@@ -28,11 +26,19 @@
         padding: 16px 14.84375%;
         border-radius: 10px;
         font: $font-sm;
+        background: $blue;
+        border: none;
+        &:hover {
+            background: $blue;
+        }
+        @include device(sm) {            
+            word-wrap: break-word;
+        }
     }
 }
 
 .modal-backdrop.show {
-    background-color: $blue;
+    background-color: $black;
     opacity: 0.9;
 }
 
@@ -43,6 +49,7 @@
 .modal-header {
     flex-wrap: wrap;
     justify-content: center;
+    border-bottom: none;
 }
 
 .modal-header p {
@@ -55,7 +62,6 @@
     p {
         color: $black;
         justify-content: center;
-        text-align: center;
     }
     h4 {
         color: $gray;
@@ -69,9 +75,24 @@
 .modal-content {
     border-radius: 0;
     border: none;
-    padding: 60px 60px;
+    padding: 60px 30px;
 }
 
-
+.modal-cronograma {
+    .modal-content {
+        padding: 30px 30px;
+    }
+    .modal-body {
+        padding-bottom: 0px;
+    }
+    .modal--subtitle {
+        @include device(sm) {            
+            margin-top: 50px;
+        }
+    }
+    &--linha {
+        margin-bottom: 50px;
+    }
+}
 
 @import "//node_modules/bootstrap/scss/bootstrap";

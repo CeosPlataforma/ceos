@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import ModalAddMateria from "../components/ModalAddMateria";
 import User from "../components/User";
+import Title from "../components/PainelTitle";
 //import MateriaContainer from "../components/MateriaContainer";
 
 export default function Materias() {
@@ -57,7 +58,7 @@ export default function Materias() {
 
                     <div className="col">
                         <div className="logged--header">
-                            <h1 className="title">Gerencie suas matérias</h1>
+                            <Title title="Gerencie suas matérias" />
                             <User />
                         </div>
 

@@ -1,11 +1,12 @@
 import React from "react";
-import MateriaContainer from "../components/MateriaContainer";
 import SimpleBox from "../components/SimpleBox";
 import Table from 'react-bootstrap/Table';
 import User from "../components/User";
+import Title from "../components/PainelTitle";
 import { Link } from "react-router-dom";
 import AtvBox from "../components/AtvBox";
 import Slider from "react-slick";
+import MiniFooter from "../components/MiniFooter";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -129,7 +130,7 @@ export default function Painel() {
                 <div className="row align-items-center">
                     <div className="col">
                         <div className="logged--header">
-                            <h1 className="title">Olá, Nome do usuário!</h1>
+                            <Title title="Olá, " user="Nome de Usuário" />
                             <User />
                         </div>
                     </div>
@@ -251,6 +252,7 @@ export default function Painel() {
                 </Slider>
 
             </div>
+
         </div>
     )
 }

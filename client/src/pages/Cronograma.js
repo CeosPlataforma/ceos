@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
 import User from "../components/User";
+import Title from "../components/PainelTitle";
 import ModalCronograma from "../components/ModalCronograma";
 import { AddLine, RemoveLine, ConfirmChange, CancelChange } from "../components/CronogramaIcons";
 
@@ -14,7 +15,7 @@ export default function Cronograma() {
                 <div className="row align-items-center">
                     <div className="col-12">
                         <div className="logged--header">
-                            <h1 className="title">Confira seu cronograma</h1>
+                            <Title title="Confira seu cronograma" />
                             <User />
                         </div>
                     </div>
@@ -40,7 +41,7 @@ export default function Cronograma() {
                             </thead>
 
                             <tbody>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -50,7 +51,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -60,7 +61,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -70,7 +71,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -80,7 +81,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -90,7 +91,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -100,7 +101,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -110,7 +111,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                 </tr>
-                                <tr>
+                                <tr className="editable-row">
                                     <td>XX: XX</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
@@ -118,7 +119,7 @@ export default function Cronograma() {
                                     <td>Matéria</td>
                                     <td>Matéria</td>
                                     <td>Matéria</td>
-                                    <td>Matéria</td>
+                                    <td className="editable-row--last">Matéria</td>
                                 </tr>
                             </tbody>
                         </Table>

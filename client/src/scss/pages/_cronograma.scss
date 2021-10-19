@@ -18,6 +18,21 @@
             cursor: pointer;
         }
     }
+    .editable-row ::before {
+        @extend .cronograma--removeline, .cronograma--removeline--text;
+        content: 'x';
+        position: absolute;
+        left: -30px;
+        color: $gray-semidark !important;
+        background-color: $yellow-light !important;
+    }
+
+    // th:last-child ::after {
+    //     @extend .cronograma--removeline, .cronograma--removeline--text;
+    //     content: '+';
+    //     position: absolute;
+    // }
+
     @include device(lg) {            
         width: calc(85% - 78px) !important;
     }
@@ -68,7 +83,7 @@
         text-justify: center;
         opacity: .5;
         &--text {
-            color: $black !important;
+            color: $black;
             margin: 0;
             font-size: 25px;
             font-weight: bold !important;

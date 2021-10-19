@@ -14,7 +14,7 @@ function ModalExcluirConta(props) {
     }
 
     return (
-        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter desativar-conta" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title--desativar-conta">Confirmar desativação da conta</h1>
@@ -34,7 +34,7 @@ function ModalExcluirConta(props) {
                 </Formik>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="danger" className="text-md w-100 modal--btn">Confirmar desativação</Button>
+                <Button className="text-md w-100 modal--btn desativar-conta--btn">Confirmar desativação</Button>
                 {//onClick={redirect}
                 }
             </Modal.Footer>

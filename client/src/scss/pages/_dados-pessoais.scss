@@ -54,6 +54,13 @@
     }
 }
 
+.desativar-conta--btn {
+    background: $red;
+    &:hover {
+        background: $red;
+    }
+}
+
 .sidebar.active ~ .dados-pessoais {
     // Move o conteudo com a sidebar ativada
     z-index: 100;

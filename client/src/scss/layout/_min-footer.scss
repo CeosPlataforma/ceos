@@ -3,10 +3,8 @@
     justify-content: space-around;
     align-items: center;
     background-color: $blue;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    position: fixed;
-    bottom: 0;
+    padding: 15px 0;
+    position: relative;
     &--logo {
         height: 60px;
         font-weight: bold;
