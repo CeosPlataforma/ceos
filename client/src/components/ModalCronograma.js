@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { AddLine, RemoveLine, ConfirmChange, CancelChange } from "../components/CronogramaIcons";
 
 function ModalCronograma(props) {
     return (
@@ -20,15 +21,15 @@ function ModalCronograma(props) {
                             <h3>Dado</h3>
                             <p>1. Clique no dado que quer alterar no cronograma</p>
                             <p>2. Faça a alteração</p>
-                            <p>3. Clique em para confirmar</p>
+                            <p>3. Clique em <ConfirmChange /> para confirmar</p>
 
-                            <p>- Se quiser deletar o dado, clique em</p>
+                            <p>- Se quiser deletar o dado, clique em <CancelChange /></p>
                         </Col>
 
                         <Col xs="5">
                             <h3>Linha</h3>
-                            <p>- Para deletar uma linha, clique em</p>
-                            <p>- Para adicionar uma linha, clique em</p>
+                            <p>- Para deletar uma linha, clique em <RemoveLine /></p>
+                            <p>- Para adicionar uma linha, clique em <AddLine /></p>
                         </Col>
                     </Row>
                 </Container>

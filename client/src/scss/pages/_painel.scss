@@ -35,4 +35,41 @@
     .atividades--holder {
         margin-bottom: 40px;
     }
+
+    // Geral Carousel
+    .slick-arrow {
+        display: inline-block;
+        position: absolute;
+        top: -52px;
+        font-weight: regular !important;
+        cursor: pointer;
+        line-height: auto !important;
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: auto;
+        color: $black;
+        opacity: 1;
+        &--hover {
+            color: $black !important;
+        }
+    }
+    .slick-prev {
+        &::before {
+            content: '<';
+            color: $black;
+            font-size: 50px;
+        }
+        left: auto;
+        right: 60px;
+        
+    }
+    .slick-next {   
+        &::before {
+            content: '>';
+            color: $black;
+            font-size: 50px;
+        }     
+        right: 0;        
+    }
 }

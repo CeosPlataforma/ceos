@@ -9,11 +9,70 @@
         background-color: $blue;
         color: $white;        
     }
+    &--hint {
+        padding: 0;
+        svg {            
+            height: 60px;
+            width: 60px;
+            fill: $blue;
+            cursor: pointer;
+        }
+    }
+
+    // Icons
+
+    &--icon {
+        text-align: center;
+        border-radius: 50%;
+        color: $white;
+    }
+    &--confirmchange {
+        @extend .cronograma--icon;
+
+        display: inline-block;
+        background-color: $green;
+        padding: 1px 7px 0px 5px;
+        &--text {
+            color: $white !important;
+            margin: 0;
+            font-size: 15px;
+            font-weight: bold !important;
+        }
+    }
+    &--cancelchange {
+        @extend .cronograma--icon;
+
+        background-color: $red;
+        padding: 1px 8px 0px 8px;
+        font-size: 15px;
+        font-weight: bold !important;
+    }
+    &--addline, &--removeline {
+        display: inline-block;
+        background-color: $yellow;
+        padding: 0px;
+        border-radius: 50%;
+        line-height: 25px;
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        text-justify: center;
+        opacity: .5;
+        &--text {
+            color: $black !important;
+            margin: 0;
+            font-size: 25px;
+            font-weight: bold !important;
+        }
+        &--opacity {
+            opacity: 1 !important;
+        }
+    }
 }
 
 .modal-cronograma {
     p {
-        text-align: justify;
+        text-align: inherit;
     }
     h3 {
         text-align: center;

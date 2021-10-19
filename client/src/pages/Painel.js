@@ -5,8 +5,44 @@ import Table from 'react-bootstrap/Table';
 import User from "../components/User";
 import { Link } from "react-router-dom";
 import AtvBox from "../components/AtvBox";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Painel() {
+
+    const renderSlides = () =>
+        [1, 2, 3, 4, 5, 6, 7, 8].map(num => (
+            <div>
+                <SimpleBox
+                    boxcounter={num}
+                    boxtitle="Lições de casa concluídas"
+                />
+            </div>
+        ));
+
+    function NextArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style }}
+                onClick={onClick}
+            />
+        );
+    }
+
+    function PrevArrow(props) {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style }}
+                onClick={onClick}
+            />
+        );
+    }
 
     return (
         <div>
@@ -20,37 +56,41 @@ export default function Painel() {
                     </div>
                 </div>
 
-                <h4>Cronograma</h4>
+                <div className="row align-items-center">
+                    <div className="col">
+                        <h4>Cronograma</h4>
 
-                <Table striped bordered hover responsive /*tirar responsive se quiser tirar scroll da tabela*/ >
-                    <thead>
-                        <tr>
-                            <th>Horário</th>
-                            <th>Segunda</th>
-                            <th>Terça</th>
-                            <th>Quarta</th>
-                            <th>Quinta</th>
-                            <th>Sexta</th>
-                            <th>Sabádo</th>
-                            <th>Domingo</th>
-                        </tr>
-                    </thead>
+                        <Table striped bordered hover responsive /*tirar responsive se quiser tirar scroll da tabela*/ >
+                            <thead>
+                                <tr>
+                                    <th>Horário</th>
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                    <th>Sabádo</th>
+                                    <th>Domingo</th>
+                                </tr>
+                            </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>XX: XX</td>
-                            <td>Matéria</td>
-                            <td>Matéria</td>
-                            <td>Matéria</td>
-                            <td>Matéria</td>
-                            <td>Matéria</td>
-                            <td>Matéria</td>
-                            <td>Matéria</td>
-                        </tr>
-                    </tbody>
-                </Table>
+                            <tbody>
+                                <tr>
+                                    <td>XX: XX</td>
+                                    <td>Matéria</td>
+                                    <td>Matéria</td>
+                                    <td>Matéria</td>
+                                    <td>Matéria</td>
+                                    <td>Matéria</td>
+                                    <td>Matéria</td>
+                                    <td>Matéria</td>
+                                </tr>
+                            </tbody>
+                        </Table>
 
-                <Link className="painel--demais-horarios w-100" to="/cronograma">Visualizar demais horários</Link>
+                        <Link className="painel--demais-horarios w-100" to="/cronograma">Visualizar demais horários</Link>
+                    </div>
+                </div>
 
                 <h4>Matérias</h4>
 
@@ -88,7 +128,7 @@ export default function Painel() {
 
                 <h4>Desempenho Geral</h4>
 
-                <div class="container-fluid">
+                {/*<div class="container-fluid">
                     <div className="row justify-content-between last-element">
                         <div className="col-2">
                             <SimpleBox
@@ -116,7 +156,7 @@ export default function Painel() {
                         </div>
                     </div>
                 </div>
-                {/*<br />
+                <br />
                 <div className="row justify-content-between">
                     <div className="col-2">
                         <SimpleBox
@@ -143,6 +183,17 @@ export default function Painel() {
                         />
                     </div>
                 </div>*/}
+
+                <Slider
+                    className="last-element"
+                    nextArrow={<NextArrow />}
+                    prevArrow={<PrevArrow />}
+                    slidesToShow={4}
+                    slidesToScroll={4}
+                    infinite={false}>
+                    {renderSlides()}
+                </Slider>
+
             </div>
         </div>
     )

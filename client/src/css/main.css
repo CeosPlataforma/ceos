@@ -1203,6 +1203,40 @@ ol, ul {
 .painel .atividades--holder {
   margin-bottom: 40px;
 }
+.painel .slick-arrow {
+  display: inline-block;
+  position: absolute;
+  top: -52px;
+  font-weight: regular !important;
+  cursor: pointer;
+  line-height: auto !important;
+  transform: none !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: auto;
+  color: #23272a;
+  opacity: 1;
+}
+.painel .slick-arrow--hover {
+  color: #23272a !important;
+}
+.painel .slick-prev {
+  left: auto;
+  right: 60px;
+}
+.painel .slick-prev::before {
+  content: "<";
+  color: #23272a;
+  font-size: 50px;
+}
+.painel .slick-next {
+  right: 0;
+}
+.painel .slick-next::before {
+  content: ">";
+  color: #23272a;
+  font-size: 50px;
+}
 
 .atividades--holder {
   display: flex;
@@ -1347,9 +1381,61 @@ ol, ul {
   background-color: #216AA7;
   color: #FFFFFF;
 }
+.cronograma--hint, .painel--hint {
+  padding: 0;
+}
+.cronograma--hint svg, .painel--hint svg {
+  height: 60px;
+  width: 60px;
+  fill: #216AA7;
+  cursor: pointer;
+}
+.cronograma--icon, .cronograma--cancelchange, .painel--cancelchange, .cronograma--confirmchange, .painel--confirmchange, .painel--icon {
+  text-align: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+.cronograma--confirmchange, .painel--confirmchange {
+  display: inline-block;
+  background-color: #2B9E33;
+  padding: 1px 7px 0px 5px;
+}
+.cronograma--confirmchange--text, .painel--confirmchange--text {
+  color: #FFFFFF !important;
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold !important;
+}
+.cronograma--cancelchange, .painel--cancelchange {
+  background-color: #C24D4D;
+  padding: 1px 8px 0px 8px;
+  font-size: 15px;
+  font-weight: bold !important;
+}
+.cronograma--addline, .cronograma--removeline, .painel--addline, .painel--removeline {
+  display: inline-block;
+  background-color: #FFBF5B;
+  padding: 0px;
+  border-radius: 50%;
+  line-height: 25px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  text-justify: center;
+  opacity: 0.5;
+}
+.cronograma--addline--text, .cronograma--removeline--text, .painel--addline--text, .painel--removeline--text {
+  color: #23272a !important;
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold !important;
+}
+.cronograma--addline--opacity, .cronograma--removeline--opacity, .painel--addline--opacity, .painel--removeline--opacity {
+  opacity: 1 !important;
+}
 
 .modal-cronograma p {
-  text-align: justify;
+  text-align: inherit;
 }
 .modal-cronograma h3 {
   text-align: center;
