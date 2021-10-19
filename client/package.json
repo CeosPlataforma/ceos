@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.1.1",
     "formik": "^2.2.9",
+    "jest": "^26.6.0",
     "jquery": "^3.6.0",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
@@ -21,6 +22,10 @@
     "react-router-hash-link": "^2.4.3",
     "react-script-tag": "^1.1.2",
     "react-scripts": "^4.0.3",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1",
+    "tar": "^6.1.11",
+    "type-fest": "^0.8.1",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
   },

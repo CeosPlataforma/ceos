@@ -10,23 +10,25 @@
         margin-left: 3px; 
     }
 
-    &--user {
-        margin-bottom: 20px;
-        &--name {
-            color: $gray-dark !important;
-            font: $font-sm;
-        }
-    }
+
 
     &--btn {
         @extend .btn--common;
         padding: 10px 70px;
+        border: 2px solid $gray-dark;
+        &:hover {
+            border: 2px solid $gray-dark;
+            background-color: $gray-dark;
+        }
+        @include device(sm) {             
+            padding: 10px 40px;         
+        }
     }
 
     &--ver-materias {   
-        max-width: 256px;
         margin-left: 0;
         margin-right: 10px;
+        background-color: $gray-dark;
     }
 
     h5 {
@@ -47,7 +49,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 45%;
+        width: 49%;
         margin-bottom: 30px;
     }
 

@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function SimpleBox({ boxcounter, boxtitle }) {
+export default function SimpleBox({ counter, title }) {
 
     return (
         <div className="simpleBox">
-            <h2>{boxcounter}</h2>
-            <h5>{boxtitle}</h5>
+            <h2>{counter}</h2>
+            <h5>{title}</h5>
         </div>
     );
 }

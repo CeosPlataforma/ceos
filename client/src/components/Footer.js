@@ -50,7 +50,7 @@ class Footer extends Component {
                                     </li>
 
                                     <li className="nav-item">
-                                        <HashLink className="nav-link" aria-current="page" smooth to="/#fale-conosco"> Fale conosco</HashLink>
+                                        <HashLink className="nav-link" aria-current="page" smooth to="/contato"> Fale conosco</HashLink>
                                     </li>
                                 </ul>
                             </div>

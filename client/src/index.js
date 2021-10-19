@@ -9,16 +9,19 @@ import Logout from "./components/Logout";
 import MiniFooter from "./components/MiniFooter";
 import Sidebar from "./components/Sidebar";
 import "./css/main.css";
+
+// PAGES
+import Home from "./pages/LandingPage";
+import Painel from "./pages/Painel";
+import Materias from "./pages/Materias";
+import ResetSenha from "./pages/ResetSenha";
 import Acessar from "./pages/Acessar";
 import Cadastrar from "./pages/Cadastrar";
 import Contato from "./pages/Contato";
 import DadosPessoais from "./pages/DadosPessoais";
 import Desempenho from "./pages/Desempenho";
-
-// PAGES
-import Home from "./pages/LandingPage";
-import Materias from "./pages/Materias";
-import ResetSenha from "./pages/ResetSenha";
+import Cronograma from "./pages/Cronograma";
+import VerAtvs from "./pages/VerAtvs";
 
 
 
@@ -48,19 +51,22 @@ ReactDOM.render(
 
             <Route path="/painel">
                 <Sidebar />
-                {//<Painel />
-                }
+                <Painel />
                 <MiniFooter />
             </Route>
             <Route path="/cronograma">
                 <Sidebar />
-                {//<Cronograma />
-                }
+                <Cronograma />
                 <MiniFooter />
             </Route>
             <Route path="/materias">
                 <Sidebar Active="materias" />
                 <Materias />
+                <MiniFooter />
+            </Route>
+            <Route path="/materia/idmateria">
+                <Sidebar Active="materias" />
+                <VerAtvs />
                 <MiniFooter />
             </Route>
             <Route path="/atividades">

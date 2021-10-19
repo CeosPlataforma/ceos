@@ -1,0 +1,78 @@
+.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
+    margin-bottom: 160px;
+}
+
+.painel {
+    &--demais-horarios {
+        @extend .dados-pessoais--alterar;
+    }
+    &--materias-holder {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        @include device(sm) {            
+            flex-direction: column;        
+        }
+    }
+    &--materia {
+        background: $blue;
+        border: none;
+        padding: 40px 150px;
+        color: $white;
+        font: $font-sm;
+        @include device(lg) {            
+            padding: 30px 90px;
+        }
+        @include device(md) {            
+            padding: 20px 75px;
+        }
+        @include device(sm) {            
+            width: 80%;
+            margin: 15px 0px; 
+            padding: 20px;         
+        }
+    }
+    &--atvs-recentes, &--materias {
+        margin-bottom: 60px;
+    }
+
+    // Geral Carousel
+    .slick-arrow {
+        display: inline-block;
+        position: absolute;
+        top: -52px;
+        font-weight: regular !important;
+        cursor: pointer;
+        line-height: auto !important;
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: auto;
+        color: $black;
+        opacity: 1;
+        &--hover {
+            color: $black !important;
+        }
+    }
+    .slick-prev {
+        &::before {
+            content: '<';
+            color: $black;
+            font-size: 50px;
+        }
+        left: auto;
+        right: 60px;
+        
+    }
+    .slick-next {   
+        &::before {
+            content: '>';
+            color: $black;
+            font-size: 50px;
+        }     
+        right: 0;        
+    }
+    h4 {
+        margin-bottom: 20px;
+    }
+}

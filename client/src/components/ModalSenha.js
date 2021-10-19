@@ -23,7 +23,7 @@ function ModalSenha(props) {
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title">Esqueceu sua senha?</h1>
-                    <p>Sem problemas! É fácil recuperá-la!</p>
+                    <p className="modal--subtitle">Sem problemas! É fácil recuperá-la!</p>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

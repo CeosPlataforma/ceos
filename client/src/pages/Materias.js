@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import ModalAddMateria from "../components/ModalAddMateria";
 import User from "../components/User";
+import Title from "../components/PainelTitle";
 //import MateriaContainer from "../components/MateriaContainer";
 
 export default function Materias() {
@@ -9,23 +10,23 @@ export default function Materias() {
     const [show, setShow] = useState(false);
 
     const reload = () => {
-       window.location.reload();
+        window.location.reload();
     }
     const [materias, setMaterias] = useState([]);
 
     axios.defaults.withCredentials = true
     const onSubmit = async (values, actions) => {
         await axios.post("http://localhost:3333/materia", { name: values.name })
-        .then((response) => {
-            console.log(response);
-            if (response.data.materiaAlreadyExists) {
-                actions.setFieldError("name", response.data.message);
-            } else if (response.data.success) {
-                setShow(false);
-            }
-        }).catch((error) => {
-            console.log(error)
-        });
+            .then((response) => {
+                console.log(response);
+                if (response.data.materiaAlreadyExists) {
+                    actions.setFieldError("name", response.data.message);
+                } else if (response.data.success) {
+                    setShow(false);
+                }
+            }).catch((error) => {
+                console.log(error)
+            });
     }
 
     axios.defaults.withCredentials = true
@@ -55,15 +56,16 @@ export default function Materias() {
             <div className="container-xxl container-padding materias content">
                 <div className="row align-items-center">
 
-                    <div className="col-12">
+                    <div className="col">
                         <div className="logged--header">
-                            <h1 className="title">Gerencie suas matérias</h1>
+                            <Title title="Gerencie suas matérias" />
                             <User />
                         </div>
 
+
                         <button className="materias--btn materias--ver-materias btn btn-secondary btn--common">Ver matérias</button>
 
-                        <button className="materias--btn materias--adicionar-materias  btn btn-outline-secondary btn--common" onClick={() => {setShow(true)}}>Adicionar matérias</button>
+                        <button className="materias--btn materias--adicionar-materias  btn btn-outline-secondary btn--common" onClick={() => { setShow(true) }}>Adicionar matérias</button>
 
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,7 +78,7 @@ export default function Materias() {
                             </ul>
                         </div>
 
-                        <div class="materias--holder">
+                        <div class="materias--holder last-element">
 
                             {materias.map((materia) => (
                                 <div class="materias--container">
@@ -87,7 +89,7 @@ export default function Materias() {
 
                         </div>
 
-                        <ModalAddMateria onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload}/>
+                        <ModalAddMateria onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
 
                     </div>
 

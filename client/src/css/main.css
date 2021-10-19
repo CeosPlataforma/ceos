@@ -93,6 +93,10 @@ label:focus,
   }
 }
 
+.last-element {
+  margin-bottom: 200px;
+}
+
 /*
 ::-webkit-scrollbar {
     width: 15px;
@@ -443,10 +447,8 @@ label:focus,
   justify-content: space-around;
   align-items: center;
   background-color: #216AA7;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  position: absolute;
-  bottom: 0;
+  padding: 15px 0;
+  position: relative;
 }
 .min-footer--logo {
   height: 60px;
@@ -464,11 +466,50 @@ label:focus,
   left: 15.63%;
   transition: all 0.5s ease;
 }
+@media screen and (max-width: 1650px) {
+  .content {
+    width: calc(80% - 78px);
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .content {
+    width: calc(90% - 78px);
+  }
+}
 
 .title {
   font: 700 48px "Baloo Bhai 2", cursive;
   margin-bottom: 20px;
   color: #23272a;
+}
+
+.underline {
+  background: linear-gradient(0deg, #FFBF5B, 30px, transparent 7px) 0 3em;
+}
+
+.user {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.user--name {
+  color: #707070 !important;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.user--photo {
+  height: 50px;
+  width: 50px;
+  background-image: url(https://c.tenor.com/9r1rE1-uyFYAAAAd/social-credit.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 18px;
+  border: 2px solid #707070;
+}
+.user p {
+  margin: 0 !important;
 }
 
 /*
@@ -548,7 +589,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .materias--btn, .dados-pessoais--alterar, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .materias--btn, .dados-pessoais--alterar, .painel--demais-horarios, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -620,6 +661,13 @@ label:focus,
   color: #23272a;
 }
 
+.btn-light {
+  background-color: #FFFFFF;
+}
+.btn-light:hover {
+  background-color: #FFFFFF;
+}
+
 .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por {
   color: #FFFFFF;
   border: none;
@@ -633,11 +681,22 @@ label:focus,
   transition: 0.2s;
 }
 
+button {
+  white-space: normal !important;
+}
+
 .modal {
   font: 500 20px "Baloo Bhai 2", cursive;
 }
-.modal--title {
-  font: 700 48px "Baloo Bhai 2", cursive;
+.modal--title, .modal--subtitle {
+  font: 500 20px "Baloo Bhai 2", cursive !important;
+  text-align: center;
+  font-weight: 800 !important;
+}
+.modal--title--desativar-conta, .modal--subtitle--desativar-conta {
+  font-size: 23px;
+  /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/
+  font-weight: bold;
   text-align: center;
 }
 .modal--input {
@@ -655,10 +714,20 @@ label:focus,
   padding: 16px 14.84375%;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
+  background: #216AA7;
+  border: none;
+}
+.modal--btn:hover {
+  background: #216AA7;
+}
+@media screen and (max-width: 767.98px) {
+  .modal--btn {
+    word-wrap: break-word;
+  }
 }
 
 .modal-backdrop.show {
-  background-color: #216AA7;
+  background-color: #23272a;
   opacity: 0.9;
 }
 
@@ -669,6 +738,7 @@ label:focus,
 .modal-header {
   flex-wrap: wrap;
   justify-content: center;
+  border-bottom: none;
 }
 
 .modal-header p {
@@ -682,7 +752,6 @@ label:focus,
 .modal-body p {
   color: #23272a;
   justify-content: center;
-  text-align: center;
 }
 .modal-body h4 {
   color: #AFAFAF;
@@ -695,7 +764,22 @@ label:focus,
 .modal-content {
   border-radius: 0;
   border: none;
-  padding: 60px 60px;
+  padding: 60px 30px;
+}
+
+.modal-cronograma .modal-content {
+  padding: 30px 30px;
+}
+.modal-cronograma .modal-body {
+  padding-bottom: 0px;
+}
+@media screen and (max-width: 767.98px) {
+  .modal-cronograma .modal--subtitle {
+    margin-top: 50px;
+  }
+}
+.modal-cronograma--linha {
+  margin-bottom: 50px;
 }
 
 .senha--container {
@@ -726,7 +810,7 @@ label:focus,
   height: 100%;
   width: 78px;
   background: #23272a;
-  padding: 6px 14px;
+  padding: 0px 14px 30px 14px;
   z-index: 99;
   transition: all 0.5s ease;
   border-top-right-radius: 50px;
@@ -782,8 +866,8 @@ label:focus,
 }
 .sidebar .logo_content .logo {
   color: #FFFFFF;
-  display: flex;
-  align-items: center;
+  /*display: flex;
+  align-items: center;*/
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -823,16 +907,6 @@ label:focus,
   opacity: 1;
   top: 50%;
 }
-.sidebar ul li .active {
-  color: #FFBF5B;
-  cursor: default;
-}
-.sidebar ul li .active:hover svg {
-  fill: #23272a;
-}
-.sidebar ul li .active svg {
-  fill: #FFBF5B;
-}
 .sidebar ul li a {
   color: #FFFFFF;
   display: flex;
@@ -847,7 +921,19 @@ label:focus,
   background: #FFFFFF;
 }
 .sidebar ul li a:hover svg {
-  fill: black;
+  fill: #23272a;
+}
+.sidebar ul li #active {
+  color: #FFBF5B;
+}
+.sidebar ul li #active svg {
+  fill: #FFBF5B;
+}
+.sidebar ul li #active:hover {
+  color: #23272a;
+}
+.sidebar ul li #active:hover svg {
+  fill: #23272a;
 }
 .sidebar ul li .tooltip {
   position: absolute;
@@ -891,14 +977,6 @@ ol, ul {
   padding-left: 0;
 }
 
-.logged--header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .simpleBox {
   display: flex;
   background: #216AA7;
@@ -915,6 +993,83 @@ ol, ul {
 .simpleBox h5 {
   color: white;
   text-align: center;
+}
+
+.atvBox {
+  display: flex;
+  background: #216AA7;
+  width: 340px;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+.atvBox h2 {
+  color: #FFFFFF;
+  text-align: center;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  font-size: 24px;
+}
+.atvBox hr {
+  width: 100%;
+  height: 1.3px;
+  background-color: #FFFFFF;
+}
+.atvBox h5 {
+  color: white;
+  margin: 15px 0px;
+  display: inline-block;
+}
+.atvBox .btn-light {
+  color: #216AA7;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  padding: 6px 40px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+.atvBox .btn-danger {
+  color: #FFFFFF;
+  font-weight: regular;
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 0px 13px;
+}
+.atvBox #none {
+  display: none;
+}
+.atvBox .topic {
+  display: flex;
+  align-items: center;
+}
+.atvBox .atvSvg {
+  min-height: 35px;
+  max-width: 30px;
+  fill: #FFBF5B;
+  box-sizing: content-box;
+  margin-right: 10px;
+}
+@media screen and (max-width: 991.98px) {
+  .atvBox {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .atvBox {
+    width: 270px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .atvBox {
+    padding: 30px 8px;
+    width: 200px;
+  }
+}
+
+.logged--header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .acessar {
@@ -1108,6 +1263,91 @@ ol, ul {
   min-height: 160px;
 }
 
+.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
+  margin-bottom: 160px;
+}
+
+.painel--materias-holder {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 767.98px) {
+  .painel--materias-holder {
+    flex-direction: column;
+  }
+}
+.painel--materia {
+  background: #216AA7;
+  border: none;
+  padding: 40px 150px;
+  color: #FFFFFF;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+@media screen and (max-width: 1199.98px) {
+  .painel--materia {
+    padding: 30px 90px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .painel--materia {
+    padding: 20px 75px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .painel--materia {
+    width: 80%;
+    margin: 15px 0px;
+    padding: 20px;
+  }
+}
+.painel--atvs-recentes, .painel--materias {
+  margin-bottom: 60px;
+}
+.painel .slick-arrow {
+  display: inline-block;
+  position: absolute;
+  top: -52px;
+  font-weight: regular !important;
+  cursor: pointer;
+  line-height: auto !important;
+  transform: none !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: auto;
+  color: #23272a;
+  opacity: 1;
+}
+.painel .slick-arrow--hover {
+  color: #23272a !important;
+}
+.painel .slick-prev {
+  left: auto;
+  right: 60px;
+}
+.painel .slick-prev::before {
+  content: "<";
+  color: #23272a;
+  font-size: 50px;
+}
+.painel .slick-next {
+  right: 0;
+}
+.painel .slick-next::before {
+  content: ">";
+  color: #23272a;
+  font-size: 50px;
+}
+.painel h4 {
+  margin-bottom: 20px;
+}
+
+.atividades--holder {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }
@@ -1116,7 +1356,7 @@ ol, ul {
   margin-bottom: 40px;
   height: 150px;
 }
-.dados-pessoais--alterar {
+.dados-pessoais--alterar, .painel--demais-horarios {
   border-color: #216AA7;
   color: #216AA7;
   padding: 5px 20px;
@@ -1124,7 +1364,7 @@ ol, ul {
   display: block;
   margin-bottom: 40px;
 }
-.dados-pessoais--alterar:hover {
+.dados-pessoais--alterar:hover, .painel--demais-horarios:hover {
   background-color: #216AA7;
   color: #FFFFFF;
   transition: 0.2s;
@@ -1155,6 +1395,13 @@ ol, ul {
   border: 2px solid #AFAFAF;
 }
 
+.desativar-conta--btn {
+  background: #C24D4D;
+}
+.desativar-conta--btn:hover {
+  background: #C24D4D;
+}
+
 .sidebar.active ~ .dados-pessoais {
   z-index: 100;
   width: calc(100% - 240px);
@@ -1170,20 +1417,23 @@ ol, ul {
   margin: 40px 0px;
   margin-left: 3px;
 }
-.materias--user {
-  margin-bottom: 20px;
-}
-.materias--user--name {
-  color: #707070 !important;
-  font: 500 20px "Baloo Bhai 2", cursive;
-}
 .materias--btn {
   padding: 10px 70px;
+  border: 2px solid #707070;
+}
+.materias--btn:hover {
+  border: 2px solid #707070;
+  background-color: #707070;
+}
+@media screen and (max-width: 767.98px) {
+  .materias--btn {
+    padding: 10px 40px;
+  }
 }
 .materias--ver-materias {
-  max-width: 256px;
   margin-left: 0;
   margin-right: 10px;
+  background-color: #707070;
 }
 .materias h5 {
   color: #fff;
@@ -1201,7 +1451,7 @@ ol, ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 45%;
+  width: 49%;
   margin-bottom: 30px;
 }
 .materias--arrow {
@@ -1233,4 +1483,105 @@ ol, ul {
   color: white;
   text-align: center;
   margin-bottom: 0;
+}
+
+.cronograma td, .cronograma th, .cronograma thead, .cronograma tbody, .painel td, .painel th, .painel thead, .painel tbody {
+  text-align: center;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  border: 2px solid #216AA7 !important;
+}
+.cronograma th, .painel th {
+  border: 0;
+  background-color: #216AA7;
+  color: #FFFFFF;
+}
+.cronograma--hint, .painel--hint {
+  padding: 0;
+}
+.cronograma--hint svg, .painel--hint svg {
+  height: 60px;
+  width: 60px;
+  fill: #216AA7;
+  cursor: pointer;
+}
+.cronograma .editable-row ::before, .painel .editable-row ::before {
+  content: "x";
+  position: absolute;
+  left: -30px;
+  color: #909293 !important;
+  background-color: #FFDEAC !important;
+}
+@media screen and (max-width: 1199.98px) {
+  .cronograma, .painel {
+    width: calc(85% - 78px) !important;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .cronograma, .painel {
+    width: calc(90% - 78px) !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cronograma, .painel {
+    width: calc(100% - 78px) !important;
+  }
+}
+.cronograma--icon, .cronograma--cancelchange, .painel--cancelchange, .cronograma--confirmchange, .painel--confirmchange, .painel--icon {
+  text-align: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+.cronograma--confirmchange, .painel--confirmchange {
+  display: inline-block;
+  background-color: #2B9E33;
+  padding: 1px 7px 0px 5px;
+}
+.cronograma--confirmchange--text, .painel--confirmchange--text {
+  color: #FFFFFF !important;
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold !important;
+}
+.cronograma--cancelchange, .painel--cancelchange {
+  background-color: #C24D4D;
+  padding: 1px 8px 0px 8px;
+  font-size: 15px;
+  font-weight: bold !important;
+}
+.cronograma--addline, .cronograma--removeline, .cronograma .editable-row ::before, .painel .editable-row ::before, .painel--addline, .painel--removeline {
+  display: inline-block;
+  background-color: #FFBF5B;
+  padding: 0px;
+  border-radius: 50%;
+  line-height: 25px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  text-justify: center;
+  opacity: 0.5;
+}
+.cronograma--addline--text, .cronograma--removeline--text, .cronograma .editable-row ::before, .painel .editable-row ::before, .painel--addline--text, .painel--removeline--text {
+  color: #23272a;
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold !important;
+}
+.cronograma--addline--opacity, .cronograma--removeline--opacity, .painel--addline--opacity, .painel--removeline--opacity {
+  opacity: 1 !important;
+}
+
+.modal-cronograma p {
+  text-align: inherit;
+}
+.modal-cronograma h3 {
+  text-align: center;
+}
+.modal-cronograma--title {
+  margin-bottom: 0 !important;
+}
+.modal-cronograma--body {
+  padding-top: 0 !important;
+}
+.modal-cronograma--header {
+  padding-bottom: 0 !important;
 }

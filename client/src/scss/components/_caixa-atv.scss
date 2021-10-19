@@ -1,0 +1,62 @@
+.atvBox {
+    display: flex;
+    background: $blue;
+    width: 340px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    h2 {
+        color: $white;
+        text-align: center;
+        font: $font-sm;
+        font-size: 24px;
+    }
+    hr {
+        width: 100%;
+        height: 1.3px;
+        background-color: $white;
+    }
+    h5 {
+        color: white;
+        margin: 15px 0px;
+        display: inline-block;
+    }
+    .btn-light {
+        color: $blue;
+        font: $font-sm;
+        padding: 6px 40px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    .btn-danger {
+        color: $white;
+        font-weight: regular;
+        font-size: 30px;
+        border-radius: 50%;
+        padding: 0px 13px;
+    }
+    #none {
+        display: none;
+    }
+    .topic {
+        display: flex;
+        align-items: center;
+    }
+    .atvSvg {
+        min-height: 35px;
+        max-width: 30px;
+        fill: $yellow;
+        box-sizing: content-box;
+        margin-right: 10px;
+    }
+    @include device(md) {            
+        width: 300px;
+    }
+    @include device(md) {            
+        width: 270px;
+    }
+    @include device(sm) {            
+        padding: 30px 8px;
+        width: 200px;
+    }
+}

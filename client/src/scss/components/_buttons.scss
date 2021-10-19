@@ -173,6 +173,14 @@
 	}
 }
 
+.btn-light {
+	background-color: $white;
+	&:hover {
+		background-color: $white;
+	}
+}
+
+
 // Contato
 .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por {
 	@extend .btn--common;
@@ -188,4 +196,8 @@
 		color: $white;
 		transition: .2s;
 	}
+}
+
+button {
+	white-space: normal !important;
 }

@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 class User extends Component {
     render() {
         return (
-            <div className="materias--user">
-                <Link className="materias--user--name" to={"/dados-pessoais"}>Nome do usuário</Link>
-            </div>
+            <Link to={"/dados-pessoais"} className="user">
+                <p className="user--name">Nome do usuário</p>
+                <div className="user--photo"></div>
+            </Link>
         )
     }
 }

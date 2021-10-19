@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useState } from "react";
+import Title from "../components/PainelTitle";
 import * as Yup from 'yup';
+import ModalExcluirConta from '../components/ModalExcluirConta';
 
 export default function DadosPessoais() {
 
@@ -9,15 +11,20 @@ export default function DadosPessoais() {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
+    const [show, setShow] = useState(false);
+
+    const reload = () => {
+        window.location.reload();
+    }
 
     axios.get("http://localhost:3333/userinfo")
-    .then((response) => {
-        setNome(response.data.name)
-        setEmail(response.data.email)
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+        .then((response) => {
+            setNome(response.data.name)
+            setEmail(response.data.email)
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
@@ -53,7 +60,7 @@ export default function DadosPessoais() {
                 <div className="row align-items-center">
 
                     <div className="col-sm-12 col-xl-5">
-                        <h1 className="title">Dados pessoais</h1>
+                        <Title title="Dados Pessoais" />
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 45.532 45.532" xmlSpace="preserve" class="dados-pessoais--user-img">
@@ -64,7 +71,7 @@ export default function DadosPessoais() {
                                 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
                         </svg>
                         <button className="dados-pessoais--alterar">Alterar foto</button>
-                        <a className="dados-pessoais--desativar">&gt; Desativar conta</a>
+                        <a className="dados-pessoais--desativar" onClick={() => { setShow(true) }}>&gt; Desativar conta</a>
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto">
@@ -91,6 +98,9 @@ export default function DadosPessoais() {
                     </div>
                 </div>
             </div>
+
+            <ModalExcluirConta onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
+
         </div>
     );
 }
