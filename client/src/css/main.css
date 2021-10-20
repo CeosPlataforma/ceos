@@ -497,10 +497,15 @@ label:focus,
   color: #707070 !important;
   font: 500 20px "Baloo Bhai 2", cursive;
 }
+@media screen and (max-width: 991.98px) {
+  .user--name {
+    display: none;
+  }
+}
 .user--photo {
   height: 50px;
   width: 50px;
-  background-image: url(https://c.tenor.com/9r1rE1-uyFYAAAAd/social-credit.gif);
+  background-image: url(https://c.tenor.com/epNMHGvRyHcAAAAM/gigachad-chad.gif);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -508,6 +513,11 @@ label:focus,
   display: inline-block;
   margin-left: 18px;
   border: 2px solid #707070;
+}
+@media screen and (max-width: 767.98px) {
+  .user--photo {
+    display: none;
+  }
 }
 .user p {
   margin: 0 !important;
@@ -817,6 +827,11 @@ button {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
+@media screen and (max-width: 991.98px) {
+  .sidebar {
+    display: none;
+  }
+}
 .sidebar.active {
   width: 240px;
   /*mudar dps pra mobile responsivo e pa @include device(sm) {
@@ -924,18 +939,6 @@ button {
 .sidebar ul li a:hover svg {
   fill: #23272a;
 }
-.sidebar ul li #active {
-  color: #FFBF5B;
-}
-.sidebar ul li #active svg {
-  fill: #FFBF5B;
-}
-.sidebar ul li #active:hover {
-  color: #23272a;
-}
-.sidebar ul li #active:hover svg {
-  fill: #23272a;
-}
 .sidebar ul li .tooltip {
   position: absolute;
   left: 125px;
@@ -973,6 +976,76 @@ button {
   transition: all 0.3s ease;
 }
 
+#active {
+  color: #FFBF5B;
+}
+#active svg {
+  fill: #FFBF5B;
+}
+#active:hover {
+  color: #23272a;
+}
+#active:hover svg {
+  fill: #23272a;
+}
+
+.sidebar--mobile {
+  display: none;
+  flex-direction: row;
+  background: #23272a;
+}
+@media screen and (max-width: 991.98px) {
+  .sidebar--mobile {
+    display: flex;
+  }
+}
+.sidebar--mobile ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+.sidebar--mobile li {
+  list-style: none;
+}
+.sidebar--mobile svg {
+  font-weight: 400;
+  height: 35px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  fill: white;
+  transition: all 0.5s ease;
+}
+.sidebar--mobile svg:hover {
+  color: currentColor !important;
+}
+.sidebar--mobile svg:hover svg {
+  fill: currentColor;
+}
+.sidebar--mobile a {
+  color: #FFFFFF;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+}
+.sidebar--mobile .links_name {
+  display: flex;
+  justify-content: center;
+}
+.sidebar--mobile #active:hover {
+  color: #FFBF5B;
+}
+.sidebar--mobile #active:hover svg {
+  fill: #FFBF5B;
+}
+
 /* BS */
 ol, ul {
   padding-left: 0;
@@ -987,6 +1060,12 @@ ol, ul {
   justify-content: center;
   flex-direction: column;
   padding: 20px;
+  margin-bottom: 60px;
+}
+@media screen and (max-width: 767.98px) {
+  .simpleBox {
+    width: 100%;
+  }
 }
 .simpleBox h2 {
   color: #FFBF5B;
@@ -1274,6 +1353,11 @@ ol, ul {
   min-height: 160px;
 }
 
+@media screen and (max-width: 991.98px) {
+  .painel--demais-horarios {
+    margin-top: 18px;
+  }
+}
 .painel--materias-holder {
   display: flex;
   justify-content: space-between;
@@ -1367,6 +1451,19 @@ ol, ul {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.desempenho--section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media screen and (max-width: 767.98px) {
+  .desempenho--section {
+    flex-direction: column;
+  }
 }
 
 .dados-pessoais {
@@ -1473,6 +1570,12 @@ ol, ul {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 767.98px) {
+  .materias--holder {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .materias--container {
   background-color: #216AA7;
   padding: 30px;
@@ -1481,6 +1584,11 @@ ol, ul {
   justify-content: space-between;
   width: 49%;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 767.98px) {
+  .materias--container {
+    width: 100%;
+  }
 }
 .materias--arrow {
   background: #fff;

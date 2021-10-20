@@ -33,11 +33,14 @@
     &--name {
         color: $gray-dark !important;
         font: $font-sm;
+        @include device(md) {
+            display: none;
+        }
     }
     &--photo {
         height: 50px;
         width: 50px;
-        background-image: url(https://c.tenor.com/9r1rE1-uyFYAAAAd/social-credit.gif);
+        background-image: url(https://c.tenor.com/epNMHGvRyHcAAAAM/gigachad-chad.gif);
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -45,6 +48,9 @@
         display: inline-block;
         margin-left: 18px;
         border: 2px solid $gray-dark;
+        @include device(sm) {
+            display: none;
+        }
     }
     p {
         margin: 0 !important;

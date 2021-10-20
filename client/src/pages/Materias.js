@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import ModalAddMateria from "../components/ModalAddMateria";
-import User from "../components/User";
-import Title from "../components/PainelTitle";
+import PlataformaHeader from "../components/PlataformaHeader";
 //import MateriaContainer from "../components/MateriaContainer";
 
 export default function Materias() {
@@ -53,48 +52,40 @@ export default function Materias() {
 
     return (
         <div>
-            <div className="container-xxl container-padding materias content">
-                <div className="row align-items-center">
+            <div className="container-xxl materias content">
 
-                    <div className="col">
-                        <div className="logged--header">
-                            <Title title="Gerencie suas matérias" />
-                            <User />
+                <PlataformaHeader title="Gerencie suas matérias" />
+
+                <button className="materias--btn materias--ver-materias btn btn--common">Ver matérias</button>
+
+                <button className="materias--btn materias--adicionar-materias  btn btn--common" onClick={() => { setShow(true) }}>Adicionar matérias</button>
+
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Classificar por:
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
+                    </ul>
+                </div>
+
+                <div class="materias--holder">
+
+                    {materias.map((materia) => (
+                        <div class="materias--container">
+                            <h5>{materia.name}</h5>
+                            <div class="materias--arrow"></div>
                         </div>
-
-
-                        <button className="materias--btn materias--ver-materias btn btn--common">Ver matérias</button>
-
-                        <button className="materias--btn materias--adicionar-materias  btn btn--common" onClick={() => { setShow(true) }}>Adicionar matérias</button>
-
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Classificar por:
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="materias--holder">
-
-                            {materias.map((materia) => (
-                                <div class="materias--container">
-                                    <h5>{materia.name}</h5>
-                                    <div class="materias--arrow"></div>
-                                </div>
-                            ))}
-
-                        </div>
-
-                        <ModalAddMateria onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
-
-                    </div>
+                    ))}
 
                 </div>
+
+                <ModalAddMateria onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
+
             </div>
+
         </div>
     );
 }

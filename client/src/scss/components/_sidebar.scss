@@ -13,6 +13,9 @@
     transition: all 0.5s ease;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+    @include device(md) {
+        display: none;
+    }
     &.active {
         width: 240px;
         /*mudar dps pra mobile responsivo e pa @include device(sm) {
@@ -112,18 +115,6 @@
                     }
                 }
             }
-            #active {
-                color: $yellow;        
-                svg {
-                    fill: $yellow;
-                }
-                &:hover {
-                    color: $black;
-                    svg {
-                        fill: $black;
-                    }
-                }
-            }
             .tooltip {
                 position: absolute;
                 left: 125px;
@@ -161,6 +152,74 @@
         opacity: 0;
         pointer-events: none;
         transition: all 0.3s ease;
+    }
+}
+
+#active {
+    color: $yellow;        
+    svg {
+        fill: $yellow;
+    }
+    &:hover {
+        color: $black;
+        svg {
+            fill: $black;
+        }
+    }
+}
+
+.sidebar--mobile {
+    display: none;
+    @include device(md) {
+        display: flex;
+    }
+    flex-direction: row;    
+    background: $black;
+    ul {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
+    li {
+        list-style: none;
+    }
+    svg {
+        font-weight: 400;
+        height: 35px;
+        min-width: 50px;
+        border-radius: 12px;
+        line-height: 50px;
+        text-align: center;
+        fill: white;
+        transition: all 0.5s ease;
+        &:hover {
+            color: currentColor !important;
+            svg {
+                fill: currentColor;
+            }
+        }
+    }
+    a {
+        color: $white;
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        justify-content: center;
+        white-space: nowrap;
+        transition: all 0.4s ease;
+    }
+    .links_name {
+        display: flex;
+        justify-content: center;
+    }
+    #active:hover {
+        color: $yellow;
+        svg {
+            fill: $yellow;
+        }
     }
 }
 

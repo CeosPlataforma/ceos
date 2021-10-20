@@ -1,13 +1,10 @@
 import React from "react";
 import SimpleBox from "../components/SimpleBox";
 import Table from 'react-bootstrap/Table';
-import User from "../components/User";
-import Title from "../components/PainelTitle";
 import { Link } from "react-router-dom";
 import AtvBox from "../components/AtvBox";
 import Slider from "react-slick";
-import MiniFooter from "../components/MiniFooter";
-import $ from 'jquery';
+import PlataformaHeader from "../components/PlataformaHeader";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -130,14 +127,8 @@ export default function Painel() {
 
     return (
         <div className="container-xxl painel content">
-            <div className="row align-items-center">
-                <div className="col">
-                    <div className="logged--header">
-                        <Title title="Olá, " user="Nome de Usuário" />
-                        <User />
-                    </div>
-                </div>
-            </div>
+
+            <PlataformaHeader title="Olá, " user="Nome de Usuário" />
 
             <div className="row align-items-center">
                 <div className="col">
@@ -186,7 +177,6 @@ export default function Painel() {
                         breakpoint: 1570,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 2,
                         }
                     }]}>
                 {materias.map((card) => {
@@ -207,7 +197,6 @@ export default function Painel() {
                         breakpoint: 1450,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 2,
                         }
                     }]}>
                 {atvs.map((card) => {
@@ -231,14 +220,12 @@ export default function Painel() {
                         breakpoint: 1350,
                         settings: {
                             slidesToShow: 3,
-                            slidesToScroll: 3,
                         }
                     },
                     {
                         breakpoint: 820,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 2,
                         }
                     }
                 ]}>

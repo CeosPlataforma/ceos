@@ -1,6 +1,9 @@
 .painel {
     &--demais-horarios {
         @extend .dados-pessoais--alterar;
+        @include device(md) {
+            margin-top: 18px;
+        }
     }
     &--materias-holder {
         display: flex;

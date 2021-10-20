@@ -56,7 +56,7 @@ export default function DadosPessoais() {
 
     return (
         <div>
-            <div className="container-xxl container-padding dados-pessoais content">
+            <div className="container-xxl dados-pessoais content">
                 <div className="row align-items-center">
 
                     <div className="col-sm-12 col-xl-5">

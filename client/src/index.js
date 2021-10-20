@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Logout from "./components/Logout";
 import MiniFooter from "./components/MiniFooter";
 import Sidebar from "./components/Sidebar";
+import SidebarMob from './components/SidebarMob';
 import "./css/main.css";
 
 // PAGES
@@ -51,37 +52,44 @@ ReactDOM.render(
 
             <Route path="/painel">
                 <Sidebar />
+                <SidebarMob />
                 <Painel />
                 <MiniFooter />
             </Route>
             <Route path="/cronograma">
                 <Sidebar />
+                <SidebarMob />
                 <Cronograma />
                 <MiniFooter />
             </Route>
             <Route path="/materias">
-                <Sidebar Active="materias" />
+                <Sidebar />
+                <SidebarMob />
                 <Materias />
                 <MiniFooter />
             </Route>
             <Route path="/materia/idmateria">
-                <Sidebar Active="materias" />
+                <Sidebar />
+                <SidebarMob />
                 <VerAtvs />
                 <MiniFooter />
             </Route>
             <Route path="/atividades">
                 <Sidebar />
+                <SidebarMob />
                 {//<Atividades />
                 }
                 <MiniFooter />
             </Route>
             <Route path="/desempenho">
-                <Sidebar Active="desempenho" />
+                <Sidebar />
+                <SidebarMob />
                 <Desempenho />
                 <MiniFooter />
             </Route>
             <Route path="/dados-pessoais">
                 <Sidebar />
+                <SidebarMob />
                 <DadosPessoais />
                 <MiniFooter />
             </Route>
