@@ -1,6 +1,5 @@
 .content {
-    margin: 50px auto 160px auto;
-    position: absolute;
+    margin: 50px auto 120px auto;
     width: calc(100% - 78px);
     left: 15.63%;
     transition: all 0.5s ease;
@@ -10,6 +9,11 @@
     @include device(md) {            
         width: calc(90% - 78px);
     }
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
 }
 
 .title {

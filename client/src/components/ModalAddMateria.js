@@ -15,7 +15,7 @@ function ModalAddMateria(props) {
 
     console.log(props);
     return (
-        <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title">Adicione uma matéria</h1>
@@ -31,7 +31,7 @@ function ModalAddMateria(props) {
                             <ErrorMessage name="name" />
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" className="btn btn-primary text-md w-100 modal--btn">Confirmar</button>
+                            <button type="submit" className="btn btn-primary text-md w-100 mx-auto modal--btn">Confirmar</button>
                         </div>
                     </Form>
                 </Formik>

@@ -21,19 +21,29 @@
         margin: 15px 0px;
         display: inline-block;
     }
-    .btn-light {
-        color: $blue;
-        font: $font-sm;
-        padding: 6px 40px;
-        border-radius: 10px;
+    .atv-botoes {
         margin-top: 15px;
     }
-    .btn-danger {
+    .btn-view {
+        color: $blue;
+        font: $font-sm;
+        padding: 8px 50px;
+        border-radius: 10px;
+        background-color: $white;
+    }
+    .btn-delete {
         color: $white;
         font-weight: regular;
         font-size: 30px;
         border-radius: 50%;
         padding: 0px 13px;
+        height: 50px;
+        width: 50px;
+        background-color: $red;
+        border: none;
+        &:hover, &:focus, &:active {
+            background-color: $red;
+        }
     }
     #none {
         display: none;

@@ -93,10 +93,6 @@ label:focus,
   }
 }
 
-.last-element {
-  margin-bottom: 200px;
-}
-
 /*
 ::-webkit-scrollbar {
     width: 15px;
@@ -447,7 +443,8 @@ label:focus,
   justify-content: space-around;
   align-items: center;
   background-color: #216AA7;
-  padding: 15px 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
   position: relative;
 }
 .min-footer--logo {
@@ -460,8 +457,7 @@ label:focus,
 }
 
 .content {
-  margin: 50px auto 160px auto;
-  position: absolute;
+  margin: 50px auto 120px auto;
   width: calc(100% - 78px);
   left: 15.63%;
   transition: all 0.5s ease;
@@ -475,6 +471,11 @@ label:focus,
   .content {
     width: calc(90% - 78px);
   }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -675,8 +676,8 @@ label:focus,
   background-color: #216AA7;
   transition: 0.2s;
 }
-.contato--btn:hover, .acessar--btn:hover, .cadastrar--btn:hover, .dados-pessoais--btn:hover, .materias--classificar-por:hover {
-  background-color: #0c375a;
+.contato--btn:hover, .contato--btn:focus, .contato--btn:active, .acessar--btn:hover, .acessar--btn:focus, .acessar--btn:active, .cadastrar--btn:hover, .cadastrar--btn:focus, .cadastrar--btn:active, .dados-pessoais--btn:hover, .dados-pessoais--btn:focus, .dados-pessoais--btn:active, .materias--classificar-por:hover, .materias--classificar-por:focus, .materias--classificar-por:active {
+  background-color: #216AA7;
   color: #FFFFFF;
   transition: 0.2s;
 }
@@ -717,8 +718,8 @@ button {
   background: #216AA7;
   border: none;
 }
-.modal--btn:hover {
-  background: #216AA7;
+.modal--btn:hover, .modal--btn:focus, .modal--btn:active {
+  background: #216AA7 !important;
 }
 @media screen and (max-width: 767.98px) {
   .modal--btn {
@@ -980,8 +981,8 @@ ol, ul {
 .simpleBox {
   display: flex;
   background: #216AA7;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 180px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -1019,19 +1020,29 @@ ol, ul {
   margin: 15px 0px;
   display: inline-block;
 }
-.atvBox .btn-light {
-  color: #216AA7;
-  font: 500 20px "Baloo Bhai 2", cursive;
-  padding: 6px 40px;
-  border-radius: 10px;
+.atvBox .atv-botoes {
   margin-top: 15px;
 }
-.atvBox .btn-danger {
+.atvBox .btn-view {
+  color: #216AA7;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  padding: 8px 50px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+.atvBox .btn-delete {
   color: #FFFFFF;
   font-weight: regular;
   font-size: 30px;
   border-radius: 50%;
   padding: 0px 13px;
+  height: 50px;
+  width: 50px;
+  background-color: #C24D4D;
+  border: none;
+}
+.atvBox .btn-delete:hover, .atvBox .btn-delete:focus, .atvBox .btn-delete:active {
+  background-color: #C24D4D;
 }
 .atvBox #none {
   display: none;
@@ -1263,10 +1274,6 @@ ol, ul {
   min-height: 160px;
 }
 
-.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
-  margin-bottom: 160px;
-}
-
 .painel--materias-holder {
   display: flex;
   justify-content: space-between;
@@ -1307,7 +1314,7 @@ ol, ul {
 .painel .slick-arrow {
   display: inline-block;
   position: absolute;
-  top: -52px;
+  top: -60px;
   font-weight: regular !important;
   cursor: pointer;
   line-height: auto !important;
@@ -1317,29 +1324,43 @@ ol, ul {
   line-height: auto;
   color: #23272a;
   opacity: 1;
+  width: 20px;
 }
 .painel .slick-arrow--hover {
   color: #23272a !important;
 }
+.painel .bar {
+  display: inline-block;
+  margin: 0px 30px;
+  font-weight: 700;
+  font-size: 30px;
+}
 .painel .slick-prev {
   left: auto;
-  right: 60px;
+  left: 0px;
 }
 .painel .slick-prev::before {
   content: "<";
   color: #23272a;
-  font-size: 50px;
+  font-size: 30px;
+  font-weight: 800;
 }
 .painel .slick-next {
-  right: 0;
+  left: 35px;
 }
 .painel .slick-next::before {
   content: ">";
   color: #23272a;
-  font-size: 50px;
+  font-size: 30px;
+  font-weight: 800;
 }
-.painel h4 {
+.painel .section-title {
   margin-bottom: 20px;
+  margin-left: 55px;
+  align-items: center;
+}
+.painel .section-title h4 {
+  margin: 0;
 }
 
 .atividades--holder {
@@ -1348,6 +1369,9 @@ ol, ul {
   justify-content: space-between;
 }
 
+.dados-pessoais {
+  margin: 50px auto 320px auto !important;
+}
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }
@@ -1363,6 +1387,7 @@ ol, ul {
   transition: 0.2s;
   display: block;
   margin-bottom: 40px;
+  background-color: #FFFFFF;
 }
 .dados-pessoais--alterar:hover, .painel--demais-horarios:hover {
   background-color: #216AA7;
@@ -1375,8 +1400,8 @@ ol, ul {
   text-decoration: none;
   font: 500 20px "Baloo Bhai 2", cursive;
 }
-.dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus {
-  color: #C24D4D;
+.dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus, .dados-pessoais--desativar:active {
+  color: #C24D4D !important;
 }
 .dados-pessoais--form label {
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -1396,10 +1421,10 @@ ol, ul {
 }
 
 .desativar-conta--btn {
-  background: #C24D4D;
+  background: #C24D4D !important;
 }
-.desativar-conta--btn:hover {
-  background: #C24D4D;
+.desativar-conta--btn:hover, .desativar-conta--btn:focus, .desativar-conta--btn:active {
+  background: #C24D4D !important;
 }
 
 .sidebar.active ~ .dados-pessoais {
@@ -1420,10 +1445,12 @@ ol, ul {
 .materias--btn {
   padding: 10px 70px;
   border: 2px solid #707070;
+  color: #707070;
 }
-.materias--btn:hover {
+.materias--btn:hover, .materias--btn:focus, .materias--btn:active {
   border: 2px solid #707070;
   background-color: #707070;
+  color: #FFFFFF;
 }
 @media screen and (max-width: 767.98px) {
   .materias--btn {
@@ -1434,6 +1461,7 @@ ol, ul {
   margin-left: 0;
   margin-right: 10px;
   background-color: #707070;
+  color: #FFFFFF;
 }
 .materias h5 {
   color: #fff;

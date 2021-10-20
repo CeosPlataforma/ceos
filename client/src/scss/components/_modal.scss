@@ -28,8 +28,8 @@
         font: $font-sm;
         background: $blue;
         border: none;
-        &:hover {
-            background: $blue;
+        &:hover, &:focus, &:active {
+            background: $blue !important;
         }
         @include device(sm) {            
             word-wrap: break-word;

@@ -1,4 +1,5 @@
 .dados-pessoais {
+    margin: 50px auto 320px auto !important;
     &--sub-title {
         margin-bottom: 40px;
     }
@@ -16,7 +17,7 @@
         transition: .2s;
         display: block;
         margin-bottom: 40px;
-    
+        background-color: $white;
         &:hover {
             background-color: $blue;
             color: $white;
@@ -28,8 +29,8 @@
         cursor: pointer;
         text-decoration: none;
         font: $font-sm;
-        &:hover,&:focus {
-            color: $red;
+        &:hover,&:focus, &:active {
+            color: $red !important;
         }
     }
     &--form {
@@ -55,9 +56,9 @@
 }
 
 .desativar-conta--btn {
-    background: $red;
-    &:hover {
-        background: $red;
+    background: $red !important;
+    &:hover, &:focus, &:active{
+        background: $red !important;
     }
 }
 

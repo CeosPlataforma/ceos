@@ -16,9 +16,11 @@
         @extend .btn--common;
         padding: 10px 70px;
         border: 2px solid $gray-dark;
-        &:hover {
+        color: $gray-dark;
+        &:hover, &:focus, &:active {
             border: 2px solid $gray-dark;
             background-color: $gray-dark;
+            color: $white;
         }
         @include device(sm) {             
             padding: 10px 40px;         
@@ -29,6 +31,7 @@
         margin-left: 0;
         margin-right: 10px;
         background-color: $gray-dark;
+        color: $white;
     }
 
     h5 {

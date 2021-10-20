@@ -191,8 +191,8 @@
 	background-color: $blue;
 	transition: .2s;
 
-	&:hover {
-		background-color: $blue-dark;
+	&:hover, &:focus, &:active {
+		background-color: $blue;
 		color: $white;
 		transition: .2s;
 	}

@@ -63,12 +63,12 @@ export default function Materias() {
                         </div>
 
 
-                        <button className="materias--btn materias--ver-materias btn btn-secondary btn--common">Ver matérias</button>
+                        <button className="materias--btn materias--ver-materias btn btn--common">Ver matérias</button>
 
-                        <button className="materias--btn materias--adicionar-materias  btn btn-outline-secondary btn--common" onClick={() => { setShow(true) }}>Adicionar matérias</button>
+                        <button className="materias--btn materias--adicionar-materias  btn btn--common" onClick={() => { setShow(true) }}>Adicionar matérias</button>
 
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -78,7 +78,7 @@ export default function Materias() {
                             </ul>
                         </div>
 
-                        <div class="materias--holder last-element">
+                        <div class="materias--holder">
 
                             {materias.map((materia) => (
                                 <div class="materias--container">

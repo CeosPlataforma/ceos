@@ -35,9 +35,9 @@ export default function AtvBox({ title, materia, tipo, data, excluir }) {
                 </svg> <h5>{data}</h5>
             </div>
 
-            <div className="d-flex justify-content-between">
-                <button type="button" className={excluir == true ? "btn btn-light" : "btn btn-light w-100"}>Visualizar</button>
-                <button type="button" className="btn btn-danger" id={excluir == true ? "" : "none"}>X</button>
+            <div className="d-flex justify-content-between atv-botoes">
+                <button className={excluir == true ? "btn btn-view" : "btn btn-view w-100"}>Visualizar</button>
+                <button className="btn btn-delete" id={excluir == true ? "" : "none"}>X</button>
             </div>
         </div>
     );
