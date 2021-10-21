@@ -76,6 +76,9 @@
     border-radius: 0;
     border: none;
     padding: 60px 30px;
+    @include device(sm) {
+        padding: 60px 20px;
+    }
 }
 
 .modal-cronograma {

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import ModalConfirmAtv from "../components/ModalConfirmAtv";
+import ModalEditAtv from "../components/ModalEditAtv";
 
 export default function AtvBox({ title, materia, tipo, data, excluir }) {
 
+    const [show, setShow] = useState(false);
+
     return (
+
         <div className="atvBox">
             <h2>{title}</h2>
             <hr />
@@ -36,9 +41,12 @@ export default function AtvBox({ title, materia, tipo, data, excluir }) {
             </div>
 
             <div className="d-flex justify-content-between atv-botoes">
-                <button className={excluir == true ? "btn btn-view" : "btn btn-view w-100"}>Visualizar</button>
+                <button className={excluir == true ? "btn btn-view" : "btn btn-view w-100"} onClick={() => { setShow(true) }}>Visualizar</button>
                 <button className="btn btn-delete" id={excluir == true ? "" : "none"}>X</button>
             </div>
+
+            <ModalConfirmAtv show={show} onHide={() => setShow(false)} />
+            {/* <ModalEditAtv show={show} onHide={() => setShow(false)} /> */}
         </div>
     );
 }
