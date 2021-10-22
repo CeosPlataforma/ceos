@@ -4,7 +4,7 @@
         font: $font-sm !important;
         text-align: center;
         font-weight: $extra-bold !important;
-        &--desativar-conta {
+        &--mini {
             font-size: 23px; /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/;
             font-weight: bold;
             text-align: center;            
@@ -28,11 +28,26 @@
         font: $font-sm;
         background: $blue;
         border: none;
+        margin: 0px 0px 20px 0px !important;
         &:hover, &:focus, &:active {
             background: $blue !important;
         }
         @include device(sm) {            
             word-wrap: break-word;
+        }
+        &--secondary {
+            background: $white;
+            color: $blue;
+            font: $font-sm;
+            border: 2px solid $blue;
+            padding: 12px 14.84375%;
+            border-radius: 10px;
+            margin: 0 !important;
+            &:active, &:hover {
+                background: $blue !important;
+                color: $white;
+                border: 2px solid $blue;
+            }
         }
     }
 }
@@ -40,6 +55,10 @@
 .modal-backdrop.show {
     background-color: $black;
     opacity: 0.9;
+}
+
+.modal-alterar-senha .modal-backdrop.show {
+    opacity: 0;
 }
 
 .modal-align {

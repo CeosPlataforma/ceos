@@ -4,6 +4,14 @@ import React, { useState } from "react";
 import Title from "../components/PainelTitle";
 import * as Yup from 'yup';
 import ModalExcluirConta from '../components/ModalExcluirConta';
+import ModalDados from '../components/ModalDados';
+
+import Alert from 'react-bootstrap/Alert';
+
+import Cropper from 'react-easy-crop';
+import Slider from "@material-ui/core/Slider";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 export default function DadosPessoais() {
 
@@ -11,7 +19,7 @@ export default function DadosPessoais() {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
-    const [show, setShow] = useState(false);
+    const [show1, setShow1] = useState(false);
 
     const reload = () => {
         window.location.reload();
@@ -54,8 +62,104 @@ export default function DadosPessoais() {
         }
     }
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const inputRef = React.useRef();
+    const triggerFile = () => inputRef.current.click();
+
+    const [image, setImage] = useState(null)
+    const [crop, setCrop] = useState({ x: 0, y: 0 })
+    const [zoom, setZoom] = useState(1)
+    const [croppedArea, setCroppedArea] = useState(null)
+
+    const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
+        setCroppedArea(croppedAreaPixels);
+    }
+
+    const onSelectFile = (event) => {
+        if (event.target.files && event.target.files.length > 0) {
+            setShow(true);
+            const reader = new FileReader()
+            reader.readAsDataURL(event.target.files[0])
+            reader.addEventListener('load', () => {
+                setImage(reader.result)
+            })
+        }
+    }
+
+    // const [show2, setShow2] = useState(false);
+
+    // const handleClose2 = () => setShow2(false);
+    // const handleShow2 = () => setShow2(true);
+
+    // const [show3, setShow3] = useState(false);
+
+    // const handleClose3 = () => setShow3(false);
+    // const handleShow3 = () => setShow3(true);
+
+
     return (
         <div>
+            {/* n sei como funciona o usestate/setshow ent n consegui fazer direito
+            mas se o arrudas souber o basics e colocar ta comentado ai
+            e n sei como aplicar o corte pra colocar como foto e mandar pro banco ou oq for acontecer, mas eu segui o tutorial do indiano e deve dar pra adaptar de
+            algo de la:
+            https://youtu.be/RmiP1AY5HFM 
+            vou commitar os arquivos jnts só ver o codigo e pegar a funcao certa e fazer o neg... deu preguiça
+            */}
+
+            {/* <Alert className="">
+                As alterações dos dados foram realizadas com sucesso!
+            </Alert> */}
+
+            <ModalDados />
+
+            {image ? (
+                <Modal size="lg" show={show} onHide={handleClose} className="dados-pessoais--modal-cropper" centered>
+                    <Modal.Header>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            <h1 className="modal--title">Edite a imagem</h1>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="container-cropper">
+                            <div className="cropper">
+                                <Cropper
+                                    image={image}
+                                    zoom={zoom}
+                                    crop={crop}
+                                    aspect={1}
+                                    cropShape="round"
+                                    showGrid={false}
+                                    onCropChange={setCrop}
+                                    onZoomChange={setZoom}
+                                    onCropComplete={onCropComplete}
+                                />
+                            </div>
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <div className="cropper--slider mx-auto">
+                            <Slider
+                                min={1}
+                                max={3}
+                                step={0.1}
+                                value={zoom}
+                                onChange={(e, zoom) => setZoom(zoom)}
+                            />
+                        </div>
+
+                        <div className="d-flex justify-content-around w-100">
+                            <Button className="text-md modal--btn cropper--cancelar mx-auto" onClick={handleClose}>Cancelar</Button>
+                            <Button className="text-md modal--btn cropper--aplicar mx-auto">Aplicar</Button>
+                        </div>
+                    </Modal.Footer>
+                </Modal>
+            ) : null}
+
             <div className="container-xxl dados-pessoais content">
                 <div className="row align-items-center">
 
@@ -70,8 +174,9 @@ export default function DadosPessoais() {
                                 c-0.714-0.609-1.126-1.502-1.126-2.439c0-4.217,3.413-7.592,7.631-7.592h8.762c4.219,0,7.619,3.375,7.619,7.592
                                 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
                         </svg>
-                        <button className="dados-pessoais--alterar">Alterar foto</button>
-                        <a className="dados-pessoais--desativar" onClick={() => { setShow(true) }}>&gt; Desativar conta</a>
+                        <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
+                        <button className="dados-pessoais--alterar" onClick={triggerFile}>Alterar foto</button>
+                        <a className="dados-pessoais--desativar" onClick={() => { setShow1(true) }}>&gt; Desativar conta</a>
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto">
@@ -85,22 +190,23 @@ export default function DadosPessoais() {
                                 <Field name="email" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--email"
                                     defaultValue={email} readonly="true" />
 
-                                <label for="dados-pessoais--senha" className="form-label">Senha</label>
+                                {/* <label for="dados-pessoais--senha" className="form-label">Senha</label>
                                 <div className="dados-pessoais--senha--container senha--container">
                                     <Field name="senha" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                     <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                                     <ErrorMessage name="senha" />
-                                </div>
+                                </div> */}
                                 <br />
-                                <button type="submit" className="dados-pessoais--btn w-100">Alterar dados</button>
+                                <button
+                                    type="submit"
+                                    className="dados-pessoais--btn w-100" data-bs-toggle="modal" href="#exampleModalToggle">Alterar dados</button>
                             </Form>
                         </Formik>
                     </div>
                 </div>
             </div>
 
-            <ModalExcluirConta onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
-
+            <ModalExcluirConta onSubmit={onSubmit} show={show1} onHide={() => setShow1(false)} onExited={reload} />
         </div>
     );
 }

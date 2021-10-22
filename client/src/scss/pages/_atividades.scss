@@ -3,5 +3,70 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &--btn {
+        @extend .btn--common;
+        padding: 10px 100px;
+        border: 2px solid $gray-dark;
+        color: $gray-dark;
+        margin-bottom: 15px;
+        @include device(md) {
+            width: 30%;
+        }
+        @include device(md) {
+            width: 49%;
+        }
+        &:hover, &:focus, &:active {
+            border: 2px solid $gray-dark;
+            background-color: $gray-dark;
+            color: $white;
+        }
+        @include device(sm) {             
+            padding: 10px 40px;
+        }
+        &--active {
+            background-color: $gray-dark;
+            color: $white;
+        }
+        &--inactive {
+            background-color: $white;
+            color: $gray-dark;
+        }
+    }
+}
+
+.row-atividades {
+    padding: 0 15px;
+    flex-wrap: wrap;
+}
+
+.btn-edit--atv {
+    background-color: $yellow;
+    border-radius: 50%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;    
+    margin-left: 13px;
+    svg {
+        fill: white;
+        width: 17px;
+    }
+}
+
+.title-bold {
+    font-weight: bold;
+    margin: 0 !important;
+}
+
+.subtitle {
+    font: $font-sm;
+    &--gray {    
+        color: $gray-dark;
     }
 }

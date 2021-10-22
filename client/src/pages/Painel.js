@@ -196,9 +196,16 @@ export default function Painel() {
                     {
                         breakpoint: 1450,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 2
                         }
-                    }]}>
+                    },
+                    {
+                        breakpoint: 888,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]}>
                 {atvs.map((card) => {
                     return <AtvBox
                         title={card.title}
@@ -219,13 +226,19 @@ export default function Painel() {
                     {
                         breakpoint: 1350,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: 3
                         }
                     },
                     {
                         breakpoint: 820,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1
                         }
                     }
                 ]}>

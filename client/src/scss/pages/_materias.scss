@@ -6,24 +6,22 @@
         align-items: center;
         justify-content: space-between;
         width: 250px;
-        margin: 40px 0px;  
-        margin-left: 3px; 
+        margin: 40px 0px;
     }
-
-
 
     &--btn {
         @extend .btn--common;
         padding: 10px 70px;
         border: 2px solid $gray-dark;
         color: $gray-dark;
+        margin-bottom: 15px;
         &:hover, &:focus, &:active {
             border: 2px solid $gray-dark;
             background-color: $gray-dark;
             color: $white;
         }
         @include device(sm) {             
-            padding: 10px 40px;         
+            padding: 10px 40px;
         }
     }
 

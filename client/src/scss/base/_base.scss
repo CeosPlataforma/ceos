@@ -18,19 +18,18 @@
 }
 
 // Scrollbar
-/*
+
 ::-webkit-scrollbar {
     width: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $gray-dark;
+    background: $blue;
 }
 
 ::-webkit-scrollbar-track {
     background: $gray-light;
 }
-*/
 
 @media (min-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {

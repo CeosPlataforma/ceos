@@ -27,7 +27,7 @@ const stuff = [
 function StuffComponent(props) {
 
     const [index, setIndex] = useState(0)
-    
+
     const [orgButton, setOrgButton] = useState("visao-geral--btn--active")
     const [gerButton, setGerButton] = useState("visao-geral--btn--inactive")
     const [desButton, setDesButton] = useState("visao-geral--btn--inactive")

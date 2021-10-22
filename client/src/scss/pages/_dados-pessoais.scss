@@ -33,6 +33,15 @@
             color: $red !important;
         }
     }
+    &--alterar-dados {
+        color: $blue !important;
+        cursor: pointer;
+        text-decoration: none;
+        font: $font-sm;
+        &:hover,&:focus, &:active {
+            color: $blue !important;
+        }
+    }
     &--form {
         label {
             font: $font-sm;
@@ -53,6 +62,17 @@
             }
         }        
     }
+    &--modal-cropper {
+        .modal-footer {
+            flex-direction: column;
+        }
+    }
+}
+
+.alterar-dados {
+    .modal-footer {
+        flex-direction: column;
+    }
 }
 
 .desativar-conta--btn {
@@ -62,9 +82,17 @@
     }
 }
 
-.sidebar.active ~ .dados-pessoais {
-    // Move o conteudo com a sidebar ativada
-    z-index: 100;
-    width: calc(100% - 240px);
-    left: calc(78px + 240px);
+.container-cropper {
+    height: 500px;
+    width: 500px;
+}
+
+.cropper {
+    &--slider {
+        width: 60%;
+        margin: 30px 0;
+    }
+    &--aplicar, &--cancelar {
+        display: inherit;
+    }
 }

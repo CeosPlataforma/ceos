@@ -45,6 +45,9 @@
         width: 50px;
         background-color: $red;
         border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &:hover, &:focus, &:active {
             background-color: $red;
         }
@@ -60,15 +63,25 @@
         box-sizing: content-box;
         margin-right: 10px;
     }
-    @include device(md) {            
-        width: 300px;
-    }
-    @include device(md) {            
-        width: 270px;
-    }
-    @include device(sm) {            
-        padding: 30px 8px;
-        width: 200px;
+    // @include device(md) {            
+    //     width: 300px;
+    // }
+    // @include device(md) {            
+    //     width: 270px;
+    // }
+ 
+    // @media screen and (max-width: 700px) {
+    //     .atvBox {
+    //         padding: 30px;
+    //         width: 340px;
+    //     }
+    // }       
+} 
+
+@media screen and (max-width: 430px) {
+    .atvBox {
+        padding: 30px 10px !important;
+        width: 220px !important;
     }
 }
 
@@ -96,28 +109,6 @@
             padding: 16px 15px !important;
         }
     }
-    .btn-edit {
-        background-color: $yellow;
-        border-radius: 50%;
-        border: none;
-        height: 65px !important;
-        width: 65px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin: 0;
-        position: absolute;
-        right: 60px;
-        @include device(xs) {
-            right: 35px;
-        }
-        svg {
-            fill: white;
-            height: 50px;
-            width: 50px;
-        }
-    }
     .modal-footer {
         display: flex;
         padding: 0px 30px;
@@ -125,6 +116,29 @@
         @include device(md) {
             justify-content: flex-start;
         }
+    }
+}
+
+.btn-edit {
+    background-color: $yellow;
+    border-radius: 50%;
+    border: none;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    right: 60px;
+    @include device(xs) {
+        right: 35px;
+    }
+    svg {
+        fill: white;
+        height: 50px;
+        width: 50px;
     }
 }
 

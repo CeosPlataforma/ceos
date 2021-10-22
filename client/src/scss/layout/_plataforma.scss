@@ -9,6 +9,9 @@
     @include device(md) {            
         width: calc(90% - 78px);
     }
+    @media screen and (max-width: 600px) {
+        width: calc(100% - 78px) !important;
+    }
 }
 
 #root {
@@ -55,4 +58,18 @@
     p {
         margin: 0 !important;
     }
+}
+
+.alert {
+    background-color: rgba($green, 0.2);
+    border-color: $green;
+    color: $green;
+    width: 500px;
+    position: absolute;
+    z-index: 90909090;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin-left: auto; 
+    margin-right: auto; 
 }

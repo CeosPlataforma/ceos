@@ -34,13 +34,10 @@
     // }
 
     @include device(lg) {            
-        width: calc(85% - 78px) !important;
+        width: calc(85% - 78px);
     }
     @include device(md) {            
-        width: calc(90% - 78px) !important;
-    }
-    @media screen and (max-width: 600px) {
-        width: calc(100% - 78px) !important;
+        width: calc(90% - 78px);
     }
 
     // Icons
