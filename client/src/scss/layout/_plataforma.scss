@@ -15,6 +15,7 @@
 
 #root {
     display: flex;
+    flex-direction: column;
     @include device(md) {
         flex-direction: column;
     }
