@@ -6,7 +6,7 @@ class SidebarMob extends Component {
     render() {
         return (
             <div className="sidebar--mobile">
-                <ul className="nav_list">
+                <ul className="nav_list nav_list-mobile">
                     <li>
                         <Link id={window.location.pathname == "/painel" ? "active" : ""} to={"painel"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -127,7 +127,7 @@ class SidebarMob extends Component {
                                         c39.344,0,71.354,40.667,71.354,90.654s-32.01,90.654-71.354,90.654s-71.354-40.667-71.354-90.654S188.838,29.243,228.182,29.243
                                         z"/>
                             </svg>
-                            <span className="links_name">Dados Pessoais</span>
+                            <span className="links_name">Dados pessoais</span>
                         </Link>
                     </li>
                     <li>

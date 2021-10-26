@@ -101,7 +101,8 @@
     input {
         margin-bottom: 20px;
     }
-    &--btn {        
+    &--btn {
+        margin-bottom: 0px !important;
         @include device(sm) {
             padding: 16px 15% !important;
         }

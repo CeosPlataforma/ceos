@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
+import { Link } from "react-router-dom";
 
 export default function VerAtvs() {
 
@@ -104,6 +105,7 @@ export default function VerAtvs() {
                             <h2 className="subtitle mt-2">Dia</h2>
                             <p className="subtitle subtitle--gray">Horário</p>
                             <br />
+                            <Link to="/cronograma" className="materia-visualizar-cronograma">&gt; Visualizar no cronograma</Link>
                         </div>
 
                         <div>

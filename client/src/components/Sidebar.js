@@ -242,9 +242,9 @@ class Sidebar extends Component {
                                         c39.344,0,71.354,40.667,71.354,90.654s-32.01,90.654-71.354,90.654s-71.354-40.667-71.354-90.654S188.838,29.243,228.182,29.243
                                         z"/>
                             </svg>
-                            <span className="links_name">Dados Pessoais</span>
+                            <span className="links_name">Dados pessoais</span>
                         </Link>
-                        <span className="tooltip">Dados Pessoais</span>
+                        <span className="tooltip">Dados pessoais</span>
                     </li>
                     <li>
                         <Link to={"/logout"}>

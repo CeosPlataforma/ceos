@@ -164,7 +164,7 @@ export default function DadosPessoais() {
                 <div className="row align-items-center">
 
                     <div className="col-sm-12 col-xl-5">
-                        <Title title="Dados Pessoais" />
+                        <Title title="Dados pessoais" />
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 45.532 45.532" xmlSpace="preserve" class="dados-pessoais--user-img">

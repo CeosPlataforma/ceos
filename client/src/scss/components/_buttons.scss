@@ -111,7 +111,6 @@
 	transition: .2s;
 
 	&:hover {
-		background-color: $blue-dark;
 		color: $white;
 		transition: .2s;
 	}
@@ -133,7 +132,6 @@
 		transition: .2s;
 
 		&:hover {
-			background-color: $blue-dark;
 			color: $white;
 			transition: .2s;
 		}
@@ -145,11 +143,6 @@
 		background-color: $gray-light;
 		color: $gray-dark;
 		transition: .2s;
-
-		&:hover {
-			opacity: .5;
-			transition: .2s;
-		}
 	}
 }
 
