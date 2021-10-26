@@ -168,8 +168,11 @@ class UserController {
         await UserModel.findOne({ uuid }, (error, user) => {
             if (user === null) {
                 return response.json({ error: 'inexistent' });
+            } else if (error) {
+                return response.json({ error: error });
             } else {
-                return response.json({ foto: user.foto });
+                console.log(user.avatar);
+                return response.json({ foto: user.avatar });
             }
         });
     }

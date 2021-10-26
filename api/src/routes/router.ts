@@ -24,5 +24,6 @@ router.get('/register/:userID', userController.verifyEmail);
 router.post('/logout', userController.logout)
 router.post('/redefinir-senha/', userController.resetPassword)
 router.post('/upload-foto/', userController.uploadFoto)
+router.get('/get-foto/', userController.getFoto)
 
 export { router };

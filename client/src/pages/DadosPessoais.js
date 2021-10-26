@@ -7,6 +7,8 @@ import ModalExcluirConta from '../components/ModalExcluirConta';
 import ModalDados from '../components/ModalDados';
 import ModalAltSenha from '../components/ModalAltSenha';
 
+import Avatar from '../components/Avatar'
+
 import Cropper from 'react-easy-crop';
 import Slider from "@material-ui/core/Slider";
 import Modal from 'react-bootstrap/Modal';
@@ -28,8 +30,9 @@ export default function DadosPessoais() {
 
     axios.get("http://localhost:3333/userinfo")
         .then((response) => {
-            setNome(response.data.name)
-            setEmail(response.data.email)
+            console.log(response)
+            setNome(response.data.session.user.name)
+            setEmail(response.data.session.user.email)
         })
         .catch((error) => {
             console.log(error);
@@ -92,23 +95,10 @@ export default function DadosPessoais() {
         }
     }
 
-
     axios.defaults.withCredentials = true
     const onSubmit = async (values, actions) => {
-        /*await axios.post("http://localhost:3333/redefinir-senha", { password: values.password, user_uuid: userID })
-            .then(function (response) { 
-                if (response.data.error === "inexistent") {
-                    actions.setFieldError("password", `erro: usuario inexistente`);
-                } else if (response.data.success) {
-                    actions.setFieldError("password", `Sucesso!`)
-                    setModalShow(true)
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });*/
+        
     }
-
 
     const onUpload = async () => {
         const canvas = await getCroppedImg(image, croppedArea);
@@ -216,7 +206,7 @@ export default function DadosPessoais() {
                     <div className="col-sm-12 col-xl-5">
                         <Title title="Dados pessoais" />
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
-                        <div className="dados-pessoais--user-img"></div>
+                        <Avatar/>
                         {/* <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 45.532 45.532" xmlSpace="preserve" class="dados-pessoais--user-img">
                             <path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,22.766-22.765
@@ -235,7 +225,7 @@ export default function DadosPessoais() {
                             <Form className="dados-pessoais--form">
                                 <label for="dados-pessoais--nome" className="form-label">Nome</label>
                                 <Field name="name" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--nome"
-                                    defaultValue={nome} readonly="true" />
+                                    defaultValue={nome} readonly="true"/>
 
                                 <label for="dados-pessoais--email" className="form-label">E-mail</label>
                                 <Field name="email" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--email"
