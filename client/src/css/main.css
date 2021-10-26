@@ -444,7 +444,8 @@ label:focus,
   background-color: #216AA7;
   padding-top: 15px;
   padding-bottom: 15px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
 }
 .min-footer--logo {
   height: 60px;
@@ -457,8 +458,7 @@ label:focus,
 
 .content {
   margin: 50px auto 120px auto;
-  width: calc(100% - 78px);
-  left: 15.63%;
+  width: calc(100vw - 78px);
   transition: all 0.5s ease;
 }
 @media screen and (max-width: 1650px) {
@@ -479,7 +479,11 @@ label:focus,
 
 #root {
   display: flex;
-  flex-direction: column;
+}
+@media screen and (max-width: 991.98px) {
+  #root {
+    flex-direction: column;
+  }
 }
 
 .title {
@@ -550,6 +554,10 @@ label:focus,
 
 .MuiSlider-root {
   color: #216AA7 !important;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #FFFFFF;
 }
 
 /*
@@ -629,7 +637,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .materias--btn, .dados-pessoais--alterar, .painel--demais-horarios, .atividades--btn, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .materias--btn, .dados-pessoais--dados, .dados-pessoais--alterar, .painel--demais-horarios, .atividades--btn, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -764,7 +772,7 @@ button {
   background: #FFFFFF;
   color: #216AA7;
   font: 500 20px "Baloo Bhai 2", cursive;
-  border: 2px solid #216AA7;
+  border: 3px solid #216AA7;
   padding: 12px 14.84375%;
   border-radius: 10px;
   margin: 0 !important;
@@ -772,7 +780,7 @@ button {
 .modal--btn--secondary:active, .modal--btn--secondary:hover {
   background: #216AA7 !important;
   color: #FFFFFF;
-  border: 2px solid #216AA7;
+  border: 3px solid #216AA7;
 }
 
 .modal-backdrop.show {
@@ -859,13 +867,13 @@ button {
 }
 
 .sidebar {
-  position: fixed;
+  position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: center;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 78px;
   background: #23272a;
   padding: 0px 14px 30px 14px;
@@ -881,15 +889,6 @@ button {
 }
 .sidebar.active {
   width: 240px;
-  /*mudar dps pra mobile responsivo e pa @include device(sm) {
-      width: 90%;
-  } */
-  /*n sei como faz dscp vinavo &~ .dados-pessoais {
-      @include device(sm) {
-          position: absolute;
-          left: 0;
-      }
-  } */
 }
 .sidebar.active .logo_content .logo {
   opacity: 1;
@@ -1681,9 +1680,6 @@ ol, ul {
   }
 }
 
-.dados-pessoais {
-  margin: 50px auto 320px auto !important;
-}
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }
@@ -1722,33 +1718,38 @@ ol, ul {
 .dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus, .dados-pessoais--desativar:active {
   color: #C24D4D !important;
 }
-.dados-pessoais--alterar-dados {
-  color: #216AA7 !important;
-  cursor: pointer;
-  text-decoration: none;
+.dados-pessoais--dados {
+  color: #FFFFFF;
+  background-color: #216AA7;
   font: 500 20px "Baloo Bhai 2", cursive;
+  padding: 12px 14.84375%;
+  border: 3px solid #216AA7;
 }
-.dados-pessoais--alterar-dados:hover, .dados-pessoais--alterar-dados:focus, .dados-pessoais--alterar-dados:active {
-  color: #216AA7 !important;
+.dados-pessoais--dados:hover, .dados-pessoais--dados:focus, .dados-pessoais--dados:active {
+  color: #FFFFFF !important;
 }
 .dados-pessoais--form label {
-  font: 500 20px "Baloo Bhai 2", cursive;
+  font: 500 24px "Baloo Bhai 2", cursive;
   color: #23272a;
 }
 .dados-pessoais--form input {
   font: 500 20px "Baloo Bhai 2", cursive;
   color: #23272a;
   font-weight: 400;
-  padding: 12px;
-  border: 2px solid #AFAFAF;
+  padding: 20px 20px 20px 50px;
+  width: 100%;
+  border: 3px solid #707070;
   border-radius: 10px;
   cursor: default;
 }
 .dados-pessoais--form input:focus, .dados-pessoais--form input:active {
-  border: 2px solid #AFAFAF;
+  border: 3px solid #707070;
 }
 .dados-pessoais--modal-cropper .modal-footer {
   flex-direction: column;
+}
+.dados-pessoais .conteudo-direita {
+  margin-top: 95px;
 }
 
 .alterar-dados .modal-footer {

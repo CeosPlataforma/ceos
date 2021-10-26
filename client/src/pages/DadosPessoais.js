@@ -5,6 +5,7 @@ import Title from "../components/PainelTitle";
 import * as Yup from 'yup';
 import ModalExcluirConta from '../components/ModalExcluirConta';
 import ModalDados from '../components/ModalDados';
+import ModalAltSenha from '../components/ModalAltSenha';
 
 import Cropper from 'react-easy-crop';
 import Slider from "@material-ui/core/Slider";
@@ -151,7 +152,7 @@ export default function DadosPessoais() {
 
 
     return (
-        <div>
+        <>
             {/* siga os tutorial do indiano
             https://www.youtube.com/channel/UCyq81Ac-Ir4WIhFUgb_kyRw
 
@@ -161,6 +162,7 @@ export default function DadosPessoais() {
             */}
 
             <ModalDados />
+            <ModalAltSenha />
 
             {image ? (
                 <Modal size="lg" show={show} onHide={handleClose} className="dados-pessoais--modal-cropper" centered>
@@ -209,7 +211,7 @@ export default function DadosPessoais() {
             ) : null}
 
             <div className="container-xxl dados-pessoais content">
-                <div className="row align-items-center">
+                <div className="row">
 
                     <div className="col-sm-12 col-xl-5">
                         <Title title="Dados pessoais" />
@@ -228,7 +230,7 @@ export default function DadosPessoais() {
                         <a className="dados-pessoais--desativar" onClick={() => { setShow1(true) }}>&gt; Desativar conta</a>
                     </div>
 
-                    <div className="col-sm-12 col-xl-7 mx-auto">
+                    <div className="col-sm-12 col-xl-7 mx-auto conteudo-direita">
                         <Formik enableReinitialize={true} initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                             <Form className="dados-pessoais--form">
                                 <label for="dados-pessoais--nome" className="form-label">Nome</label>
@@ -248,7 +250,8 @@ export default function DadosPessoais() {
                                 <br />
                                 <button
                                     type="submit"
-                                    className="dados-pessoais--btn w-100" data-bs-toggle="modal" href="#exampleModalToggle">Alterar dados</button>
+                                    className="dados-pessoais--btn w-100 mb-4" data-bs-toggle="modal" href="#exampleModalToggle">Alterar dados</button>
+                                <Button className="text-md w-100 modal--btn--secondary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="#exampleModalToggle">Alterar senha</Button>
                             </Form>
                         </Formik>
                     </div>
@@ -256,6 +259,6 @@ export default function DadosPessoais() {
             </div>
 
             <ModalExcluirConta onSubmit={onSubmit} show={show1} onHide={() => setShow1(false)} onExited={reload} />
-        </div>
+        </>
     );
 }

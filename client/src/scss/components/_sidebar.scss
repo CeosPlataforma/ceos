@@ -1,11 +1,11 @@
 .sidebar {
-    position: fixed;
+    position: sticky;
     display: flex;
     flex-direction: column;
     justify-content: center;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 78px;
     background: $black;
     padding: 0px 14px 30px 14px;
@@ -18,9 +18,6 @@
     }
     &.active {
         width: 240px;
-        /*mudar dps pra mobile responsivo e pa @include device(sm) {
-            width: 90%;
-        } */
         .logo_content .logo {
             opacity: 1;
             pointer-events: none;
@@ -35,13 +32,7 @@
             transition: 0s;
             opacity: 1;
             pointer-events: auto;
-        }
-        /*n sei como faz dscp vinavo &~ .dados-pessoais {
-            @include device(sm) {
-                position: absolute;
-                left: 0;
-            }
-        } */
+        }        
     }
     &--collapse {
         position: absolute;
@@ -171,11 +162,11 @@
 .sidebar--mobile {
     display: none;
     justify-content: center;
+    flex-direction: row;    
+    background: $black;
     @include device(md) {
         display: flex;
     }
-    flex-direction: row;    
-    background: $black;
     ul {
         display: flex;
         flex-direction: row;

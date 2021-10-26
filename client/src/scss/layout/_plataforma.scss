@@ -1,7 +1,6 @@
 .content {
     margin: 50px auto 120px auto;
-    width: calc(100% - 78px);
-    left: 15.63%;
+    width: calc(100vw - 78px);
     transition: all 0.5s ease;
     @media screen and (max-width: 1650px) {
         width: calc(80% - 78px);
@@ -16,7 +15,9 @@
 
 #root {
     display: flex;
-    flex-direction: column;
+    @include device(md) {
+        flex-direction: column;
+    }
 }
 
 .title {
@@ -81,4 +82,8 @@
 
 .MuiSlider-root {
     color: $blue !important;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: $white;
 }
