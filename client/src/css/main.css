@@ -93,23 +93,18 @@ label:focus,
   }
 }
 
-.last-element {
-  margin-bottom: 200px;
-}
-
-/*
 ::-webkit-scrollbar {
-    width: 15px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $gray-dark;
+  background: #216AA7;
 }
 
 ::-webkit-scrollbar-track {
-    background: $gray-light;
+  background: #E5E5E5;
 }
-*/
+
 @media (min-width: 1400px) {
   .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 1320px;
@@ -447,7 +442,8 @@ label:focus,
   justify-content: space-around;
   align-items: center;
   background-color: #216AA7;
-  padding: 15px 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
   position: relative;
 }
 .min-footer--logo {
@@ -460,8 +456,7 @@ label:focus,
 }
 
 .content {
-  margin: 50px auto 160px auto;
-  position: absolute;
+  margin: 50px auto 120px auto;
   width: calc(100% - 78px);
   left: 15.63%;
   transition: all 0.5s ease;
@@ -475,6 +470,16 @@ label:focus,
   .content {
     width: calc(90% - 78px);
   }
+}
+@media screen and (max-width: 600px) {
+  .content {
+    width: calc(100% - 78px) !important;
+  }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -496,10 +501,15 @@ label:focus,
   color: #707070 !important;
   font: 500 20px "Baloo Bhai 2", cursive;
 }
+@media screen and (max-width: 991.98px) {
+  .user--name {
+    display: none;
+  }
+}
 .user--photo {
   height: 50px;
   width: 50px;
-  background-image: url(https://c.tenor.com/9r1rE1-uyFYAAAAd/social-credit.gif);
+  background-image: url(https://c.tenor.com/epNMHGvRyHcAAAAM/gigachad-chad.gif);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -508,8 +518,38 @@ label:focus,
   margin-left: 18px;
   border: 2px solid #707070;
 }
+@media screen and (max-width: 767.98px) {
+  .user--photo {
+    display: none;
+  }
+}
 .user p {
   margin: 0 !important;
+}
+
+.toast-container {
+  width: 30%;
+  right: 0;
+  z-index: 1000;
+}
+@media screen and (max-width: 991.98px) {
+  .toast-container {
+    width: 90%;
+  }
+}
+
+.toast {
+  padding: 10px;
+}
+.toast--sucess {
+  background-color: rgba(43, 158, 51, 0.1);
+  border: 2px solid #2B9E33;
+  border-radius: 10px;
+  color: #2B9E33;
+}
+
+.MuiSlider-root {
+  color: #216AA7 !important;
 }
 
 /*
@@ -589,7 +629,7 @@ label:focus,
 	}
 }
 */
-.btn--common, .materias--btn, .dados-pessoais--alterar, .painel--demais-horarios, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .materias--btn, .dados-pessoais--alterar, .painel--demais-horarios, .atividades--btn, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -617,7 +657,6 @@ label:focus,
   transition: 0.2s;
 }
 .hero--btn:hover {
-  background-color: #0c375a;
   color: #FFFFFF;
   transition: 0.2s;
 }
@@ -633,17 +672,12 @@ label:focus,
   transition: 0.2s;
 }
 .visao-geral--btn--active:hover {
-  background-color: #0c375a;
   color: #FFFFFF;
   transition: 0.2s;
 }
 .visao-geral--btn--inactive {
   background-color: #E5E5E5;
   color: #707070;
-  transition: 0.2s;
-}
-.visao-geral--btn--inactive:hover {
-  opacity: 0.5;
   transition: 0.2s;
 }
 
@@ -675,8 +709,8 @@ label:focus,
   background-color: #216AA7;
   transition: 0.2s;
 }
-.contato--btn:hover, .acessar--btn:hover, .cadastrar--btn:hover, .dados-pessoais--btn:hover, .materias--classificar-por:hover {
-  background-color: #0c375a;
+.contato--btn:hover, .contato--btn:focus, .contato--btn:active, .acessar--btn:hover, .acessar--btn:focus, .acessar--btn:active, .cadastrar--btn:hover, .cadastrar--btn:focus, .cadastrar--btn:active, .dados-pessoais--btn:hover, .dados-pessoais--btn:focus, .dados-pessoais--btn:active, .materias--classificar-por:hover, .materias--classificar-por:focus, .materias--classificar-por:active {
+  background-color: #216AA7;
   color: #FFFFFF;
   transition: 0.2s;
 }
@@ -693,7 +727,7 @@ button {
   text-align: center;
   font-weight: 800 !important;
 }
-.modal--title--desativar-conta, .modal--subtitle--desativar-conta {
+.modal--title--mini, .modal--subtitle--mini {
   font-size: 23px;
   /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/
   font-weight: bold;
@@ -716,19 +750,38 @@ button {
   font: 500 20px "Baloo Bhai 2", cursive;
   background: #216AA7;
   border: none;
+  margin: 0px 0px 20px 0px !important;
 }
-.modal--btn:hover {
-  background: #216AA7;
+.modal--btn:hover, .modal--btn:focus, .modal--btn:active {
+  background: #216AA7 !important;
 }
 @media screen and (max-width: 767.98px) {
   .modal--btn {
     word-wrap: break-word;
   }
 }
+.modal--btn--secondary {
+  background: #FFFFFF;
+  color: #216AA7;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  border: 2px solid #216AA7;
+  padding: 12px 14.84375%;
+  border-radius: 10px;
+  margin: 0 !important;
+}
+.modal--btn--secondary:active, .modal--btn--secondary:hover {
+  background: #216AA7 !important;
+  color: #FFFFFF;
+  border: 2px solid #216AA7;
+}
 
 .modal-backdrop.show {
   background-color: #23272a;
   opacity: 0.9;
+}
+
+.modal-alterar-senha .modal-backdrop.show {
+  opacity: 0;
 }
 
 .modal-align {
@@ -765,6 +818,11 @@ button {
   border-radius: 0;
   border: none;
   padding: 60px 30px;
+}
+@media screen and (max-width: 767.98px) {
+  .modal-content {
+    padding: 60px 20px;
+  }
 }
 
 .modal-cronograma .modal-content {
@@ -815,6 +873,11 @@ button {
   transition: all 0.5s ease;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+}
+@media screen and (max-width: 991.98px) {
+  .sidebar {
+    display: none;
+  }
 }
 .sidebar.active {
   width: 240px;
@@ -923,18 +986,6 @@ button {
 .sidebar ul li a:hover svg {
   fill: #23272a;
 }
-.sidebar ul li #active {
-  color: #FFBF5B;
-}
-.sidebar ul li #active svg {
-  fill: #FFBF5B;
-}
-.sidebar ul li #active:hover {
-  color: #23272a;
-}
-.sidebar ul li #active:hover svg {
-  fill: #23272a;
-}
 .sidebar ul li .tooltip {
   position: absolute;
   left: 125px;
@@ -972,6 +1023,86 @@ button {
   transition: all 0.3s ease;
 }
 
+#active {
+  color: #FFBF5B;
+}
+#active svg {
+  fill: #FFBF5B;
+}
+#active:hover {
+  color: #23272a;
+}
+#active:hover svg {
+  fill: #23272a;
+}
+
+.sidebar--mobile {
+  display: none;
+  justify-content: center;
+  flex-direction: row;
+  background: #23272a;
+}
+@media screen and (max-width: 991.98px) {
+  .sidebar--mobile {
+    display: flex;
+  }
+}
+.sidebar--mobile ul {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: calc(1rem - 15px);
+}
+.sidebar--mobile li {
+  list-style: none;
+  min-width: 90px;
+  margin-bottom: 15px;
+}
+.sidebar--mobile svg {
+  font-weight: 400;
+  height: 35px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  fill: white;
+  transition: all 0.5s ease;
+}
+.sidebar--mobile svg:hover {
+  color: currentColor !important;
+}
+.sidebar--mobile svg:hover svg {
+  fill: currentColor;
+}
+.sidebar--mobile a {
+  color: #FFFFFF;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+}
+.sidebar--mobile .links_name {
+  display: flex;
+  justify-content: center;
+}
+.sidebar--mobile .links_name--sair {
+  margin-right: 10px;
+}
+.sidebar--mobile #active:hover {
+  color: #FFBF5B;
+}
+.sidebar--mobile #active:hover svg {
+  fill: #FFBF5B;
+}
+.sidebar--mobile .nav_list-mobile {
+  flex-wrap: wrap;
+}
+
 /* BS */
 ol, ul {
   padding-left: 0;
@@ -980,12 +1111,18 @@ ol, ul {
 .simpleBox {
   display: flex;
   background: #216AA7;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 180px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 20px;
+  margin-bottom: 60px;
+}
+@media screen and (max-width: 767.98px) {
+  .simpleBox {
+    width: 90%;
+  }
 }
 .simpleBox h2 {
   color: #FFBF5B;
@@ -1014,27 +1151,41 @@ ol, ul {
   height: 1.3px;
   background-color: #FFFFFF;
 }
+.atvBox h4 {
+  font: 500 20px "Baloo Bhai 2", cursive !important;
+  font-weight: 400 !important;
+}
 .atvBox h5 {
   color: white;
   margin: 15px 0px;
   display: inline-block;
 }
-.atvBox .btn-light {
-  color: #216AA7;
-  font: 500 20px "Baloo Bhai 2", cursive;
-  padding: 6px 40px;
-  border-radius: 10px;
+.atvBox .atv-botoes {
   margin-top: 15px;
 }
-.atvBox .btn-danger {
+.atvBox .btn-view {
+  color: #216AA7;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  padding: 8px 50px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+.atvBox .btn-delete {
   color: #FFFFFF;
   font-weight: regular;
   font-size: 30px;
   border-radius: 50%;
   padding: 0px 13px;
+  height: 50px;
+  width: 50px;
+  background-color: #C24D4D;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.atvBox #none {
-  display: none;
+.atvBox .btn-delete:hover, .atvBox .btn-delete:focus, .atvBox .btn-delete:active {
+  background-color: #C24D4D;
 }
 .atvBox .topic {
   display: flex;
@@ -1047,21 +1198,94 @@ ol, ul {
   box-sizing: content-box;
   margin-right: 10px;
 }
-@media screen and (max-width: 991.98px) {
+
+@media screen and (max-width: 430px) {
   .atvBox {
-    width: 300px;
+    padding: 30px 10px !important;
+    width: 220px !important;
   }
 }
-@media screen and (max-width: 991.98px) {
-  .atvBox {
-    width: 270px;
+#none {
+  display: none !important;
+}
+
+@media screen and (max-width: 575.98px) {
+  .modal-atividade .modal-content {
+    padding: 60px 0px !important;
   }
+}
+.modal-atividade--materia {
+  color: #707070 !important;
+}
+.modal-atividade input {
+  margin-bottom: 20px;
+}
+.modal-atividade--btn {
+  margin-bottom: 0px !important;
 }
 @media screen and (max-width: 767.98px) {
-  .atvBox {
-    padding: 30px 8px;
-    width: 200px;
+  .modal-atividade--btn {
+    padding: 16px 15% !important;
   }
+}
+@media screen and (max-width: 425px) {
+  .modal-atividade--btn {
+    padding: 16px 15px !important;
+  }
+}
+.modal-atividade .modal-footer {
+  display: flex;
+  padding: 0px 30px;
+  justify-content: center;
+}
+@media screen and (max-width: 991.98px) {
+  .modal-atividade .modal-footer {
+    justify-content: flex-start;
+  }
+}
+
+.btn-edit {
+  background-color: #FFBF5B;
+  border-radius: 50%;
+  border: none;
+  height: 65px;
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  right: 60px;
+}
+@media screen and (max-width: 575.98px) {
+  .btn-edit {
+    right: 35px;
+  }
+}
+.btn-edit svg {
+  fill: white;
+  height: 50px;
+  width: 50px;
+}
+
+.atividade-dropdown {
+  outline: none;
+  width: 100%;
+  color: #707070;
+  border-color: #AFAFAF;
+}
+.atividade-dropdown:focus {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #707070;
+  background-color: #707070;
+  color: #FFFFFF;
+}
+.atividade-dropdown option {
+  background-color: #FFFFFF;
+  border: 2px solid #707070;
+  color: #707070;
 }
 
 .logged--header {
@@ -1263,10 +1487,11 @@ ol, ul {
   min-height: 160px;
 }
 
-.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
-  margin-bottom: 160px;
+@media screen and (max-width: 991.98px) {
+  .painel--demais-horarios {
+    margin-top: 18px;
+  }
 }
-
 .painel--materias-holder {
   display: flex;
   justify-content: space-between;
@@ -1307,7 +1532,7 @@ ol, ul {
 .painel .slick-arrow {
   display: inline-block;
   position: absolute;
-  top: -52px;
+  top: -60px;
   font-weight: regular !important;
   cursor: pointer;
   line-height: auto !important;
@@ -1317,37 +1542,148 @@ ol, ul {
   line-height: auto;
   color: #23272a;
   opacity: 1;
+  width: 20px !important;
 }
 .painel .slick-arrow--hover {
   color: #23272a !important;
 }
+.painel .bar {
+  display: inline-block;
+  margin: 0px 30px;
+  font-weight: 700;
+  font-size: 30px;
+}
 .painel .slick-prev {
   left: auto;
-  right: 60px;
+  left: 0px;
 }
 .painel .slick-prev::before {
   content: "<";
   color: #23272a;
-  font-size: 50px;
+  font-size: 30px;
+  font-weight: 800;
 }
 .painel .slick-next {
-  right: 0;
+  left: 35px;
 }
 .painel .slick-next::before {
   content: ">";
   color: #23272a;
-  font-size: 50px;
+  font-size: 30px;
+  font-weight: 800;
 }
-.painel h4 {
+.painel .section-title {
   margin-bottom: 20px;
+  margin-left: 55px;
+  align-items: center;
+}
+.painel .section-title h4 {
+  margin: 0;
 }
 
+.atividades {
+  min-height: 700px;
+}
 .atividades--holder {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+.atividades--btn {
+  padding: 10px 80px;
+  border: 2px solid #707070;
+  color: #707070;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 991.98px) {
+  .atividades--btn {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .atividades--btn {
+    width: 49%;
+  }
+}
+.atividades--btn:hover, .atividades--btn:focus, .atividades--btn:active {
+  border: 2px solid #707070;
+  background-color: #707070;
+  color: #FFFFFF;
+}
+@media screen and (max-width: 767.98px) {
+  .atividades--btn {
+    padding: 10px 40px;
+  }
+}
+.atividades--btn--active {
+  background-color: #707070;
+  color: #FFFFFF;
+}
+.atividades--btn--inactive {
+  background-color: #FFFFFF;
+  color: #707070;
 }
 
+.row-atividades {
+  padding: 0 15px;
+  flex-wrap: wrap;
+}
+
+.btn-edit--atv {
+  background-color: #FFBF5B;
+  border-radius: 50%;
+  border: none;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin-left: 13px;
+}
+.btn-edit--atv svg {
+  fill: white;
+  width: 17px;
+}
+
+.title-bold {
+  font-weight: bold;
+  margin: 0 !important;
+}
+
+.subtitle {
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.subtitle--gray {
+  color: #707070;
+}
+
+.materia-visualizar-cronograma {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #216AA7;
+}
+
+.desempenho {
+  min-height: 700px;
+}
+.desempenho--section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media screen and (max-width: 767.98px) {
+  .desempenho--section {
+    flex-direction: column;
+  }
+}
+
+.dados-pessoais {
+  margin: 50px auto 320px auto !important;
+}
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }
@@ -1355,6 +1691,13 @@ ol, ul {
   display: block;
   margin-bottom: 40px;
   height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid #707070;
+  background-image: url(https://c.tenor.com/epNMHGvRyHcAAAAM/gigachad-chad.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .dados-pessoais--alterar, .painel--demais-horarios {
   border-color: #216AA7;
@@ -1363,6 +1706,7 @@ ol, ul {
   transition: 0.2s;
   display: block;
   margin-bottom: 40px;
+  background-color: #FFFFFF;
 }
 .dados-pessoais--alterar:hover, .painel--demais-horarios:hover {
   background-color: #216AA7;
@@ -1375,8 +1719,17 @@ ol, ul {
   text-decoration: none;
   font: 500 20px "Baloo Bhai 2", cursive;
 }
-.dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus {
-  color: #C24D4D;
+.dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus, .dados-pessoais--desativar:active {
+  color: #C24D4D !important;
+}
+.dados-pessoais--alterar-dados {
+  color: #216AA7 !important;
+  cursor: pointer;
+  text-decoration: none;
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.dados-pessoais--alterar-dados:hover, .dados-pessoais--alterar-dados:focus, .dados-pessoais--alterar-dados:active {
+  color: #216AA7 !important;
 }
 .dados-pessoais--form label {
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -1394,20 +1747,37 @@ ol, ul {
 .dados-pessoais--form input:focus, .dados-pessoais--form input:active {
   border: 2px solid #AFAFAF;
 }
+.dados-pessoais--modal-cropper .modal-footer {
+  flex-direction: column;
+}
+
+.alterar-dados .modal-footer {
+  flex-direction: column;
+}
 
 .desativar-conta--btn {
-  background: #C24D4D;
+  background: #C24D4D !important;
 }
-.desativar-conta--btn:hover {
-  background: #C24D4D;
-}
-
-.sidebar.active ~ .dados-pessoais {
-  z-index: 100;
-  width: calc(100% - 240px);
-  left: calc(78px + 240px);
+.desativar-conta--btn:hover, .desativar-conta--btn:focus, .desativar-conta--btn:active {
+  background: #C24D4D !important;
 }
 
+.container-cropper {
+  height: 500px;
+  width: 500px;
+}
+
+.cropper--slider {
+  width: 60%;
+  margin: 30px 0;
+}
+.cropper--aplicar, .cropper--cancelar {
+  display: inherit;
+}
+
+.materias {
+  min-height: 700px;
+}
 .materias--classificar-por {
   padding: 10px 30px;
   display: flex;
@@ -1415,15 +1785,17 @@ ol, ul {
   justify-content: space-between;
   width: 250px;
   margin: 40px 0px;
-  margin-left: 3px;
 }
 .materias--btn {
   padding: 10px 70px;
   border: 2px solid #707070;
+  color: #707070;
+  margin-bottom: 15px;
 }
-.materias--btn:hover {
+.materias--btn:hover, .materias--btn:focus, .materias--btn:active {
   border: 2px solid #707070;
   background-color: #707070;
+  color: #FFFFFF;
 }
 @media screen and (max-width: 767.98px) {
   .materias--btn {
@@ -1434,6 +1806,7 @@ ol, ul {
   margin-left: 0;
   margin-right: 10px;
   background-color: #707070;
+  color: #FFFFFF;
 }
 .materias h5 {
   color: #fff;
@@ -1445,6 +1818,12 @@ ol, ul {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 767.98px) {
+  .materias--holder {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .materias--container {
   background-color: #216AA7;
   padding: 30px;
@@ -1453,6 +1832,11 @@ ol, ul {
   justify-content: space-between;
   width: 49%;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 767.98px) {
+  .materias--container {
+    width: 100%;
+  }
 }
 .materias--arrow {
   background: #fff;
@@ -1513,17 +1897,12 @@ ol, ul {
 }
 @media screen and (max-width: 1199.98px) {
   .cronograma, .painel {
-    width: calc(85% - 78px) !important;
+    width: calc(85% - 78px);
   }
 }
 @media screen and (max-width: 991.98px) {
   .cronograma, .painel {
-    width: calc(90% - 78px) !important;
-  }
-}
-@media screen and (max-width: 600px) {
-  .cronograma, .painel {
-    width: calc(100% - 78px) !important;
+    width: calc(90% - 78px);
   }
 }
 .cronograma--icon, .cronograma--cancelchange, .painel--cancelchange, .cronograma--confirmchange, .painel--confirmchange, .painel--icon {
@@ -1584,4 +1963,7 @@ ol, ul {
 }
 .modal-cronograma--header {
   padding-bottom: 0 !important;
+}
+.modal-cronograma .modal-footer {
+  justify-content: center !important;
 }

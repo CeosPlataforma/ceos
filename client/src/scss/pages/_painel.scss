@@ -1,10 +1,9 @@
-.painel, .atividades, .cronograma, .materias, .dados-pessoais, .desempenho {
-    margin-bottom: 160px;
-}
-
 .painel {
     &--demais-horarios {
         @extend .dados-pessoais--alterar;
+        @include device(md) {
+            margin-top: 18px;
+        }
     }
     &--materias-holder {
         display: flex;
@@ -40,7 +39,7 @@
     .slick-arrow {
         display: inline-block;
         position: absolute;
-        top: -52px;
+        top: -60px;
         font-weight: regular !important;
         cursor: pointer;
         line-height: auto !important;
@@ -50,29 +49,43 @@
         line-height: auto;
         color: $black;
         opacity: 1;
+        width: 20px !important;
         &--hover {
             color: $black !important;
         }
+    }
+    .bar {
+        display: inline-block;
+        margin: 0px 30px;
+        font-weight: $bold;
+        font-size: 30px;  
     }
     .slick-prev {
         &::before {
             content: '<';
             color: $black;
-            font-size: 50px;
+            font-size: 30px;
+            font-weight: $extra-bold;
         }
         left: auto;
-        right: 60px;
+        left: 0px;
         
     }
     .slick-next {   
         &::before {
             content: '>';
             color: $black;
-            font-size: 50px;
+            font-size: 30px;
+            font-weight: $extra-bold;
         }     
-        right: 0;        
+        left: 35px;        
     }
-    h4 {
+    .section-title {
         margin-bottom: 20px;
+        margin-left: 55px;
+        align-items: center;
+        h4 {
+            margin: 0;
+        }
     }
 }

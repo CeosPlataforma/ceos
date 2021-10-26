@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import ModalConfirmAtv from "../components/ModalConfirmAtv";
+import ModalEditAtv from "../components/ModalEditAtv";
 
-export default function AtvBox({ title, materia, tipo, data, excluir }) {
+export default function AtvBox({ className, title, materia, tipo, data, excluir }) {
+
+    const [show, setShow] = useState(false);
 
     return (
-        <div className="atvBox">
+
+        <div className={className == "mb-4" ? "atvBox mb-4" : "atvBox"} >
             <h2>{title}</h2>
             <hr />
 
-
-            <div className="topic">
+            {materia != null ? <div className="topic">
                 <svg viewBox="-77 0 512 512" xmlns="http://www.w3.org/2000/svg" className="atvSvg">
                     <path d="m234.324219 387.695312h124.304687v-387.695312h-358.628906v512h234.324219zm-149.800781-299.476562h190.492187v30h-190.492187zm0 69.78125h190.492187v30h-190.492187zm0 69.78125h190.492187v30h-190.492187zm0 69.78125h190.492187v30h-190.492187zm0 0" />
                     <path d="m349.84375 417.695312h-85.519531v85.519532zm0 0" />
-                </svg> {materia != null ? <h5>{materia}</h5> : ""}
-            </div>
+                </svg><h5>{materia}</h5>
+            </div> : ""}
 
             <div className="topic">
                 <svg viewBox="-86 0 512 512.00003" xmlns="http://www.w3.org/2000/svg" className="atvSvg">
@@ -35,10 +39,19 @@ export default function AtvBox({ title, materia, tipo, data, excluir }) {
                 </svg> <h5>{data}</h5>
             </div>
 
-            <div className="d-flex justify-content-between">
-                <button type="button" className={excluir == true ? "btn btn-light" : "btn btn-light w-100"}>Visualizar</button>
-                <button type="button" className="btn btn-danger" id={excluir == true ? "" : "none"}>X</button>
+            <div className="d-flex justify-content-between atv-botoes">
+                <button className={excluir == true ? "btn btn-view" : "btn btn-view w-100"} onClick={() => { setShow(true) }}>Visualizar</button>
+                <button className="btn btn-delete" id={excluir == true ? "" : "none"}><svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 20.121 20.121">
+                    <g id="x" transform="translate(1.061 1.061)">
+                        <line id="Linha_6" data-name="Linha 6" x2="18" y2="18" fill="none" stroke="#fff" stroke-width="3" />
+                        <line id="Linha_7" data-name="Linha 7" x1="18" y2="18" fill="none" stroke="#fff" stroke-width="3" />
+                    </g>
+                </svg>
+                </button>
             </div>
+
+            <ModalConfirmAtv show={show} onHide={() => setShow(false)} />
+            {/* <ModalEditAtv show={show} onHide={() => setShow(false)} /> */}
         </div>
     );
 }

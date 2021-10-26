@@ -20,12 +20,12 @@ function ModalCadastro(props) {
             </Modal.Header>
             <Modal.Body>
                 <p>
-                    Para Finalizar a criação de sua conta e começar a usar a plataforma,
+                    Para finalizar a criação de sua conta e começar a usar a plataforma,
                     você precisa verificar seu endereço de e-mail e seguir as instruções enviadas
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md w-100 modal--btn" onClick={redirect}>Ir para o login</Button>
+                <Button variant="primary" className="text-md w-80 modal--btn mx-auto" onClick={redirect}>Ir para o login</Button>
             </Modal.Footer>
         </Modal>
     );

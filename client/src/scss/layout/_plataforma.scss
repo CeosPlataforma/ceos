@@ -1,6 +1,5 @@
 .content {
-    margin: 50px auto 160px auto;
-    position: absolute;
+    margin: 50px auto 120px auto;
     width: calc(100% - 78px);
     left: 15.63%;
     transition: all 0.5s ease;
@@ -10,6 +9,14 @@
     @include device(md) {            
         width: calc(90% - 78px);
     }
+    @media screen and (max-width: 600px) {
+        width: calc(100% - 78px) !important;
+    }
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -29,11 +36,14 @@
     &--name {
         color: $gray-dark !important;
         font: $font-sm;
+        @include device(md) {
+            display: none;
+        }
     }
     &--photo {
         height: 50px;
         width: 50px;
-        background-image: url(https://c.tenor.com/9r1rE1-uyFYAAAAd/social-credit.gif);
+        background-image: $photo_url;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -41,8 +51,34 @@
         display: inline-block;
         margin-left: 18px;
         border: 2px solid $gray-dark;
+        @include device(sm) {
+            display: none;
+        }
     }
     p {
         margin: 0 !important;
     }
+}
+
+.toast-container {
+    width: 30%;
+    right: 0;
+    z-index: 1000;
+    @include device(md) {
+        width: 90%;
+    }
+}
+
+.toast {    
+    padding: 10px;
+    &--sucess {
+        background-color: rgba($green, 0.1);
+        border: 2px solid $green;
+        border-radius: 10px;
+        color: $green;
+    }
+}
+
+.MuiSlider-root {
+    color: $blue !important;
 }

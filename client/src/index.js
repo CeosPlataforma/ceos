@@ -3,27 +3,31 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer";
 
+import "./css/main.css";
+
 // COMPONENTS
 import Header from "./components/Header";
 import Logout from "./components/Logout";
 import MiniFooter from "./components/MiniFooter";
 import Sidebar from "./components/Sidebar";
-import "./css/main.css";
+import SidebarMob from './components/SidebarMob';
 
 // PAGES
 import Home from "./pages/LandingPage";
-import Painel from "./pages/Painel";
-import Materias from "./pages/Materias";
+import Contato from "./pages/Contato";
+
 import ResetSenha from "./pages/ResetSenha";
 import Acessar from "./pages/Acessar";
 import Cadastrar from "./pages/Cadastrar";
-import Contato from "./pages/Contato";
-import DadosPessoais from "./pages/DadosPessoais";
-import Desempenho from "./pages/Desempenho";
+
+import Painel from "./pages/Painel";
 import Cronograma from "./pages/Cronograma";
+import Materias from "./pages/Materias";
+import Atividades from "./pages/Atividades";
+import Desempenho from "./pages/Desempenho";
+import DadosPessoais from "./pages/DadosPessoais";
+
 import VerAtvs from "./pages/VerAtvs";
-
-
 
 ReactDOM.render(
     <BrowserRouter>
@@ -51,37 +55,43 @@ ReactDOM.render(
 
             <Route path="/painel">
                 <Sidebar />
+                <SidebarMob />
                 <Painel />
                 <MiniFooter />
             </Route>
             <Route path="/cronograma">
                 <Sidebar />
+                <SidebarMob />
                 <Cronograma />
                 <MiniFooter />
             </Route>
             <Route path="/materias">
-                <Sidebar Active="materias" />
+                <Sidebar />
+                <SidebarMob />
                 <Materias />
                 <MiniFooter />
             </Route>
             <Route path="/materia/idmateria">
-                <Sidebar Active="materias" />
+                <Sidebar />
+                <SidebarMob />
                 <VerAtvs />
                 <MiniFooter />
             </Route>
             <Route path="/atividades">
                 <Sidebar />
-                {//<Atividades />
-                }
+                <SidebarMob />
+                <Atividades />
                 <MiniFooter />
             </Route>
             <Route path="/desempenho">
-                <Sidebar Active="desempenho" />
+                <Sidebar />
+                <SidebarMob />
                 <Desempenho />
                 <MiniFooter />
             </Route>
             <Route path="/dados-pessoais">
                 <Sidebar />
+                <SidebarMob />
                 <DadosPessoais />
                 <MiniFooter />
             </Route>

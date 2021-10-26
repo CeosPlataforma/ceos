@@ -1,12 +1,16 @@
 .simpleBox {
     display: flex;
     background: $blue;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 180px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 20px;
+    margin-bottom: 60px;
+    @include device(sm) {
+        width: 90%;           
+    }
     h2 {
         color: $yellow;
     }

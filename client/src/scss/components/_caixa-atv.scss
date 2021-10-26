@@ -16,27 +16,41 @@
         height: 1.3px;
         background-color: $white;
     }
+    h4 {
+        font: $font-sm !important;
+        font-weight: $regular !important;
+    }
     h5 {
         color: white;
         margin: 15px 0px;
         display: inline-block;
     }
-    .btn-light {
-        color: $blue;
-        font: $font-sm;
-        padding: 6px 40px;
-        border-radius: 10px;
+    .atv-botoes {
         margin-top: 15px;
     }
-    .btn-danger {
+    .btn-view {
+        color: $blue;
+        font: $font-sm;
+        padding: 8px 50px;
+        border-radius: 10px;
+        background-color: $white;
+    }
+    .btn-delete {
         color: $white;
         font-weight: regular;
         font-size: 30px;
         border-radius: 50%;
         padding: 0px 13px;
-    }
-    #none {
-        display: none;
+        height: 50px;
+        width: 50px;
+        background-color: $red;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover, &:focus, &:active {
+            background-color: $red;
+        }
     }
     .topic {
         display: flex;
@@ -49,14 +63,101 @@
         box-sizing: content-box;
         margin-right: 10px;
     }
-    @include device(md) {            
-        width: 300px;
+    // @include device(md) {            
+    //     width: 300px;
+    // }
+    // @include device(md) {            
+    //     width: 270px;
+    // }
+ 
+    // @media screen and (max-width: 700px) {
+    //     .atvBox {
+    //         padding: 30px;
+    //         width: 340px;
+    //     }
+    // }       
+} 
+
+@media screen and (max-width: 430px) {
+    .atvBox {
+        padding: 30px 10px !important;
+        width: 220px !important;
     }
-    @include device(md) {            
-        width: 270px;
+}
+
+#none {
+    display: none !important;
+}
+
+.modal-atividade {
+    .modal-content {
+        @include device(xs) {
+            padding: 60px 0px !important;
+        }
     }
-    @include device(sm) {            
-        padding: 30px 8px;
-        width: 200px;
+    &--materia {
+        color: $gray-dark !important;
+    }
+    input {
+        margin-bottom: 20px;
+    }
+    &--btn {
+        margin-bottom: 0px !important;
+        @include device(sm) {
+            padding: 16px 15% !important;
+        }
+        @media screen and (max-width: 425px) {
+            padding: 16px 15px !important;
+        }
+    }
+    .modal-footer {
+        display: flex;
+        padding: 0px 30px;
+        justify-content: center;
+        @include device(md) {
+            justify-content: flex-start;
+        }
+    }
+}
+
+.btn-edit {
+    background-color: $yellow;
+    border-radius: 50%;
+    border: none;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    right: 60px;
+    @include device(xs) {
+        right: 35px;
+    }
+    svg {
+        fill: white;
+        height: 50px;
+        width: 50px;
+    }
+}
+
+.atividade-dropdown {
+    outline: none;
+    width: 100%;
+    color: $gray-dark;
+    border-color: $gray;
+    &:focus {        
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-color: $gray-dark;
+        background-color: $gray-dark;
+        color: $white;
+    }
+    option {
+        background-color: $white;
+        border: 2px solid $gray-dark;
+        color: $gray-dark;
     }
 }

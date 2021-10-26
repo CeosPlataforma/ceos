@@ -17,7 +17,7 @@ function ModalExcluirConta(props) {
         <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter desativar-conta" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title--desativar-conta">Confirmar desativação da conta</h1>
+                    <h1 className="modal--title--mini">Confirmar desativação da conta</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

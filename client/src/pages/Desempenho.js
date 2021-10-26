@@ -1,86 +1,71 @@
 import React from "react";
 import MateriaContainer from "../components/MateriaContainer";
 import SimpleBox from "../components/SimpleBox";
-import User from "../components/User";
-import Title from "../components/PainelTitle";
+import PlataformaHeader from "../components/PlataformaHeader";
+
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function Desempenho() {
 
     return (
         <div>
-            <div className="container-xxl desempenho content">
-                <div className="row align-items-center">
-                    <div className="col">
-                        <div className="logged--header">
-                            <Title title="Desempenho" />
-                            <User />
-                        </div>
-                    </div>
+            <Container fluid={"xxl"} className="desempenho content">
+                <PlataformaHeader title="Desempenho" />
+
+                <div className="desempenho--section">
+                    <SimpleBox
+                        counter="005"
+                        title="Lições de casa concluídas"
+                    />
+
+
+                    <SimpleBox
+                        counter="005"
+                        title="Trabalhos concluídos"
+                    />
+
+                    <SimpleBox
+                        counter="005"
+                        title="Provas concluídas"
+                    />
+
+                    <SimpleBox
+                        counter="005"
+                        title="Atividades concluídas"
+                    />
                 </div>
 
-                <div className="row justify-content-between">
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Lições de casa concluídas"
-                        />
-                    </div>
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Trabalhos concluídos"
-                        />
-                    </div>
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Provas concluídas"
-                        />
-                    </div>
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Atividades concluídas"
-                        />
-                    </div>
-                </div>
-                <br />
-                <div className="row justify-content-between">
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Lições de casa pendentes"
-                        />
-                    </div>
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Trabalhos pendentes"
-                        />
-                    </div>
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Provas pendentes"
-                        />
-                    </div>
-                    <div className="col-2">
-                        <SimpleBox
-                            counter="005"
-                            title="Atividades pendentes"
-                        />
+                <div className="desempenho--section">
+                    <SimpleBox
+                        counter="005"
+                        title="Lições de casa pendentes"
+                    />
 
-                    </div>
+                    <SimpleBox
+                        counter="005"
+                        title="Trabalhos pendentes"
+                    />
+
+                    <SimpleBox
+                        counter="005"
+                        title="Provas pendentes"
+                    />
+
+                    <SimpleBox
+                        counter="005"
+                        title="Atividades pendentes"
+                    />
                 </div>
 
-                <br />
-                <div class="materias--holder last-element">
+                <div class="materias--holder">
                     <MateriaContainer />
                     <MateriaContainer />
                     <MateriaContainer />
                     <MateriaContainer />
                 </div>
-            </div>
-        </div>
+            </Container>
+        </div >
     )
 }

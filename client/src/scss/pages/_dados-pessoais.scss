@@ -1,11 +1,19 @@
 .dados-pessoais {
+    margin: 50px auto 320px auto !important;
     &--sub-title {
         margin-bottom: 40px;
     }
     &--user-img {
         display: block;
         margin-bottom: 40px;
-        height: 150px
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;        
+        border: 2px solid $gray-dark;
+        background-image: $photo_url;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
     }
     &--alterar {
         @extend .btn--common;
@@ -16,7 +24,7 @@
         transition: .2s;
         display: block;
         margin-bottom: 40px;
-    
+        background-color: $white;
         &:hover {
             background-color: $blue;
             color: $white;
@@ -28,8 +36,17 @@
         cursor: pointer;
         text-decoration: none;
         font: $font-sm;
-        &:hover,&:focus {
-            color: $red;
+        &:hover,&:focus, &:active {
+            color: $red !important;
+        }
+    }
+    &--alterar-dados {
+        color: $blue !important;
+        cursor: pointer;
+        text-decoration: none;
+        font: $font-sm;
+        &:hover,&:focus, &:active {
+            color: $blue !important;
         }
     }
     &--form {
@@ -52,18 +69,37 @@
             }
         }        
     }
-}
-
-.desativar-conta--btn {
-    background: $red;
-    &:hover {
-        background: $red;
+    &--modal-cropper {
+        .modal-footer {
+            flex-direction: column;
+        }
     }
 }
 
-.sidebar.active ~ .dados-pessoais {
-    // Move o conteudo com a sidebar ativada
-    z-index: 100;
-    width: calc(100% - 240px);
-    left: calc(78px + 240px);
+.alterar-dados {
+    .modal-footer {
+        flex-direction: column;
+    }
+}
+
+.desativar-conta--btn {
+    background: $red !important;
+    &:hover, &:focus, &:active{
+        background: $red !important;
+    }
+}
+
+.container-cropper {
+    height: 500px;
+    width: 500px;
+}
+
+.cropper {
+    &--slider {
+        width: 60%;
+        margin: 30px 0;
+    }
+    &--aplicar, &--cancelar {
+        display: inherit;
+    }
 }

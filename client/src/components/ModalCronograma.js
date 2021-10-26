@@ -35,7 +35,7 @@ function ModalCronograma(props) {
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md w-100 modal--btn" onClick={props.onHide}>Voltar ao cronograma</Button>
+                <Button variant="primary" className="text-md modal--btn w-80 mx-auto" onClick={props.onHide}>Voltar ao cronograma</Button>
             </Modal.Footer>
         </Modal >
     );
