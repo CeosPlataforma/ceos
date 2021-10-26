@@ -9,6 +9,7 @@ interface User {
     createdAt: Date;
     uuid: string;
     verifiedMail: boolean;
+    avatar: string;
 }
 
 let schema = new Schema<User>({
@@ -17,14 +18,21 @@ let schema = new Schema<User>({
         type: Boolean,
         default: false
     },
+
     email: {
         type: String,
         required: true,
         unique: true
     },
+
     name: {
         type: String,
         required: true
+    },
+
+    avatar: {
+        data: Buffer,
+        contentType: String
     },
 
     hash: String,

@@ -38,10 +38,6 @@ export default function DadosPessoais() {
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
 
-    const onSubmit = () => {
-        console.log("?")
-    }
-
     const initialValues = {
         name: nome,
         email
@@ -96,6 +92,24 @@ export default function DadosPessoais() {
         }
     }
 
+
+    axios.defaults.withCredentials = true
+    const onSubmit = async (values, actions) => {
+        /*await axios.post("http://localhost:3333/redefinir-senha", { password: values.password, user_uuid: userID })
+            .then(function (response) { 
+                if (response.data.error === "inexistent") {
+                    actions.setFieldError("password", `erro: usuario inexistente`);
+                } else if (response.data.success) {
+                    actions.setFieldError("password", `Sucesso!`)
+                    setModalShow(true)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+    }
+
+
     const onUpload = async () => {
         const canvas = await getCroppedImg(image, croppedArea);
         const canvasDataUrl = canvas.toDataURL("image/jpeg");
@@ -103,7 +117,27 @@ export default function DadosPessoais() {
             canvasDataUrl,
             "cropped-image.jpeg"
         );
-        console.log(convertedUrlToFile)
+
+        const data = new FormData();
+        data.append("image", convertedUrlToFile);
+
+        console.log(convertedUrlToFile);
+
+        await axios({
+            method: "post",
+            url: "http://localhost:3333/upload-foto/",
+            data: data,
+            headers: {"Content-Type": "multipart/form-data"}
+        })
+        .then(function (response) {
+            if (response.data.message === "success") {
+                setShow(false)
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        
     }
 
     // const [show2, setShow2] = useState(false);
