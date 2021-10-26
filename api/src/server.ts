@@ -4,9 +4,11 @@ import * as dotenv from 'dotenv';
 import session from 'express-session';
 import cors from 'cors';
 import MongoStore from 'connect-mongo';
+import fileUpload from 'express-fileupload';
 const app = express();
 dotenv.config();
 
+app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

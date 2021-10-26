@@ -8,7 +8,7 @@ import ModalCadastro from "../components/ModalCadastro";
 
 export default function Cadastrar() {
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)

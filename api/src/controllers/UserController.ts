@@ -104,8 +104,7 @@ class UserController {
 
     async userinfo(request: Request, response: Response) {
         response.json({
-            email: request.session.user.email,
-            name: request.session.user.name
+            session: request.session
         });
     }
 
@@ -118,26 +117,26 @@ class UserController {
 
     async resetPassword(request: Request, response: Response) {
         
-        if (request.body.hasOwnProperty('email')) { //se o formulario tiver só o email, -> faz isso aqui
+        if (request.body.hasOwnProperty('email')) { 
             const { email } = request.body 
-            await UserModel.findOne({ email: email }, function (error, user_doc) { // pegar o usuario do banco de dados
-                if (error) { // se der erro
+            await UserModel.findOne({ email: email }, function (error, user_doc) { 
+                if (error) { 
                     console.log(error)
                     return response.json({error: error})
-                } else if (user_doc === null) { // se não existir o usuario
+                } else if (user_doc === null) {
                     return response.json({error: "inexistent"})
-                } else { // se existir
-                    const hbsPath = resolve(__dirname, "..", "views", "email", "forgotPassword.hbs"); // <- gerando o texto do email para o usuario
+                } else { 
+                    const hbsPath = resolve(__dirname, "..", "views", "email", "forgotPassword.hbs");
 
                     const variables = {
                         nome: request.body.name,
-                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}` // link pra pessoa redefinir a senha
-                    } // mais coisa do email
+                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}` 
+                    }
 
                     try {
-                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath); // enviar o email
+                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath); 
                         return response.status(200).json({ success: true });
-                    } catch (err) { // se der erro
+                    } catch (err) {
                         console.log(err);
                         return response.json({ error: "Erro ao enviar email" });
                     }
@@ -164,6 +163,37 @@ class UserController {
         }
     }
 
+    async getFoto(request: Request, response: Response) {
+        const { uuid } = request.session.user;
+        await UserModel.findOne({ uuid }, (error, user) => {
+            if (user === null) {
+                return response.json({ error: 'inexistent' });
+            } else {
+                return response.json({ foto: user.foto });
+            }
+        });
+    }
+
+    async uploadFoto(request: Request, response: Response) {
+        const { uuid } = request.session.user;
+        await UserModel.findOne({ uuid: uuid }, function (error, user) {
+            if (user === null) {
+                return response.status(200).send({ message: `Couldn't find this user` });
+            } else {
+                //@ts-ignore
+                user.avatar.data = request.files.image.data
+                //@ts-ignore
+                user.avatar.contentType = request.files.image.mimetype
+
+                try {
+                    user.save();
+                    return response.status(200).json({message: "success"});
+                } catch (error) {
+                    return response.status(500).send(error);
+                }
+            }
+        });
+    }
 }
 
 export { UserController };

@@ -23,5 +23,6 @@ router.post('/register', userController.registerUser);
 router.get('/register/:userID', userController.verifyEmail);
 router.post('/logout', userController.logout)
 router.post('/redefinir-senha/', userController.resetPassword)
+router.post('/upload-foto/', userController.uploadFoto)
 
 export { router };
