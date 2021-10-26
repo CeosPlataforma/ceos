@@ -8,7 +8,7 @@ import ModalEsqueceuSenha from "../components/ModalEsqueceuSenha";
 
 export default function Acessar() {
 
-    const { userID } = useParams()
+    const { userID } = useParams() // usar aquele GET do php pra pegar o ID do usuario pela URL <- PASSO IMPORTANTE !!!!
     const [modalShow, setModalShow] = useState(false);
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
@@ -53,9 +53,9 @@ export default function Acessar() {
     });
 
     axios.defaults.withCredentials = true
-    const onSubmit = async (values, actions) => {
+    const onSubmit = async (values, actions) => { // enviar um post com a senha nova e o ID do usuario que foi pego naquela outra linha lá em cima
         await axios.post("http://localhost:3333/redefinir-senha", { password: values.password, user_uuid: userID })
-            .then(function (response) {
+            .then(function (response) { // coisas de resposta do backend
                 if (response.data.error === "inexistent") {
                     actions.setFieldError("password", `erro: usuario inexistente`);
                 } else if (response.data.success) {
