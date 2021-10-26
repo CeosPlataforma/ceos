@@ -5,7 +5,8 @@
     background-color: $blue;
     padding-top: 15px;
     padding-bottom: 15px;
-    position: relative;
+    position: fixed;
+    bottom: 0;
     &--logo {
         height: 60px;
         font-weight: bold;

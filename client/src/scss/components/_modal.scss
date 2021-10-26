@@ -39,14 +39,14 @@
             background: $white;
             color: $blue;
             font: $font-sm;
-            border: 2px solid $blue;
+            border: 3px solid $blue;
             padding: 12px 14.84375%;
             border-radius: 10px;
             margin: 0 !important;
             &:active, &:hover {
                 background: $blue !important;
                 color: $white;
-                border: 2px solid $blue;
+                border: 3px solid $blue;
             }
         }
     }

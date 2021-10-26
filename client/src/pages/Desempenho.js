@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 export default function Desempenho() {
 
     return (
-        <div>
+        <>
             <Container fluid={"xxl"} className="desempenho content">
                 <PlataformaHeader title="Desempenho" />
 
@@ -66,6 +66,6 @@ export default function Desempenho() {
                     <MateriaContainer />
                 </div>
             </Container>
-        </div >
+        </>
     )
 }

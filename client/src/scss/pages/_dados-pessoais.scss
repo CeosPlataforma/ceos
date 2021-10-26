@@ -1,5 +1,4 @@
 .dados-pessoais {
-    margin: 50px auto 320px auto !important;
     &--sub-title {
         margin-bottom: 40px;
     }
@@ -40,18 +39,20 @@
             color: $red !important;
         }
     }
-    &--alterar-dados {
-        color: $blue !important;
-        cursor: pointer;
-        text-decoration: none;
+    &--dados {
+        @extend .btn--common;
+        color: $white;
+        background-color: $blue;
         font: $font-sm;
+        padding: 12px 14.84375%;
+        border: 3px solid $blue; 
         &:hover,&:focus, &:active {
-            color: $blue !important;
+            color: $white !important;
         }
     }
     &--form {
         label {
-            font: $font-sm;
+            font: $font-re;
             color: $black;
         }
 
@@ -59,13 +60,13 @@
             font: $font-sm;
             color: $black;
             font-weight: $regular;
-            padding: 12px;
-            border: 2px solid $gray;
+            padding: 20px 20px 20px 50px;
+            width: 100%;
+            border: 3px solid $gray-dark;
             border-radius: 10px;
-            cursor: default;
-        
+            cursor: default;        
             &:focus, &:active {
-                border: 2px solid $gray;
+                border: 3px solid $gray-dark;
             }
         }        
     }
@@ -73,6 +74,9 @@
         .modal-footer {
             flex-direction: column;
         }
+    }
+    .conteudo-direita {
+        margin-top: 95px;
     }
 }
 

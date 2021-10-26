@@ -51,7 +51,7 @@ export default function Materias() {
     }, [])
 
     return (
-        <div>
+        <>
             <div className="container-xxl materias content">
 
                 <PlataformaHeader title="Gerencie suas matérias" />
@@ -85,7 +85,6 @@ export default function Materias() {
                 <ModalAddMateria onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
 
             </div>
-
-        </div>
+        </>
     );
 }

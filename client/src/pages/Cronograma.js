@@ -9,7 +9,7 @@ export default function Cronograma() {
     const [show, setShow] = useState(false);
 
     return (
-        <div>
+        <>
             <div className="container-xxl content cronograma">
 
                 <PlataformaHeader title="Confira seu cronograma" />
@@ -121,7 +121,6 @@ export default function Cronograma() {
             </div>
 
             <ModalCronograma show={show} onHide={() => setShow(false)} />
-
-        </div>
+        </>
     );
 }

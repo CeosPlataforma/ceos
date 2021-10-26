@@ -114,7 +114,7 @@ export default function Acessar() {
                     </Form>
                 </Formik>
             </div>
-            <ModalSenha onSubmit={onSubmitModal} show={modalShow} onHide={() => setModalShow(false)}/>
+            <ModalSenha onSubmit={onSubmitModal} show={modalShow} onHide={() => setModalShow(false)} />
         </div >
     );
 }

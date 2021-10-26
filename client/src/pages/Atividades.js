@@ -18,7 +18,7 @@ export default function Atividades() {
     const [lixoButton, setLixoButton] = useState("atividades--btn atividades--btn--inactive")
 
     return (
-        <div>
+        <>
             <div className="container-xxl atividades content">
 
                 <PlataformaHeader title="Atividades" />
@@ -109,6 +109,6 @@ export default function Atividades() {
 
 
             </div>
-        </div >
+        </>
     )
 }
