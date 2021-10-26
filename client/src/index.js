@@ -54,45 +54,59 @@ ReactDOM.render(
             </Route>
 
             <Route path="/painel">
-                <Sidebar />
-                <SidebarMob />
-                <Painel />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <Painel />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/cronograma">
-                <Sidebar />
-                <SidebarMob />
-                <Cronograma />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <Cronograma />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/materias">
-                <Sidebar />
-                <SidebarMob />
-                <Materias />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <Materias />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/materia/idmateria">
-                <Sidebar />
-                <SidebarMob />
-                <VerAtvs />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <VerAtvs />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/atividades">
-                <Sidebar />
-                <SidebarMob />
-                <Atividades />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <Atividades />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/desempenho">
-                <Sidebar />
-                <SidebarMob />
-                <Desempenho />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <Desempenho />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/dados-pessoais">
-                <Sidebar />
-                <SidebarMob />
-                <DadosPessoais />
+                <div className="d-flex">
+                    <Sidebar />
+                    <SidebarMob />
+                    <DadosPessoais />
+                </div>
                 <MiniFooter />
             </Route>
             <Route path="/redefinir-senha/:userID">

@@ -479,6 +479,7 @@ label:focus,
 
 #root {
   display: flex;
+  flex-direction: column;
 }
 @media screen and (max-width: 991.98px) {
   #root {
