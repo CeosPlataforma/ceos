@@ -58,22 +58,22 @@ export default function Acessar() {
 
 
     axios.defaults.withCredentials = true
-    const onSubmitModal = async (values, actions) => {
-        await axios.post("http://localhost:3333/redefinir-senha", { email: values.email })
-            .then(function (response) {
-                if (response.data.error === "inexistent") {
-                    actions.setFieldError("email", `Este usuário não existe`);
-                } else if (response.data.success) {
-                    actions.setFieldError("email", `Sucesso! Verifique seu email.`)
+    const onSubmitModal = async (values, actions) => { // quando enviar o formulário
+        await axios.post("http://localhost:3333/redefinir-senha", { email: values.email }) // faz o post com o email
+            .then(function (response) { // isso não deve fazer muito sentido pq é na base de resposta http e o php não tem isso (acho)
+                if (response.data.error === "inexistent") { // se a resposta do backend for que nõo existe o usuário
+                    actions.setFieldError("email", `Este usuário não existe`); // mostra a msg de erro que não existe o usuário
+                } else if (response.data.success) { // se a resposta foi que deu certo
+                    actions.setFieldError("email", `Sucesso! Verifique seu email.`) // msg de que deu certo
                     setTimeout(function () {
-                        setModalShow(false)
+                        setModalShow(false) //fecha o modal que tem o formulario depois de 5 segundos
                     }, 5000)
                 } else {
-                    actions.setFieldError("email", response.data.error)
+                    actions.setFieldError("email", response.data.error) // se não da um erro genérico
                 }
             })
-            .catch(function (error) {
-                console.log(error);
+            .catch(function (error) { // isso aqui nunca deve ser usado mas se der algum outro erro é aqui
+                console.log(error); // que vai aparecer
             });
     }
 

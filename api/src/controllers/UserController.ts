@@ -118,46 +118,49 @@ class UserController {
 
     async resetPassword(request: Request, response: Response) {
         
-        if (request.body.hasOwnProperty('email')) {
+        if (request.body.hasOwnProperty('email')) { //se o formulario tiver só o email, -> faz isso aqui
             const { email } = request.body 
-            await UserModel.findOne({ email: email }, function (error, user_doc) {
-                if (error) {
+            await UserModel.findOne({ email: email }, function (error, user_doc) { // pegar o usuario do banco de dados
+                if (error) { // se der erro
                     console.log(error)
                     return response.json({error: error})
-                } else if (user_doc === null) {
+                } else if (user_doc === null) { // se não existir o usuario
                     return response.json({error: "inexistent"})
-                } else {
-                    const hbsPath = resolve(__dirname, "..", "views", "email", "forgotPassword.hbs");
+                } else { // se existir
+                    const hbsPath = resolve(__dirname, "..", "views", "email", "forgotPassword.hbs"); // <- gerando o texto do email para o usuario
 
                     const variables = {
                         nome: request.body.name,
-                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}`
-                    }
+                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}` // link pra pessoa redefinir a senha
+                    } // mais coisa do email
 
                     try {
-                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath);
+                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath); // enviar o email
                         return response.status(200).json({ success: true });
-                    } catch (err) {
+                    } catch (err) { // se der erro
                         console.log(err);
                         return response.json({ error: "Erro ao enviar email" });
                     }
                 }
             });
-        } else if (request.body.user_uuid) {
-            const { user_uuid }  = request.body;
-            const { password } = request.body;
-            const new_salt = crypto.randomBytes(16).toString('base64');
-            const new_hash = crypto.pbkdf2Sync(password, new_salt, 1000, 64, 'sha512').toString('base64');
-            await UserModel.findOneAndUpdate({ uuid: user_uuid }, {salt: new_salt, hash: new_hash}, {new: false, useFindAndModify: false}, function (error, user_doc) {
-                if (error) {
+        } else if (request.body.user_uuid) { // se tiver o id do usuario, faz isso 🔽
+
+            const { user_uuid }  = request.body; // id do usuario
+            const { password } = request.body; // senha 
+            const new_salt = crypto.randomBytes(16).toString('base64'); // coisas de hash e segurança e tal
+            const new_hash = crypto.pbkdf2Sync(password, new_salt, 1000, 64, 'sha512').toString('base64'); // coisas de hash e segurança e tal
+            await UserModel.findOneAndUpdate({ uuid: user_uuid }, {salt: new_salt, hash: new_hash}, {new: false, useFindAndModify: false}, function (error, user_doc) { 
+                //pesquisar o usuario no banco, 
+                if (error) { // se der erro
                     console.log(error)
                     return response.json({error: error})
-                } else if (user_doc === null) {
+                } else if (user_doc === null) { // se não existir o usuario
                     return response.json({error: "inexistent"})
                 } else {
-                    return response.json({success: true})
+                    return response.json({success: true}) // se der tudo certo (já vai ter mudado a senha se o usuario existir)
                 }
             });
+
         }
     }
 
