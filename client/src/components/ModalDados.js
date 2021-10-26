@@ -4,54 +4,29 @@ import Modal from 'react-bootstrap/Modal';
 import { useHistory } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Toast from 'react-bootstrap/Toast'
+import ToastContainer from 'react-bootstrap/ToastContainer'
 
 function ModalDados(props) {
 
-    // const history = useHistory();
-
-    // const redirect = () => {
-    //     history.push(`/logout`)
-    // }
-
-    // const [show3, setShow3] = useState(false);
-
-    // const handleClose3 = () => setShow3(false);
-    // const handleShow3 = () => setShow3(true);
+    const [showToastDados, setShowToastDados] = useState(false);
+    const [showToastPass, setShowToastPass] = useState(false);
 
     return (
-        // <>
-        //     <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter alterar-dados" centered>
-        //         <Modal.Header>
-        //             <Modal.Title id="contained-modal-title-vcenter">
-        //                 <h1 className="modal--title--mini">Altere seus dados</h1>
-        //             </Modal.Title>
-        //         </Modal.Header>
-        //         <Modal.Body>
-        // <Formik onSubmit={props.onSubmit}>
-        //     {/*initialValues={initialValues} validationSchema={validationSchema}*/}
-        //     <Form>
-        //         <p className="text-lg">Nome</p>
-        //         <Field name="name" type="text" className="form-control modal--input mb-4" aria-describedby="email" required />
-        //         <p className="text-lg">E-mail</p>
-        //         <Field name="name" type="text" className="form-control modal--input mb-4" aria-describedby="email" required />
-        //         <ErrorMessage name="name" />
-        //         <p className="text-lg">Senha</p>
-        //         <Field name="name" type="password" className="form-control modal--input mb-4" aria-describedby="email" required />
-        //         <ErrorMessage name="name" />
-        //     </Form>
-        // </Formik>
-        //         </Modal.Body>
-        //         <Modal.Footer style={{ flexDirection: "column" }}>
-        //             <Button className="text-md w-100 modal--btn" onClick={props.onHide}>Confirmar alterações</Button>
-        //             <Button className="text-md w-100 modal--btn--secondary" onClick={props.onHide} onClick={handleShow3}>Alterar senha</Button>
-        //         </Modal.Footer>
-        //     </Modal>
-
-        //     <div className="modal-alterar-senha">
-        //         <ModalAlterarSenha show={show3} onHide={handleClose3} />
-        //     </div>
-        // </>
         <div>
+            <ToastContainer position="top-end">
+                <Toast className="toast--sucess m-2" onClose={() => setShowToastDados(false)} show={showToastDados} delay={3000} autohide>
+                    <Toast.Body>Dados alterados com sucesso</Toast.Body>
+                </Toast>
+                <Toast className="toast--sucess m-2" onClose={() => setShowToastPass(false)} show={showToastPass} delay={3000} autohide>
+                    <Toast.Body>Senha alterada com sucesso</Toast.Body>
+                </Toast>
+            </ToastContainer>
+
+
             <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered alterar-dados">
                     <div class="modal-content">
@@ -74,7 +49,7 @@ function ModalDados(props) {
                             </Formik>
                         </div>
                         <div class="modal-footer">
-                            <Button className="text-md w-100 modal--btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Confirmar alterações</Button>
+                            <Button className="text-md w-100 modal--btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" onClick={() => setShowToastDados(true)}>Confirmar alterações</Button>
                             <Button className="text-md w-100 modal--btn--secondary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="#exampleModalToggle">Alterar senha</Button>
                         </div>
                     </div>
@@ -103,7 +78,7 @@ function ModalDados(props) {
                             </Formik>
                         </div>
                         <div class="modal-footer">
-                            <Button className="text-md w-100 modal--btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Confirmar alterações</Button>
+                            <Button className="text-md w-100 modal--btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" onClick={() => setShowToastPass(true)}>Confirmar alterações</Button>
                         </div>
                     </div>
                 </div>

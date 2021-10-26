@@ -218,6 +218,9 @@
     .links_name {
         display: flex;
         justify-content: center;
+        &--sair {
+            margin-right: 10px;
+        }
     }
     #active:hover {
         color: $yellow;

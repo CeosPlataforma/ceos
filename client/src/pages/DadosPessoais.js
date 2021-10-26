@@ -6,12 +6,12 @@ import * as Yup from 'yup';
 import ModalExcluirConta from '../components/ModalExcluirConta';
 import ModalDados from '../components/ModalDados';
 
-import Alert from 'react-bootstrap/Alert';
-
 import Cropper from 'react-easy-crop';
 import Slider from "@material-ui/core/Slider";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import getCroppedImg from '../components/cropImage';
+import { dataURLtoFile } from '../components/dataURLtoFile';
 
 export default function DadosPessoais() {
 
@@ -67,6 +67,11 @@ export default function DadosPessoais() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // const cancelar = () => {
+    //     handleClose();
+    //     setImage(null);
+    // }
+
     const inputRef = React.useRef();
     const triggerFile = () => inputRef.current.click();
 
@@ -90,6 +95,16 @@ export default function DadosPessoais() {
         }
     }
 
+    const onUpload = async () => {
+        const canvas = await getCroppedImg(image, croppedArea);
+        const canvasDataUrl = canvas.toDataURL("image/jpeg");
+        const convertedUrlToFile = dataURLtoFile(
+            canvasDataUrl,
+            "cropped-image.jpeg"
+        );
+        console.log(convertedUrlToFile)
+    }
+
     // const [show2, setShow2] = useState(false);
 
     // const handleClose2 = () => setShow2(false);
@@ -103,17 +118,13 @@ export default function DadosPessoais() {
 
     return (
         <div>
-            {/* n sei como funciona o usestate/setshow ent n consegui fazer direito
-            mas se o arrudas souber o basics e colocar ta comentado ai
-            e n sei como aplicar o corte pra colocar como foto e mandar pro banco ou oq for acontecer, mas eu segui o tutorial do indiano e deve dar pra adaptar de
-            algo de la:
-            https://youtu.be/RmiP1AY5HFM 
-            vou commitar os arquivos jnts só ver o codigo e pegar a funcao certa e fazer o neg... deu preguiça
-            */}
+            {/* siga os tutorial do indiano
+            https://www.youtube.com/channel/UCyq81Ac-Ir4WIhFUgb_kyRw
 
-            {/* <Alert className="">
-                As alterações dos dados foram realizadas com sucesso!
-            </Alert> */}
+            aq pra parte dps do upload https://youtu.be/BibIRfqtw1A?t=365
+            se conseguir, dps tente colocar a url da imagem em $photo_url na scss/abstracts/_variables.scss
+            se quiser rodar o scss é só no terminal estar na pasta client e ter o sass instalado e dar 'sass --watch --no-source-map src/scss/main.scss src/css/main.css' sem aspas
+            */}
 
             <ModalDados />
 
@@ -153,8 +164,11 @@ export default function DadosPessoais() {
                         </div>
 
                         <div className="d-flex justify-content-around w-100">
-                            <Button className="text-md modal--btn cropper--cancelar mx-auto" onClick={handleClose}>Cancelar</Button>
-                            <Button className="text-md modal--btn cropper--aplicar mx-auto">Aplicar</Button>
+                            <Button className="text-md modal--btn cropper--cancelar mx-auto" onClick={() => {
+                                handleClose();
+                                setImage(null);
+                            }}>Cancelar</Button>
+                            <Button className="text-md modal--btn cropper--aplicar mx-auto" onClick={onUpload}>Aplicar</Button>
                         </div>
                     </Modal.Footer>
                 </Modal>
@@ -166,14 +180,15 @@ export default function DadosPessoais() {
                     <div className="col-sm-12 col-xl-5">
                         <Title title="Dados pessoais" />
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        <div className="dados-pessoais--user-img"></div>
+                        {/* <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 45.532 45.532" xmlSpace="preserve" class="dados-pessoais--user-img">
                             <path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,22.766-22.765
                                 S35.34,0.001,22.766,0.001z M22.766,6.808c4.16,0,7.531,3.372,7.531,7.53c0,4.159-3.371,7.53-7.531,7.53
                                 c-4.158,0-7.529-3.371-7.529-7.53C15.237,10.18,18.608,6.808,22.766,6.808z M22.761,39.579c-4.149,0-7.949-1.511-10.88-4.012
                                 c-0.714-0.609-1.126-1.502-1.126-2.439c0-4.217,3.413-7.592,7.631-7.592h8.762c4.219,0,7.619,3.375,7.619,7.592
                                 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
-                        </svg>
+                        </svg> */}
                         <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
                         <button className="dados-pessoais--alterar" onClick={triggerFile}>Alterar foto</button>
                         <a className="dados-pessoais--desativar" onClick={() => { setShow1(true) }}>&gt; Desativar conta</a>

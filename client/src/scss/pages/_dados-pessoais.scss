@@ -6,7 +6,14 @@
     &--user-img {
         display: block;
         margin-bottom: 40px;
-        height: 150px
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;        
+        border: 2px solid $gray-dark;
+        background-image: $photo_url;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
     }
     &--alterar {
         @extend .btn--common;
