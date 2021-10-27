@@ -21,7 +21,7 @@ export default function Atividades() {
         <>
             <div className="container-xxl atividades content">
 
-                <PlataformaHeader title="Atividades" />
+                <PlataformaHeader title="Atividades" user={false} />
 
                 <div className="row d-flex justify-content-between row-atividades">
 

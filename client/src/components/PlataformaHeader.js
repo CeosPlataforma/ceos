@@ -12,7 +12,7 @@ export default function PlataformaHeader({ title, user }) {
         <Row className="align-items-center">
             <Col>
                 <div className="logged--header">
-                    <Title title={title} user={user} />
+                    <Title title={title} user={user}/>
                     <User />
                 </div>
             </Col>

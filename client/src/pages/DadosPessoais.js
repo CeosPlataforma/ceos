@@ -255,7 +255,7 @@ export default function DadosPessoais() {
                 <div className="row">
 
                     <div className="col-sm-12 col-xl-5">
-                        <Title title="Dados pessoais" />
+                        <Title title="Dados pessoais" user={false}/>
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
                         <Avatar className="dados-pessoais--user-img" />
                         <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />

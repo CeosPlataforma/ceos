@@ -54,7 +54,7 @@ export default function Materias() {
         <>
             <div className="container-xxl materias content">
 
-                <PlataformaHeader title="Gerencie suas matérias" />
+                <PlataformaHeader title="Gerencie suas matérias" user={true}/>
 
                 <button className="materias--btn materias--ver-materias btn btn--common">Ver matérias</button>
 

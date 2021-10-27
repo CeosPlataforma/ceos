@@ -12,7 +12,7 @@ export default function Desempenho() {
     return (
         <>
             <Container fluid={"xxl"} className="desempenho content">
-                <PlataformaHeader title="Desempenho" />
+                <PlataformaHeader title="Desempenho" user={false}/>
 
                 <div className="desempenho--section">
                     <SimpleBox

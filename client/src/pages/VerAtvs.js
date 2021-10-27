@@ -17,7 +17,7 @@ export default function VerAtvs() {
         <>
             <div className="container-xxl ver-atividades content">
 
-                <PlataformaHeader title="Nome da matéria??" />
+                <PlataformaHeader title="Nome da matéria??" user={false}/>
 
                 <div className="container d-flex justify-content-between p-0 flex-wrap">
                     <button

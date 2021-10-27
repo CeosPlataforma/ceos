@@ -125,10 +125,12 @@ export default function Painel() {
     // const margem = $('.content').width() + 160;
     // $('.min-footer').css('margin-top', margem + 'px');
 
+   
+
     return (
         <div className="container-xxl painel content">
 
-            <PlataformaHeader title="Olá, " user="Nome de Usuário" />
+            <PlataformaHeader title="Olá, " user={true} />
 
             <div className="row align-items-center">
                 <div className="col">
