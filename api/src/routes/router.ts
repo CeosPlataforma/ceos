@@ -18,12 +18,20 @@ router.get('/materia', materiaController.getAllMaterias);
 
 const userController = new UserController();
 router.post('/login', userController.login);
-router.get('/userinfo', userController.userinfo)
 router.post('/register', userController.registerUser);
 router.get('/register/:userID', userController.verifyEmail);
+
 router.post('/logout', userController.logout)
 router.post('/redefinir-senha/', userController.resetPassword)
+
+router.get('/userinfo', userController.userinfo)
+
 router.post('/upload-foto/', userController.uploadFoto)
 router.get('/get-foto/', userController.getFoto)
+
+router.patch('/mudar-senha/', userController.mudarSenha)
+router.patch('/mudar-dados/', userController.mudarDados)
+
+router.post('/deletar-usuario/', userController.deletarUsuario)
 
 export { router };

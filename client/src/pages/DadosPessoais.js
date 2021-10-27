@@ -22,8 +22,7 @@ export default function DadosPessoais() {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
-    const [show1, setShow1] = useState(false);
-
+    
     const reload = () => {
         window.location.reload();
     }
@@ -62,10 +61,67 @@ export default function DadosPessoais() {
         }
     }
 
-    const [show, setShow] = useState(false);
+    // MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- (CONTINUA)
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [showExcluir, setShowExcluir] = useState(false);
+    const onSubmitExcluir = async (values, actions) => {
+        axios.post("http://localhost:3333/deletar-usuario", {email: values.email, password: values.password})
+        .then((response) => {
+            console.log(response)
+            if (response.data.error === "password") {
+                actions.setFieldError("password", `Senha incorreta`);
+            } else if (response.data.error === "inexistent") {
+                actions.setFieldError("email", `Email incorreto`);
+            } else if (response.data.message === "success") {
+                actions.setFieldError("password", `Conta desativada com sucesso`)
+                setTimeout(function () {
+                    window.location = "http://localhost:3000"
+                }, 5000)
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        });
+        // setShowExcluir(false);
+        // console.log("excluir")
+    }
+
+    const [showMudarSenha, setShowMudarSenha] = useState(false)
+    const onSubmitMudarSenha = async (values, actions) => {
+        axios.patch("http://localhost:3333/mudar-senha", {password: values.password, newPassword: values.newPassword})
+        .then((response) => {
+            console.log(response)
+            if (response.data.error === "password") {
+                actions.setFieldError("password", `Senha incorreta`);
+            } else {
+                actions.setFieldError("password", `Senha mudada com sucesso, por favor, Faça login novamente`);
+                setTimeout(function () {
+                    window.location = "http://localhost:3000/acessar"
+                }, 4000)
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        });
+    }
+
+    const [showMudarDados, setShowMudarDados] = useState(false)
+    const onSubmitMudarDados = async (values, actions) => {
+        axios.patch("http://localhost:3333/mudar-dados", {password: values.password, email: values.email, name: values.name})
+        .then((response) => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        });
+    }
+
+    // MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- (FIM <-)
+
+    const [showCrop, setShowCrop] = useState(false);
+
+    const handleCloseCrop = () => setShowCrop(false);
+    const handleShowCrop = () => setShowCrop(true);
 
     // const cancelar = () => {
     //     handleClose();
@@ -86,7 +142,7 @@ export default function DadosPessoais() {
 
     const onSelectFile = (event) => {
         if (event.target.files && event.target.files.length > 0) {
-            setShow(true);
+            setShowCrop(true);
             const reader = new FileReader()
             reader.readAsDataURL(event.target.files[0])
             reader.addEventListener('load', () => {
@@ -96,9 +152,6 @@ export default function DadosPessoais() {
     }
 
     axios.defaults.withCredentials = true
-    const onSubmit = async (values, actions) => {
-        
-    }
 
     const onUpload = async () => {
         const canvas = await getCroppedImg(image, croppedArea);
@@ -121,7 +174,8 @@ export default function DadosPessoais() {
         })
         .then(function (response) {
             if (response.data.message === "success") {
-                setShow(false)
+                setShowCrop(false)
+                reload()
             }
         })
         .catch(function (error) {
@@ -151,11 +205,8 @@ export default function DadosPessoais() {
             se quiser rodar o scss é só no terminal estar na pasta client e ter o sass instalado e dar 'sass --watch --no-source-map src/scss/main.scss src/css/main.css' sem aspas
             */}
 
-            <ModalDados />
-            <ModalAltSenha />
-
             {image ? (
-                <Modal size="lg" show={show} onHide={handleClose} className="dados-pessoais--modal-cropper" centered>
+                <Modal size="lg" show={showCrop} onHide={handleCloseCrop} className="dados-pessoais--modal-cropper" centered>
                     <Modal.Header>
                         <Modal.Title id="contained-modal-title-vcenter">
                             <h1 className="modal--title">Edite a imagem</h1>
@@ -191,7 +242,7 @@ export default function DadosPessoais() {
 
                         <div className="d-flex justify-content-around w-100">
                             <Button className="text-md modal--btn cropper--cancelar mx-auto" onClick={() => {
-                                handleClose();
+                                handleCloseCrop();
                                 setImage(null);
                             }}>Cancelar</Button>
                             <Button className="text-md modal--btn cropper--aplicar mx-auto" onClick={onUpload}>Aplicar</Button>
@@ -217,11 +268,11 @@ export default function DadosPessoais() {
                         </svg> */}
                         <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
                         <button className="dados-pessoais--alterar" onClick={triggerFile}>Alterar foto</button>
-                        <a className="dados-pessoais--desativar" onClick={() => { setShow1(true) }}>&gt; Desativar conta</a>
+                        <a className="dados-pessoais--desativar" onClick={() => { setShowExcluir(true) }}>&gt; Desativar conta</a>
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto conteudo-direita">
-                        <Formik enableReinitialize={true} initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                        <Formik enableReinitialize={true} initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmitExcluir}>
                             <Form className="dados-pessoais--form">
                                 <label for="dados-pessoais--nome" className="form-label">Nome</label>
                                 <Field name="name" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--nome"
@@ -238,17 +289,17 @@ export default function DadosPessoais() {
                                     <ErrorMessage name="senha" />
                                 </div> */}
                                 <br />
-                                <button
-                                    type="submit"
-                                    className="dados-pessoais--btn w-100 mb-4" data-bs-toggle="modal" href="#exampleModalToggle">Alterar dados</button>
-                                <Button className="text-md w-100 modal--btn--secondary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="#exampleModalToggle">Alterar senha</Button>
+                                <Button className="dados-pessoais--btn w-100 mb-4" onClick={() => setShowMudarDados(true)}>Alterar dados</Button>
+                                <Button className="text-md w-100 modal--btn--secondary" onClick={() => setShowMudarSenha(true)} >Alterar senha</Button>
                             </Form>
                         </Formik>
                     </div>
                 </div>
             </div>
 
-            <ModalExcluirConta onSubmit={onSubmit} show={show1} onHide={() => setShow1(false)} onExited={reload} />
+            <ModalDados onSubmit={onSubmitMudarDados} show={showMudarDados} onHide={() => setShowMudarDados(false)} startName={nome} startEmail={email}/>
+            <ModalAltSenha onSubmit={onSubmitMudarSenha} show={showMudarSenha} onHide={() => setShowMudarSenha(false)}/>
+            <ModalExcluirConta onSubmit={onSubmitExcluir} show={showExcluir} onHide={() => setShowExcluir(false)}/>
         </>
     );
 }

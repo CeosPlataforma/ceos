@@ -197,6 +197,72 @@ class UserController {
             }
         });
     }
+
+    async mudarDados(request: Request, response: Response) {
+        console.log(request.body)
+    }
+    
+    async mudarSenha(request: Request, response: Response) {
+        console.log(request.body)
+        const { password, newPassword } = request.body;
+        const new_salt = crypto.randomBytes(16).toString('base64'); // coisas de hash e segurança e tal
+        const new_hash = crypto.pbkdf2Sync(newPassword, new_salt, 1000, 64, 'sha512').toString('base64');
+
+        const { uuid } = request.session.user;
+        console.log({ newPassword, password });
+
+        await UserModel.findOne({ uuid }, (error, user) => {
+            if (user === null) {
+                console.log("inexistente")
+                return response.json({ error: 'inexistent' });
+            } else {
+                console.log("existente")
+                if (user.validPassword(password)) {
+                    
+                    user.salt = new_salt;
+                    user.hash = new_hash
+
+                    user.save().then(saved => {
+                        console.log(saved);
+                    });
+
+                    request.session.destroy((err) => {});
+
+                    console.log("senha mudada")
+                    return response.json({ message: "success" });
+
+                } else {
+
+                    console.log("senha")
+                    return response.json({ error: "password" });
+                    
+                }
+            }
+        });
+    }
+
+    async deletarUsuario(request: Request, response: Response) {
+        const { email, password } = request.body;
+        console.log({ email, password });
+        await UserModel.findOne({ email }, (error, user) => {
+            if (user === null) {
+                console.log("inexistente")
+                return response.json({ error: 'inexistent' });
+            } else {
+                console.log("existente")
+                if (user.validPassword(request.body.password)) {
+                    request.session.destroy((err) => {});
+                    user.remove()
+                    console.log("usuario removido")
+                    return response.json({ message: "success" });
+                } else {
+                    console.log("senha")
+                    return response.json({ error: "password" });
+                }
+            }
+        });
+    }
+
 }
 
 export { UserController };

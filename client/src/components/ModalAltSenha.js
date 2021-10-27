@@ -1,49 +1,108 @@
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useHistory } from "react-router-dom";
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Toast from 'react-bootstrap/Toast'
-import ToastContainer from 'react-bootstrap/ToastContainer'
 
 function ModalAltSenha(props) {
 
     const [showToastPass, setShowToastPass] = useState(false);
 
+    const initialValues = {
+        password: '',
+        newPassword: '',
+        newPasswordConfirm: '',
+        
+    }
+
+    const validationSchema = Yup.object({
+        password: '',
+        newPassword: '',
+        newPasswordConfirm: Yup.string().oneOf([Yup.ref('newPassword'), ''], 'As senhas devem ser iguais')
+    });
+
+    const [textoMostrar, setTextoMostrar] = useState("Mostrar")
+    const [passwordShown, setPasswordShown] = useState(false)
+
+    const [textoConfirmMostrar, setTextoConfirmMostrar] = useState("Mostrar")
+    const [passwordConfirmShown, setPasswordConfirmShown] = useState(false)
+    
+    const [textoNewConfirmMostrar, setTextoNewConfirmMostrar] = useState("Mostrar")
+    const [passwordNewConfirmShown, setPasswordNewConfirmShown] = useState(false)
+    
+    const toggleSenha = () => {
+        if (passwordShown) {
+            setPasswordShown(false);
+            setTextoMostrar("Mostrar")
+        } else {
+            setPasswordShown(true);
+            setTextoMostrar("Ocultar")
+        }
+    }
+
+    const toggleSenhaConfirmar = () => {
+        if (passwordConfirmShown) {
+            setPasswordConfirmShown(false);
+            setTextoConfirmMostrar("Mostrar")
+        } else {
+            setPasswordConfirmShown(true);
+            setTextoConfirmMostrar("Ocultar")
+        }
+    }
+
+    const toggleSenhaNewConfirmar = () => {
+        if (passwordNewConfirmShown) {
+            setPasswordNewConfirmShown(false);
+            setTextoNewConfirmMostrar("Mostrar")
+        } else {
+            setPasswordNewConfirmShown(true);
+            setTextoNewConfirmMostrar("Ocultar")
+        }
+    }
+
     return (
 
-        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 className="modal--title--mini">Altere sua senha</h1>
-                    </div>
-                    <div class="modal-body">
-                        <Formik onSubmit={props.onSubmit}>
-                            {/*initialValues={initialValues} validationSchema={validationSchema}*/}
-                            <Form>
-                                <p className="text-lg">Senha atual</p>
-                                <Field name="name" type="password" className="form-control modal--input mb-4" aria-describedby="email" required />
-                                <ErrorMessage name="name" />
-                                <p className="text-lg">Nova senha</p>
-                                <Field name="name" type="password" className="form-control modal--input mb-4" aria-describedby="email" required />
-                                <ErrorMessage name="name" />
-                                <p className="text-lg">Confirmar nova senha</p>
-                                <Field name="name" type="password" className="form-control modal--input mb-4" aria-describedby="email" required />
-                                <ErrorMessage name="name" />
-                            </Form>
-                        </Formik>
-                    </div>
-                    <div class="modal-footer">
-                        <Button className="text-md w-100 modal--btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" onClick={() => setShowToastPass(true)}>Confirmar alterações</Button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal.Header>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    <h1 className="modal--title--mini">Altere seus dados</h1>
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Formik onSubmit={props.onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
+                    <Form>
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
+                            <div className="cadastrar--senha--container senha--container">
+                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
+                                <ErrorMessage name="password"/>
+                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                            </div>
+                        </div>
+
+                        <div className="mb-4">
+                        <label htmlFor="cadastrar--senha" className="text-lg">Nova senha</label>
+                            <div className="cadastrar--senha--container senha--container">
+                                <Field name="newPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPassword" required />
+                                <span onClick={toggleSenhaConfirmar} className="show-password">{textoConfirmMostrar} senha</span>
+                            </div>
+                        </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="cadastrar--senha" className="text-lg">Confirmar nova senha</label>
+                            <div className="cadastrar--senha--container senha--container">
+                                <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPasswordConfirm" required />
+                                <span onClick={toggleSenhaNewConfirmar} className="show-password text-md">{textoNewConfirmMostrar} senha</span>
+                                <ErrorMessage name="newPasswordConfirm"/>
+                            </div>
+                        </div>
+                        <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>
+
+                    </Form>
+                </Formik>
+            </Modal.Body>
+        </Modal>
+                
     );
 }
 
