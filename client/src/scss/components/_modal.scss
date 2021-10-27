@@ -1,13 +1,29 @@
 .modal {
     font: $font-sm;
-    &--title, &--subtitle {
+    &--title {
         font: $font-sm !important;
         text-align: center;
         font-weight: $extra-bold !important;
+        &--website {
+            font: $font-md !important;
+        }
         &--mini {
             font-size: 23px; /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/;
             font-weight: bold;
             text-align: center;            
+        }
+    }
+    &--subtitle {
+        font: $font-sm !important;
+        text-align: center;
+        font-weight: $extra-bold !important;
+        &--website {
+            font: $font-sm !important;
+        }
+    }
+    &--text {
+        &--website {
+            text-align: center;
         }
     }
     &--input {

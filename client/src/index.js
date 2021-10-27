@@ -54,7 +54,7 @@ ReactDOM.render(
             </Route>
 
             <Route path="/painel">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <Painel />
@@ -62,7 +62,7 @@ ReactDOM.render(
                 <MiniFooter />
             </Route>
             <Route path="/cronograma">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <Cronograma />
@@ -70,7 +70,7 @@ ReactDOM.render(
                 <MiniFooter />
             </Route>
             <Route path="/materias">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <Materias />
@@ -78,7 +78,7 @@ ReactDOM.render(
                 <MiniFooter />
             </Route>
             <Route path="/materia/idmateria">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <VerAtvs />
@@ -86,7 +86,7 @@ ReactDOM.render(
                 <MiniFooter />
             </Route>
             <Route path="/atividades">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <Atividades />
@@ -94,7 +94,7 @@ ReactDOM.render(
                 <MiniFooter />
             </Route>
             <Route path="/desempenho">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <Desempenho />
@@ -102,7 +102,7 @@ ReactDOM.render(
                 <MiniFooter />
             </Route>
             <Route path="/dados-pessoais">
-                <div className="d-flex">
+                <div className="d-flex index-div">
                     <Sidebar />
                     <SidebarMob />
                     <DadosPessoais />

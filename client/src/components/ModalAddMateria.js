@@ -28,7 +28,7 @@ function ModalAddMateria(props) {
                             <p className="text-lg">Informe o nome da nova matéria</p>
                             <Field name="name" type="text" className="form-control modal--input mb-4" placeholder="ex. Ciências"
                                 aria-describedby="emailRecover" required />
-                            <ErrorMessage name="name" />
+                            <ErrorMessage component="p" className="error-msg" name="name" />
                         </div>
                         <div class="modal-footer">
                             <button type="submit" className="btn btn-primary text-md w-100 mx-auto modal--btn">Confirmar</button>

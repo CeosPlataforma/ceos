@@ -514,9 +514,6 @@ label:focus,
 .user--photo {
   height: 50px;
   width: 50px;
-  background-image: url(https://c.tenor.com/epNMHGvRyHcAAAAM/gigachad-chad.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
   background-size: cover;
   border-radius: 50%;
   display: inline-block;
@@ -559,6 +556,18 @@ label:focus,
 
 .form-control:disabled, .form-control[readonly] {
   background-color: #FFFFFF;
+}
+
+@media screen and (max-width: 991.98px) {
+  .index-div {
+    flex-direction: column;
+  }
+}
+
+.error-msg {
+  font: 500 20px "Baloo Bhai 2", cursive;
+  color: #C24D4D !important;
+  font-weight: 400;
 }
 
 /*
@@ -731,15 +740,29 @@ button {
 .modal {
   font: 500 20px "Baloo Bhai 2", cursive;
 }
-.modal--title, .modal--subtitle {
+.modal--title {
   font: 500 20px "Baloo Bhai 2", cursive !important;
   text-align: center;
   font-weight: 800 !important;
 }
-.modal--title--mini, .modal--subtitle--mini {
+.modal--title--website {
+  font: 700 36px "Baloo Bhai 2", cursive !important;
+}
+.modal--title--mini {
   font-size: 23px;
   /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/
   font-weight: bold;
+  text-align: center;
+}
+.modal--subtitle {
+  font: 500 20px "Baloo Bhai 2", cursive !important;
+  text-align: center;
+  font-weight: 800 !important;
+}
+.modal--subtitle--website {
+  font: 500 20px "Baloo Bhai 2", cursive !important;
+}
+.modal--text--website {
   text-align: center;
 }
 .modal--input {
@@ -858,10 +881,11 @@ button {
 .senha--container span {
   position: absolute;
   right: 30px;
-  top: 30%;
+  top: 25%;
   color: #707070;
   cursor: pointer;
   user-select: none;
+  font-size: 16px;
 }
 .senha--container .hide-password {
   display: none;
@@ -1691,10 +1715,6 @@ ol, ul {
   width: 150px;
   border-radius: 50%;
   border: 2px solid #707070;
-  background-image: url(https://c.tenor.com/epNMHGvRyHcAAAAM/gigachad-chad.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
 }
 .dados-pessoais--alterar, .painel--demais-horarios {
   border-color: #216AA7;

@@ -22,7 +22,7 @@ export default function DadosPessoais() {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
-    
+
     const reload = () => {
         window.location.reload();
     }
@@ -65,55 +65,55 @@ export default function DadosPessoais() {
 
     const [showExcluir, setShowExcluir] = useState(false);
     const onSubmitExcluir = async (values, actions) => {
-        axios.post("http://localhost:3333/deletar-usuario", {email: values.email, password: values.password})
-        .then((response) => {
-            console.log(response)
-            if (response.data.error === "password") {
-                actions.setFieldError("password", `Senha incorreta`);
-            } else if (response.data.error === "inexistent") {
-                actions.setFieldError("email", `Email incorreto`);
-            } else if (response.data.message === "success") {
-                actions.setFieldError("password", `Conta desativada com sucesso`)
-                setTimeout(function () {
-                    window.location = "http://localhost:3000"
-                }, 5000)
-            }
-        })
-        .catch(error => {
-            console.log(error)
-        });
+        axios.post("http://localhost:3333/deletar-usuario", { email: values.email, password: values.password })
+            .then((response) => {
+                console.log(response)
+                if (response.data.error === "password") {
+                    actions.setFieldError("password", `Senha incorreta`);
+                } else if (response.data.error === "inexistent") {
+                    actions.setFieldError("email", `Email incorreto`);
+                } else if (response.data.message === "success") {
+                    actions.setFieldError("password", `Conta desativada com sucesso`)
+                    setTimeout(function () {
+                        window.location = "http://localhost:3000"
+                    }, 5000)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
         // setShowExcluir(false);
         // console.log("excluir")
     }
 
     const [showMudarSenha, setShowMudarSenha] = useState(false)
     const onSubmitMudarSenha = async (values, actions) => {
-        axios.patch("http://localhost:3333/mudar-senha", {password: values.password, newPassword: values.newPassword})
-        .then((response) => {
-            console.log(response)
-            if (response.data.error === "password") {
-                actions.setFieldError("password", `Senha incorreta`);
-            } else {
-                actions.setFieldError("password", `Senha mudada com sucesso, por favor, Faça login novamente`);
-                setTimeout(function () {
-                    window.location = "http://localhost:3000/acessar"
-                }, 4000)
-            }
-        })
-        .catch(error => {
-            console.log(error)
-        });
+        axios.patch("http://localhost:3333/mudar-senha", { password: values.password, newPassword: values.newPassword })
+            .then((response) => {
+                console.log(response)
+                if (response.data.error === "password") {
+                    actions.setFieldError("password", `Senha incorreta`);
+                } else {
+                    actions.setFieldError("password", `Senha mudada com sucesso, por favor, Faça login novamente`);
+                    setTimeout(function () {
+                        window.location = "http://localhost:3000/acessar"
+                    }, 4000)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
     }
 
     const [showMudarDados, setShowMudarDados] = useState(false)
     const onSubmitMudarDados = async (values, actions) => {
-        axios.patch("http://localhost:3333/mudar-dados", {password: values.password, email: values.email, name: values.name})
-        .then((response) => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        });
+        axios.patch("http://localhost:3333/mudar-dados", { password: values.password, email: values.email, name: values.name })
+            .then((response) => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            });
     }
 
     // MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- (FIM <-)
@@ -170,18 +170,18 @@ export default function DadosPessoais() {
             method: "post",
             url: "http://localhost:3333/upload-foto/",
             data: data,
-            headers: {"Content-Type": "multipart/form-data"}
+            headers: { "Content-Type": "multipart/form-data" }
         })
-        .then(function (response) {
-            if (response.data.message === "success") {
-                setShowCrop(false)
-                reload()
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-        
+            .then(function (response) {
+                if (response.data.message === "success") {
+                    setShowCrop(false)
+                    reload()
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }
 
     // const [show2, setShow2] = useState(false);
@@ -257,15 +257,7 @@ export default function DadosPessoais() {
                     <div className="col-sm-12 col-xl-5">
                         <Title title="Dados pessoais" />
                         <h4 className="dados-pessoais--sub-title">Foto de perfil</h4>
-                        <Avatar/>
-                        {/* <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 45.532 45.532" xmlSpace="preserve" class="dados-pessoais--user-img">
-                            <path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,22.766-22.765
-                                S35.34,0.001,22.766,0.001z M22.766,6.808c4.16,0,7.531,3.372,7.531,7.53c0,4.159-3.371,7.53-7.531,7.53
-                                c-4.158,0-7.529-3.371-7.529-7.53C15.237,10.18,18.608,6.808,22.766,6.808z M22.761,39.579c-4.149,0-7.949-1.511-10.88-4.012
-                                c-0.714-0.609-1.126-1.502-1.126-2.439c0-4.217,3.413-7.592,7.631-7.592h8.762c4.219,0,7.619,3.375,7.619,7.592
-                                c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
-                        </svg> */}
+                        <Avatar className="dados-pessoais--user-img" />
                         <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
                         <button className="dados-pessoais--alterar" onClick={triggerFile}>Alterar foto</button>
                         <a className="dados-pessoais--desativar" onClick={() => { setShowExcluir(true) }}>&gt; Desativar conta</a>
@@ -276,7 +268,7 @@ export default function DadosPessoais() {
                             <Form className="dados-pessoais--form">
                                 <label for="dados-pessoais--nome" className="form-label">Nome</label>
                                 <Field name="name" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--nome"
-                                    defaultValue={nome} readonly="true"/>
+                                    defaultValue={nome} readonly="true" />
 
                                 <label for="dados-pessoais--email" className="form-label">E-mail</label>
                                 <Field name="email" type="text" className="form-control dados-pessoais--input mb-4" id="dados-pessoais--email"
@@ -297,9 +289,9 @@ export default function DadosPessoais() {
                 </div>
             </div>
 
-            <ModalDados onSubmit={onSubmitMudarDados} show={showMudarDados} onHide={() => setShowMudarDados(false)} startName={nome} startEmail={email}/>
-            <ModalAltSenha onSubmit={onSubmitMudarSenha} show={showMudarSenha} onHide={() => setShowMudarSenha(false)}/>
-            <ModalExcluirConta onSubmit={onSubmitExcluir} show={showExcluir} onHide={() => setShowExcluir(false)}/>
+            <ModalDados onSubmit={onSubmitMudarDados} show={showMudarDados} onHide={() => setShowMudarDados(false)} startName={nome} startEmail={email} />
+            <ModalAltSenha onSubmit={onSubmitMudarSenha} show={showMudarSenha} onHide={() => setShowMudarSenha(false)} />
+            <ModalExcluirConta onSubmit={onSubmitExcluir} show={showExcluir} onHide={() => setShowExcluir(false)} />
         </>
     );
 }

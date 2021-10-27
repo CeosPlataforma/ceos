@@ -69,9 +69,10 @@ function ModalDados(props) {
                                 <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
                                 <div className="cadastrar--senha--container senha--container">
                                     <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
-                                    <ErrorMessage name="password"/>
                                     <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                                    <ErrorMessage component="span" name="password" />
                                 </div>
+
                             </div>
 
                             <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>

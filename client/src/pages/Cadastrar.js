@@ -8,7 +8,7 @@ import ModalCadastro from "../components/ModalCadastro";
 
 export default function Cadastrar() {
 
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
@@ -71,7 +71,7 @@ export default function Cadastrar() {
 
     return (
         <div>
-            
+
             <div className="container cadastrar" id="acessar">
 
                 <h2 className="cadastrar--title text-center mb-4">
@@ -121,7 +121,7 @@ export default function Cadastrar() {
 
                 </Formik>
 
-                <ModalCadastro show={show}/>
+                <ModalCadastro show={show} />
 
             </div>
         </div>

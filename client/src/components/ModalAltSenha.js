@@ -12,7 +12,7 @@ function ModalAltSenha(props) {
         password: '',
         newPassword: '',
         newPasswordConfirm: '',
-        
+
     }
 
     const validationSchema = Yup.object({
@@ -26,10 +26,10 @@ function ModalAltSenha(props) {
 
     const [textoConfirmMostrar, setTextoConfirmMostrar] = useState("Mostrar")
     const [passwordConfirmShown, setPasswordConfirmShown] = useState(false)
-    
+
     const [textoNewConfirmMostrar, setTextoNewConfirmMostrar] = useState("Mostrar")
     const [passwordNewConfirmShown, setPasswordNewConfirmShown] = useState(false)
-    
+
     const toggleSenha = () => {
         if (passwordShown) {
             setPasswordShown(false);
@@ -75,13 +75,13 @@ function ModalAltSenha(props) {
                             <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
-                                <ErrorMessage name="password"/>
+                                <ErrorMessage component="p" className="error-msg" name="password" />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                             </div>
                         </div>
 
                         <div className="mb-4">
-                        <label htmlFor="cadastrar--senha" className="text-lg">Nova senha</label>
+                            <label htmlFor="cadastrar--senha" className="text-lg">Nova senha</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="newPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPassword" required />
                                 <span onClick={toggleSenhaConfirmar} className="show-password">{textoConfirmMostrar} senha</span>
@@ -93,16 +93,18 @@ function ModalAltSenha(props) {
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPasswordConfirm" required />
                                 <span onClick={toggleSenhaNewConfirmar} className="show-password text-md">{textoNewConfirmMostrar} senha</span>
-                                <ErrorMessage name="newPasswordConfirm"/>
                             </div>
                         </div>
+
+                        <ErrorMessage component="p" className="error-msg" name="newPasswordConfirm" />
+
                         <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>
 
                     </Form>
                 </Formik>
             </Modal.Body>
         </Modal>
-                
+
     );
 }
 

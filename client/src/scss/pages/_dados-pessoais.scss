@@ -9,10 +9,6 @@
         width: 150px;
         border-radius: 50%;        
         border: 2px solid $gray-dark;
-        background-image: $photo_url;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
     }
     &--alterar {
         @extend .btn--common;

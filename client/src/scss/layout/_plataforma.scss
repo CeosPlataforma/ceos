@@ -45,9 +45,6 @@
     &--photo {
         height: 50px;
         width: 50px;
-        background-image: $photo_url;
-        background-repeat: no-repeat;
-        background-position: center center;
         background-size: cover;
         border-radius: 50%;
         display: inline-block;
@@ -87,4 +84,16 @@
 
 .form-control:disabled, .form-control[readonly] {
     background-color: $white;
+}
+
+.index-div {
+    @include device(md) {
+        flex-direction: column;
+    }    
+}
+
+.error-msg {
+    font: $font-sm;
+    color: $red !important;
+    font-weight: $regular;
 }

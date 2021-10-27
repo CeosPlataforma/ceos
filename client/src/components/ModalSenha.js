@@ -22,12 +22,12 @@ function ModalSenha(props) {
         >
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title">Esqueceu sua senha?</h1>
-                    <p className="modal--subtitle">Sem problemas! É fácil recuperá-la!</p>
+                    <h1 className="modal--title modal--title--website">Esqueceu sua senha?</h1>
+                    <p className="modal--subtitle modal--subtitle--website">Sem problemas! É fácil recuperá-la!</p>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>
+                <p className="modal--text--website">
                     Informe o e-mail vinculado a sua conta para
                     enviarmos
                     as
