@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 class SidebarMob extends Component {
 
     render() {
@@ -8,7 +7,7 @@ class SidebarMob extends Component {
             <div className="sidebar--mobile">
                 <ul className="nav_list nav_list-mobile">
                     <li>
-                        <Link id={window.location.pathname == "/painel" ? "active" : ""} to={"painel"}>
+                        <Link id={window.location.pathname === "/painel" ? "active" : ""} to={"painel"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M433,216.061c0-11.046-8.954-20-20-20H297c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h116
@@ -33,7 +32,7 @@ class SidebarMob extends Component {
                         </Link>
                     </li>
                     <li>
-                        <Link id={window.location.pathname == "/cronograma" ? "active" : ""} to={"cronograma"}>
+                        <Link id={window.location.pathname === "/cronograma" ? "active" : ""} to={"cronograma"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M492,352c11.046,0,20-8.954,20-20V120c0-44.112-35.888-80-80-80h-26V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20
@@ -48,7 +47,7 @@ class SidebarMob extends Component {
                         </Link>
                     </li>
                     <li>
-                        <Link id={window.location.pathname == "/materias" ? "active" : ""} to={"/materias"}>
+                        <Link id={window.location.pathname === "/materias" ? "active" : ""} to={"/materias"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M178,375c11.046,0,20-8.954,20-20V214c0-11.046-8.954-20-20-20s-20,8.954-20,20v141C158,366.046,166.954,375,178,375z" />
@@ -64,7 +63,7 @@ class SidebarMob extends Component {
                         </Link>
                     </li>
                     <li>
-                        <Link id={window.location.pathname == "/atividades" ? "active" : ""} to={"atividades"}>
+                        <Link id={window.location.pathname === "/atividades" ? "active" : ""} to={"atividades"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206
@@ -86,7 +85,7 @@ class SidebarMob extends Component {
 
                     </li>
                     <li>
-                        <Link id={window.location.pathname == "/desempenho" ? "active" : ""} to={"/desempenho"}>
+                        <Link id={window.location.pathname === "/desempenho" ? "active" : ""} to={"/desempenho"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512.001 512.001" xmlSpace="preserve">
                                 <path d="M506.617,46.371C502.833,42.308,497.531,40,491.979,40h-81.152c0.129-6.524,0.193-13.188,0.193-20
@@ -114,7 +113,7 @@ class SidebarMob extends Component {
 
                     </li>
                     <li>
-                        <Link id={window.location.pathname == "/dados-pessoais" ? "active" : ""} to={"/dados-pessoais"}>
+                        <Link id={window.location.pathname === "/dados-pessoais" ? "active" : ""} to={"/dados-pessoais"}>
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 456.368 456.368" xmlSpace="preserve">
                                 <path d="M324.194,220.526c-6.172,7.772-13.106,14.947-21.07,21.423c45.459,26.076,76.149,75.1,76.149,131.158

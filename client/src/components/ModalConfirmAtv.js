@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -7,10 +7,14 @@ import Col from 'react-bootstrap/Col';
 
 function ModalConfirmAtv(props) {
     return (
-        <Modal {...props} size="lg" className="modal-atividade" centered>
+        <Modal {...props}
+            size="lg"
+            className="modal-atividade"
+            contentClassName="modal-content--plataforma"
+            centered>
             <Modal.Header className="modal-atividade--header">
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title modal-atividade--title">Confira a atividade</h1>
+                    <h1 className="modal--title modal--title--plataforma">Confira a atividade</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">

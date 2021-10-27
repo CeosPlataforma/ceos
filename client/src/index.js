@@ -26,7 +26,6 @@ import Materias from "./pages/Materias";
 import Atividades from "./pages/Atividades";
 import Desempenho from "./pages/Desempenho";
 import DadosPessoais from "./pages/DadosPessoais";
-
 import VerAtvs from "./pages/VerAtvs";
 
 ReactDOM.render(

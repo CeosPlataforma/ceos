@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import MateriaContainer from "../components/MateriaContainer";
-import SimpleBox from "../components/SimpleBox";
 import PlataformaHeader from "../components/PlataformaHeader";
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 export default function Atividades() {
 

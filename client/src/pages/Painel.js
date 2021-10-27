@@ -125,7 +125,7 @@ export default function Painel() {
     // const margem = $('.content').width() + 160;
     // $('.min-footer').css('margin-top', margem + 'px');
 
-   
+
 
     return (
         <div className="container-xxl painel content">

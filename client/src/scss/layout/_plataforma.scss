@@ -2,6 +2,7 @@
     margin: 50px auto 120px auto;
     width: calc(100vw - 78px);
     transition: all 0.5s ease;
+    min-height: 770px;
     @media screen and (max-width: 1650px) {
         width: calc(80% - 78px);
     }

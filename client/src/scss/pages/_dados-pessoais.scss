@@ -4,11 +4,11 @@
     }
     &--user-img {
         display: block;
-        margin-bottom: 40px;
-        height: 150px;
-        width: 150px;
+        margin-top: 35px;
+        height: 336px;
+        width: 336px;
         border-radius: 50%;        
-        border: 2px solid $gray-dark;
+        border: 4px solid $gray-dark;
     }
     &--alterar {
         @extend .btn--common;
@@ -31,6 +31,7 @@
         cursor: pointer;
         text-decoration: none;
         font: $font-sm;
+        line-height: 32px;
         &:hover,&:focus, &:active {
             color: $red !important;
         }
@@ -50,11 +51,12 @@
         label {
             font: $font-re;
             color: $black;
+            margin: 0;
         }
 
         input {
             font: $font-sm;
-            color: $black;
+            color: $gray;
             font-weight: $regular;
             padding: 20px 20px 20px 50px;
             width: 100%;
@@ -72,13 +74,39 @@
         }
     }
     .conteudo-direita {
-        margin-top: 95px;
+        margin-top: 92px;
     }
+}
+
+.input-main {
+    color: $black !important;
+    font-weight: $bold !important;
 }
 
 .alterar-dados {
     .modal-footer {
         flex-direction: column;
+    }
+}
+
+.btn-edit--photo {
+    position: absolute;
+    background-color: $blue;
+    top: 130px;
+    left: 263px;
+    border-radius: 50%;
+    border: none;
+    height: 55px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;    
+    margin-left: 13px;
+    svg {
+        fill: white;
+        width: 32px;
     }
 }
 
@@ -90,8 +118,8 @@
 }
 
 .container-cropper {
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
 }
 
 .cropper {

@@ -2,7 +2,7 @@ import React from "react";
 
 export const AddLine = ({ opacity }) => {
     return (
-        <div className={opacity == true ? "cronograma--addline cronograma--addline--opacity" : "cronograma--addline"}><span className="cronograma--addline--text">+</span></div>
+        <div className={opacity === true ? "cronograma--addline cronograma--addline--opacity" : "cronograma--addline"}><span className="cronograma--addline--text">+</span></div>
     );
 }
 

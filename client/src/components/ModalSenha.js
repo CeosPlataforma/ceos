@@ -18,6 +18,7 @@ function ModalSenha(props) {
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
+            contentClassName="modal-content--website"
             centered
         >
             <Modal.Header>
