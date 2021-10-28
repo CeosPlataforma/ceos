@@ -111,6 +111,114 @@ label:focus,
     max-width: 1320px;
   }
 }
+.dark-mode {
+  background-color: #23272a;
+  color: #E5E5E5;
+  transition: background-color 0.25s ease-in-out;
+}
+.dark-mode .underline {
+  color: #E5E5E5;
+}
+.dark-mode .sidebar ul li .tooltip {
+  background: #707070;
+}
+.dark-mode .painel--demais-horarios {
+  background: #23272a;
+  color: #E5E5E5;
+}
+.dark-mode .painel--demais-horarios:hover {
+  background: #23272a;
+}
+.dark-mode .painel .slick-next::before, .dark-mode .painel .slick-prev::before, .dark-mode .user--name {
+  color: #E5E5E5;
+}
+.dark-mode .user--photo {
+  border-color: #E5E5E5;
+}
+
+.light-mode {
+  background-color: #FFFFFF;
+  color: #23272a;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 14px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #AFAFAF;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FFFFFF;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #0c375a;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #216AA7;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-checkbox {
+  padding: 10px;
+}
+
 .d-grid {
   display: grid;
 }
@@ -505,7 +613,7 @@ label:focus,
   align-items: center;
 }
 .user--name {
-  color: #707070 !important;
+  color: #707070;
   font: 500 20px "Baloo Bhai 2", cursive;
 }
 @media screen and (max-width: 991.98px) {
@@ -516,11 +624,10 @@ label:focus,
 .user--photo {
   height: 50px;
   width: 50px;
-  background-size: cover;
   border-radius: 50%;
-  display: inline-block;
   margin-left: 18px;
   border: 2px solid #707070;
+  fill: #AFAFAF;
 }
 @media screen and (max-width: 767.98px) {
   .user--photo {
@@ -1717,6 +1824,7 @@ ol, ul {
   width: 336px;
   border-radius: 50%;
   border: 4px solid #707070;
+  fill: #AFAFAF;
 }
 .dados-pessoais--alterar, .painel--demais-horarios {
   border-color: #216AA7;

@@ -88,7 +88,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <StuffComponent/>
+            <StuffComponent />
 
             <div className="container-fluid funcionalidades px-0" id="funcionalidades">
                 <div className="container container-padding">

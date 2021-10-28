@@ -37,7 +37,7 @@
     margin-bottom: 20px;
     align-items: center;
     &--name {
-        color: $gray-dark !important;
+        color: $gray-dark;
         font: $font-sm;
         @include device(md) {
             display: none;
@@ -46,11 +46,10 @@
     &--photo {
         height: 50px;
         width: 50px;
-        background-size: cover;
         border-radius: 50%;
-        display: inline-block;
         margin-left: 18px;
         border: 2px solid $gray-dark;
+        fill: $gray;
         @include device(sm) {
             display: none;
         }
