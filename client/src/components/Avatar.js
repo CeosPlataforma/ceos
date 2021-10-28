@@ -7,8 +7,6 @@ function arrayBufferToBase64(buffer) {
     bytes.forEach((b) => binary += String.fromCharCode(b));
     return window.btoa(binary);
 }
-
-var Spinner = require('react-spinkit');
 class Avatar extends Component {
     constructor(props) {
         super(props)
