@@ -120,20 +120,47 @@ label:focus,
   color: #E5E5E5;
 }
 .dark-mode .sidebar ul li .tooltip {
-  background: #707070;
+  background-color: #707070;
 }
 .dark-mode .painel--demais-horarios {
-  background: #23272a;
+  background-color: #23272a;
   color: #E5E5E5;
 }
 .dark-mode .painel--demais-horarios:hover {
-  background: #23272a;
+  background-color: #23272a;
 }
 .dark-mode .painel .slick-next::before, .dark-mode .painel .slick-prev::before, .dark-mode .user--name {
   color: #E5E5E5;
 }
 .dark-mode .user--photo {
   border-color: #E5E5E5;
+}
+.dark-mode .materias--adicionar-materias, .dark-mode .atividades--btn--inactive, .dark-mode .modal--btn--secondary {
+  background-color: #23272a;
+  color: #E5E5E5;
+}
+.dark-mode .form-control {
+  background-color: #707070;
+  border-color: #AFAFAF;
+  color: #E5E5E5;
+}
+.dark-mode .form-control[readonly] {
+  background-color: #707070;
+  border-color: #AFAFAF;
+  color: #E5E5E5;
+}
+.dark-mode .dados-pessoais--user-img {
+  border-color: #E5E5E5;
+}
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p {
+  color: #E5E5E5;
+}
+.dark-mode .visao-geral--btn--inactive {
+  background-color: #707070;
+  color: #E5E5E5;
+}
+.dark-mode .card {
+  background-color: #23272a;
 }
 
 .light-mode {
@@ -1886,7 +1913,7 @@ ol, ul {
 }
 
 .input-main {
-  color: #23272a !important;
+  color: #23272a;
   font-weight: 700 !important;
 }
 

@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 export default function Contato() {
     return (
-        <div>
+        <>
             <div className="container contato" id="contato">
                 <h2 className="contato--title text-center mb-4">
                     Fale conosco
@@ -77,6 +77,6 @@ export default function Contato() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

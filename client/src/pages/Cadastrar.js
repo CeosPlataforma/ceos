@@ -70,60 +70,55 @@ export default function Cadastrar() {
     }
 
     return (
-        <div>
+        <div className="container cadastrar" id="acessar">
+            <h2 className="cadastrar--title text-center mb-4">
+                Crie sua conta
+            </h2>
 
-            <div className="container cadastrar" id="acessar">
+            <p className="cadastrar--text">
+                Já possui uma conta? <span> <Link to="/acessar"> Entre agora mesmo. </Link> </span>
+            </p>
 
-                <h2 className="cadastrar--title text-center mb-4">
-                    Crie sua conta
-                </h2>
+            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
 
-                <p className="cadastrar--text">
-                    Já possui uma conta? <span> <Link to="/acessar"> Entre agora mesmo. </Link> </span>
-                </p>
+                <Form className="cadastrar--form col-lg-6 mx-auto">
 
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                    <div className="mb-4">
+                        <label htmlFor="cadastrar--nome" className="form-label"> Nome completo </label>
+                        <Field name="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
+                        <ErrorMessage name="name" />
+                    </div>
 
-                    <Form className="cadastrar--form col-lg-6 mx-auto">
+                    <div className="mb-4">
+                        <label htmlFor="cadastrar--email" className="form-label"> E-mail </label>
+                        <Field name="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
+                        <ErrorMessage name="email" />
+                    </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--nome" className="form-label"> Nome completo </label>
-                            <Field name="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
-                            <ErrorMessage name="name" />
+                    <div className="mb-4">
+                        <label htmlFor="cadastrar--senha" className="form-label"> Senha </label>
+                        <div className="cadastrar--senha--container senha--container">
+                            <Field name="password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
+                            <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                            <ErrorMessage name="password" />
                         </div>
+                    </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--email" className="form-label"> E-mail </label>
-                            <Field name="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
-                            <ErrorMessage name="email" />
+                    <div className="mb-4">
+                        <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
+                        <div className="cadastrar--senha--container senha--container">
+                            <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
+                            <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
+                            <ErrorMessage name="confirmPassword" />
                         </div>
+                    </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" className="form-label"> Senha </label>
-                            <div className="cadastrar--senha--container senha--container">
-                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
-                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                <ErrorMessage name="password" />
-                            </div>
-                        </div>
+                    <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
+                </Form>
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
-                            <div className="cadastrar--senha--container senha--container">
-                                <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
-                                <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
-                                <ErrorMessage name="confirmPassword" />
-                            </div>
-                        </div>
+            </Formik>
 
-                        <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
-                    </Form>
-
-                </Formik>
-
-                <ModalCadastro show={show} />
-
-            </div>
+            <ModalCadastro show={show} />
         </div>
     );
 }

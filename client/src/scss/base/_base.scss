@@ -42,23 +42,50 @@
     color: $gray-light;
     transition: background-color 0.25s ease-in-out;
     .underline {
-        color: $gray-light;
+      color: $gray-light;
     }
     .sidebar ul li .tooltip {
-        background: $gray-dark;
+      background-color: $gray-dark;
     }
     .painel--demais-horarios {
-        background: $black;
-        color: $gray-light;
-        &:hover {
-            background: $black;
-        }
+      background-color: $black;
+      color: $gray-light;
+      &:hover {
+        background-color: $black;
+      }
     }
     .painel .slick-next::before, .painel .slick-prev::before, .user--name {
-        color: $gray-light;
+      color: $gray-light;
     }
     .user--photo {
-        border-color: $gray-light;
+      border-color: $gray-light;
+    }
+    .materias--adicionar-materias, .atividades--btn--inactive, .modal--btn--secondary {
+      background-color: $black;
+      color: $gray-light;
+    }
+    .form-control {
+      background-color: $gray-dark;
+      border-color: $gray;
+      color: $gray-light;
+    }
+    .form-control[readonly] {
+      background-color: $gray-dark;
+      border-color: $gray;
+      color: $gray-light;
+    }
+    .dados-pessoais--user-img {
+      border-color: $gray-light;
+    }
+    h1, h2, h3, p {
+      color: $gray-light;
+    }
+    .visao-geral--btn--inactive {
+      background-color: $gray-dark;
+      color: $gray-light;
+    }
+    .card {
+      background-color: $black;
     }
   }
   

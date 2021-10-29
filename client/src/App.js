@@ -41,24 +41,32 @@ function App() {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/">
-                    <Header />
-                    <Home />
-                    <Footer />
+                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
+                        <Header />
+                        <Home />
+                    </div>
+                    <Footer theme={theme} toggleTheme={toggleTheme} />
                 </Route>
                 <Route path="/cadastrar">
-                    <Header />
-                    <Cadastrar />
-                    <Footer />
+                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
+                        <Header />
+                        <Cadastrar />
+                    </div>
+                    <Footer theme={theme} toggleTheme={toggleTheme} />
                 </Route>
                 <Route path="/acessar">
-                    <Header />
-                    <Acessar />
-                    <Footer />
+                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
+                        <Header />
+                        <Acessar />
+                    </div>
+                    <Footer theme={theme} toggleTheme={toggleTheme} />
                 </Route>
                 <Route path="/contato">
-                    <Header />
-                    <Contato />
-                    <Footer />
+                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
+                        <Header />
+                        <Contato />
+                    </div>
+                    <Footer theme={theme} toggleTheme={toggleTheme} />
                 </Route>
 
                 <Route path="/painel">
