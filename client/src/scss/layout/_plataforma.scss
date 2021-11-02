@@ -2,6 +2,7 @@
     margin: 50px auto 120px auto;
     width: calc(100vw - 78px);
     transition: all 0.5s ease;
+    min-height: 770px;
     @media screen and (max-width: 1650px) {
         width: calc(80% - 78px);
     }
@@ -36,7 +37,7 @@
     margin-bottom: 20px;
     align-items: center;
     &--name {
-        color: $gray-dark !important;
+        color: $gray-dark;
         font: $font-sm;
         @include device(md) {
             display: none;
@@ -45,11 +46,10 @@
     &--photo {
         height: 50px;
         width: 50px;
-        background-size: cover;
         border-radius: 50%;
-        display: inline-block;
         margin-left: 18px;
         border: 2px solid $gray-dark;
+        fill: $gray;
         @include device(sm) {
             display: none;
         }

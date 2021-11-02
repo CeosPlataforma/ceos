@@ -12,7 +12,7 @@ function ModalEsqueceuSenha(props) {
     }
 
     return (
-        <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--website" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--website">Verificação de e-mail</h1>

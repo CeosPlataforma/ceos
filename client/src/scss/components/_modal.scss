@@ -1,16 +1,13 @@
 .modal {
     font: $font-sm;
     &--title {
-        font: $font-sm !important;
         text-align: center;
         font-weight: $extra-bold !important;
         &--website {
-            font: $font-md !important;
+            font: $font-lg !important;
         }
-        &--mini {
-            font-size: 23px; /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/;
-            font-weight: bold;
-            text-align: center;            
+        &--plataforma {
+            font: $font-re;
         }
     }
     &--subtitle {
@@ -44,7 +41,6 @@
         font: $font-sm;
         background: $blue;
         border: none;
-        margin: 0px 0px 20px 0px !important;
         &:hover, &:focus, &:active {
             background: $blue !important;
         }
@@ -58,12 +54,14 @@
             border: 3px solid $blue;
             padding: 12px 14.84375%;
             border-radius: 10px;
-            margin: 0 !important;
             &:active, &:hover {
                 background: $blue !important;
                 color: $white;
                 border: 3px solid $blue;
             }
+        }
+        &--verify {
+            width: 85%;
         }
     }
 }
@@ -110,7 +108,15 @@
 .modal-content {
     border-radius: 0;
     border: none;
-    padding: 60px 30px;
+    &--website {
+        padding: 50px 94px 60px 94px;
+        &--verify {
+            padding: 60px 60px 60px 60px;
+        }
+    }
+    &--plataforma {
+        padding: 60px 30px;
+    }
     @include device(sm) {
         padding: 60px 20px;
     }

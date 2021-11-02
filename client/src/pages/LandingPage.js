@@ -6,7 +6,7 @@ import StuffComponent from "../components/StuffComponent";
 export default function Home() {
 
     return (
-        <div>
+        <>
             <div className="container container-padding hero">
                 <div className="row align-items-center">
                     <div className="col-sm-12 col-xl-7">
@@ -88,7 +88,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <StuffComponent/>
+            <StuffComponent />
 
             <div className="container-fluid funcionalidades px-0" id="funcionalidades">
                 <div className="container container-padding">
@@ -386,6 +386,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

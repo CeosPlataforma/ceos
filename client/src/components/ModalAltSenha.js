@@ -62,10 +62,10 @@ function ModalAltSenha(props) {
 
     return (
 
-        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title--mini">Altere seus dados</h1>
+                    <h1 className="modal--title modal--title--plataforma">Altere sua senha</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Avatar from './Avatar'
 import NomeUsuario from "./NomeUsuario";
@@ -11,5 +11,5 @@ export default function User() {
             <Avatar className="user--photo" />
         </Link>
     )
-    
+
 }

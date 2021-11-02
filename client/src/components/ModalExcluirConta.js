@@ -36,10 +36,10 @@ function ModalExcluirConta(props) {
     });
 
     return (
-        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter desativar-conta" centered>
+        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter desativar-conta" contentClassName="modal-content--plataforma" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title--mini">Confirmar desativação da conta</h1>
+                    <h1 className="modal--title modal--title--plataforma">Confirmar desativação da conta</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -47,13 +47,13 @@ function ModalExcluirConta(props) {
                     <Form>
                         <p className="text-lg">E-mail</p>
                         <Field name="email" type="email" className="form-control modal--input mb-4" aria-describedby="email" required />
-                        <ErrorMessage name="email"/> 
+                        <ErrorMessage name="email" />
 
                         <div className="mb-4">
                             <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
-                                <ErrorMessage name="password"/>
+                                <ErrorMessage name="password" />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                             </div>
                         </div>

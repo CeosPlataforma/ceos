@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -11,7 +11,7 @@ function ModalCronograma(props) {
         <Modal {...props} size="lg" className="modal-cronograma" centered>
             <Modal.Header className="modal-cronograma--header">
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title modal-cronograma--title">Como editar?</h1>
+                    <h1 className="modal--title modal--title--plataforma">Como editar?</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal-cronograma--body">

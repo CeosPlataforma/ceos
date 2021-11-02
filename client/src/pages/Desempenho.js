@@ -4,15 +4,13 @@ import SimpleBox from "../components/SimpleBox";
 import PlataformaHeader from "../components/PlataformaHeader";
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 export default function Desempenho() {
 
     return (
         <>
             <Container fluid={"xxl"} className="desempenho content">
-                <PlataformaHeader title="Desempenho" user={false}/>
+                <PlataformaHeader title="Desempenho" user={false} />
 
                 <div className="desempenho--section">
                     <SimpleBox

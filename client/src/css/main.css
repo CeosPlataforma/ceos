@@ -3,6 +3,7 @@
 @import "//node_modules/bootstrap/scss/bootstrap";
 *, html, body {
   font-family: "Baloo Bhai 2" !important;
+  font-display: swap;
 }
 
 /* Convert px to rem
@@ -110,6 +111,141 @@ label:focus,
     max-width: 1320px;
   }
 }
+.dark-mode {
+  background-color: #23272a;
+  color: #E5E5E5;
+  transition: background-color 0.25s ease-in-out;
+}
+.dark-mode .underline {
+  color: #E5E5E5;
+}
+.dark-mode .sidebar ul li .tooltip {
+  background-color: #707070;
+}
+.dark-mode .painel--demais-horarios {
+  background-color: #23272a;
+  color: #E5E5E5;
+}
+.dark-mode .painel--demais-horarios:hover {
+  background-color: #23272a;
+}
+.dark-mode .painel .slick-next::before, .dark-mode .painel .slick-prev::before, .dark-mode .user--name {
+  color: #E5E5E5;
+}
+.dark-mode .user--photo {
+  border-color: #E5E5E5;
+}
+.dark-mode .materias--adicionar-materias, .dark-mode .atividades--btn--inactive, .dark-mode .modal--btn--secondary {
+  background-color: #23272a;
+  color: #E5E5E5;
+}
+.dark-mode .form-control {
+  background-color: #707070;
+  border-color: #AFAFAF;
+  color: #E5E5E5;
+}
+.dark-mode .form-control[readonly] {
+  background-color: #707070;
+  border-color: #AFAFAF;
+  color: #E5E5E5;
+}
+.dark-mode .dados-pessoais--user-img {
+  border-color: #E5E5E5;
+}
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p {
+  color: #E5E5E5;
+}
+.dark-mode .visao-geral--btn--inactive {
+  background-color: #707070;
+  color: #E5E5E5;
+}
+.dark-mode .card {
+  background-color: #23272a;
+}
+
+.light-mode {
+  background-color: #FFFFFF;
+  color: #23272a;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 14px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #AFAFAF;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FFFFFF;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #0c375a;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #216AA7;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-checkbox {
+  padding: 10px;
+}
+
 .d-grid {
   display: grid;
 }
@@ -460,6 +596,7 @@ label:focus,
   margin: 50px auto 120px auto;
   width: calc(100vw - 78px);
   transition: all 0.5s ease;
+  min-height: 770px;
 }
 @media screen and (max-width: 1650px) {
   .content {
@@ -503,7 +640,7 @@ label:focus,
   align-items: center;
 }
 .user--name {
-  color: #707070 !important;
+  color: #707070;
   font: 500 20px "Baloo Bhai 2", cursive;
 }
 @media screen and (max-width: 991.98px) {
@@ -514,11 +651,10 @@ label:focus,
 .user--photo {
   height: 50px;
   width: 50px;
-  background-size: cover;
   border-radius: 50%;
-  display: inline-block;
   margin-left: 18px;
   border: 2px solid #707070;
+  fill: #AFAFAF;
 }
 @media screen and (max-width: 767.98px) {
   .user--photo {
@@ -741,18 +877,14 @@ button {
   font: 500 20px "Baloo Bhai 2", cursive;
 }
 .modal--title {
-  font: 500 20px "Baloo Bhai 2", cursive !important;
   text-align: center;
   font-weight: 800 !important;
 }
 .modal--title--website {
-  font: 700 36px "Baloo Bhai 2", cursive !important;
+  font: 700 48px "Baloo Bhai 2", cursive !important;
 }
-.modal--title--mini {
-  font-size: 23px;
-  /*talvez font-sm mas no prototipo ta alguma q n existe e n tenho perm de dev pra ver :rage:*/
-  font-weight: bold;
-  text-align: center;
+.modal--title--plataforma {
+  font: 500 24px "Baloo Bhai 2", cursive;
 }
 .modal--subtitle {
   font: 500 20px "Baloo Bhai 2", cursive !important;
@@ -782,7 +914,6 @@ button {
   font: 500 20px "Baloo Bhai 2", cursive;
   background: #216AA7;
   border: none;
-  margin: 0px 0px 20px 0px !important;
 }
 .modal--btn:hover, .modal--btn:focus, .modal--btn:active {
   background: #216AA7 !important;
@@ -799,12 +930,14 @@ button {
   border: 3px solid #216AA7;
   padding: 12px 14.84375%;
   border-radius: 10px;
-  margin: 0 !important;
 }
 .modal--btn--secondary:active, .modal--btn--secondary:hover {
   background: #216AA7 !important;
   color: #FFFFFF;
   border: 3px solid #216AA7;
+}
+.modal--btn--verify {
+  width: 85%;
 }
 
 .modal-backdrop.show {
@@ -849,6 +982,14 @@ button {
 .modal-content {
   border-radius: 0;
   border: none;
+}
+.modal-content--website {
+  padding: 50px 94px 60px 94px;
+}
+.modal-content--website--verify {
+  padding: 60px 60px 60px 60px;
+}
+.modal-content--plataforma {
   padding: 60px 30px;
 }
 @media screen and (max-width: 767.98px) {
@@ -920,7 +1061,7 @@ button {
   pointer-events: none;
 }
 .sidebar.active .sidebar--collapse {
-  left: 90%;
+  left: 85%;
 }
 .sidebar.active ul li .tooltip {
   display: none;
@@ -933,14 +1074,15 @@ button {
 .sidebar--collapse {
   position: absolute;
   color: #FFFFFF;
-  top: 15px;
+  top: 30px;
   left: 50%;
-  font-size: 22px;
+  font-size: 35px;
   height: 50px;
   width: 50px;
   text-align: center;
   line-height: 50px;
   transform: translateX(-50%);
+  cursor: pointer;
 }
 .sidebar .logo_content {
   display: flex;
@@ -1605,9 +1747,6 @@ ol, ul {
   margin: 0;
 }
 
-.atividades {
-  min-height: 700px;
-}
 .atividades--holder {
   display: flex;
   width: 100%;
@@ -1689,9 +1828,6 @@ ol, ul {
   color: #216AA7;
 }
 
-.desempenho {
-  min-height: 700px;
-}
 .desempenho--section {
   display: flex;
   width: 100%;
@@ -1710,11 +1846,12 @@ ol, ul {
 }
 .dados-pessoais--user-img {
   display: block;
-  margin-bottom: 40px;
-  height: 150px;
-  width: 150px;
+  margin-top: 35px;
+  height: 336px;
+  width: 336px;
   border-radius: 50%;
-  border: 2px solid #707070;
+  border: 4px solid #707070;
+  fill: #AFAFAF;
 }
 .dados-pessoais--alterar, .painel--demais-horarios {
   border-color: #216AA7;
@@ -1735,6 +1872,7 @@ ol, ul {
   cursor: pointer;
   text-decoration: none;
   font: 500 20px "Baloo Bhai 2", cursive;
+  line-height: 32px;
 }
 .dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus, .dados-pessoais--desativar:active {
   color: #C24D4D !important;
@@ -1752,10 +1890,11 @@ ol, ul {
 .dados-pessoais--form label {
   font: 500 24px "Baloo Bhai 2", cursive;
   color: #23272a;
+  margin: 0;
 }
 .dados-pessoais--form input {
   font: 500 20px "Baloo Bhai 2", cursive;
-  color: #23272a;
+  color: #AFAFAF;
   font-weight: 400;
   padding: 20px 20px 20px 50px;
   width: 100%;
@@ -1770,11 +1909,37 @@ ol, ul {
   flex-direction: column;
 }
 .dados-pessoais .conteudo-direita {
-  margin-top: 95px;
+  margin-top: 92px;
+}
+
+.input-main {
+  color: #23272a;
+  font-weight: 700 !important;
 }
 
 .alterar-dados .modal-footer {
   flex-direction: column;
+}
+
+.btn-edit--photo {
+  position: absolute;
+  background-color: #216AA7;
+  top: 130px;
+  left: 263px;
+  border-radius: 50%;
+  border: none;
+  height: 55px;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin-left: 13px;
+}
+.btn-edit--photo svg {
+  fill: white;
+  width: 32px;
 }
 
 .desativar-conta--btn {
@@ -1785,8 +1950,8 @@ ol, ul {
 }
 
 .container-cropper {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
 }
 
 .cropper--slider {
@@ -1797,9 +1962,6 @@ ol, ul {
   display: inherit;
 }
 
-.materias {
-  min-height: 700px;
-}
 .materias--classificar-por {
   padding: 10px 30px;
   display: flex;

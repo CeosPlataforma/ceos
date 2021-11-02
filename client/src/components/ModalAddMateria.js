@@ -15,10 +15,10 @@ function ModalAddMateria(props) {
 
     console.log(props);
     return (
-        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title">Adicione uma matéria</h1>
+                    <h1 className="modal--title modal--title--plataforma">Adicione uma matéria</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
