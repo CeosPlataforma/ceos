@@ -96,7 +96,7 @@ function ModalAltSenha(props) {
                             </div>
                         </div>
 
-                        <ErrorMessage component="p" className="error-msg" name="newPasswordConfirm" />
+                        <ErrorMessage component="p" c name="newPasswordConfirm" />
 
                         <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>
 

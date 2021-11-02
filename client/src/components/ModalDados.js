@@ -26,12 +26,14 @@ function ModalDados(props) {
 
     const initialValues = {
         name: props.startName,
-        email: props.startEmail
+        email: props.startEmail,
+        emailConfirm: ''
     }
 
     const validationSchema = Yup.object({
         name: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário"),
-        email: Yup.string().email("Email inválido").required('Obrigatório')
+        email: Yup.string().email("Email inválido").required('Obrigatório'),
+        emailConfirm: Yup.string().oneOf([Yup.ref('email'), ''], 'Os emails devem ser iguais')
     });
 
     return (
@@ -56,19 +58,23 @@ function ModalDados(props) {
                     <Formik onSubmit={props.onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
                         <Form>
                             <label className="text-lg">Nome</label>
-                            <Field name="name" type="text" className="form-control modal--input mb-4" aria-describedby="email" required />
+                            <Field name="name" type="text" className="form-control modal--input" aria-describedby="email" required />
 
-                            <label className="text-lg">E-mail</label>
-                            <Field name="email" type="email" className="form-control modal--input mb-4" aria-describedby="email" required />
+                            <label className="text-lg" style={{'marginTop': '25px'}}>E-mail</label>
+                            <Field name="email" type="email" className="form-control modal--input" aria-describedby="email" required />
+
+                            <label className="text-lg" style={{'marginTop': '25px'}}>Confirmar e-mail</label>
+                            <Field name="emailConfirm" type="email" className="form-control modal--input" aria-describedby="email" required />
+                            <ErrorMessage component="span" className="error-msg" name="emailConfirm" />
+
 
                             <div className="mb-4">
-                                <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
+                                <label htmlFor="cadastrar--senha" className="text-lg" style={{'marginTop': '25px'}}>Senha atual</label>
                                 <div className="cadastrar--senha--container senha--container">
                                     <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
                                     <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                    <ErrorMessage component="span" name="password" />
                                 </div>
-
+                                <ErrorMessage component="span" className="error-msg" name="password"/>
                             </div>
 
                             <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>

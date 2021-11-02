@@ -68,15 +68,23 @@ export default function DadosPessoais() {
         axios.post("http://localhost:3333/deletar-usuario", { email: values.email, password: values.password })
             .then((response) => {
                 console.log(response)
-                if (response.data.error === "password") {
+                const {message, error}  = response.data;
+
+                if (error === "password") {
+                    
                     actions.setFieldError("password", `Senha incorreta`);
-                } else if (response.data.error === "inexistent") {
+
+                } else if (error === "inexistent") {
+
                     actions.setFieldError("email", `Email incorreto`);
-                } else if (response.data.message === "success") {
+
+                } else if (message === "success") {
+
                     actions.setFieldError("password", `Conta desativada com sucesso`)
-                    setTimeout(function () {
-                        window.location = "http://localhost:3000"
-                    }, 5000)
+                    setTimeout(() => { window.location = "http://localhost:3000" }, 5000)
+
+                } else if (error === "email") {
+                    actions.setFieldError("email", `Email incorreto`)
                 }
             })
             .catch(error => {
@@ -90,15 +98,18 @@ export default function DadosPessoais() {
     const onSubmitMudarSenha = async (values, actions) => {
         axios.patch("http://localhost:3333/mudar-senha", { password: values.password, newPassword: values.newPassword })
             .then((response) => {
-                console.log(response)
+
                 if (response.data.error === "password") {
+
                     actions.setFieldError("password", `Senha incorreta`);
+                
                 } else {
-                    actions.setFieldError("password", `Senha mudada com sucesso, por favor, Faça login novamente`);
-                    setTimeout(function () {
-                        window.location = "http://localhost:3000/acessar"
-                    }, 4000)
+
+                    actions.setFieldError("password", `Senha mudada com sucesso, por favor, faça login novamente`);
+                    setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
+                    
                 }
+
             })
             .catch(error => {
                 console.log(error)
@@ -107,9 +118,39 @@ export default function DadosPessoais() {
 
     const [showMudarDados, setShowMudarDados] = useState(false)
     const onSubmitMudarDados = async (values, actions) => {
+
         axios.patch("http://localhost:3333/mudar-dados", { password: values.password, email: values.email, name: values.name })
             .then((response) => {
-                console.log(response)
+                const message = response.data.message;
+                if (message === "no-change") {
+
+                    actions.setFieldError("password", "Nenhuma mudança")
+                    
+                } else if (message === "name-success") {
+
+                    actions.setFieldError("password", `Nome mudado com sucesso`);
+                    setTimeout(function () { reload() }, 4000)
+
+                } else if (message === "email-success") {
+
+                    actions.setFieldError("password", `Email mudado com sucesso, por favor, faça login novamente`);
+                    setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
+
+                } else if (message === "name-email-success") {
+
+                    actions.setFieldError("password", `Dados mudados com sucesso, por favor, faça login novamente`);
+                    setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
+
+                } else if (message === "erro-total") {
+
+                    console.log(response.data.error);
+                    actions.setFieldError("password", `ERRO ERRRO MORTE DESESPERO`);
+
+                } else if (message === "password") {
+
+                    actions.setFieldError("password", `Senha incorreta`);
+
+                }
             })
             .catch(error => {
                 console.log(error)

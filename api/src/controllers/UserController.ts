@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import { Request, Response } from 'express';
+import { Document } from 'mongoose';
 import { resolve } from 'path';
 import { validate } from 'uuid';
 import { UserModel } from '../models/User';
@@ -14,7 +15,7 @@ class UserController {
         newUser.email = request.body.email.toLowerCase();
         newUser.salt = crypto.randomBytes(16).toString('base64');
         newUser.hash = crypto.pbkdf2Sync(request.body.password, newUser.salt, 1000, 64, 'sha512').toString('base64');
-        newUser.uuid = crypto.randomUUID({disableEntropyCache: true});
+        newUser.uuid = crypto.randomUUID({ disableEntropyCache: true });
 
         try {
             const savedUser = await newUser.save();
@@ -110,31 +111,31 @@ class UserController {
 
     async logout(request: Request, response: Response) {
         request.session.destroy((err) => {
-            
+
         })
         console.log("session destruida")
     }
 
     async resetPassword(request: Request, response: Response) {
-        
-        if (request.body.hasOwnProperty('email')) { 
-            const { email } = request.body 
-            await UserModel.findOne({ email: email }, function (error, user_doc) { 
-                if (error) { 
+
+        if (request.body.hasOwnProperty('email')) {
+            const { email } = request.body
+            await UserModel.findOne({ email: email }, function (error, user_doc) {
+                if (error) {
                     console.log(error)
-                    return response.json({error: error})
+                    return response.json({ error: error })
                 } else if (user_doc === null) {
-                    return response.json({error: "inexistent"})
-                } else { 
+                    return response.json({ error: "inexistent" })
+                } else {
                     const hbsPath = resolve(__dirname, "..", "views", "email", "forgotPassword.hbs");
 
                     const variables = {
                         nome: request.body.name,
-                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}` 
+                        link: `http://localhost:3000/redefinir-senha/${user_doc.uuid}`
                     }
 
                     try {
-                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath); 
+                        SendMail.execute(request.body.email, "Mudança de Senha", variables, hbsPath);
                         return response.status(200).json({ success: true });
                     } catch (err) {
                         console.log(err);
@@ -142,21 +143,22 @@ class UserController {
                     }
                 }
             });
+
         } else if (request.body.user_uuid) { // se tiver o id do usuario, faz isso 🔽
 
-            const { user_uuid }  = request.body; // id do usuario
+            const { user_uuid } = request.body; // id do usuario
             const { password } = request.body; // senha 
             const new_salt = crypto.randomBytes(16).toString('base64'); // coisas de hash e segurança e tal
             const new_hash = crypto.pbkdf2Sync(password, new_salt, 1000, 64, 'sha512').toString('base64'); // coisas de hash e segurança e tal
-            await UserModel.findOneAndUpdate({ uuid: user_uuid }, {salt: new_salt, hash: new_hash}, {new: false, useFindAndModify: false}, function (error, user_doc) { 
+            await UserModel.findOneAndUpdate({ uuid: user_uuid }, { salt: new_salt, hash: new_hash }, { new: false, useFindAndModify: false }, function (error, user_doc) {
                 //pesquisar o usuario no banco, 
                 if (error) { // se der erro
                     console.log(error)
-                    return response.json({error: error})
+                    return response.json({ error: error })
                 } else if (user_doc === null) { // se não existir o usuario
-                    return response.json({error: "inexistent"})
+                    return response.json({ error: "inexistent" })
                 } else {
-                    return response.json({success: true}) // se der tudo certo (já vai ter mudado a senha se o usuario existir)
+                    return response.json({ success: true }) // se der tudo certo (já vai ter mudado a senha se o usuario existir)
                 }
             });
 
@@ -191,7 +193,7 @@ class UserController {
 
                 try {
                     user.save();
-                    return response.status(200).json({message: "success"});
+                    return response.status(200).json({ message: "success" });
                 } catch (error) {
                     return response.status(500).send(error);
                 }
@@ -200,21 +202,90 @@ class UserController {
     }
 
     async mudarDados(request: Request, response: Response) {
+        
         console.log(request.body)
-        console.log(request.session.user.uuid)
 
-        const { name, mail } = request.body;
+
+        const { name, email, password } = request.body;
         const old_name = request.session.user.name;
         const old_email = request.session.user.email;
+        const { uuid } = request.session.user
 
-        if (name == old_name) {
-            console.log("nome não mudou");
-        } else if (mail == old_email) {
-            console.log("email não mudou");
+        const emailChanged: Boolean = old_email !== email;
+        const nameChanged: Boolean = old_name !== name;
+
+        if (!emailChanged && !nameChanged) {
+            return response.json({ message: "no-change" })
+        } 
+        
+        const user: Document = await UserModel.findOne({ email: old_email }, (error, user) => user)
+        console.log(user);
+
+        //@ts-ignore
+        if (!user.validPassword(password)) {
+            return response.json({message: "password"})
         }
 
+        if (nameChanged) {
+            
+            //@ts-ignore
+            user.name = name;
+            request.session.user.name = name;
+
+            if (!emailChanged) {
+                try {
+                    user.save();
+                    return response.json({ message: "name-success" })
+                } catch (error) {
+                    return response.json(error)
+                }
+            }
+
+        }
+
+        if (emailChanged) {
+            //@ts-ignore
+            user.email = email;
+            //@ts-ignore
+            user.verifiedMail = false;
+
+            request.session.user.email = email;
+
+            const pathConfirmar = resolve(__dirname, "..", "views", "email", "confirmEmail.hbs");
+            const pathNotif = resolve(__dirname, "..", "views", "email", "emailChangeNotif.hbs");
+
+            const variables = {
+                nome: name,
+                link: `http://localhost:3333/register/${uuid}`
+            }
+
+            try {
+
+                await SendMail.execute(email, "Confirmação do Email", variables, pathConfirmar);
+                await SendMail.execute(old_email, "Seu email mudou", variables, pathNotif);
+                
+                user.save();
+
+                if (nameChanged) {
+
+                    request.session.destroy((err) => { });
+                    return response.json({ message: "name-email-success" })
+
+                } else {
+
+                    request.session.destroy((err) => { });
+                    return response.json({ message: "email-success" })
+
+                }
+
+            } catch (error) {
+                console.log(error);
+                return response.json({ message: "erro-total", error });
+            }
+
+        }
     }
-    
+
     async mudarSenha(request: Request, response: Response) {
         console.log(request.body)
         const { password, newPassword } = request.body;
@@ -231,7 +302,7 @@ class UserController {
             } else {
                 console.log("existente")
                 if (user.validPassword(password)) {
-                    
+
                     user.salt = new_salt;
                     user.hash = new_hash
 
@@ -239,7 +310,7 @@ class UserController {
                         console.log(saved);
                     });
 
-                    request.session.destroy((err) => {});
+                    request.session.destroy((err) => { });
 
                     console.log("senha mudada")
                     return response.json({ message: "success" });
@@ -248,7 +319,7 @@ class UserController {
 
                     console.log("senha")
                     return response.json({ error: "password" });
-                    
+
                 }
             }
         });
@@ -256,6 +327,13 @@ class UserController {
 
     async deletarUsuario(request: Request, response: Response) {
         const { email, password } = request.body;
+
+        const sessionEmail = request.session.user.email
+
+        if (email !== sessionEmail) {
+            return response.json({ error: "email" })
+        }
+
         console.log({ email, password });
         await UserModel.findOne({ email }, (error, user) => {
             if (user === null) {
@@ -264,7 +342,7 @@ class UserController {
             } else {
                 console.log("existente")
                 if (user.validPassword(request.body.password)) {
-                    request.session.destroy((err) => {});
+                    request.session.destroy((err) => { });
                     user.remove()
                     console.log("usuario removido")
                     return response.json({ message: "success" });
