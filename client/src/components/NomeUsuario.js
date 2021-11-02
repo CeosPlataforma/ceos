@@ -8,7 +8,6 @@ export default function NomeUsuario (props) {
 
     axios.get("http://localhost:3333/userinfo")
     .then((response) => {
-        console.log(response.data.session.user.name);
         setName(response.data.session.user.name)
     })
     .catch((error) => {

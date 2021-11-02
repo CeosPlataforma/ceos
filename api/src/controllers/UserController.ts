@@ -164,7 +164,7 @@ class UserController {
     }
 
     async getFoto(request: Request, response: Response) {
-        console.log(request.session)
+        //console.log(request.session)
         const { uuid } = request.session.user;
         await UserModel.findOne({ uuid }, (error, user) => {
             if (user === null) {
@@ -172,7 +172,7 @@ class UserController {
             } else if (error) {
                 return response.json({ error: error });
             } else {
-                console.log(user.avatar);
+                //console.log(user.avatar);
                 return response.json({ foto: user.avatar });
             }
         });
@@ -201,6 +201,18 @@ class UserController {
 
     async mudarDados(request: Request, response: Response) {
         console.log(request.body)
+        console.log(request.session.user.uuid)
+
+        const { name, mail } = request.body;
+        const old_name = request.session.user.name;
+        const old_email = request.session.user.email;
+
+        if (name == old_name) {
+            console.log("nome não mudou");
+        } else if (mail == old_email) {
+            console.log("email não mudou");
+        }
+
     }
     
     async mudarSenha(request: Request, response: Response) {
