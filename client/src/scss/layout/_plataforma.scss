@@ -84,6 +84,7 @@
 
 .form-control:disabled, .form-control[readonly] {
     background-color: $white;
+    cursor: default;
 }
 
 .index-div {
@@ -96,4 +97,39 @@
     font: $font-sm;
     color: $red !important;
     font-weight: $regular;
+}
+
+.return {
+    &--arrow {
+        background: $gray;
+        height: 3px;
+        width: 80px;
+        margin: auto 30px auto 30px;
+        position: relative;
+        transform: rotate(0deg);
+        
+        &:before,
+        &:after {
+            content: "";
+            background: $gray;
+            position: absolute;
+            height: 3px;
+            width: 15px;
+        }
+        
+        &:before {
+            left: -3px;
+            top: -4px;
+            transform: rotate(-45deg);
+        }
+        
+        &:after {
+            left: -3px;
+            bottom: -4px;
+            transform: rotate(45deg);
+        }
+    }
+    &--text {
+        color: $gray;
+    }
 }

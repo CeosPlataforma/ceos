@@ -17,7 +17,7 @@
         @include device(md) {
             width: 49%;
         }
-        &:hover, &:focus, &:active {
+        &:hover, &:focus-visible, &:active {
             border: 2px solid $gray-dark;
             background-color: $gray-dark;
             color: $white;
@@ -74,4 +74,7 @@
 .materia-visualizar-cronograma {
     font: $font-sm;
     color: $blue;
+    &:hover {
+        color: $blue !important;
+    }
 }

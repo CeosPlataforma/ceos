@@ -8,12 +8,14 @@ import { Link } from "react-router-dom";
 import VerAtvsInfo from "./VerAtvs-Info";
 import { useParams } from "react-router";
 import axios from "axios";
+import ModalAddAtv from "../components/ModalAddAtv";
 
 export default function VerAtvs() {
 
     const { materiaID } = useParams()
 
     const [materia, setMateria] = useState({})
+    const [show, setShow] = useState(false);
 
     axios.defaults.withCredentials = true
     axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
@@ -32,7 +34,7 @@ export default function VerAtvs() {
         <>
             <div className="container-xxl ver-atividades content">
 
-                <PlataformaHeader title={materia.name} user={false} />
+                <PlataformaHeader title={materia.name} user={false} retornarmsg={"Voltar às matérias"} link={"/materias"} />
 
                 <div className="container d-flex justify-content-between p-0 flex-wrap">
                     <button
@@ -44,7 +46,7 @@ export default function VerAtvs() {
                         }}>
                         Ver atividades
                     </button>
-                    <button className="atividades--btn atividades--btn--inactive" /*onClick={() => { setShow(true) }}*/>Adicionar atividade</button>
+                    <button className="atividades--btn atividades--btn--inactive" onClick={() => { setShow(true) }}>Adicionar atividade</button>
                     <button
                         className={infoButton}
                         onClick={() => {
@@ -105,6 +107,9 @@ export default function VerAtvs() {
                 {index === 1 &&
                     <VerAtvsInfo />
                 }
+
+                <ModalAddAtv show={show} onHide={() => setShow(false)} />
+
             </div>
         </>
     );
