@@ -61,6 +61,14 @@ class MateriaController {
         })
     }
 
+    async deleteAllUsersMaterias(request: Request, response: Response) {
+        const userUuid = request.session.user.uuid;
+        await MateriaModel.deleteMany({ user: userUuid }, async (result) => {
+            console.log(result)
+            return response.json({message: "ok"})
+        })
+    }
+
     /*async deleteMateria(request: Request, response: Response) {
         const materiaUuid = request.body.uuid;
         try {

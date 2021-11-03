@@ -5,6 +5,7 @@ import { resolve } from 'path';
 import { validate } from 'uuid';
 import { UserModel } from '../models/User';
 import SendMail from "../services/SendMail";
+import { MateriaModel } from '../models/Materia';
 
 class UserController {
 
@@ -413,6 +414,8 @@ class UserController {
                 console.log("existente")
 
                 if (user.validPassword(request.body.password)) {
+
+                    MateriaModel.deleteMany({ user: user.uuid })
 
                     request.session.destroy((err) => { });
                     user.remove()
