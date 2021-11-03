@@ -37,10 +37,26 @@
 				"problemMatcher": []
 			},
 			{
+				"label": "run sass",
+				"type": "shell",
+				"command": "cd client;sass --watch --no-source-map src/scss/main.scss src/css/main.css",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "new",
+					"showReuseMessage": true,
+					"clear": true
+				},
+				"problemMatcher": []
+			},
+			{
 				"label": "run all",
+				"dependsOrder": "parallel",
 				"dependsOn": [
-					"run frontend",
-					"run backend"
+					"run sass",
+					"run backend",
+					"run frontend"
 				],
 				"problemMatcher": []
 			}

@@ -6,8 +6,22 @@ import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
 import { Link } from "react-router-dom";
 import VerAtvsInfo from "./VerAtvs-Info";
+import { useParams } from "react-router";
+import axios from "axios";
 
 export default function VerAtvs() {
+
+    const { materiaID } = useParams()
+
+    const [materia, setMateria] = useState({})
+
+    axios.defaults.withCredentials = true
+    axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
+        .then((response) => {
+
+            setMateria(response.data)
+
+        }).catch((error) => { console.log(error) })
 
     const [index, setIndex] = useState(0)
 
@@ -18,7 +32,7 @@ export default function VerAtvs() {
         <>
             <div className="container-xxl ver-atividades content">
 
-                <PlataformaHeader title="Nome da matéria??" user={false} />
+                <PlataformaHeader title={materia.name} user={false} />
 
                 <div className="container d-flex justify-content-between p-0 flex-wrap">
                     <button

@@ -42,6 +42,7 @@ let schema = new Schema<User>({
         type: Date,
         default: Date.now()
     },
+    
     uuid: {
         type: String
     }

@@ -93,7 +93,7 @@ function App() {
                     </div>
                     <MiniFooter theme={theme} toggleTheme={toggleTheme} />
                 </Route>
-                <Route path="/materia/idmateria">
+                <Route path="/materia/:materiaID">
                     <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
                         <Sidebar />
                         <SidebarMob />

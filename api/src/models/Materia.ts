@@ -20,6 +20,10 @@ let schema = new Schema<Materia>({
         default: Date.now()
     },
 
+    uuid: {
+        type: String
+    },
+
     user: { 
         type: String,
         ref: 'User',
