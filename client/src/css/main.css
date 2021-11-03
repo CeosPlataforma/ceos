@@ -2047,6 +2047,9 @@ ol, ul {
   top: -4px;
   transform: rotate(45deg);
 }
+.materias--arrow:hover {
+  cursor: pointer;
+}
 .materias--name {
   color: white;
   text-align: center;

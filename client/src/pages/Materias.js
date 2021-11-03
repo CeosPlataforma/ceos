@@ -6,6 +6,8 @@ import PlataformaHeader from "../components/PlataformaHeader";
 
 export default function Materias() {
 
+    axios.defaults.withCredentials = true
+
     const [show, setShow] = useState(false);
 
     const reload = () => {
@@ -13,7 +15,6 @@ export default function Materias() {
     }
     const [materias, setMaterias] = useState([]);
 
-    axios.defaults.withCredentials = true
     const onSubmit = async (values, actions) => {
         await axios.post("http://localhost:3333/materia", { name: values.name })
             .then((response) => {
@@ -28,33 +29,32 @@ export default function Materias() {
             });
     }
 
-    axios.defaults.withCredentials = true
+    const fetchMaterias = async () => {
+        axios.get('http://localhost:3333/materia')
+        .then((response) => {
+            
+            if (response.data.message !== "sem-materias") {
+                setMaterias(response.data)
+            } else {
+                console.log("sem materia");
+            }
+
+        }).catch((error) => { console.log(error); })
+    }
+
     useEffect(() => {
-        async function fetchMaterias() {
-            await axios.get('http://localhost:3333/materia')
-                .then((response) => {
-
-                    if (response.data.message !== "sem-materias") {
-                        setMaterias(response.data)
-                        //setShowMaterias(false)
-                    } else {
-                        console.log("sem materia");
-                    }
-                    console.log(response);
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-        }
-
         fetchMaterias()
     }, [])
+
+    function onClick(materiaID) {
+        window.location = `http://localhost:3000/materia/${materiaID}`
+    }
 
     return (
         <>
             <div className="container-xxl materias content">
 
-                <PlataformaHeader title="Gerencie suas matérias" user={true} />
+                <PlataformaHeader title="Gerencie suas matérias" user={false} />
 
                 <button className="materias--btn materias--ver-materias btn btn--common">Ver matérias</button>
 
@@ -76,7 +76,7 @@ export default function Materias() {
                     {materias.map((materia) => (
                         <div class="materias--container">
                             <h5>{materia.name}</h5>
-                            <div class="materias--arrow"></div>
+                            <div class="materias--arrow" onClick={() => onClick(materia.uuid)}></div>
                         </div>
                     ))}
 

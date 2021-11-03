@@ -1,14 +1,30 @@
 import { Request, Response } from 'express';
 import { MateriaModel } from '../models/Materia';
 import { UserModel } from '../models/User';
+import crypto from 'crypto'
 
 class MateriaController {
+
+    async getMateria(request: Request, response: Response) {
+        //return response.json(request.body.materia_uuid)
+        const uuid = request.body.materia_uuid
+        MateriaModel.findOne({ uuid }, async (error, materia) => {
+            if (materia === null || error) {
+                return response.json({ message: "error", error })
+            } else {
+                return response.json(materia);
+            }
+        })
+
+    }
 
     async createMateria(request: Request, response: Response) {
         const userUuid = request.session.user.uuid;
         const newMateria = new MateriaModel();
+        newMateria.name = request.body.name;
+        newMateria.uuid = crypto.randomUUID({ disableEntropyCache: true });
+
         await UserModel.findOne({ uuid: userUuid }).then((user) => {
-            newMateria.name = request.body.name;
             newMateria.user = userUuid;
         });
         
@@ -18,7 +34,7 @@ class MateriaController {
             } else if (!doc) {
                 try {
                     const savedMateria = newMateria.save()
-                    console.log(savedMateria)
+                    
                     return response.status(200).send({success: true});
                 } catch (err) {
                     console.error(err);
@@ -45,14 +61,14 @@ class MateriaController {
         })
     }
 
-    async deleteMateria(request: Request, response: Response) {
-        const materiaName = request.body.name;
+    /*async deleteMateria(request: Request, response: Response) {
+        const materiaUuid = request.body.uuid;
         try {
-            MateriaModel.deleteOne({ name: materiaName });
+            MateriaModel.deleteOne({ uuid: materiaUuid });
         } catch (error) {
             return console.error(error);
         }
-    }
+    }*/
 
 }
 

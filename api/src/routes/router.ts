@@ -16,6 +16,8 @@ const materiaController = new MateriaController();
 router.post('/materia', materiaController.createMateria);
 router.get('/materia', materiaController.getAllMaterias);
 
+router.post('/materia-details', materiaController.getMateria)
+
 const userController = new UserController();
 router.post('/login', userController.login);
 router.post('/register', userController.registerUser);

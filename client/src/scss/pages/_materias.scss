@@ -88,6 +88,11 @@
             top: -4px;
             transform: rotate(45deg);
         }
+
+        &:hover {
+            cursor: pointer;
+        }
+
     }
     &--name {
         color: white;
