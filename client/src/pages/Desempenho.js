@@ -57,7 +57,7 @@ export default function Desempenho() {
                     />
                 </div>
 
-                <div class="materias--holder">
+                <div className="materias--holder">
                     <MateriaContainer />
                     <MateriaContainer />
                     <MateriaContainer />

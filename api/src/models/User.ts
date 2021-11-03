@@ -9,10 +9,11 @@ interface User {
     createdAt: Date;
     uuid: string;
     verifiedMail: boolean;
-    avatar: string;
+    avatar?: string;
+    materias?: Array<String>;
 }
 
-let schema = new Schema<User>({
+const schema = new Schema<User>({
 
     verifiedMail: {
         type: Boolean,
@@ -43,8 +44,14 @@ let schema = new Schema<User>({
         default: Date.now()
     },
     
+    materias: [{
+        type: String,
+        ref: 'Materia'
+    }],
+
     uuid: {
-        type: String
+        type: String,
+        index: true
     }
 });
 
@@ -52,6 +59,7 @@ schema.methods.validPassword = function(password) {
     const hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('base64');
     return this.hash === hash;
 };
+
 const UserModel = model<User>('User', schema);
 
 export { UserModel };

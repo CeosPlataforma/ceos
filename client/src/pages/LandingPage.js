@@ -39,7 +39,7 @@ export default function Home() {
                         <div className="por-que-usar--item col-xl-3 col-sm-12 col-md-4 align-self-baseline mb-4 mb-md-0">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 486.4 486.4"
-                                style={{ enableBackground: 'new 0 0 486.4 486.4;' }} xmlSpace="preserve" className="svg-55 por-que-usar--item--icon">
+                                style={{ enableBackground: 'new 0 0 486.4 486.4' }} xmlSpace="preserve" className="svg-55 por-que-usar--item--icon">
                                 <path d="M268.8,409.6v-53.76c87.04-12.8,153.6-87.04,153.6-176.64C422.4,79.36,343.04,0,243.2,0S64,79.36,64,179.2
                     c0,89.6,66.56,163.84,153.6,176.64v53.76h-76.8l-51.2,76.8h307.2l-51.2-76.8H268.8z M166.4,281.6l25.6-76.8L120.32,128h84.48
                     l38.4-79.36L281.6,128h84.48l-71.68,76.8l25.6,76.8l-76.8-51.2L166.4,281.6z" />
@@ -51,7 +51,7 @@ export default function Home() {
                         </div>
 
                         <div className="por-que-usar--item col-xl-3 col-sm-12 col-md-4 align-self-baseline mb-4 mb-md-0">
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style={{ enableBackground: 'new 0 0 512 512;' }} xmlSpace="preserve" className="svg-55 por-que-usar--item--icon">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve" className="svg-55 por-que-usar--item--icon">
                                 <path d="M386.56,286.72l2.56-23.04C463.36,230.4,512,158.72,512,76.8c0-15.36-12.8-25.6-25.6-25.6h-58.88l2.56-20.48
                     C432.64,15.36,419.84,0,404.48,0H107.52c-15.36,0-28.16,12.8-25.6,30.72l2.56,20.48H25.6C12.8,51.2,0,61.44,0,76.8
                     c0,81.92,48.64,153.6,120.32,186.88l2.56,23.04c2.56,12.8,12.8,20.48,25.6,20.48h56.32L153.6,384h-38.4
@@ -69,7 +69,7 @@ export default function Home() {
                         <div className="por-que-usar--item col-xl-3 col-sm-12 col-md-4 align-self-baseline">
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                                style={{ enableBackground: 'new 0 0 512 512;' }} xmlSpace="preserve" className="svg-55 por-que-usar--item--icon">
+                                style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve" className="svg-55 por-que-usar--item--icon">
                                 <path d="M384,0H25.6C10.24,0,0,12.8,0,25.6V384c0,15.36,10.24,25.6,25.6,25.6h25.6V76.8c0-15.36,10.24-25.6,25.6-25.6h332.8V25.6
                     C409.6,10.24,399.36,0,384,0z" />
                                 <path d="M486.4,102.4H128c-15.36,0-25.6,10.24-25.6,25.6v358.4c0,15.36,10.24,25.6,25.6,25.6h358.4c15.36,0,25.6-10.24,25.6-25.6
@@ -102,7 +102,7 @@ export default function Home() {
                                 <span className="px-4">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                                        style={{ enableBackground: 'new 0 0 512 512;' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
+                                        style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
                                         <path
                                             d="M256,151c-33.091,0-60,26.909-60,60s26.909,60,60,60s60-26.909,60-60S289.091,151,256,151z" />
                                         <path
@@ -137,7 +137,7 @@ export default function Home() {
                                 <span className="px-4">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                                        style={{ enableBackground: 'new 0 0 512 512;' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
+                                        style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
                                         <path d="M486.4,128h-256L128,51.2H25.6C10.24,51.2,0,61.44,0,76.8v358.4c0,15.36,10.24,25.6,25.6,25.6h460.8
                             c15.36,0,25.6-10.24,25.6-25.6V153.6C512,138.24,501.76,128,486.4,128z M307.2,409.6H76.8c-15.36,0-25.6-10.24-25.6-25.6
                             s10.24-25.6,25.6-25.6h230.4c15.36,0,25.6,10.24,25.6,25.6S320,409.6,307.2,409.6z M435.2,307.2H76.8
@@ -161,7 +161,7 @@ export default function Home() {
                                 <span className="px-4">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330"
-                                        style={{ enableBackground: 'new 0 0 330 330;' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
+                                        style={{ enableBackground: 'new 0 0 330 330' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
                                         <path id="XMLID_31_" d="M326.602,174.506c0.139-0.17,0.26-0.349,0.392-0.524c0.162-0.216,0.33-0.428,0.48-0.654
                             c0.144-0.213,0.267-0.435,0.397-0.654c0.12-0.2,0.246-0.396,0.356-0.603c0.12-0.225,0.223-0.457,0.331-0.687
                             c0.101-0.214,0.207-0.424,0.299-0.643c0.093-0.225,0.168-0.455,0.25-0.683c0.083-0.233,0.173-0.463,0.245-0.702
@@ -227,7 +227,7 @@ export default function Home() {
                                 <span className="px-4">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                                        style={{ enableBackground: 'new 0 0 512 512;' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
+                                        style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
                                         <path d="M460.8,51.2h-25.6V25.6c0-15.36-10.24-25.6-25.6-25.6C394.24,0,384,10.24,384,25.6v25.6H128V25.6
                             C128,10.24,117.76,0,102.4,0C87.04,0,76.8,10.24,76.8,25.6v25.6H25.6C12.8,51.2,0,61.44,0,76.8v358.4c0,15.36,12.8,25.6,25.6,25.6
                             h156.16c-17.92-30.72-28.16-66.56-28.16-102.4c0-112.64,92.16-204.8,204.8-204.8c48.64,0,92.16,17.92,128,46.08V76.8
@@ -253,7 +253,7 @@ export default function Home() {
                                 <span className="px-4">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                                        style={{ enableBackground: 'new 0 0 512 512;' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
+                                        style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve" className="svg-55 funcionalidades--item--icon">
                                         <path d="M504.536,468.48l-33.28-33.28c10.24-15.36,15.36-33.28,15.36-51.2c0-56.32-46.08-102.4-102.4-102.4
                             s-102.4,46.08-102.4,102.4s46.08,102.4,102.4,102.4c17.92,0,35.84-5.12,51.2-15.36l33.28,33.28c5.12,5.12,20.48,15.36,35.84,0
                             C514.776,494.08,514.776,478.72,504.536,468.48z M384.216,435.2c-28.16,0-51.2-23.04-51.2-51.2s23.04-51.2,51.2-51.2
@@ -279,7 +279,7 @@ export default function Home() {
                         <div className="col-xl-4 col-lg-6 funcionalidades--item--last">
                             <div className="card pt-5 pb-3">
                                 <span className="px-4">
-                                    <svg id="Capa_1" enable-background="new 0 0 512.006 512.006" x="0px" y="0px"
+                                    <svg id="Capa_1" enableBackground="new 0 0 512.006 512.006" x="0px" y="0px"
                                         viewBox="0 0 512.006 512.006" xmlns="http://www.w3.org/2000/svg" className="svg-55 funcionalidades--item--icon">
                                         <path
                                             d="m491.612 34.396c-2.813-2.813-6.629-4.395-10.607-4.395h-60.002v-15.001c0-8.284-6.717-15-15-15h-300c-8.284 0-15 6.716-15 15v15.002h-60.002c-3.979 0-7.795 1.582-10.607 4.395-2.814 2.813-4.394 6.629-4.393 10.608l.004 44.997c0 33.084 26.916 60 60 60h52.813c23.787 28.764 57.127 49.349 95.109 56.863l-23.53 23.529c-3.22 3.219-4.803 7.726-4.303 12.251l9.855 89.355h100.107l9.855-89.355c.5-4.525-1.083-9.032-4.303-12.251l-23.53-23.529c37.982-7.515 71.322-28.1 95.109-56.863h52.813c33.084 0 60-26.916 60-60l.004-44.997c.001-3.979-1.578-7.795-4.392-10.609zm-415.607 85.606c-16.542 0-30-13.458-30-30l-.003-30h45.69c1.94 21.436 7.986 41.704 17.362 60zm389.996-30c0 16.542-13.458 30-30 30h-33.051c9.377-18.296 15.423-38.564 17.363-60h45.691z" />

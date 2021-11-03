@@ -60,24 +60,24 @@ export default function Materias() {
 
                 <button className="materias--btn materias--adicionar-materias  btn btn--common" onClick={() => { setShow(true) }}>Adicionar matérias</button>
 
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className="dropdown">
+                    <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Classificar por:
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a className="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
+                        <li><hr className="dropdown-divider" /></li>
+                        <li><a className="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
                     </ul>
                 </div>
 
-                <div class="materias--holder">
+                <div className="materias--holder">
 
                     {materias.map((materia) => (
-                        <div class="materias--container">
+                        <div className="materias--container">
                             <h5>{materia.name}</h5>
                             <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
-                                <div class="materias--arrow"></div>
+                                <div className="materias--arrow"></div>
                             </div>
                         </div>
                     ))}

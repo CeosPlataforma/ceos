@@ -1,14 +1,17 @@
 import { Schema, model } from 'mongoose';
 
-interface Materia {
+interface Atividade {
     name: string;
     createdAt: Date;
+    dueBy: Date;
     uuid: string;
     user: string;
-    atividades: Array<String>;
+    materia: string;
+    atv_type: string;
+    description: string;
 }
 
-const schema = new Schema<Materia>({
+const schema = new Schema<Atividade>({
 
     name: {
         type: String,
@@ -19,6 +22,18 @@ const schema = new Schema<Materia>({
     createdAt: {
         type: Date,
         default: Date.now()
+    },
+
+    dueBy: {
+        type: Date
+    },
+
+    description: {
+        type: String
+    },
+
+    atv_type: {
+        type: String
     },
 
     uuid: {
@@ -32,13 +47,14 @@ const schema = new Schema<Materia>({
         required: true
     },
 
-    atividades: [{
+    materia: { 
         type: String,
-        ref: 'Atividade'
-    }]
+        ref: 'Materia',
+        required: true
+    }
 
 });
 
-const MateriaModel = model<Materia>('Materia', schema);
+const AtividadeModel = model<Atividade>('Atividade', schema);
 
-export { MateriaModel };
+export { AtividadeModel };

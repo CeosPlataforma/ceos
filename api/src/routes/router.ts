@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { AtividadeController } from '../controllers/AtividadeController';
 import { MailController } from '../controllers/MailController';
 import { MateriaController } from '../controllers/MateriaController';
 import { UserController } from '../controllers/UserController';
@@ -35,5 +36,8 @@ router.patch('/mudar-senha/', userController.mudarSenha)
 router.patch('/mudar-dados/', userController.mudarDados)
 
 router.post('/deletar-usuario/', userController.deletarUsuario)
+
+const atividadeController = new AtividadeController();
+router.post('/atividades', atividadeController.criarAtividade)
 
 export { router };

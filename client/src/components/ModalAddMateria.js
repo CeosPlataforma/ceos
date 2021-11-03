@@ -13,7 +13,7 @@ function ModalAddMateria(props) {
         name: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário")
     });
 
-    console.log(props);
+    
     return (
         <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
             <Modal.Header>
@@ -30,7 +30,7 @@ function ModalAddMateria(props) {
                                 aria-describedby="emailRecover" required />
                             <ErrorMessage component="p" className="error-msg" name="name" />
                         </div>
-                        <div class="modal-footer">
+                        <div className="modal-footer">
                             <button type="submit" className="btn btn-primary text-md w-100 mx-auto modal--btn">Confirmar</button>
                         </div>
                     </Form>

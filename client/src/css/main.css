@@ -144,7 +144,7 @@ label:focus,
   border-color: #AFAFAF;
   color: #E5E5E5;
 }
-.dark-mode .form-control[readonly] {
+.dark-mode .form-control[readOnly] {
   background-color: #707070;
   border-color: #AFAFAF;
   color: #E5E5E5;
@@ -691,7 +691,7 @@ input:checked + .slider:before {
   color: #216AA7 !important;
 }
 
-.form-control:disabled, .form-control[readonly] {
+.form-control:disabled, .form-control[readOnly] {
   background-color: #FFFFFF;
   cursor: default;
 }

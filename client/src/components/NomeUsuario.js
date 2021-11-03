@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function NomeUsuario(props) {
 
@@ -12,7 +12,6 @@ export default function NomeUsuario(props) {
     .catch((error) => {
         console.log(error);
     });
- 
 
     return (name)
 }

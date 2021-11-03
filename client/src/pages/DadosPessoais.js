@@ -1,20 +1,18 @@
-import axios from 'axios';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from "react";
-import Title from "../components/PainelTitle";
-import * as Yup from 'yup';
-import ModalExcluirConta from '../components/ModalExcluirConta';
-import ModalDados from '../components/ModalDados';
-import ModalAltSenha from '../components/ModalAltSenha';
-
-import Avatar from '../components/Avatar'
-
-import Cropper from 'react-easy-crop';
 import Slider from "@material-ui/core/Slider";
-import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
+import { Field, Form, Formik } from 'formik';
+import React, { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Cropper from 'react-easy-crop';
+import * as Yup from 'yup';
+import Avatar from '../components/Avatar';
 import getCroppedImg from '../components/cropImage';
 import { dataURLtoFile } from '../components/dataURLtoFile';
+import ModalAltSenha from '../components/ModalAltSenha';
+import ModalDados from '../components/ModalDados';
+import ModalExcluirConta from '../components/ModalExcluirConta';
+import Title from "../components/PainelTitle";
 
 export default function DadosPessoais() {
 
@@ -23,26 +21,30 @@ export default function DadosPessoais() {
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
 
+    useEffect(() => {
+
+        axios.get("http://localhost:3333/userinfo")
+            .then((response) => {
+                console.log(response)
+                setNome(response.data.session.user.name)
+                setEmail(response.data.session.user.email)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }, [])
+
     const reload = () => {
         window.location.reload();
     }
-
-    axios.get("http://localhost:3333/userinfo")
-        .then((response) => {
-            console.log(response)
-            setNome(response.data.session.user.name)
-            setEmail(response.data.session.user.email)
-        })
-        .catch((error) => {
-            console.log(error);
-        });
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
 
     const initialValues = {
         name: nome,
-        email
+        email: email
     }
 
     const validationSchema = Yup.object({
@@ -68,10 +70,10 @@ export default function DadosPessoais() {
         axios.post("http://localhost:3333/deletar-usuario", { email: values.email, password: values.password })
             .then((response) => {
                 console.log(response)
-                const {message, error}  = response.data;
+                const { message, error } = response.data;
 
                 if (error === "password") {
-                    
+
                     actions.setFieldError("password", `Senha incorreta`);
 
                 } else if (error === "inexistent") {
@@ -102,12 +104,12 @@ export default function DadosPessoais() {
                 if (response.data.error === "password") {
 
                     actions.setFieldError("password", `Senha incorreta`);
-                
+
                 } else {
 
                     actions.setFieldError("password", `Senha mudada com sucesso, por favor, faça login novamente`);
                     setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
-                    
+
                 }
 
             })
@@ -125,7 +127,7 @@ export default function DadosPessoais() {
                 if (message === "no-change") {
 
                     actions.setFieldError("password", "Nenhuma mudança")
-                    
+
                 } else if (message === "name-success") {
 
                     actions.setFieldError("password", `Nome mudado com sucesso`);
@@ -309,13 +311,13 @@ export default function DadosPessoais() {
                     <div className="col-sm-12 col-xl-7 mx-auto conteudo-direita">
                         <Formik enableReinitialize={true} initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmitExcluir}>
                             <Form className="dados-pessoais--form">
-                                <label for="dados-pessoais--nome" className="form-label">Nome</label>
+                                <label htmlFor="dados-pessoais--nome" className="form-label">Nome</label>
                                 <Field name="name" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--nome"
-                                    defaultValue={nome} readonly="true" />
+                                    /*defaultValue={nome}*/ readOnly={true} />
 
-                                <label for="dados-pessoais--email" className="form-label">E-mail</label>
+                                <label htmlFor="dados-pessoais--email" className="form-label">E-mail</label>
                                 <Field name="email" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--email"
-                                    defaultValue={email} readonly="true" />
+                                    /*defaultValue={email}*/ readOnly={true} />
 
                                 {/* <label for="dados-pessoais--senha" className="form-label">Senha</label>
                                 <div className="dados-pessoais--senha--container senha--container">

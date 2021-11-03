@@ -24,13 +24,13 @@ function ModalConfirmAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
-                                <input className="form-control modal--input" placeholder="Título da atividade" readonly="true" />
+                                <input className="form-control modal--input" placeholder="Título da atividade" readOnly={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Data de entrega</p>
-                                <input className="form-control modal--input" placeholder="XX/XX/XX" readonly="true" />
+                                <input className="form-control modal--input" placeholder="XX/XX/XX" readOnly={true} />
                             </div>
                         </Col>
                     </Row>
@@ -38,13 +38,13 @@ function ModalConfirmAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Tipo</p>
-                                <input className="form-control modal--input" placeholder="Tipo da atividade" readonly="true" />
+                                <input className="form-control modal--input" placeholder="Tipo da atividade" readOnly={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Descrição</p>
-                                <input className="form-control modal--input" placeholder="Descrição da atividade" readonly="true" />
+                                <input className="form-control modal--input" placeholder="Descrição da atividade" readOnly={true} />
                             </div>
                         </Col>
                     </Row>

@@ -82,7 +82,7 @@
     color: $blue !important;
 }
 
-.form-control:disabled, .form-control[readonly] {
+.form-control:disabled, .form-control[readOnly] {
     background-color: $white;
     cursor: default;
 }

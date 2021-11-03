@@ -30,7 +30,7 @@ function ModalAddMateria(props) {
                     <ErrorMessage component="p" className="error-msg" name="name" /> */}
                     <input name="name" type="text" className="form-control modal--input mb-4" aria-describedby="emailRecover" required />
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                     <button type="submit" className="btn btn-primary text-md w-100 mx-auto modal--btn">Salvar</button>
                 </div>
                 {/* </Form>

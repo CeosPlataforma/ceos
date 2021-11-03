@@ -19,6 +19,7 @@ class MateriaController {
     }
 
     async createMateria(request: Request, response: Response) {
+        
         const userUuid = request.session.user.uuid;
         const newMateria = new MateriaModel();
         newMateria.name = request.body.name;
