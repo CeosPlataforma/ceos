@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import PlataformaHeader from "../components/PlataformaHeader";
+import { Link } from "react-router-dom";
 
 export default function Atividades() {
-
-    const [index, setIndex] = useState(0)
 
     const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active")
     const [casaButton, setCasaButton] = useState("atividades--btn atividades--btn--inactive")
@@ -19,10 +18,10 @@ export default function Atividades() {
 
                 <div className="row d-flex justify-content-between row-atividades">
 
-                    <button
+                    <Link
+                        to={"/atividades"}
                         className={atvButton}
                         onClick={() => {
-                            setIndex(0)
                             setAtvButton("atividades--btn atividades--btn--active")
                             setCasaButton("atividades--btn atividades--btn--inactive")
                             setTrabButton("atividades--btn atividades--btn--inactive")
@@ -30,12 +29,11 @@ export default function Atividades() {
                             setLixoButton("atividades--btn atividades--btn--inactive")
                         }}>
                         Todas atividades
-                    </button>
+                    </Link>
 
-                    <button
+                    <Link
                         className={casaButton}
                         onClick={() => {
-                            setIndex(1)
                             setAtvButton("atividades--btn atividades--btn--inactive")
                             setCasaButton("atividades--btn atividades--btn--active")
                             setTrabButton("atividades--btn atividades--btn--inactive")
@@ -43,12 +41,11 @@ export default function Atividades() {
                             setLixoButton("atividades--btn atividades--btn--inactive")
                         }}>
                         Lição de casa
-                    </button>
+                    </Link>
 
-                    <button
+                    <Link
                         className={trabButton}
                         onClick={() => {
-                            setIndex(2)
                             setAtvButton("atividades--btn atividades--btn--inactive")
                             setCasaButton("atividades--btn atividades--btn--inactive")
                             setTrabButton("atividades--btn atividades--btn--active")
@@ -56,12 +53,11 @@ export default function Atividades() {
                             setLixoButton("atividades--btn atividades--btn--inactive")
                         }}>
                         Trabalho
-                    </button>
+                    </Link>
 
-                    <button
+                    <Link
                         className={provButton}
                         onClick={() => {
-                            setIndex(3)
                             setAtvButton("atividades--btn atividades--btn--inactive")
                             setCasaButton("atividades--btn atividades--btn--inactive")
                             setTrabButton("atividades--btn atividades--btn--inactive")
@@ -69,12 +65,11 @@ export default function Atividades() {
                             setLixoButton("atividades--btn atividades--btn--inactive")
                         }}>
                         Prova
-                    </button>
+                    </Link>
 
-                    <button
+                    <Link
                         className={lixoButton}
                         onClick={() => {
-                            setIndex(4)
                             setAtvButton("atividades--btn atividades--btn--inactive")
                             setCasaButton("atividades--btn atividades--btn--inactive")
                             setTrabButton("atividades--btn atividades--btn--inactive")
@@ -82,7 +77,7 @@ export default function Atividades() {
                             setLixoButton("atividades--btn atividades--btn--active")
                         }}>
                         Lixeira
-                    </button>
+                    </Link>
 
                 </div>
 

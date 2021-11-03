@@ -31,15 +31,15 @@ export default function Materias() {
 
     const fetchMaterias = async () => {
         axios.get('http://localhost:3333/materia')
-        .then((response) => {
-            
-            if (response.data.message !== "sem-materias") {
-                setMaterias(response.data)
-            } else {
-                console.log("sem materia");
-            }
+            .then((response) => {
 
-        }).catch((error) => { console.log(error); })
+                if (response.data.message !== "sem-materias") {
+                    setMaterias(response.data)
+                } else {
+                    console.log("sem materia");
+                }
+
+            }).catch((error) => { console.log(error); })
     }
 
     useEffect(() => {
@@ -76,7 +76,9 @@ export default function Materias() {
                     {materias.map((materia) => (
                         <div class="materias--container">
                             <h5>{materia.name}</h5>
-                            <div class="materias--arrow" onClick={() => onClick(materia.uuid)}></div>
+                            <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
+                                <div class="materias--arrow"></div>
+                            </div>
                         </div>
                     ))}
 

@@ -6,17 +6,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-function ModalEditAtv(props) {
+function ModalAddAtv(props) {
     return (
         <Modal {...props} size="lg" className="modal-atividade" contentClassName="modal-content--plataforma" centered>
             <Modal.Header className="modal-atividade--header">
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title modal--title--plataforma">Edite a atividade</h1>
+                    <h1 className="modal--title modal--title--plataforma">Adicione uma atividade</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                    <h4 className="modal-atividade--materia">&gt; Matéria</h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
@@ -59,4 +58,4 @@ function ModalEditAtv(props) {
     );
 }
 
-export default ModalEditAtv;
+export default ModalAddAtv;

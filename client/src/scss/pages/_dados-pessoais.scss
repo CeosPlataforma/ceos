@@ -111,7 +111,7 @@
     }
 }
 
-.desativar-conta--btn {
+.desativar-conta--btn, .confirmar-exclusao {
     background: $red !important;
     &:hover, &:focus, &:active{
         background: $red !important;

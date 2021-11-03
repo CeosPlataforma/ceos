@@ -5,22 +5,25 @@ import React, { useState } from "react";
 import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
 import { Link } from "react-router-dom";
+import VerAtvsInfo from "./VerAtvs-Info";
 import { useParams } from "react-router";
 import axios from "axios";
+import ModalAddAtv from "../components/ModalAddAtv";
 
 export default function VerAtvs() {
 
     const { materiaID } = useParams()
 
     const [materia, setMateria] = useState({})
+    const [show, setShow] = useState(false);
 
     axios.defaults.withCredentials = true
     axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
-    .then((response) => {
+        .then((response) => {
 
-        setMateria(response.data)
+            setMateria(response.data)
 
-    }).catch((error) => { console.log(error) })
+        }).catch((error) => { console.log(error) })
 
     const [index, setIndex] = useState(0)
 
@@ -31,7 +34,7 @@ export default function VerAtvs() {
         <>
             <div className="container-xxl ver-atividades content">
 
-                <PlataformaHeader title={materia.name} user={false} />
+                <PlataformaHeader title={materia.name} user={false} retornarmsg={"Voltar às matérias"} link={"/materias"} />
 
                 <div className="container d-flex justify-content-between p-0 flex-wrap">
                     <button
@@ -43,7 +46,7 @@ export default function VerAtvs() {
                         }}>
                         Ver atividades
                     </button>
-                    <button className="atividades--btn atividades--btn--inactive" /*onClick={() => { setShow(true) }}*/>Adicionar atividade</button>
+                    <button className="atividades--btn atividades--btn--inactive" onClick={() => { setShow(true) }}>Adicionar atividade</button>
                     <button
                         className={infoButton}
                         onClick={() => {
@@ -55,92 +58,58 @@ export default function VerAtvs() {
                     </button>
                 </div>
 
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Classificar por:
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
-                    </ul>
-                </div>
-
-                {/* <div class="atividades--holder">
-                        <AtvBox
-                            title="Título"
-                            tipo="Trabalho"
-                            data="xx/xx/xxxx"
-                            excluir
-                            className="mb-4"
-                        />
-                        <AtvBox
-                            title="Título"
-                            tipo="Trabalho"
-                            data="xx/xx/xxxx"
-                            excluir
-                            className="mb-4"
-                        />
-                        <AtvBox
-                            title="Título"
-                            tipo="Trabalho"
-                            data="xx/xx/xxxx"
-                            excluir
-                            className="mb-4"
-                        />
-                        <AtvBox
-                            title="Título"
-                            tipo="Trabalho"
-                            data="xx/xx/xxxx"
-                            excluir
-                            className="mb-4"
-                        />
-                    </div> */}
-                <div className="d-flex justify-content-between mt-4">
-                    <div>
-                        <div className="d-flex align-items-center">
-                            <h1 className="title-bold">Professor(a)</h1><a className="btn btn-edit--atv"><svg xmlns="http://www.w3.org/2000/svg" width="41.154" height="42.687" viewBox="0 0 41.154 42.687"><g transform="translate(-1044.681 -617.99)"><path d="M1048.433,650.072l-3.752,14.1,13.984-4.32,19.555-19.555-10.574-10.574Z" transform="translate(0 -3.493)" fill="#fff" /><path d="M1081.756,623.5l9.836,9.836,5.282-5.282-10.063-10.063Z" transform="translate(-11.039)" fill="#fff" /></g></svg></a>
+                {index === 0 &&
+                    <>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Classificar por:
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
+                            </ul>
                         </div>
-                        <p className="subtitle subtitle--gray">Nome do(a) professor(a)</p>
-                    </div>
 
-                    <div>
-                        <h1 className="title-bold">Período</h1>
-                        <h2 className="subtitle mt-2">Dia</h2>
-                        <p className="subtitle subtitle--gray">Horário</p>
-                        <br />
-                        <h2 className="subtitle mt-2">Dia</h2>
-                        <p className="subtitle subtitle--gray">Horário</p>
-                        <br />
-                        <h2 className="subtitle mt-2">Dia</h2>
-                        <p className="subtitle subtitle--gray">Horário</p>
-                        <br />
-                        <h2 className="subtitle mt-2">Dia</h2>
-                        <p className="subtitle subtitle--gray">Horário</p>
-                        <br />
-                        <Link to="/cronograma" className="materia-visualizar-cronograma">&gt; Visualizar no cronograma</Link>
-                    </div>
 
-                    <div>
-                        <h1 className="title-bold">Desempenho</h1>
-                        <h2 className="subtitle mt-2">Lição de casa</h2>
-                        <p className="subtitle subtitle--gray">Concluídas - XX</p>
-                        <p className="subtitle subtitle--gray">Pendentes - XX</p>
-                        <br />
-                        <h2 className="subtitle mt-2">Trabalhos</h2>
-                        <p className="subtitle subtitle--gray">Concluídas - XX</p>
-                        <p className="subtitle subtitle--gray">Pendentes - XX</p>
-                        <br />
-                        <h2 className="subtitle mt-2">Provas</h2>
-                        <p className="subtitle subtitle--gray">Concluídas - XX</p>
-                        <p className="subtitle subtitle--gray">Pendentes - XX</p>
-                        <br />
-                        <h2 className="subtitle mt-2">Atividades</h2>
-                        <p className="subtitle subtitle--gray">Concluídas - XX</p>
-                        <p className="subtitle subtitle--gray">Pendentes - XX</p>
-                        <br />
-                    </div>
-                </div>
+                        <div class="atividades--holder">
+                            <AtvBox
+                                title="Título"
+                                tipo="Trabalho"
+                                data="xx/xx/xxxx"
+                                excluir
+                                className="mb-4"
+                            />
+                            <AtvBox
+                                title="Título"
+                                tipo="Trabalho"
+                                data="xx/xx/xxxx"
+                                excluir
+                                className="mb-4"
+                            />
+                            <AtvBox
+                                title="Título"
+                                tipo="Trabalho"
+                                data="xx/xx/xxxx"
+                                excluir
+                                className="mb-4"
+                            />
+                            <AtvBox
+                                title="Título"
+                                tipo="Trabalho"
+                                data="xx/xx/xxxx"
+                                excluir
+                                className="mb-4"
+                            />
+                        </div>
+                    </>
+                }
+                {index === 1 &&
+                    <VerAtvsInfo />
+                }
+
+                <ModalAddAtv show={show} onHide={() => setShow(false)} />
+
             </div>
         </>
     );

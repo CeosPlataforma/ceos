@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import ModalConfirmAtv from "../components/ModalConfirmAtv";
 import ModalEditAtv from "../components/ModalEditAtv";
+import ModalDeleteAtv from "../components/ModalDeleteAtv";
 
 export default function AtvBox({ className, title, materia, tipo, data, excluir }) {
 
     const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
 
     return (
 
@@ -41,16 +43,18 @@ export default function AtvBox({ className, title, materia, tipo, data, excluir 
 
             <div className="d-flex justify-content-between atv-botoes">
                 <button className={excluir === true ? "btn btn-view" : "btn btn-view w-100"} onClick={() => { setShow(true) }}>Visualizar</button>
-                <button className="btn btn-delete" id={excluir === true ? "" : "none"}><svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 20.121 20.121">
-                    <g id="x" transform="translate(1.061 1.061)">
-                        <line id="Linha_6" data-name="Linha 6" x2="18" y2="18" fill="none" stroke="#fff" stroke-width="3" />
-                        <line id="Linha_7" data-name="Linha 7" x1="18" y2="18" fill="none" stroke="#fff" stroke-width="3" />
-                    </g>
-                </svg>
+                <button className="btn btn-delete" id={excluir === true ? "" : "none"} onClick={() => { setShow2(true) }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 20.121 20.121">
+                        <g id="x" transform="translate(1.061 1.061)">
+                            <line id="Linha_6" data-name="Linha 6" x2="18" y2="18" fill="none" stroke="#fff" stroke-width="3" />
+                            <line id="Linha_7" data-name="Linha 7" x1="18" y2="18" fill="none" stroke="#fff" stroke-width="3" />
+                        </g>
+                    </svg>
                 </button>
             </div>
 
             <ModalConfirmAtv show={show} onHide={() => setShow(false)} />
+            <ModalDeleteAtv show={show2} onHide={() => setShow2(false)} />
             {/* <ModalEditAtv show={show} onHide={() => setShow(false)} /> */}
         </div>
     );

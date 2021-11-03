@@ -6,7 +6,7 @@ export default function MateriaContainer() {
         <div class="materias--container">
             <h5 className="materias--name">{// materia.name
             }Matéria</h5>
-            <div class="materias--arrow"></div>
+            <div class="materias--arrow" />
         </div>
     );
 }

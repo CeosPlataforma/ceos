@@ -32,7 +32,7 @@
     }
 
     h5 {
-        color: #fff;
+        color: $white;
         margin: 0;
     }
 
@@ -61,7 +61,7 @@
     }
 
     &--arrow {
-        background: #fff;
+        background: $white;
         height: 3px;
         width: 80px;
         margin: auto 30px auto 30px;
@@ -71,7 +71,7 @@
         &:before,
         &:after {
             content: "";
-            background: #fff;
+            background: $white;
             position: absolute;
             height: 3px;
             width: 15px;
@@ -88,15 +88,17 @@
             top: -4px;
             transform: rotate(45deg);
         }
-
-        &:hover {
-            cursor: pointer;
-        }
-
     }
     &--name {
-        color: white;
+        color: $white;
         text-align: center;
         margin-bottom: 0;
     }
+    .arrow-container {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        cursor: pointer;
+    }
 }
+
