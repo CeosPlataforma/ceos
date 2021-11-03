@@ -122,7 +122,7 @@ class Sidebar extends Component {
                 </div>
                 <ul className="nav_list">
                     <li>
-                        <Link id={window.location.pathname === "/painel" ? "active" : ""} to={"painel"}>
+                        <Link id={window.location.pathname === "/painel" ? "active" : ""} to={"/painel"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M433,216.061c0-11.046-8.954-20-20-20H297c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h116
@@ -148,7 +148,7 @@ class Sidebar extends Component {
                         <span className="tooltip">Painel</span>
                     </li>
                     <li>
-                        <Link id={window.location.pathname === "/cronograma" ? "active" : ""} to={"cronograma"}>
+                        <Link id={window.location.pathname === "/cronograma" ? "active" : ""} to={"/cronograma"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M492,352c11.046,0,20-8.954,20-20V120c0-44.112-35.888-80-80-80h-26V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20
@@ -196,7 +196,7 @@ class Sidebar extends Component {
                         <span className="tooltip">Matérias</span>
                     </li>
                     <li>
-                        <Link id={window.location.pathname === "/atividades" ? "active" : ""} to={"atividades"}>
+                        <Link id={window.location.pathname === "/atividades" ? "active" : ""} to={"/atividades"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M352.459,220c0-11.046-8.954-20-20-20h-206c-11.046,0-20,8.954-20,20s8.954,20,20,20h206
