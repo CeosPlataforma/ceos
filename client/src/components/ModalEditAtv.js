@@ -16,7 +16,7 @@ function ModalEditAtv(props) {
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                    <h4 className="modal-atividade--materia">&gt; Matéria</h4>
+                    <h4 className="modal-atividade--materia mb-3">&gt; Nome da matéria</h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
@@ -27,7 +27,7 @@ function ModalEditAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Data de entrega</p>
-                                <input className="form-control modal--input" placeholder="XX/XX/XX" />
+                                <input className="form-control modal--input" type="date" placeholder="XX/XX/XX" />
                             </div>
                         </Col>
                     </Row>

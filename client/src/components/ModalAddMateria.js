@@ -13,7 +13,7 @@ function ModalAddMateria(props) {
         name: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário")
     });
 
-    
+
     return (
         <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
             <Modal.Header>
@@ -24,11 +24,11 @@ function ModalAddMateria(props) {
             <Modal.Body>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
                     <Form>
-                        <div className="modal-body">
+                        <div className="modal-body mb-4">
                             <p className="text-lg">Informe o nome da nova matéria</p>
-                            <Field name="name" type="text" className="form-control modal--input mb-4" placeholder="ex. Ciências"
+                            <Field name="name" type="text" className="form-control modal--input" placeholder="ex. Ciências"
                                 aria-describedby="emailRecover" required />
-                            <ErrorMessage component="p" className="error-msg" name="name" />
+                            <ErrorMessage component="span" className="error-msg" name="name" />
                         </div>
                         <div className="modal-footer">
                             <button type="submit" className="btn btn-primary text-md w-100 mx-auto modal--btn">Confirmar</button>

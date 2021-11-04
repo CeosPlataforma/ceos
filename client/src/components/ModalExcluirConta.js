@@ -47,15 +47,15 @@ function ModalExcluirConta(props) {
                     <Form>
                         <p className="text-lg">E-mail</p>
                         <Field name="email" type="email" className="form-control modal--input" aria-describedby="email" required />
-                        <ErrorMessage name="email" />
+                        <ErrorMessage component="span" className="error-msg" name="email" />
 
                         <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" style={{'marginTop': '25px'}} className="text-lg">Senha atual</label>
+                            <label htmlFor="cadastrar--senha" style={{ 'marginTop': '25px' }} className="text-lg">Senha atual</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input" aria-describedby="password" required />
-                                <ErrorMessage name="password" className="error-msg"/>
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                             </div>
+                            <ErrorMessage component="span" className="error-msg" name="password" />
                         </div>
 
                         <Button type="submit" className="text-md w-100 modal--btn desativar-conta--btn" >Confirmar desativação</Button>

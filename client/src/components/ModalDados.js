@@ -60,21 +60,20 @@ function ModalDados(props) {
                             <label className="text-lg">Nome</label>
                             <Field name="name" type="text" className="form-control modal--input" aria-describedby="email" required />
 
-                            <label className="text-lg" style={{'marginTop': '25px'}}>E-mail</label>
+                            <label className="text-lg" style={{ 'marginTop': '25px' }}>E-mail</label>
                             <Field name="email" type="email" className="form-control modal--input" aria-describedby="email" required />
 
-                            <label className="text-lg" style={{'marginTop': '25px'}}>Confirmar e-mail</label>
+                            <label className="text-lg" style={{ 'marginTop': '25px' }}>Confirmar e-mail</label>
                             <Field name="emailConfirm" type="email" className="form-control modal--input" aria-describedby="email" required />
                             <ErrorMessage component="span" className="error-msg" name="emailConfirm" />
 
-
                             <div className="mb-4">
-                                <label htmlFor="cadastrar--senha" className="text-lg" style={{'marginTop': '25px'}}>Senha atual</label>
+                                <label htmlFor="cadastrar--senha" className="text-lg" style={{ 'marginTop': '25px' }}>Senha atual</label>
                                 <div className="cadastrar--senha--container senha--container">
                                     <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
                                     <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                                 </div>
-                                <ErrorMessage component="span" className="error-msg" name="password"/>
+                                <ErrorMessage component="span" className="error-msg" name="password" />
                             </div>
 
                             <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>

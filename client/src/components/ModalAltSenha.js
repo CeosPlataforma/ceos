@@ -71,34 +71,29 @@ function ModalAltSenha(props) {
             <Modal.Body>
                 <Formik onSubmit={props.onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
                     <Form>
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
-                            <div className="cadastrar--senha--container senha--container">
-                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
-                                <ErrorMessage component="p" className="error-msg" name="password" />
-                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                            </div>
+                        <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
+                        <div className="cadastrar--senha--container senha--container">
+                            <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input" aria-describedby="password" required />
+                            <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                         </div>
+                        <ErrorMessage component="span" className="error-msg" name="password" />
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" className="text-lg">Nova senha</label>
+                        <div>
+                            <label htmlFor="cadastrar--senha" className="text-lg mt-4">Nova senha</label>
                             <div className="cadastrar--senha--container senha--container">
-                                <Field name="newPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPassword" required />
+                                <Field name="newPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control modal--input" aria-describedby="newPassword" required />
                                 <span onClick={toggleSenhaConfirmar} className="show-password">{textoConfirmMostrar} senha</span>
                             </div>
                         </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" className="text-lg">Confirmar nova senha</label>
-                            <div className="cadastrar--senha--container senha--container">
-                                <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPasswordConfirm" required />
-                                <span onClick={toggleSenhaNewConfirmar} className="show-password text-md">{textoNewConfirmMostrar} senha</span>
-                            </div>
+                        <label htmlFor="cadastrar--senha" className="text-lg mt-4">Confirmar nova senha</label>
+                        <div className="cadastrar--senha--container senha--container">
+                            <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input" aria-describedby="newPasswordConfirm" required />
+                            <span onClick={toggleSenhaNewConfirmar} className="show-password text-md">{textoNewConfirmMostrar} senha</span>
                         </div>
+                        <ErrorMessage component="span" className="error-msg" name="newPasswordConfirm" />
 
-                        <ErrorMessage component="p" c name="newPasswordConfirm" />
-
-                        <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>
+                        <Button type="submit" className="text-md w-100 modal--btn mt-4">Confirmar alteração</Button>
 
                     </Form>
                 </Formik>

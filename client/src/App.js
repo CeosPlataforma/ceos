@@ -12,8 +12,6 @@ import Footer from "./components/Footer";
 import MiniFooter from "./components/MiniFooter";
 
 import { useDarkMode } from "./components/useDarkMode";
-import { Toggle } from './components/Toggle';
-
 
 import Logout from "./components/Logout";
 

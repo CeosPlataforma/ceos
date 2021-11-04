@@ -934,7 +934,7 @@ button {
 }
 .modal--input {
   font: 500 20px "Baloo Bhai 2", cursive;
-  color: #23272a;
+  color: #23272a !important;
   font-weight: 400;
   padding: 12px;
   border: 2px solid #AFAFAF;
@@ -1477,12 +1477,12 @@ ol, ul {
   color: #707070;
   border-color: #AFAFAF;
 }
-.atividade-dropdown:focus {
+.atividade-dropdown:focus-visible {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-color: #707070;
   background-color: #707070;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 .atividade-dropdown option {
   background-color: #FFFFFF;

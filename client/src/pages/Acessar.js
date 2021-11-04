@@ -92,7 +92,7 @@ export default function Acessar() {
                         <div className="mb-4">
                             <label htmlFor="acessar--email" className="form-label"> E-mail </label>
                             <Field name="email" type="email" className="form-control acessar--input" id="acessar--email" required />
-                            <ErrorMessage name="email" />
+                            <ErrorMessage component="span" className="error-msg" name="email" />
                         </div>
 
                         <div className="mb-4">
@@ -100,8 +100,8 @@ export default function Acessar() {
                             <div className="acessar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                <ErrorMessage name="password" />
                             </div>
+                            <ErrorMessage component="span" className="error-msg" name="password" />
                         </div>
 
                         <div className="extras">

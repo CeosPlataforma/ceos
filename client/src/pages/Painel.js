@@ -6,10 +6,14 @@ import AtvBox from "../components/AtvBox";
 import Slider from "react-slick";
 import PlataformaHeader from "../components/PlataformaHeader";
 
+import { useDrag } from "../components/useDrag";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Painel() {
+
+    const [drag, toggleDrag] = useDrag();
 
     var settings = {
         nextArrow: <NextArrow />,
@@ -126,7 +130,6 @@ export default function Painel() {
     // $('.min-footer').css('margin-top', margem + 'px');
 
 
-
     return (
         <div className="container-xxl painel content">
 
@@ -194,6 +197,7 @@ export default function Painel() {
                 {...settings}
                 className="painel--atvs-recentes"
                 slidesToShow={3}
+                draggable={drag}
                 responsive={[
                     {
                         breakpoint: 1450,
@@ -215,6 +219,7 @@ export default function Painel() {
                         tipo={card.tipo}
                         data={card.data}
                         excluir={false}
+                        toggleDrag={toggleDrag}
                     />
                 })}
             </Slider>

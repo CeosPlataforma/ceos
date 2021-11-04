@@ -148,12 +148,12 @@
     width: 100%;
     color: $gray-dark;
     border-color: $gray;
-    &:focus {        
+    &:focus-visible {        
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-color: $gray-dark;
         background-color: $gray-dark;
-        color: $white;
+        color: $white !important;
     }
     option {
         background-color: $white;

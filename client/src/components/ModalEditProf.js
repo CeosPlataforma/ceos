@@ -26,8 +26,8 @@ function ModalAddMateria(props) {
                     <Form> */}
                 <div className="modal-body">
                     <p className="text-lg">Nome do(a) professor(a)</p>
-                    {/* <Field name="name" type="text" className="form-control modal--input mb-4" aria-describedby="emailRecover" required />
-                    <ErrorMessage component="p" className="error-msg" name="name" /> */}
+                    {/* <Field name="name" type="text" className="form-control modal--input" aria-describedby="emailRecover" required />
+                    <ErrorMessage component="span" className="error-msg mb-4" name="name" /> */}
                     <input name="name" type="text" className="form-control modal--input mb-4" aria-describedby="emailRecover" required />
                 </div>
                 <div className="modal-footer">
