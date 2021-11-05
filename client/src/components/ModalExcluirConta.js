@@ -22,9 +22,9 @@ function ModalExcluirConta(props) {
 
     const history = useHistory();
 
-    const redirect = () => {
-        history.push(`/logout`)
-    }
+    // const redirect = () => {
+    //     history.push(`/logout`)
+    // }
 
     const initialValues = {
         email: '',

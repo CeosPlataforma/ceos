@@ -4,16 +4,18 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 250px;
-        margin: 40px 0px;
+        min-width: 20%;
+        margin: 48px 0px 60px 0;
     }
 
     &--btn {
         @extend .btn--common;
-        padding: 10px 70px;
+        padding: 10px 0px;
+        min-width: 20%;
         border: 2px solid $gray-dark;
         color: $gray-dark;
-        margin-bottom: 15px;
+        background-color: $white;
+        margin: 10px 0 10px 0;
         &:hover, &:focus, &:active {
             border: 2px solid $gray-dark;
             background-color: $gray-dark;
@@ -21,6 +23,9 @@
         }
         @include device(sm) {             
             padding: 10px 40px;
+        }
+        @include device(md) {             
+            padding: 10px 20px;
         }
     }
 

@@ -22,10 +22,28 @@
     }
 }
 
+.logged {
+    &--header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+}
+
 .title {
     font: $font-lg;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: $black;
+}
+
+@media screen and (max-width: 660px) {
+    .materias, .cronograma {
+        .title {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .underline {
@@ -34,7 +52,7 @@
 
 .user {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     align-items: center;
     &--name {
         color: $gray-dark;
@@ -44,8 +62,8 @@
         }
     }
     &--photo {
-        height: 50px;
-        width: 50px;
+        height: 70px;
+        width: 70px;
         border-radius: 50%;
         margin-left: 18px;
         border: 2px solid $gray-dark;

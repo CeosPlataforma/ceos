@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { HashLink } from 'react-router-hash-link';
-import { Toggle } from './Toggle';
 
 import logo from "../assets/logo/svg/LogoVB(SemNome).svg";
 import { Link } from "react-router-dom";
 
-function Footer({ theme, toggleTheme }) {
+function Footer() {
     return (
         <footer className="footer container-fluid px-0">
             <div className="footer-top">
@@ -25,8 +24,6 @@ function Footer({ theme, toggleTheme }) {
                             <p className="footer--direitos mt-3">
                                 Todos os direitos reservados © 2021 Ceos
                             </p>
-
-                            <Toggle theme={theme} toggleTheme={toggleTheme} />
                         </div>
 
                         <div className="col-lg-4 offset-lg-2 col-md-6">

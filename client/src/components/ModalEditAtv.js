@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -21,7 +21,7 @@ function ModalEditAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
-                                <input className="form-control modal--input" placeholder="Título da atividade" />
+                                <input className="form-control modal--input" value="Título da atividade" />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
@@ -46,7 +46,7 @@ function ModalEditAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Descrição</p>
-                                <textarea className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" />
+                                <textarea className="form-control modal--input modal--textarea" value="Descrição da atividade" />
                             </div>
                         </Col>
                     </Row>

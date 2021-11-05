@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./css/main.css";
@@ -39,32 +38,24 @@ function App() {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/">
-                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
-                        <Header />
-                        <Home />
-                    </div>
-                    <Footer theme={theme} toggleTheme={toggleTheme} />
+                    <Header />
+                    <Home />
+                    <Footer />
                 </Route>
                 <Route path="/cadastrar">
-                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
-                        <Header />
-                        <Cadastrar />
-                    </div>
-                    <Footer theme={theme} toggleTheme={toggleTheme} />
+                    <Header />
+                    <Cadastrar />
+                    <Footer />
                 </Route>
                 <Route path="/acessar">
-                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
-                        <Header />
-                        <Acessar />
-                    </div>
-                    <Footer theme={theme} toggleTheme={toggleTheme} />
+                    <Header />
+                    <Acessar />
+                    <Footer />
                 </Route>
                 <Route path="/contato">
-                    <div className={theme === 'dark' ? "dark-mode" : "light-mode"}>
-                        <Header />
-                        <Contato />
-                    </div>
-                    <Footer theme={theme} toggleTheme={toggleTheme} />
+                    <Header />
+                    <Contato />
+                    <Footer />
                 </Route>
 
                 <Route path="/painel">

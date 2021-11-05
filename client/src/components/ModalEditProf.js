@@ -1,7 +1,7 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+// import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from "react";
 import Modal from 'react-bootstrap/Modal';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
 function ModalAddMateria(props) {
 

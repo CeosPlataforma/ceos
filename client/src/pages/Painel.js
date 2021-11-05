@@ -137,7 +137,7 @@ export default function Painel() {
 
             <div className="row align-items-center">
                 <div className="col">
-                    <h4>Cronograma</h4>
+                    <h4 style={{ marginTop: '10px', marginBottom: '25px' }}>Cronograma</h4>
 
                     <Table striped bordered hover responsive /*tirar responsive se quiser tirar scroll da tabela*/ >
                         <thead>

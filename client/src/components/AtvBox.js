@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ModalConfirmAtv from "../components/ModalConfirmAtv";
-import ModalEditAtv from "../components/ModalEditAtv";
+// import ModalEditAtv from "../components/ModalEditAtv";
 import ModalDeleteAtv from "../components/ModalDeleteAtv";
 
 export default function AtvBox({ className, title, materia, tipo, data, excluir, toggleDrag }) {

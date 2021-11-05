@@ -34,6 +34,9 @@
         padding: 8px 50px;
         border-radius: 10px;
         background-color: $white;
+        @include device(sm) {
+            padding: 8px 30px;
+        }
     }
     .btn-delete {
         color: $white;

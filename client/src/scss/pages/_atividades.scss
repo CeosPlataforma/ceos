@@ -5,12 +5,20 @@
         justify-content: space-between;
         flex-wrap: wrap;
     }
+    &--classificar-por {
+        @extend .materias--classificar-por;
+        min-width: 19% !important;
+    }
     &--btn {
         @extend .btn--common;
-        padding: 10px 80px;
+        padding: 10px 0px;
+        width: 19%;
         border: 2px solid $gray-dark;
         color: $gray-dark;
-        margin-bottom: 15px;
+        margin: 10px 0 10px 0;    
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include device(md) {
             width: 30%;
         }
@@ -73,7 +81,7 @@
 
 .materia-visualizar-cronograma {
     font: $font-sm;
-    color: $blue;
+    color: $blue !important;
     &:hover {
         color: $blue !important;
     }

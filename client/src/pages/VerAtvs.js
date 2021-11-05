@@ -31,7 +31,7 @@ export default function VerAtvs() {
 
             }).catch((error) => { console.log(error); })
     }*/
-    
+
     const [index, setIndex] = useState(0)
 
     const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active")
@@ -39,11 +39,11 @@ export default function VerAtvs() {
 
     useEffect(() => {
         axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
-        .then((response) => {
+            .then((response) => {
 
-            setMateria(response.data)
+                setMateria(response.data)
 
-        }).catch((error) => { console.log(error) })
+            }).catch((error) => { console.log(error) })
     }, [])
 
 
@@ -106,27 +106,6 @@ export default function VerAtvs() {
                                 excluir
                                 className="mb-4"
                             />
-                            <AtvBox
-                                title="Título"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                                excluir
-                                className="mb-4"
-                            />
-                            <AtvBox
-                                title="Título"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                                excluir
-                                className="mb-4"
-                            />
-                            <AtvBox
-                                title="Título"
-                                tipo="Trabalho"
-                                data="xx/xx/xxxx"
-                                excluir
-                                className="mb-4"
-                            />
                         </div>
                     </>
                 }
@@ -134,7 +113,7 @@ export default function VerAtvs() {
                     <VerAtvsInfo />
                 }
 
-                <ModalAddAtv show={show} onHide={() => {setShow(false)}} />
+                <ModalAddAtv show={show} onHide={() => { setShow(false) }} />
 
             </div>
         </>
