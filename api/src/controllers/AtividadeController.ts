@@ -22,44 +22,30 @@ class AtividadeController {
         new_atividade.uuid = crypto.randomUUID({ disableEntropyCache: true });
 
         AtividadeModel.exists({
-
             name: new_atividade.name,
             user: new_atividade.user,
             materia: new_atividade.materia
-
         }, (error, document) => {
-
             if (error) {
-
                 console.log(error);
-
             } else if (!document) {
                 try {
-
                     const saved_atividade = new_atividade.save()
                     console.log(saved_atividade);
                     return response.status(200).json({ success: true })
-
                 } catch (error) {
-
                     console.log(error)
                     return response.status(200).json({ success: false, error })
-
                 }
             } else {
-
                 console.log("existe atividade")
                 AtividadeModel.findOne({
-
                     name: new_atividade.name,
                     user: new_atividade.user,
                     materia: new_atividade.materia
-
                 }).then((atividade) => {
-
                     console.log(atividade)
                     return response.json({ success: false, exists: true })
-
                 })
             }
         })

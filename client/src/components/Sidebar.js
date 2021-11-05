@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import $ from 'jquery';
 
 class Sidebar extends Component {
 
     // tire arrudas, tire tudo isso
 
-    componentDidMount = () => {
-        // Painel
-        // Sidebar
-        let collapse = $(".sidebar--collapse");
-        let sidebar = $(".sidebar");
+    constructor(props) {
+        super(props)
+        this.state = { colapso: false }
 
-        collapse.on("click", function () {
-            sidebar.toggleClass("active");
-        })
+        this.handleClick = this.handleClick.bind(this);
+
+    }
+
+    handleClick() {
+        this.setState(prevState => ({colapso: !prevState.colapso}))
     }
 
     render() {
         return (
-            <div className="sidebar">
+            <div className={this.state.colapso ? 'sidebar active' : 'sidebar'}>
                 <div className="logo_content">
                     <div className="logo">
                         <svg version="1.1" id="LogoOfc__Branco_1_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px"
@@ -271,7 +271,7 @@ class Sidebar extends Component {
                         <span className="tooltip">Sair</span>
                     </li>
                 </ul>
-                <i className='bx bx-menu sidebar--collapse'></i>
+                <i className='bx bx-menu sidebar--collapse' onClick={this.handleClick}></i>
             </div>
         );
     }
