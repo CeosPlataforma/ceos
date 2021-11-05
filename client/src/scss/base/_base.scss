@@ -41,17 +41,34 @@
     background-color: $black;
     color: $gray-light;
     transition: background-color 0.25s ease-in-out;
-    .underline {
+    .form-label {
       color: $gray-light;
     }
-    .sidebar ul li .tooltip {
-      background-color: $gray-dark;
+    .underline {
+      color: $gray-light;
+      background: linear-gradient(0deg, $blue, 30px, transparent 7px) 0 3em !important;
+    }
+    .cronograma .editable-row ::before {
+      background-color: $blue !important;
+      color: $gray-light !important;
+    }
+    .sidebar {
+      background-color: #1d1d1d !important;
+      a {
+        color: $gray-light;
+      }
+      ul li .tooltip {
+        background-color: $gray-dark;      
+      }
+      &--mobile {
+        background-color: #1d1d1d !important;
+      }
     }
     .painel--demais-horarios {
       background-color: $black;
       color: $gray-light;
       &:hover {
-        background-color: $black;
+        background-color: $blue;
       }
     }
     .painel .slick-next::before, .painel .slick-prev::before, .user--name {

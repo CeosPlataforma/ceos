@@ -29,7 +29,7 @@
     }
     &--input {
         font: $font-sm;
-        color: $black;
+        color: $black !important;
         font-weight: $regular;
         padding: 12px;
         border: 2px solid $gray;

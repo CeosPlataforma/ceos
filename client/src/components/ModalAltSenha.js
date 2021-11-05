@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import * as Yup from 'yup';
+import ModalSenha from './ModalSenha';
 
 function ModalAltSenha(props) {
 
-    const [showToastPass, setShowToastPass] = useState(false);
+    // const [showToastPass, setShowToastPass] = useState(false);
 
     const initialValues = {
         password: '',
@@ -60,51 +61,52 @@ function ModalAltSenha(props) {
         }
     }
 
-    return (
+    const [show, setShow] = useState(false);
 
-        <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
-            <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title modal--title--plataforma">Altere sua senha</h1>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Formik onSubmit={props.onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
-                    <Form>
-                        <div className="mb-4">
+    return (
+        <>
+            <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
+                <Modal.Header>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        <h1 className="modal--title modal--title--plataforma">Altere sua senha</h1>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Formik onSubmit={props.onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
+                        <Form>
                             <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
                             <div className="cadastrar--senha--container senha--container">
-                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="password" required />
-                                <ErrorMessage component="p" className="error-msg" name="password" />
+                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input" aria-describedby="password" required />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                             </div>
-                        </div>
+                            <ErrorMessage component="span" className="error-msg" name="password" />
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" className="text-lg">Nova senha</label>
-                            <div className="cadastrar--senha--container senha--container">
-                                <Field name="newPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPassword" required />
-                                <span onClick={toggleSenhaConfirmar} className="show-password">{textoConfirmMostrar} senha</span>
+                            <div>
+                                <label htmlFor="cadastrar--senha" className="text-lg mt-4">Nova senha</label>
+                                <div className="cadastrar--senha--container senha--container">
+                                    <Field name="newPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control modal--input" aria-describedby="newPassword" required />
+                                    <span onClick={toggleSenhaConfirmar} className="show-password">{textoConfirmMostrar} senha</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="cadastrar--senha" className="text-lg">Confirmar nova senha</label>
+                            <label htmlFor="cadastrar--senha" className="text-lg mt-4">Confirmar nova senha</label>
                             <div className="cadastrar--senha--container senha--container">
-                                <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input mb-4" aria-describedby="newPasswordConfirm" required />
+                                <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input" aria-describedby="newPasswordConfirm" required />
                                 <span onClick={toggleSenhaNewConfirmar} className="show-password text-md">{textoNewConfirmMostrar} senha</span>
                             </div>
-                        </div>
+                            <ErrorMessage component="span" className="error-msg" name="newPasswordConfirm" />
 
-                        <ErrorMessage component="p" c name="newPasswordConfirm" />
+                            <Button type="submit" className="text-md w-100 modal--btn mt-4 mb-2">Confirmar alteração</Button>
 
-                        <Button type="submit" className="text-md w-100 modal--btn">Confirmar alteração</Button>
+                            <a className="esqueci-senha" onClick={() => { setShow(true) }}>&gt; Esqueci minha senha</a>
 
-                    </Form>
-                </Formik>
-            </Modal.Body>
-        </Modal>
+                        </Form>
+                    </Formik>
+                </Modal.Body>
+            </Modal>
 
+            <ModalSenha show={show} onHide={() => setShow(false)} />
+        </>
     );
 }
 

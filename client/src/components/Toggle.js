@@ -2,8 +2,6 @@ import React from 'react';
 
 export const Toggle = ({ theme, toggleTheme }) => {
 
-    console.log(theme)
-
     return (
         <div className="d-flex align-items-center">
             <span

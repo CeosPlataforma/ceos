@@ -18,7 +18,11 @@ class Header extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse" id="nav-main">
+                    <div
+                        className="collapse navbar-collapse"
+                        id="nav-main"
+                    // style={{ paddingBottom: '30px' }}
+                    >
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item">
                                 <HashLink className="nav-link" aria-current="page" smooth to="/#por-que-usar"> Por que usar </HashLink>

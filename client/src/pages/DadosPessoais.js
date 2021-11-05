@@ -39,7 +39,7 @@ export default function DadosPessoais() {
         window.location.reload();
     }
 
-    const [textoMostrar, setTextoMostrar] = useState("Mostrar")
+    // const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
 
     const initialValues = {
@@ -53,15 +53,15 @@ export default function DadosPessoais() {
         senha: Yup.string().required('Obrigatório'),
     });
 
-    const toggleSenha = () => {
-        if (passwordShown) {
-            setPasswordShown(false);
-            setTextoMostrar("Mostrar")
-        } else {
-            setPasswordShown(true);
-            setTextoMostrar("Ocultar")
-        }
-    }
+    // const toggleSenha = () => {
+    //     if (passwordShown) {
+    //         setPasswordShown(false);
+    //         setTextoMostrar("Mostrar")
+    //     } else {
+    //         setPasswordShown(true);
+    //         setTextoMostrar("Ocultar")
+    //     }
+    // }
 
     // MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- MODAIS <- (CONTINUA)
 
@@ -164,7 +164,7 @@ export default function DadosPessoais() {
     const [showCrop, setShowCrop] = useState(false);
 
     const handleCloseCrop = () => setShowCrop(false);
-    const handleShowCrop = () => setShowCrop(true);
+    // const handleShowCrop = () => setShowCrop(true);
 
     // const cancelar = () => {
     //     handleClose();

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import PlataformaHeader from "../components/PlataformaHeader";
 import { Link } from "react-router-dom";
 
+import AtvBox from "../components/AtvBox";
+
+
 export default function Atividades() {
 
     const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active")
@@ -82,20 +85,28 @@ export default function Atividades() {
                 </div>
 
                 <div className="dropdown">
-                    <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="btn dropdown-toggle atividades--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Classificar por:
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a className="dropdown-item" href="#">Data (mais próxima)</a></li>
+                        <li><a className="dropdown-item">Data (mais próxima)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#">Data (mais distante)</a></li>
+                        <li><a className="dropdown-item">Data (mais distante)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#">Matéria (crescente)</a></li>
+                        <li><a className="dropdown-item">Matéria (crescente)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#">Matéria (decrescente)</a></li>
+                        <li><a className="dropdown-item">Matéria (decrescente)</a></li>
                     </ul>
                 </div>
 
+                <AtvBox
+                    materia="materia"
+                    title="Título"
+                    tipo="Trabalho"
+                    data="xx/xx/xxxx"
+                    excluir
+                    className="mb-4"
+                />
 
             </div>
         </>

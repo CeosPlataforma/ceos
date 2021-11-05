@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -16,18 +16,18 @@ function ModalEditAtv(props) {
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                    <h4 className="modal-atividade--materia">&gt; Matéria</h4>
+                    <h4 className="modal-atividade--materia mb-3">&gt; Nome da matéria</h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
-                                <input className="form-control modal--input" placeholder="Título da atividade" />
+                                <input className="form-control modal--input" value="Título da atividade" />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Data de entrega</p>
-                                <input className="form-control modal--input" placeholder="XX/XX/XX" />
+                                <input className="form-control modal--input" type="date" placeholder="XX/XX/XX" />
                             </div>
                         </Col>
                     </Row>
@@ -46,7 +46,7 @@ function ModalEditAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Descrição</p>
-                                <textarea className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" />
+                                <textarea className="form-control modal--input modal--textarea" value="Descrição da atividade" />
                             </div>
                         </Col>
                     </Row>

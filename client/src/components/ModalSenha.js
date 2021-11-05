@@ -36,9 +36,9 @@ function ModalSenha(props) {
                 </p>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
                     <Form>
-                        <Field name="email" type="email" className="form-control modal--input mb-4" id="acessar--email" placeholder="E-mail" required />
-                        <ErrorMessage name="email" />
-                        <button type="submit" className="btn btn-primary text-md w-100 modal--btn">Recuperar senha</button>
+                        <Field name="email" type="email" className="form-control modal--input" id="acessar--email" placeholder="E-mail" required />
+                        <ErrorMessage component="span" className="error-msg" name="email" />
+                        <button type="submit" className="btn btn-primary text-md w-100 modal--btn mt-4">Recuperar senha</button>
                     </Form>
                 </Formik>
             </Modal.Body>

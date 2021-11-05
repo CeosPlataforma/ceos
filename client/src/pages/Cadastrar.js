@@ -86,13 +86,13 @@ export default function Cadastrar() {
                     <div className="mb-4">
                         <label htmlFor="cadastrar--nome" className="form-label"> Nome completo </label>
                         <Field name="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
-                        <ErrorMessage name="name" />
+                        <ErrorMessage component="span" className="error-msg" name="name" />
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="cadastrar--email" className="form-label"> E-mail </label>
                         <Field name="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
-                        <ErrorMessage name="email" />
+                        <ErrorMessage component="span" className="error-msg" name="email" />
                     </div>
 
                     <div className="mb-4">
@@ -100,8 +100,8 @@ export default function Cadastrar() {
                         <div className="cadastrar--senha--container senha--container">
                             <Field name="password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
                             <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                            <ErrorMessage name="password" />
                         </div>
+                        <ErrorMessage component="span" className="error-msg" name="password" />
                     </div>
 
                     <div className="mb-4">
@@ -109,8 +109,8 @@ export default function Cadastrar() {
                         <div className="cadastrar--senha--container senha--container">
                             <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
                             <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
-                            <ErrorMessage name="confirmPassword" />
                         </div>
+                        <ErrorMessage component="span" className="error-msg" name="confirmPassword" />
                     </div>
 
                     <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>

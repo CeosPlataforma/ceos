@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { Toggle } from './Toggle';
 
 function MiniFooter({ theme, toggleTheme }) {
 
     return (
         <footer className="min-footer container-fluid">
-            <div className="row flex-grow-1">
-                <div className="col d-flex align-items-center justify-content-around">
+            <div className="row flex-grow-1 justify-content-center">
+                <div className="col-md-9 col-lg-6 d-flex align-items-center justify-content-around">
                     <svg version="1.1" id="LogoOfc_Horizontal_Branco_1_"
                         xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 720 290.2"
                         xmlSpace="preserve" className="min-footer--logo">
@@ -102,7 +102,7 @@ function MiniFooter({ theme, toggleTheme }) {
                         </g>
                     </svg>
 
-                    <h5 className="min-footer--text pl-5">TODOS OS DIREITOS RESERVADOS &#169; 2021 CEOS</h5>
+                    <h5 className="min-footer--text">TODOS OS DIREITOS RESERVADOS &#169; 2021 CEOS</h5>
 
                     <Toggle theme={theme} toggleTheme={toggleTheme} />
                 </div>

@@ -34,6 +34,9 @@
         padding: 8px 50px;
         border-radius: 10px;
         background-color: $white;
+        @include device(sm) {
+            padding: 8px 30px;
+        }
     }
     .btn-delete {
         color: $white;
@@ -148,12 +151,12 @@
     width: 100%;
     color: $gray-dark;
     border-color: $gray;
-    &:focus {        
+    &:focus-visible {        
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-color: $gray-dark;
         background-color: $gray-dark;
-        color: $white;
+        color: $white !important;
     }
     option {
         background-color: $white;
