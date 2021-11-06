@@ -35,7 +35,6 @@ class MateriaController {
             } else if (!doc) {
                 try {
                     const savedMateria = newMateria.save()
-                    
                     return response.status(200).send({success: true});
                 } catch (err) {
                     console.error(err);

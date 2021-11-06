@@ -2,8 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import hero from "../assets/illustrations/hero.svg";
 import StuffComponent from "../components/StuffComponent";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Home() {
+
+
+    useEffect(() => {
+
+        axios.get("http://localhost:3333/userinfo")
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }, [])
 
     return (
         <>

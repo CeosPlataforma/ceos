@@ -10,14 +10,20 @@ router.get('/', (request, response) => {
     response.status(200).redirect('http://localhost:3000/')
 });
 
+// EMAIL
+
 const mailController = new MailController();
 router.post('/contato', mailController.contato);
+
+// MATERIAS
 
 const materiaController = new MateriaController();
 router.post('/materia', materiaController.createMateria);
 router.get('/materia', materiaController.getAllMaterias);
 
 router.post('/materia-details', materiaController.getMateria)
+
+// USUARIO
 
 const userController = new UserController();
 router.post('/login', userController.login);
@@ -36,6 +42,8 @@ router.patch('/mudar-senha/', userController.mudarSenha)
 router.patch('/mudar-dados/', userController.mudarDados)
 
 router.post('/deletar-usuario/', userController.deletarUsuario)
+
+// ATIVIDADES 
 
 const atividadeController = new AtividadeController();
 router.post('/atividades', atividadeController.criarAtividade)
