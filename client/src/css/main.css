@@ -656,11 +656,6 @@ input:checked + .slider:before {
   color: #23272a;
 }
 
-@media screen and (max-width: 660px) {
-  .materias .title, .cronograma .title {
-    margin-bottom: 0;
-  }
-}
 .underline {
   background: linear-gradient(0deg, #FFBF5B, 30px, transparent 7px) 0 3em;
 }
@@ -844,7 +839,7 @@ input:checked + .slider:before {
 	}
 }
 */
-.btn--common, .materias--btn, .dados-pessoais--dados, .dados-pessoais--alterar, .painel--demais-horarios, .atividades--btn, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .atividades--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
+.btn--common, .dados-pessoais--dados, .dados-pessoais--alterar, .painel--demais-horarios, .atividades--btn, .ver-atividades--btn, .materias--btn, .contato--btn, .acessar--btn, .cadastrar--btn, .dados-pessoais--btn, .materias--classificar-por, .atividades--classificar-por, .cta--btn, .visao-geral--btn, .visao-geral--btn--inactive, .visao-geral--btn--active, .hero--btn, .navbar--btn {
   border: 3px solid;
   border-radius: 10px;
   font: 500 20px "Baloo Bhai 2", cursive;
@@ -1077,6 +1072,10 @@ button {
 }
 .modal-cronograma--linha {
   margin-bottom: 50px;
+}
+
+.esqueci-senha {
+  cursor: pointer;
 }
 
 .senha--container {
@@ -1525,6 +1524,10 @@ ol, ul {
   color: #707070;
 }
 
+.navbar-collapse.show {
+  padding-bottom: 30px;
+}
+
 .acessar {
   padding-top: 40px;
   padding-bottom: 120px;
@@ -1716,10 +1719,6 @@ ol, ul {
   min-height: 160px;
 }
 
-.navbar-collapse.show {
-  padding-bottom: 30px;
-}
-
 @media screen and (max-width: 991.98px) {
   .painel--demais-horarios {
     margin-top: 18px;
@@ -1814,6 +1813,234 @@ ol, ul {
   margin: 0;
 }
 
+.cronograma td, .cronograma th, .cronograma thead, .cronograma tbody, .painel td, .painel th, .painel thead, .painel tbody {
+  text-align: center;
+  font: 500 20px "Baloo Bhai 2", cursive;
+  border: 2px solid #216AA7 !important;
+}
+.cronograma th, .painel th {
+  border: 0;
+  background-color: #216AA7;
+  color: #FFFFFF;
+}
+.cronograma--hint, .painel--hint {
+  padding: 0;
+}
+.cronograma--hint svg, .painel--hint svg {
+  height: 60px;
+  width: 60px;
+  fill: #216AA7;
+  cursor: pointer;
+}
+.cronograma .editable-row ::before, .painel .editable-row ::before {
+  content: "x";
+  position: absolute;
+  left: -30px;
+  color: #909293 !important;
+  background-color: #FFDEAC !important;
+}
+@media screen and (max-width: 1199.98px) {
+  .cronograma, .painel {
+    width: calc(85% - 78px);
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .cronograma, .painel {
+    width: calc(90% - 78px);
+  }
+}
+.cronograma--icon, .cronograma--cancelchange, .painel--cancelchange, .cronograma--confirmchange, .painel--confirmchange, .painel--icon {
+  text-align: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+.cronograma--confirmchange, .painel--confirmchange {
+  display: inline-block;
+  background-color: #2B9E33;
+  padding: 1px 7px 0px 5px;
+}
+.cronograma--confirmchange--text, .painel--confirmchange--text {
+  color: #FFFFFF !important;
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold !important;
+}
+.cronograma--cancelchange, .painel--cancelchange {
+  background-color: #C24D4D;
+  padding: 1px 8px 0px 8px;
+  font-size: 15px;
+  font-weight: bold !important;
+}
+.cronograma--addline, .cronograma--removeline, .cronograma .editable-row ::before, .painel .editable-row ::before, .painel--addline, .painel--removeline {
+  display: inline-block;
+  background-color: #FFBF5B;
+  padding: 0px;
+  border-radius: 50%;
+  line-height: 25px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  text-justify: center;
+  opacity: 0.5;
+}
+.cronograma--addline--text, .cronograma--removeline--text, .cronograma .editable-row ::before, .painel .editable-row ::before, .painel--addline--text, .painel--removeline--text {
+  color: #23272a;
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold !important;
+}
+.cronograma--addline--opacity, .cronograma--removeline--opacity, .painel--addline--opacity, .painel--removeline--opacity {
+  opacity: 1 !important;
+}
+
+.modal-cronograma p {
+  text-align: inherit;
+}
+.modal-cronograma h3 {
+  text-align: center;
+}
+.modal-cronograma--title {
+  margin-bottom: 0 !important;
+}
+.modal-cronograma--body {
+  padding-top: 0 !important;
+}
+.modal-cronograma--header {
+  padding-bottom: 0 !important;
+}
+.modal-cronograma .modal-footer {
+  justify-content: center !important;
+}
+
+.materias--classificar-por, .atividades--classificar-por {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 20%;
+  margin: 48px 0px 60px 0;
+}
+.materias--btn {
+  padding: 10px 10px;
+  min-width: 20%;
+  border: 2px solid #707070;
+  color: #707070;
+  background-color: #FFFFFF;
+  margin: 10px 0 10px 0;
+}
+.materias--btn:hover, .materias--btn:focus, .materias--btn:active {
+  border: 2px solid #707070;
+  background-color: #707070;
+  color: #FFFFFF;
+}
+@media screen and (max-width: 767.98px) {
+  .materias--btn {
+    padding: 10px 40px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .materias--btn {
+    padding: 10px 20px;
+  }
+}
+.materias--ver-materias {
+  margin-left: 0;
+  margin-right: 10px;
+  background-color: #707070;
+  color: #FFFFFF;
+}
+.materias h5 {
+  color: #FFFFFF;
+  margin: 0;
+}
+.materias--holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 767.98px) {
+  .materias--holder {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.materias--container {
+  background-color: #216AA7;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 49%;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767.98px) {
+  .materias--container {
+    width: 100%;
+  }
+}
+.materias--arrow {
+  background: #FFFFFF;
+  height: 3px;
+  width: 80px;
+  margin: auto 30px auto 30px;
+  position: relative;
+  transform: rotate(0deg);
+}
+.materias--arrow:before, .materias--arrow:after {
+  content: "";
+  background: #FFFFFF;
+  position: absolute;
+  height: 3px;
+  width: 15px;
+}
+.materias--arrow:before {
+  right: -3px;
+  bottom: -4px;
+  transform: rotate(-45deg);
+}
+.materias--arrow:after {
+  right: -3px;
+  top: -4px;
+  transform: rotate(45deg);
+}
+.materias--name {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 0;
+}
+.materias .arrow-container {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  cursor: pointer;
+}
+
+.ver-atividades--btn {
+  width: 31% !important;
+}
+@media screen and (max-width: 991.98px) {
+  .ver-atividades--btn {
+    width: 49% !important;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .ver-atividades--btn {
+    width: 100% !important;
+  }
+}
+.ver-atividades .logged--header {
+  flex-wrap: wrap !important;
+}
+.ver-atividades .return--arrow {
+  margin: auto 30px auto 30px;
+}
+@media screen and (max-width: 1399.98px) {
+  .ver-atividades .return--arrow {
+    margin: auto 30px auto 0px;
+  }
+}
+
 .atividades--holder {
   display: flex;
   width: 100%;
@@ -1823,8 +2050,8 @@ ol, ul {
 .atividades--classificar-por {
   min-width: 19% !important;
 }
-.atividades--btn {
-  padding: 10px 0px;
+.atividades--btn, .ver-atividades--btn {
+  padding: 10px 10px;
   width: 19%;
   border: 2px solid #707070;
   color: #707070;
@@ -1832,24 +2059,26 @@ ol, ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
-@media screen and (max-width: 991.98px) {
-  .atividades--btn {
+@media screen and (max-width: 1199.98px) {
+  .atividades--btn, .ver-atividades--btn {
     width: 30%;
   }
 }
 @media screen and (max-width: 991.98px) {
-  .atividades--btn {
+  .atividades--btn, .ver-atividades--btn {
     width: 49%;
   }
 }
-.atividades--btn:hover, .atividades--btn:focus-visible, .atividades--btn:active {
+.atividades--btn:hover, .ver-atividades--btn:hover, .atividades--btn:focus-visible, .ver-atividades--btn:focus-visible, .atividades--btn:active, .ver-atividades--btn:active {
   border: 2px solid #707070;
   background-color: #707070;
   color: #FFFFFF;
 }
 @media screen and (max-width: 767.98px) {
-  .atividades--btn {
+  .atividades--btn, .ver-atividades--btn {
     padding: 10px 40px;
   }
 }
@@ -2036,207 +2265,4 @@ ol, ul {
 }
 .cropper--aplicar, .cropper--cancelar {
   display: inherit;
-}
-
-.materias--classificar-por, .atividades--classificar-por {
-  padding: 10px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 20%;
-  margin: 48px 0px 60px 0;
-}
-.materias--btn {
-  padding: 10px 0px;
-  min-width: 20%;
-  border: 2px solid #707070;
-  color: #707070;
-  background-color: #FFFFFF;
-  margin: 10px 0 10px 0;
-}
-.materias--btn:hover, .materias--btn:focus, .materias--btn:active {
-  border: 2px solid #707070;
-  background-color: #707070;
-  color: #FFFFFF;
-}
-@media screen and (max-width: 767.98px) {
-  .materias--btn {
-    padding: 10px 40px;
-  }
-}
-@media screen and (max-width: 991.98px) {
-  .materias--btn {
-    padding: 10px 20px;
-  }
-}
-.materias--ver-materias {
-  margin-left: 0;
-  margin-right: 10px;
-  background-color: #707070;
-  color: #FFFFFF;
-}
-.materias h5 {
-  color: #FFFFFF;
-  margin: 0;
-}
-.materias--holder {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-@media screen and (max-width: 767.98px) {
-  .materias--holder {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.materias--container {
-  background-color: #216AA7;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 49%;
-  margin-bottom: 30px;
-}
-@media screen and (max-width: 767.98px) {
-  .materias--container {
-    width: 100%;
-  }
-}
-.materias--arrow {
-  background: #FFFFFF;
-  height: 3px;
-  width: 80px;
-  margin: auto 30px auto 30px;
-  position: relative;
-  transform: rotate(0deg);
-}
-.materias--arrow:before, .materias--arrow:after {
-  content: "";
-  background: #FFFFFF;
-  position: absolute;
-  height: 3px;
-  width: 15px;
-}
-.materias--arrow:before {
-  right: -3px;
-  bottom: -4px;
-  transform: rotate(-45deg);
-}
-.materias--arrow:after {
-  right: -3px;
-  top: -4px;
-  transform: rotate(45deg);
-}
-.materias--name {
-  color: #FFFFFF;
-  text-align: center;
-  margin-bottom: 0;
-}
-.materias .arrow-container {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  cursor: pointer;
-}
-
-.cronograma td, .cronograma th, .cronograma thead, .cronograma tbody, .painel td, .painel th, .painel thead, .painel tbody {
-  text-align: center;
-  font: 500 20px "Baloo Bhai 2", cursive;
-  border: 2px solid #216AA7 !important;
-}
-.cronograma th, .painel th {
-  border: 0;
-  background-color: #216AA7;
-  color: #FFFFFF;
-}
-.cronograma--hint, .painel--hint {
-  padding: 0;
-}
-.cronograma--hint svg, .painel--hint svg {
-  height: 60px;
-  width: 60px;
-  fill: #216AA7;
-  cursor: pointer;
-}
-.cronograma .editable-row ::before, .painel .editable-row ::before {
-  content: "x";
-  position: absolute;
-  left: -30px;
-  color: #909293 !important;
-  background-color: #FFDEAC !important;
-}
-@media screen and (max-width: 1199.98px) {
-  .cronograma, .painel {
-    width: calc(85% - 78px);
-  }
-}
-@media screen and (max-width: 991.98px) {
-  .cronograma, .painel {
-    width: calc(90% - 78px);
-  }
-}
-.cronograma--icon, .cronograma--cancelchange, .painel--cancelchange, .cronograma--confirmchange, .painel--confirmchange, .painel--icon {
-  text-align: center;
-  border-radius: 50%;
-  color: #FFFFFF;
-}
-.cronograma--confirmchange, .painel--confirmchange {
-  display: inline-block;
-  background-color: #2B9E33;
-  padding: 1px 7px 0px 5px;
-}
-.cronograma--confirmchange--text, .painel--confirmchange--text {
-  color: #FFFFFF !important;
-  margin: 0;
-  font-size: 15px;
-  font-weight: bold !important;
-}
-.cronograma--cancelchange, .painel--cancelchange {
-  background-color: #C24D4D;
-  padding: 1px 8px 0px 8px;
-  font-size: 15px;
-  font-weight: bold !important;
-}
-.cronograma--addline, .cronograma--removeline, .cronograma .editable-row ::before, .painel .editable-row ::before, .painel--addline, .painel--removeline {
-  display: inline-block;
-  background-color: #FFBF5B;
-  padding: 0px;
-  border-radius: 50%;
-  line-height: 25px;
-  height: 25px;
-  width: 25px;
-  text-align: center;
-  text-justify: center;
-  opacity: 0.5;
-}
-.cronograma--addline--text, .cronograma--removeline--text, .cronograma .editable-row ::before, .painel .editable-row ::before, .painel--addline--text, .painel--removeline--text {
-  color: #23272a;
-  margin: 0;
-  font-size: 25px;
-  font-weight: bold !important;
-}
-.cronograma--addline--opacity, .cronograma--removeline--opacity, .painel--addline--opacity, .painel--removeline--opacity {
-  opacity: 1 !important;
-}
-
-.modal-cronograma p {
-  text-align: inherit;
-}
-.modal-cronograma h3 {
-  text-align: center;
-}
-.modal-cronograma--title {
-  margin-bottom: 0 !important;
-}
-.modal-cronograma--body {
-  padding-top: 0 !important;
-}
-.modal-cronograma--header {
-  padding-bottom: 0 !important;
-}
-.modal-cronograma .modal-footer {
-  justify-content: center !important;
 }

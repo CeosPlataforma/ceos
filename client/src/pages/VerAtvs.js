@@ -34,8 +34,8 @@ export default function VerAtvs() {
 
     const [index, setIndex] = useState(0)
 
-    const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active")
-    const [infoButton, setInfoButton] = useState("atividades--btn atividades--btn--inactive")
+    const [atvButton, setAtvButton] = useState("ver-atividades--btn ver-atividades--btn--active")
+    const [infoButton, setInfoButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
 
     useEffect(() => {
         axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
@@ -53,23 +53,23 @@ export default function VerAtvs() {
 
                 <PlataformaHeader title={materia.name} user={false} retornarmsg={"Voltar às matérias"} link={"/materias"} />
 
-                <div className="container d-flex justify-content-between p-0 flex-wrap">
+                <div className="d-flex justify-content-between p-0 flex-wrap">
                     <button
                         className={atvButton}
                         onClick={() => {
                             setIndex(0)
-                            setAtvButton("atividades--btn atividades--btn--active")
-                            setInfoButton("atividades--btn atividades--btn--inactive")
+                            setAtvButton("ver-atividades--btn ver-atividades--btn--active")
+                            setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
                         }}>
                         Ver atividades
                     </button>
-                    <button className="atividades--btn atividades--btn--inactive" onClick={() => { setShow(true) }}>Adicionar atividade</button>
+                    <button className="ver-atividades--btn ver-atividades--btn--inactive" onClick={() => { setShow(true) }}>Adicionar atividade</button>
                     <button
                         className={infoButton}
                         onClick={() => {
                             setIndex(1)
-                            setAtvButton("atividades--btn atividades--btn--inactive")
-                            setInfoButton("atividades--btn atividades--btn--active")
+                            setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setInfoButton("ver-atividades--btn ver-atividades--btn--active")
                         }}>
                         Informações
                     </button>
@@ -98,7 +98,7 @@ export default function VerAtvs() {
                         </div>
                         ))}*/}
 
-                        <div className="atividades--holder">
+                        <div className="ver-atividades--holder">
                             <AtvBox
                                 title="Título"
                                 tipo="Trabalho"

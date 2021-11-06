@@ -38,13 +38,13 @@
     color: $black;
 }
 
-@media screen and (max-width: 660px) {
-    .materias, .cronograma {
-        .title {
-            margin-bottom: 0;
-        }
-    }
-}
+// @media screen and (max-width: 660px) {
+//     .materias, .cronograma {
+//         .title {
+//             margin-bottom: 0;
+//         }
+//     }
+// }
 
 .underline {
     background: linear-gradient(0deg, $yellow, 30px, transparent 7px) 0 3em;

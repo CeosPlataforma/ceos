@@ -11,7 +11,7 @@
     }
     &--btn {
         @extend .btn--common;
-        padding: 10px 0px;
+        padding: 10px 10px;
         width: 19%;
         border: 2px solid $gray-dark;
         color: $gray-dark;
@@ -19,7 +19,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        @include device(md) {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        @include device(lg) {
             width: 30%;
         }
         @include device(md) {

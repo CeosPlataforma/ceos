@@ -16,7 +16,7 @@ export default function PlataformaHeader({ title, user, retornarmsg, link }) {
                     <Title title={title} user={user} />
                     {retornarmsg &&
                         <>
-                            <Link to={link} className="d-flex align-items-center">
+                            <Link to={link} className="d-flex align-items-center" style={{ marginBottom: '40px' }}>
                                 <div className="return--arrow" /><p className="mb-0 return--text">{retornarmsg}</p>
                             </Link>
                         </>

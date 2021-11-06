@@ -10,7 +10,7 @@
 
     &--btn {
         @extend .btn--common;
-        padding: 10px 0px;
+        padding: 10px 10px;
         min-width: 20%;
         border: 2px solid $gray-dark;
         color: $gray-dark;

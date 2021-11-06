@@ -7,8 +7,8 @@ export default function VerAtvsInfo() {
     const [show, setShow] = useState(false);
 
     return (
-        <div className="d-flex justify-content-between mt-4">
-            <div>
+        <div className="d-flex justify-content-between mt-4 flex-wrap">
+            <div className="mr-4 mb-4">
                 <div className="d-flex align-items-center">
                     <h1 className="title-bold">Professor(a)</h1>
                     <a className="btn btn-edit--atv" onClick={() => { setShow(true) }}>
@@ -23,7 +23,7 @@ export default function VerAtvsInfo() {
                 <p className="subtitle subtitle--gray">Nome do(a) professor(a)</p>
             </div>
 
-            <div>
+            <div className="mr-5 mb-5">
                 <h1 className="title-bold">Período</h1>
                 <h2 className="subtitle mt-2">Dia</h2>
                 <p className="subtitle subtitle--gray">Horário</p>

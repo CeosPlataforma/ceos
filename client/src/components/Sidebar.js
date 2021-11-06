@@ -163,7 +163,7 @@ class Sidebar extends Component {
                         <span className="tooltip">Cronograma</span>
                     </li>
                     <li>
-                        <Link id={window.location.pathname === "/materias" ? "active" : ""} to={"/materias"}>
+                        <Link id={window.location.pathname === "/materias" || window.location.pathname.includes("/materia") ? "active" : ""} to={"/materias"}>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" xmlSpace="preserve">
                                 <path d="M178,375c11.046,0,20-8.954,20-20V214c0-11.046-8.954-20-20-20s-20,8.954-20,20v141C158,366.046,166.954,375,178,375z" />

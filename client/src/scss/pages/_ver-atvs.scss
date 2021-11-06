@@ -1,0 +1,21 @@
+.ver-atividades {
+    &--btn {
+        @extend .atividades--btn;
+        width: 31% !important;
+        @include device(md) {
+            width: 49% !important;
+        }
+        @include device(sm) {
+            width: 100% !important;
+        }
+    }
+    .logged--header {
+        flex-wrap: wrap !important;
+    }
+    .return--arrow {
+        margin: auto 30px auto 30px;
+        @include device(xl) {
+            margin: auto 30px auto 0px;
+        }        
+    }
+}
