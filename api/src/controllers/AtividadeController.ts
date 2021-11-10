@@ -5,14 +5,28 @@ import { UserModel } from '../models/User';
 
 class AtividadeController {
 
+    async getAtividades(request: Request, response: Response) {
+        const materia_uuid = request.body.materia_uuid;
+        AtividadeModel.find({ materia: materia_uuid }, async (error, atividades) => {
+            if (!atividades.length) {
+                return response.json({ message: "sem-atividades" });
+            } else {
+                return response.send(atividades);
+            }
+        })
+    }
+
     async criarAtividade(request: Request, response: Response) {
+
+        //console.log(request.body)
+        //console.log(request.session.user)
 
         const user_uuid = request.session.user.uuid;
         const materia_uuid = request.body.materia_uuid;
 
         const new_atividade = new AtividadeModel();
         new_atividade.name = request.body.name;
-        new_atividade.dueBy = request.body.dueBy;
+        new_atividade.dueBy = request.body.dueByDate;
         new_atividade.description = request.body.description;
         new_atividade.atv_type = request.body.type;
 
@@ -30,8 +44,7 @@ class AtividadeController {
                 console.log(error);
             } else if (!document) {
                 try {
-                    const saved_atividade = new_atividade.save()
-                    console.log(saved_atividade);
+                    new_atividade.save().then((ativ) => { console.log(ativ); })
                     return response.status(200).json({ success: true })
                 } catch (error) {
                     console.log(error)

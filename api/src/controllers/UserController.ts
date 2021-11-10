@@ -158,7 +158,7 @@ class UserController {
     }
 
     async getFoto(request: Request, response: Response) {
-        console.log(request.session)
+        //console.log(request.session)
         const { uuid } = request.session.user;
 
         await UserModel.findOne({ uuid }, (error, user) => {

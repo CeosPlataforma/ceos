@@ -47,5 +47,6 @@ router.post('/deletar-usuario/', userController.deletarUsuario)
 
 const atividadeController = new AtividadeController();
 router.post('/atividades', atividadeController.criarAtividade)
+router.post('/get-atividades', atividadeController.getAtividades)
 
 export { router };
