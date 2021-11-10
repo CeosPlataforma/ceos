@@ -1,5 +1,4 @@
 import React from "react";
-import MateriaContainer from "../components/MateriaContainer";
 import SimpleBox from "../components/SimpleBox";
 import PlataformaHeader from "../components/PlataformaHeader";
 import { useEffect, useState } from "react";
@@ -88,12 +87,12 @@ export default function Desempenho() {
                 </div>
 
                 <div className="materias--holder">
-                {materias.map((materia) => (
-                    <div className="materias--container" onClick={() => onClick(materia.uuid)}>
-                        <h5 className="materias--name">{materia.name}</h5>
-                        <div className="materias--arrow" />
-                    </div>
-                ))}
+                    {materias.map((materia) => (
+                        <div className="materias--container" onClick={() => onClick(materia.uuid)}>
+                            <h5 className="materias--name">{materia.name}</h5>
+                            <div className="materias--arrow" />
+                        </div>
+                    ))}
                 </div>
             </Container>
         </>

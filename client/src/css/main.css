@@ -1737,7 +1737,8 @@ ol, ul {
 .painel--materia {
   background: #216AA7;
   border: none;
-  padding: 40px 150px;
+  padding: 40px 0;
+  width: 90%;
   color: #FFFFFF;
   font: 500 20px "Baloo Bhai 2", cursive;
   cursor: pointer;
@@ -2020,6 +2021,7 @@ ol, ul {
 
 .ver-atividades--btn {
   width: 31% !important;
+  background-color: #FFFFFF;
 }
 @media screen and (max-width: 991.98px) {
   .ver-atividades--btn {
@@ -2175,14 +2177,14 @@ ol, ul {
   color: #FFFFFF;
   transition: 0.2s;
 }
-.dados-pessoais--desativar {
+.dados-pessoais--desativar, .ver-atividades--desativar {
   color: #C24D4D !important;
   cursor: pointer;
   text-decoration: none;
   font: 500 20px "Baloo Bhai 2", cursive;
   line-height: 32px;
 }
-.dados-pessoais--desativar:hover, .dados-pessoais--desativar:focus, .dados-pessoais--desativar:active {
+.dados-pessoais--desativar:hover, .ver-atividades--desativar:hover, .dados-pessoais--desativar:focus, .ver-atividades--desativar:focus, .dados-pessoais--desativar:active, .ver-atividades--desativar:active {
   color: #C24D4D !important;
 }
 .dados-pessoais--dados {
@@ -2249,10 +2251,11 @@ ol, ul {
   width: 32px;
 }
 
-.desativar-conta--btn, .confirmar-exclusao {
+.desativar-conta--btn, .confirmar-exclusao, .excluir-materia--btn {
   background: #C24D4D !important;
+  color: #FFFFFF;
 }
-.desativar-conta--btn:hover, .desativar-conta--btn:focus, .desativar-conta--btn:active, .confirmar-exclusao:hover, .confirmar-exclusao:focus, .confirmar-exclusao:active {
+.desativar-conta--btn:hover, .desativar-conta--btn:focus, .desativar-conta--btn:active, .confirmar-exclusao:hover, .confirmar-exclusao:focus, .confirmar-exclusao:active, .excluir-materia--btn:hover, .excluir-materia--btn:focus, .excluir-materia--btn:active {
   background: #C24D4D !important;
 }
 

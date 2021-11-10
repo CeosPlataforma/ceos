@@ -2,12 +2,16 @@
     &--btn {
         @extend .atividades--btn;
         width: 31% !important;
+        background-color: $white;
         @include device(md) {
             width: 49% !important;
         }
         @include device(sm) {
             width: 100% !important;
         }
+    }
+    &--desativar {
+        @extend .dados-pessoais--desativar;
     }
     .logged--header {
         flex-wrap: wrap !important;

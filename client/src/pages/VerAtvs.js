@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import AtvBox from "../components/AtvBox";
 import ModalAddAtv from "../components/ModalAddAtv";
+import ModalDeleteMateria from "../components/ModalDeleteMateria";
 import PlataformaHeader from "../components/PlataformaHeader";
 import VerAtvsInfo from "./VerAtvs-Info";
 
@@ -14,7 +15,8 @@ export default function VerAtvs() {
     const { materiaID } = useParams()
 
     const [materia, setMateria] = useState({})
-    const [show, setShow] = useState(false);
+    const [showAdd, setShowAdd] = useState(false);
+    const [showExcluir, setShowExcluir] = useState(false);
 
     axios.defaults.withCredentials = true
 
@@ -65,7 +67,7 @@ export default function VerAtvs() {
                         }}>
                         Ver atividades
                     </button>
-                    <button className="ver-atividades--btn ver-atividades--btn--inactive" onClick={() => { setShow(true) }}>Adicionar atividade</button>
+                    <button className="ver-atividades--btn ver-atividades--btn--inactive" onClick={() => { setShowAdd(true) }}>Adicionar atividade</button>
                     <button
                         className={infoButton}
                         onClick={() => {
@@ -100,7 +102,7 @@ export default function VerAtvs() {
                         </div>
                         ))}*/}
 
-                        <div className="ver-atividades--holder">
+                        <div className="ver-atividades--holder mb-5">
                             <AtvBox
                                 title="Título"
                                 tipo="Trabalho"
@@ -109,13 +111,18 @@ export default function VerAtvs() {
                                 className="mb-4"
                             />
                         </div>
+
+                        <a className="ver-atividades--desativar mt-1" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
                     </>
                 }
                 {index === 1 &&
-                    <VerAtvsInfo />
+                    <>
+                        <VerAtvsInfo />
+                    </>
                 }
 
-                <ModalAddAtv onSubmit={onSubmit} show={show} onHide={() => { setShow(false) }} />
+                <ModalAddAtv onSubmit={onSubmit} show={showAdd} onHide={() => { setShowAdd(false) }} />
+                <ModalDeleteMateria show={showExcluir} onHide={() => { setShowExcluir(false) }} />
 
             </div>
         </>

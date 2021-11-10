@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import ModalAddMateria from "../components/ModalAddMateria";
 import PlataformaHeader from "../components/PlataformaHeader";
 
-//import MateriaContainer from "../components/MateriaContainer";
-
 export default function Materias() {
 
     axios.defaults.withCredentials = true
