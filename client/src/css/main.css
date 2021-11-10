@@ -1740,6 +1740,7 @@ ol, ul {
   padding: 40px 150px;
   color: #FFFFFF;
   font: 500 20px "Baloo Bhai 2", cursive;
+  cursor: pointer;
 }
 @media screen and (max-width: 1199.98px) {
   .painel--materia {
@@ -1973,6 +1974,7 @@ ol, ul {
   justify-content: space-between;
   width: 49%;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 @media screen and (max-width: 767.98px) {
   .materias--container {

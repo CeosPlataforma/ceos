@@ -1,15 +1,16 @@
-import React from "react";
-import SimpleBox from "../components/SimpleBox";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
-import AtvBox from "../components/AtvBox";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
-
+import SimpleBox from "../components/SimpleBox";
 import { useDrag } from "../components/useDrag";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 
 export default function Painel() {
 
@@ -89,7 +90,7 @@ export default function Painel() {
         },
     ]
 
-    const materias = [
+    /*const materias = [
         {
             title: "Matéria 1"
         },
@@ -102,7 +103,7 @@ export default function Painel() {
         {
             title: "Matéria 4"
         }
-    ]
+    ]*/
 
     function NextArrow(props) {
         const { className, style, onClick } = props;
@@ -128,6 +129,32 @@ export default function Painel() {
 
     // const margem = $('.content').width() + 160;
     // $('.min-footer').css('margin-top', margem + 'px');
+
+    axios.defaults.withCredentials = true
+
+    const [materias, setMaterias] = useState([]);
+
+    function onClick(materiaID) {
+        window.location = `http://localhost:3000/materia/${materiaID}`
+    }
+
+    const fetchMaterias = async () => {
+        axios.get('http://localhost:3333/materia')
+            .then((response) => {
+
+                if (response.data.message !== "sem-materias") {
+                    setMaterias(response.data)
+                    console.log(response.data)
+                } else {
+                    console.log("sem materia");
+                }
+
+            }).catch((error) => { console.log(error); })
+    }
+
+    useEffect(() => {
+        fetchMaterias()
+    }, [])
 
 
     return (
@@ -184,11 +211,11 @@ export default function Painel() {
                             slidesToShow: 2,
                         }
                     }]}>
-                {materias.map((card) => {
-                    return (<div>
-                        <button className="painel--materia">{card.title}</button>
-                    </div>)
-                })}
+                        {materias.map((materia) => (
+                        <div>
+                            <button className="painel--materia" onClick={() => onClick(materia.uuid)}>{materia.name}</button>
+                        </div>
+                    ))}
             </Slider>
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Atividades recentes</h4></div>

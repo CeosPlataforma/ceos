@@ -19,6 +19,7 @@
         padding: 40px 150px;
         color: $white;
         font: $font-sm;
+        cursor: pointer;
         @include device(lg) {            
             padding: 30px 90px;
         }

@@ -60,6 +60,7 @@
         justify-content: space-between;
         width: 49%;
         margin-bottom: 30px;
+        cursor: pointer;
         @include device(sm) {
             width: 100%;
         }
