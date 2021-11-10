@@ -33,7 +33,7 @@ function StuffComponent(props) {
     const [desButton, setDesButton] = useState("visao-geral--btn--inactive")
 
     return (
-        <div className="container container-padding--light visao-geral" id="visao-geral">
+        <div data-aos="fade-up" className="container container-padding--light visao-geral" id="visao-geral">
             <h2 className="visao-geral--title text-center mb-4">
                 Visão geral sobre a plataforma
             </h2>

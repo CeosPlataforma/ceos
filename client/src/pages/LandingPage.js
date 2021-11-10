@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 import hero from "../assets/illustrations/hero.svg";
 import StuffComponent from "../components/StuffComponent";
-import { useEffect } from "react";
-import axios from "axios";
 
 export default function Home() {
 
@@ -17,6 +19,8 @@ export default function Home() {
             .catch((error) => {
                 console.log(error);
             });
+
+        Aos.init({ duration: 1000 });
 
     }, [])
 
@@ -106,12 +110,12 @@ export default function Home() {
             <StuffComponent />
 
             <div className="container-fluid funcionalidades px-0" id="funcionalidades">
-                <div className="container container-padding">
+                <div data-aos="fade-up" className="container container-padding">
                     <h2 className="funcionalidades--title text-center pb-4">
                         Conheça as funcionalidades
                     </h2>
 
-                    <div className="row">
+                    <div data-aos="fade-up" className="row">
                         <div className="col-xl-4 col-lg-6 d-flex align-items-stretch">
                             <div className="card pt-5 pb-3 mb-5">
                                 <span className="px-4">
@@ -316,7 +320,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="container container-padding--light depoimentos" id="depoimentos">
+            <div data-aos="fade-up" className="container container-padding--light depoimentos" id="depoimentos">
                 <h2 className="depoimentos--title text-center mb-5">
                     Depoimentos de quem usa Ceos
                 </h2>
