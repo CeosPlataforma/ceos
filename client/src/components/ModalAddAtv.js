@@ -1,9 +1,9 @@
-import { Formik } from 'formik';
-import React from 'react';
+import { Form, Field, Formik, useFormikContext } from 'formik';
+import React, { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import * as Yup from 'yup';
 
@@ -11,15 +11,20 @@ function ModalAddAtv(props) {
 
     const initialValues = {
         name: '',
-        date: '',
-        type: '0',
+        description: ''
+    }
 
+    const formRef = useRef();
+    
+    const handleSubmit = () => {
+        if (formRef.current) {
+            formRef.current.handleSubmit();
+        }
     }
 
     const validationSchema = Yup.object({
         name: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário"),
-        date: '',
-        type: '0',
+        dueByDate: Yup.date()
     });
 
 
@@ -32,19 +37,19 @@ function ModalAddAtv(props) {
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                    <Formik onSubmit={props.onSubmit} initialValues={initialValues} validationSchema={validationSchema}>
+                    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit} innerRef={formRef}>
                         <Form>
                             <Row className="justify-content-between">
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg">Título</label>
-                                        <input className="form-control modal--input" placeholder="Título da atividade" />
+                                        <Field type="text" name="name" className="form-control modal--input" placeholder="Título da atividade" />
                                     </div>
                                 </Col>
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg">Data de entrega</label>
-                                        <input className="form-control modal--input" placeholder="XX/XX/XX" />
+                                        <Field type="date" name="dueByDate" className="form-control modal--input" placeholder="XX/XX/XX" />
                                     </div>
                                 </Col>
                             </Row>
@@ -52,27 +57,28 @@ function ModalAddAtv(props) {
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg">Tipo</label>
-                                        <Form.Select className="modal--input atividade-dropdown">
+                                        <Field name="type" as="select" className="modal--input atividade-dropdown">
                                             <option className="atividade-dropdown--select" value="">Selecione um tipo</option>
                                             <option value="licao-de-casa">Lição de casa</option>
                                             <option value="trabalho">Trabalho</option>
                                             <option value="prova">Prova</option>
-                                        </Form.Select>
+                                        </Field>
                                     </div>
                                 </Col>
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg">Descrição</label>
-                                        <textarea className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" />
+                                        <Field name="description" as="textarea" className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" />
                                     </div>
                                 </Col>
                             </Row>
+                            
                         </Form>
                     </Formik>
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md modal--btn modal-atividade--btn mt-4" onClick={props.onHide}>Salvar</Button>
+                <button onClick={handleSubmit} className="text-md modal--btn modal-atividade--btn mt-4">Salvar</button>
             </Modal.Footer>
         </Modal >
     );

@@ -18,19 +18,21 @@ export default function VerAtvs() {
 
     axios.defaults.withCredentials = true
 
-    /*const [atividade, setAtividades] = useState([]);
-    const fetchMaterias = async () => {
-        axios.get('http://localhost:3333/atividades')
-            .then((response) => {
+    const onSubmit = async (values, actions) => {
+        console.log(values)
+        // await axios.post("http://localhost:3333/materia", { name: values.name })
+        //     .then((response) => {
+        //         console.log(response);
+        //         if (response.data.materiaAlreadyExists) {
+        //             actions.setFieldError("name", response.data.message);
+        //         } else if (response.data.success) {
+        //             setShow(false);
+        //         }
+        //     }).catch((error) => {
+        //         console.log(error)
+        //     });
+    }
 
-                if (response.data.message !== "sem-atividades") {
-                    setMaterias(response.data)
-                } else {
-                    console.log("sem atividade");
-                }
-
-            }).catch((error) => { console.log(error); })
-    }*/
 
     const [index, setIndex] = useState(0)
 
@@ -113,7 +115,7 @@ export default function VerAtvs() {
                     <VerAtvsInfo />
                 }
 
-                <ModalAddAtv show={show} onHide={() => { setShow(false) }} />
+                <ModalAddAtv onSubmit={onSubmit} show={show} onHide={() => { setShow(false) }} />
 
             </div>
         </>

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import ModalAddMateria from "../components/ModalAddMateria";
 import PlataformaHeader from "../components/PlataformaHeader";
+
 //import MateriaContainer from "../components/MateriaContainer";
 
 export default function Materias() {
@@ -74,10 +75,10 @@ export default function Materias() {
                 <div className="materias--holder">
 
                     {materias.map((materia) => (
-                        <div className="materias--container">
+                        <div className="materias--container" style={{cursor: 'default'}}>
                             <h5>{materia.name}</h5>
                             <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
-                                <div className="materias--arrow"></div>
+                                <div className="materias--arrow"/>
                             </div>
                         </div>
                     ))}

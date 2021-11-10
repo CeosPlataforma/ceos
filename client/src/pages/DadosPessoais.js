@@ -299,32 +299,22 @@ export default function DadosPessoais() {
 
                     <div className="col-sm-12 col-xl-5">
                         <Title title="Dados pessoais" user={false} />
-                        {/* <h4 className="dados-pessoais--sub-title">Foto de perfil</h4> */}
                         <div>
                             <Avatar className="dados-pessoais--user-img" />
                             <a className="btn btn-edit--photo" onClick={triggerFile}><svg xmlns="http://www.w3.org/2000/svg" width="41.154" height="42.687" viewBox="0 0 41.154 42.687"><g transform="translate(-1044.681 -617.99)"><path d="M1048.433,650.072l-3.752,14.1,13.984-4.32,19.555-19.555-10.574-10.574Z" transform="translate(0 -3.493)" fill="#fff" /><path d="M1081.756,623.5l9.836,9.836,5.282-5.282-10.063-10.063Z" transform="translate(-11.039)" fill="#fff" /></g></svg></a>
                         </div>
                         <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
-                        {/* <button className="dados-pessoais--alterar" onClick={triggerFile}>Alterar foto</button> */}
                     </div>
 
                     <div className="col-sm-12 col-xl-7 mx-auto conteudo-direita">
                         <Formik enableReinitialize={true} initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmitExcluir}>
                             <Form className="dados-pessoais--form">
                                 <label htmlFor="dados-pessoais--nome" className="form-label">Nome</label>
-                                <Field name="name" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--nome"
-                                    /*defaultValue={nome}*/ readOnly={true} />
-
+                                <Field name="name" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--nome" readOnly={true} />
+ 
                                 <label htmlFor="dados-pessoais--email" className="form-label">E-mail</label>
-                                <Field name="email" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--email"
-                                    /*defaultValue={email}*/ readOnly={true} />
+                                <Field name="email" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--email" readOnly={true} />
 
-                                {/* <label for="dados-pessoais--senha" className="form-label">Senha</label>
-                                <div className="dados-pessoais--senha--container senha--container">
-                                    <Field name="senha" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
-                                    <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                    <ErrorMessage name="senha" />
-                                </div> */}
                                 <Button className="dados-pessoais--btn w-100 mb-4 mt-2" onClick={() => setShowMudarDados(true)}>Alterar dados</Button>
                                 <Button className="text-md w-100 modal--btn--secondary mb-4 mt-2" onClick={() => setShowMudarSenha(true)} >Alterar senha</Button>
 
