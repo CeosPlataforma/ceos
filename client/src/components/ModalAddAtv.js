@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import * as Yup from 'yup';
 
@@ -15,7 +14,7 @@ function ModalAddAtv(props) {
         name: '',
         date: '',
         type: '0',
-        
+
     }
 
     const validationSchema = Yup.object({
