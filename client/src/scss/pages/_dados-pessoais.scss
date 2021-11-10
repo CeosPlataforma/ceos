@@ -110,8 +110,9 @@
     }
 }
 
-.desativar-conta--btn, .confirmar-exclusao {
+.desativar-conta--btn, .confirmar-exclusao, .excluir-materia--btn {
     background: $red !important;
+    color: $white;
     &:hover, &:focus, &:active{
         background: $red !important;
     }
