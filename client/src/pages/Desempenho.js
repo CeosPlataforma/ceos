@@ -1,10 +1,11 @@
 import React from "react";
-import SimpleBox from "../components/SimpleBox";
-import PlataformaHeader from "../components/PlataformaHeader";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Container from 'react-bootstrap/Container';
+import SimpleBox from "../components/SimpleBox";
+import PlataformaHeader from "../components/PlataformaHeader";
 
 export default function Desempenho() {
 
@@ -41,13 +42,11 @@ export default function Desempenho() {
             <Container fluid={"xxl"} className="desempenho content">
                 <PlataformaHeader title="Desempenho" user={false} />
 
-                <div className="desempenho--section">
+                <Row className="justify-content-between desempenho--section">
                     <SimpleBox
                         counter="005"
                         title="Lições de casa concluídas"
                     />
-
-
                     <SimpleBox
                         counter="005"
                         title="Trabalhos concluídos"
@@ -57,34 +56,29 @@ export default function Desempenho() {
                         counter="005"
                         title="Provas concluídas"
                     />
-
                     <SimpleBox
                         counter="005"
                         title="Atividades concluídas"
                     />
-                </div>
-
-                <div className="desempenho--section">
+                </Row>
+                <Row className="justify-content-between desempenho--section">
                     <SimpleBox
                         counter="005"
                         title="Lições de casa pendentes"
                     />
-
                     <SimpleBox
                         counter="005"
                         title="Trabalhos pendentes"
                     />
-
                     <SimpleBox
                         counter="005"
                         title="Provas pendentes"
                     />
-
                     <SimpleBox
                         counter="005"
                         title="Atividades pendentes"
                     />
-                </div>
+                </Row>
 
                 <div className="materias--holder">
                     {materias.map((materia) => (

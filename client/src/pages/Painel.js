@@ -1,16 +1,15 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+
 import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
 import SimpleBox from "../components/SimpleBox";
 import { useDrag } from "../components/useDrag";
-
-
 
 export default function Painel() {
 
@@ -211,11 +210,11 @@ export default function Painel() {
                             slidesToShow: 2,
                         }
                     }]}>
-                        {materias.map((materia) => (
-                        <div>
-                            <button className="painel--materia" onClick={() => onClick(materia.uuid)}>{materia.name}</button>
-                        </div>
-                    ))}
+                {materias.map((materia) => (
+                    <div>
+                        <button className="painel--materia" onClick={() => onClick(materia.uuid)}>{materia.name}</button>
+                    </div>
+                ))}
             </Slider>
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Atividades recentes</h4></div>

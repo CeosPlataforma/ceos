@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 import hero from "../assets/illustrations/hero.svg";
 import StuffComponent from "../components/StuffComponent";
@@ -26,8 +28,8 @@ export default function Home() {
 
     return (
         <>
-            <div className="container container-padding hero">
-                <div className="row align-items-center">
+            <Container className="container-padding hero">
+                <Row className="align-items-center">
                     <div className="col-sm-12 col-xl-7">
                         <h1 className="hero--title mb-3"> A melhor plataforma de <span> organização escolar </span> </h1>
 
@@ -43,12 +45,12 @@ export default function Home() {
                     <div className="col-sm-12 col-xl-5">
                         <img src={hero} className="d-none d-xl-block mx-auto img-fluid" alt="Imagem do Hero - Ceos" width="700px" height="100%" />
                     </div>
-                </div>
-            </div>
+                </Row>
+            </Container>
 
-            <div className="container-fluid por-que-usar px-0" id="por-que-usar">
-                <div className="container container-padding">
-                    <div className="row align-items-center">
+            <Container fluid className="por-que-usar px-0" id="por-que-usar">
+                <Container className="container-padding">
+                    <Row className="align-items-center">
                         <div className="col-xl-3 col-sm-12 mb-4 mb-xl-0">
                             <h2 className="por-que-usar--title">
                                 Por que usar Ceos
@@ -103,19 +105,19 @@ export default function Home() {
                                 A divisão de atividades e matérias permite maior auxílio no controle escolar.
                             </p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </Row>
+                </Container>
+            </Container>
 
             <StuffComponent />
 
-            <div className="container-fluid funcionalidades px-0" id="funcionalidades">
-                <div data-aos="fade-up" className="container container-padding">
+            <Container fluid className="funcionalidades px-0" id="funcionalidades">
+                <Container data-aos="fade-up" className="container-padding">
                     <h2 className="funcionalidades--title text-center pb-4">
                         Conheça as funcionalidades
                     </h2>
 
-                    <div data-aos="fade-up" className="row">
+                    <Row data-aos="fade-up">
                         <div className="col-xl-4 col-lg-6 d-flex align-items-stretch">
                             <div className="card pt-5 pb-3 mb-5">
                                 <span className="px-4">
@@ -316,16 +318,16 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </Row>
+                </Container>
+            </Container>
 
-            <div data-aos="fade-up" className="container container-padding--light depoimentos" id="depoimentos">
+            <Container data-aos="fade-up" className="container-padding--light depoimentos" id="depoimentos">
                 <h2 className="depoimentos--title text-center mb-5">
                     Depoimentos de quem usa Ceos
                 </h2>
 
-                <div className="row">
+                <Row>
                     <div className="col-lg-6 mb-5 mb-lg-0">
                         <blockquote className="blockquote blockquote-custom p-5">
                             <div className="blockquote-custom-icon">
@@ -389,11 +391,11 @@ export default function Home() {
                             </footer>
                         </blockquote>
                     </div>
-                </div>
-            </div>
+                </Row>
+            </Container>
 
-            <div className="container-fluid cta px-0">
-                <div className="container container-padding">
+            <Container fluid className="cta px-0">
+                <Container fluid className="container-padding">
                     <h2 className="cta--title text-center pb-4">
                         Comece agora mesmo a usar a plataforma Ceos!
                     </h2>
@@ -403,8 +405,8 @@ export default function Home() {
                     <div className="d-grid d-md-flex justify-content-center">
                         <Link to={"/acessar"} type="button" className="cta--btn"> Acessar </Link>
                     </div>
-                </div>
-            </div>
+                </Container>
+            </Container>
         </>
     );
 }

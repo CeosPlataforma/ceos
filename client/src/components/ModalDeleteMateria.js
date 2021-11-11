@@ -13,8 +13,8 @@ function ModalDeleteMateria(props) {
             <Modal.Body>
                 <div className="modal-body mb-4">
                     <p className="text-lg">Nome da matéria</p>
-                    <input name="name" type="text" className="form-control modal--input" placeholder="materia"
-                        aria-describedby="emailRecover" required readOnly={true} />
+                    <input name="name" type="text" className="form-control modal--input" value="materia"
+                        aria-describedby="materiaDelete" required readOnly={true} />
                 </div>
                 <div className="modal-footer">
                     <button type="submit" className="text-md w-100 modal--btn excluir-materia--btn">Confirmar exclusão</button>

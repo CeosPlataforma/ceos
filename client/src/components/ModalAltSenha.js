@@ -98,7 +98,7 @@ function ModalAltSenha(props) {
 
                             <Button type="submit" className="text-md w-100 modal--btn mt-4 mb-2">Confirmar alteração</Button>
 
-                            <a className="esqueci-senha" onClick={() => { setShow(true) }}>&gt; Esqueci minha senha</a>
+                            <a onClick={() => { setShow(true) }}>&gt; Esqueci minha senha</a>
 
                         </Form>
                     </Formik>

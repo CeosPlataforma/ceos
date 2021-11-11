@@ -10,7 +10,10 @@
             width: 100% !important;
         }
     }
-    &--desativar {
+    &--holder {
+        margin: 0;
+    }
+    &--excluir {
         @extend .dados-pessoais--desativar;
     }
     .logged--header {

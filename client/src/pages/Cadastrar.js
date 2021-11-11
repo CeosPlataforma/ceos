@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
-import ModalCadastro from "../components/ModalCadastro";
 
+import ModalCadastro from "../components/ModalCadastro";
 
 export default function Cadastrar() {
 

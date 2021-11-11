@@ -1,5 +1,8 @@
 import React from "react";
 import { HashLink } from 'react-router-hash-link';
+import Container from 'react-bootstrap/Container';
+import Modal from 'react-bootstrap/Modal';
+import Row from 'react-bootstrap/Row';
 
 import logo from "../assets/logo/svg/LogoVB(SemNome).svg";
 import { Link } from "react-router-dom";
@@ -8,8 +11,8 @@ function Footer() {
     return (
         <footer className="footer container-fluid px-0">
             <div className="footer-top">
-                <div className="container container-padding">
-                    <div className="row">
+                <Container className="container-padding">
+                    <Row>
                         <div className="col-lg-3">
                             <Link className="navbar-brand" to="/">
                                 <img src={logo} height="55px" alt="Logo - Ceos" />
@@ -77,8 +80,8 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
+                    </Row>
+                </Container>
             </div>
         </footer>
     );

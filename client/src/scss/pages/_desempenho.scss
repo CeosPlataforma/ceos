@@ -1,13 +1,13 @@
 .desempenho {
     &--section {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
-        @include device(sm) {
-            flex-direction: column;            
-        }
-        
+        // display: flex;
+        // width: 100%;
+        // justify-content: space-between;
+        // flex-wrap: wrap;
+        // align-items: center;
+        // @include device(sm) {
+        //     flex-direction: column;            
+        // }
+        margin: 0;
     }
 }

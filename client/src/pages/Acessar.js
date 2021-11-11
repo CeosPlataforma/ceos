@@ -1,8 +1,9 @@
+import React, { useState } from "react";
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as Yup from 'yup';
+
 import ModalSenha from "../components/ModalSenha";
 
 export default function Acessar() {

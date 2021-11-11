@@ -974,6 +974,7 @@ button {
   font: 500 20px "Baloo Bhai 2", cursive;
   background: #216AA7;
   border: none;
+  cursor: pointer;
 }
 .modal--btn:hover, .modal--btn:focus, .modal--btn:active {
   background: #216AA7 !important;
@@ -1072,10 +1073,6 @@ button {
 }
 .modal-cronograma--linha {
   margin-bottom: 50px;
-}
-
-.esqueci-senha {
-  cursor: pointer;
 }
 
 .senha--container {
@@ -1352,7 +1349,7 @@ ol, ul {
 }
 @media screen and (max-width: 767.98px) {
   .simpleBox {
-    width: 90%;
+    width: 49%;
   }
 }
 .simpleBox h2 {
@@ -1525,7 +1522,12 @@ ol, ul {
 }
 
 .navbar-collapse.show {
-  padding-bottom: 30px;
+  padding-bottom: 0px;
+}
+@media screen and (max-width: 1199.98px) {
+  .navbar-collapse.show {
+    padding-bottom: 30px;
+  }
 }
 
 .acessar {
@@ -2033,6 +2035,9 @@ ol, ul {
     width: 100% !important;
   }
 }
+.ver-atividades--holder {
+  margin: 0;
+}
 .ver-atividades .logged--header {
   flex-wrap: wrap !important;
 }
@@ -2139,16 +2144,7 @@ ol, ul {
 }
 
 .desempenho--section {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-}
-@media screen and (max-width: 767.98px) {
-  .desempenho--section {
-    flex-direction: column;
-  }
+  margin: 0;
 }
 
 .dados-pessoais--sub-title {
@@ -2177,14 +2173,14 @@ ol, ul {
   color: #FFFFFF;
   transition: 0.2s;
 }
-.dados-pessoais--desativar, .ver-atividades--desativar {
+.dados-pessoais--desativar, .ver-atividades--excluir {
   color: #C24D4D !important;
   cursor: pointer;
   text-decoration: none;
   font: 500 20px "Baloo Bhai 2", cursive;
   line-height: 32px;
 }
-.dados-pessoais--desativar:hover, .ver-atividades--desativar:hover, .dados-pessoais--desativar:focus, .ver-atividades--desativar:focus, .dados-pessoais--desativar:active, .ver-atividades--desativar:active {
+.dados-pessoais--desativar:hover, .ver-atividades--excluir:hover, .dados-pessoais--desativar:focus, .ver-atividades--excluir:focus, .dados-pessoais--desativar:active, .ver-atividades--excluir:active {
   color: #C24D4D !important;
 }
 .dados-pessoais--dados {
@@ -2233,8 +2229,8 @@ ol, ul {
 .btn-edit--photo {
   position: absolute;
   background-color: #216AA7;
-  top: 130px;
-  left: 263px;
+  top: 0;
+  right: 220px;
   border-radius: 50%;
   border: none;
   height: 55px;

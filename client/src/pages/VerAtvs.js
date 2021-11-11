@@ -1,9 +1,7 @@
-//caso confuso é isso:
-//https://xd.adobe.com/view/0372ae08-46dc-42f7-65e2-072a093ce5cc-7543/screen/f2fca1d1-70f9-4bf5-b466-c23f841c303c
-
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router";
+
 import AtvBox from "../components/AtvBox";
 import ModalAddAtv from "../components/ModalAddAtv";
 import ModalDeleteMateria from "../components/ModalDeleteMateria";
@@ -124,9 +122,9 @@ export default function VerAtvs() {
                             </ul>
                         </div>
 
-                        <div className="ver-atividades--holder mb-5">
+                        <div className="row d-flex justify-content-between ver-atividades--holder mb-5">
                             {atividades.map((atividade) => {
-                                
+
                                 let tipo;
 
                                 switch (atividade.atv_type) {
@@ -145,15 +143,15 @@ export default function VerAtvs() {
                                 }
                                 console.log(atividade.dueBy)
 
-                                let day = atividade.dueBy.substring(8,10)
+                                let day = atividade.dueBy.substring(8, 10)
                                 console.log(day)
                                 //day = day.length>1 ? day : `0${day}`
 
-                                let month = atividade.dueBy.substring(5,7)
+                                let month = atividade.dueBy.substring(5, 7)
                                 //month = month.length>1 ? month : `0${month}`
 
-                                let year = atividade.dueBy.substring(0,4)
-                                
+                                let year = atividade.dueBy.substring(0, 4)
+
                                 let date = `${day}/${month}/${year}`
 
                                 return <AtvBox title={atividade.name} tipo={tipo} data={date} excluir className="mb-4" />
@@ -161,7 +159,7 @@ export default function VerAtvs() {
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
                         </div>
 
-                        <a className="ver-atividades--desativar mt-1" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
+                        <a className="ver-atividades--excluir mt-1" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
                     </>
                 }
                 {index === 1 &&

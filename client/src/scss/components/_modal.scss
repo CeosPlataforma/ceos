@@ -33,8 +33,7 @@
         font-weight: $regular;
         padding: 12px;
         border: 2px solid $gray;
-        border-radius: 10px;
-    
+        border-radius: 10px;    
         &:focus, &:active {
             border: 2px solid $gray;
         }
@@ -45,6 +44,7 @@
         font: $font-sm;
         background: $blue;
         border: none;
+        cursor: pointer;
         &:hover, &:focus, &:active {
             background: $blue !important;
         }
@@ -142,10 +142,6 @@
     &--linha {
         margin-bottom: 50px;
     }
-}
-
-.esqueci-senha {
-    cursor: pointer;
 }
 
 @import "//node_modules/bootstrap/scss/bootstrap";

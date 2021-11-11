@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import PlataformaHeader from "../components/PlataformaHeader";
 import { Link } from "react-router-dom";
 
 import AtvBox from "../components/AtvBox";
-
+import PlataformaHeader from "../components/PlataformaHeader";
 
 export default function Atividades() {
 

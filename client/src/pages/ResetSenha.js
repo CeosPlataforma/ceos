@@ -1,9 +1,10 @@
+import React, { useState } from "react";
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from "react";
 import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
 import * as Yup from 'yup';
+
 import ModalEsqueceuSenha from "../components/ModalEsqueceuSenha";
 
 export default function Acessar() {
@@ -99,7 +100,7 @@ export default function Acessar() {
                     </Form>
                 </Formik>
             </div>
-            <ModalEsqueceuSenha show={modalShow} onHide={() => setModalShow(false)}/>
+            <ModalEsqueceuSenha show={modalShow} onHide={() => setModalShow(false)} />
         </div >
     );
 }
