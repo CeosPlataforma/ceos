@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -89,21 +91,6 @@ export default function Painel() {
         },
     ]
 
-    /*const materias = [
-        {
-            title: "Matéria 1"
-        },
-        {
-            title: "Matéria 2"
-        },
-        {
-            title: "Matéria 3"
-        },
-        {
-            title: "Matéria 4"
-        }
-    ]*/
-
     function NextArrow(props) {
         const { className, style, onClick } = props;
         return (
@@ -125,9 +112,6 @@ export default function Painel() {
             />
         );
     }
-
-    // const margem = $('.content').width() + 160;
-    // $('.min-footer').css('margin-top', margem + 'px');
 
     axios.defaults.withCredentials = true
 
@@ -211,9 +195,11 @@ export default function Painel() {
                         }
                     }]}>
                 {materias.map((materia) => (
-                    <div>
-                        <button className="painel--materia" onClick={() => onClick(materia.uuid)}>{materia.name}</button>
-                    </div>
+                    <Row>
+                        <Col>
+                            <div className="painel--materia text-center" onClick={() => onClick(materia.uuid)}><p>{materia.name}</p></div>
+                        </Col>
+                    </Row>
                 ))}
             </Slider>
 
@@ -239,14 +225,18 @@ export default function Painel() {
                     }
                 ]}>
                 {atvs.map((card) => {
-                    return <AtvBox
-                        title={card.title}
-                        materia={card.materia}
-                        tipo={card.tipo}
-                        data={card.data}
-                        excluir={false}
-                        toggleDrag={toggleDrag}
-                    />
+                    return (
+                        <Row>
+                            <AtvBox
+                                title={card.title}
+                                materia={card.materia}
+                                tipo={card.tipo}
+                                data={card.data}
+                                excluir={false}
+                                toggleDrag={toggleDrag}
+                            />
+                        </Row>
+                    );
                 })}
             </Slider>
 
@@ -276,10 +266,14 @@ export default function Painel() {
                     }
                 ]}>
                 {geral.map((card) => {
-                    return <SimpleBox
-                        counter={card.counter}
-                        title={card.title}
-                    />
+                    return (
+                        <Row>
+                            <SimpleBox
+                                counter={card.counter}
+                                title={card.title}
+                            />
+                        </Row>
+                    );
                 })}
             </Slider>
 

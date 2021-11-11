@@ -1,6 +1,7 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -42,42 +43,55 @@ export default function Desempenho() {
             <Container fluid={"xxl"} className="desempenho content">
                 <PlataformaHeader title="Desempenho" user={false} />
 
-                <Row className="justify-content-between desempenho--section">
-                    <SimpleBox
-                        counter="005"
-                        title="Lições de casa concluídas"
-                    />
-                    <SimpleBox
-                        counter="005"
-                        title="Trabalhos concluídos"
-                    />
-
-                    <SimpleBox
-                        counter="005"
-                        title="Provas concluídas"
-                    />
-                    <SimpleBox
-                        counter="005"
-                        title="Atividades concluídas"
-                    />
-                </Row>
-                <Row className="justify-content-between desempenho--section">
-                    <SimpleBox
-                        counter="005"
-                        title="Lições de casa pendentes"
-                    />
-                    <SimpleBox
-                        counter="005"
-                        title="Trabalhos pendentes"
-                    />
-                    <SimpleBox
-                        counter="005"
-                        title="Provas pendentes"
-                    />
-                    <SimpleBox
-                        counter="005"
-                        title="Atividades pendentes"
-                    />
+                <Row sm={1} md={2} xxl={4} className="desempenho--section">
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Lições de casa concluídas"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Trabalhos concluídos"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Provas concluídas"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Atividades concluídas"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Lições de casa pendentes"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Trabalhos pendentes"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Provas pendentes"
+                        />
+                    </Col>
+                    <Col>
+                        <SimpleBox
+                            counter="005"
+                            title="Atividades pendentes"
+                        />
+                    </Col>
                 </Row>
 
                 <div className="materias--holder">

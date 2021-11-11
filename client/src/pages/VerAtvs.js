@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import Row from 'react-bootstrap/Row';
 
 import AtvBox from "../components/AtvBox";
 import ModalAddAtv from "../components/ModalAddAtv";
 import ModalDeleteMateria from "../components/ModalDeleteMateria";
 import PlataformaHeader from "../components/PlataformaHeader";
 import VerAtvsInfo from "./VerAtvs-Info";
+
 
 export default function VerAtvs() {
 
@@ -123,7 +125,8 @@ export default function VerAtvs() {
                             </ul>
                         </div>
 
-                        <div className="row d-flex justify-content-between ver-atividades--holder mb-5">
+                        <Row sm={1} md={2} xxl={3} className="mb-2">
+                            {/* ver-atividades--holder */}
                             {atividades.map((atividade) => {
 
                                 let tipo;
@@ -142,7 +145,7 @@ export default function VerAtvs() {
                                         tipo = "Prova"
                                         break;
                                 }
-                                
+
 
                                 const day = atividade.dueBy.substring(8, 10)
                                 //console.log(day)
@@ -160,12 +163,11 @@ export default function VerAtvs() {
                                 atividade.fixedDate = date
                                 atividade.type = tipo
 
-                                return <AtvBox /*materia={atividade.name}*/ mat_obj={materia} atv_obj={atividade} title={atividade.name} tipo={tipo} data={date} excluir className="mb-4" />
+                                return <AtvBox /*materia={atividade.name}*/ mat_obj={materia} atv_obj={atividade} title={atividade.name} tipo={tipo} data={date} excluir className="mb-5" />
                             })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
-                        </div>
-
-                        <a className="ver-atividades--excluir mt-1" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
+                        </Row>
+                        <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
                     </>
                 }
                 {index === 1 &&

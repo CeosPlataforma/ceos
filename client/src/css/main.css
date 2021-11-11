@@ -612,7 +612,6 @@ input:checked + .slider:before {
 
 .content {
   margin: 50px auto 120px auto;
-  width: calc(100vw - 78px);
   transition: all 0.5s ease;
   min-height: 770px;
 }
@@ -1339,18 +1338,12 @@ ol, ul {
 .simpleBox {
   display: flex;
   background: #216AA7;
-  width: 220px;
   height: 180px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 20px;
   margin-bottom: 60px;
-}
-@media screen and (max-width: 767.98px) {
-  .simpleBox {
-    width: 49%;
-  }
 }
 .simpleBox h2 {
   color: #FFBF5B;
@@ -1363,21 +1356,23 @@ ol, ul {
 .atvBox {
   display: flex;
   background: #216AA7;
-  width: 340px;
   justify-content: center;
   flex-direction: column;
-  padding: 30px;
+  padding: 40px 30px 53px 30px;
+  min-height: 408px;
 }
 .atvBox h2 {
   color: #FFFFFF;
   text-align: center;
   font: 500 20px "Baloo Bhai 2", cursive;
   font-size: 24px;
+  margin-top: 5px;
 }
 .atvBox hr {
   width: 100%;
   height: 1.3px;
   background-color: #FFFFFF;
+  margin-bottom: 30px;
 }
 .atvBox h4 {
   font: 500 20px "Baloo Bhai 2", cursive !important;
@@ -1389,19 +1384,18 @@ ol, ul {
   display: inline-block;
 }
 .atvBox .atv-botoes {
-  margin-top: 15px;
+  margin-top: 22px;
+  flex-wrap: wrap;
 }
 .atvBox .btn-view {
   color: #216AA7;
   font: 500 20px "Baloo Bhai 2", cursive;
-  padding: 8px 50px;
+  padding: 8px;
+  width: 70%;
   border-radius: 10px;
   background-color: #FFFFFF;
-}
-@media screen and (max-width: 767.98px) {
-  .atvBox .btn-view {
-    padding: 8px 30px;
-  }
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 .atvBox .btn-delete {
   color: #FFFFFF;
@@ -1423,6 +1417,7 @@ ol, ul {
 .atvBox .topic {
   display: flex;
   align-items: center;
+  margin-bottom: 8px;
 }
 .atvBox .atvSvg {
   min-height: 35px;
@@ -1432,12 +1427,6 @@ ol, ul {
   margin-right: 10px;
 }
 
-@media screen and (max-width: 430px) {
-  .atvBox {
-    padding: 30px 10px !important;
-    width: 220px !important;
-  }
-}
 #none {
   display: none !important;
 }
@@ -1726,41 +1715,16 @@ ol, ul {
     margin-top: 18px;
   }
 }
-.painel--materias-holder {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-@media screen and (max-width: 767.98px) {
-  .painel--materias-holder {
-    flex-direction: column;
-  }
-}
 .painel--materia {
   background: #216AA7;
   border: none;
-  padding: 40px 0;
-  width: 90%;
+  padding: 40px 0px;
   color: #FFFFFF;
   font: 500 20px "Baloo Bhai 2", cursive;
   cursor: pointer;
 }
-@media screen and (max-width: 1199.98px) {
-  .painel--materia {
-    padding: 30px 90px;
-  }
-}
-@media screen and (max-width: 991.98px) {
-  .painel--materia {
-    padding: 20px 75px;
-  }
-}
-@media screen and (max-width: 767.98px) {
-  .painel--materia {
-    width: 80%;
-    margin: 15px 0px;
-    padding: 20px;
-  }
+.painel--materia p {
+  margin: 0;
 }
 .painel--atvs-recentes, .painel--materias {
   margin-bottom: 60px;
@@ -2035,9 +1999,6 @@ ol, ul {
     width: 100% !important;
   }
 }
-.ver-atividades--holder {
-  margin: 0;
-}
 .ver-atividades .logged--header {
   flex-wrap: wrap !important;
 }
@@ -2141,10 +2102,6 @@ ol, ul {
 }
 .materia-visualizar-cronograma:hover {
   color: #216AA7 !important;
-}
-
-.desempenho--section {
-  margin: 0;
 }
 
 .dados-pessoais--sub-title {

@@ -24,7 +24,7 @@ function ModalConfirmAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
-                                <input className="form-control modal--input" placeholder={props.atv_obj.name} readOnly={true} disabled={true}/>
+                                <input className="form-control modal--input" placeholder={props.atv_obj.name} readOnly={true} disabled={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>

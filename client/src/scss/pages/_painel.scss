@@ -5,32 +5,15 @@
             margin-top: 18px;
         }
     }
-    &--materias-holder {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
-        @include device(sm) {            
-            flex-direction: column;        
-        }
-    }
     &--materia {
         background: $blue;
         border: none;
-        padding: 40px 0;
-        width: 90%;
+        padding: 40px 0px;
         color: $white;
         font: $font-sm;
         cursor: pointer;
-        @include device(lg) {            
-            padding: 30px 90px;
-        }
-        @include device(md) {            
-            padding: 20px 75px;
-        }
-        @include device(sm) {            
-            width: 80%;
-            margin: 15px 0px; 
-            padding: 20px;         
+        p {
+            margin: 0;
         }
     }
     &--atvs-recentes, &--materias {

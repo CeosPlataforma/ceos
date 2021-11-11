@@ -10,9 +10,9 @@
             width: 100% !important;
         }
     }
-    &--holder {
-        margin: 0;
-    }
+    // &--holder {
+    //     margin: 0;
+    // }
     &--excluir {
         @extend .dados-pessoais--desativar;
     }

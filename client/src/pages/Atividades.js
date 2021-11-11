@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Row from 'react-bootstrap/Row';
 
 import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
@@ -97,16 +98,16 @@ export default function Atividades() {
                         <li><a className="dropdown-item">Matéria (decrescente)</a></li>
                     </ul>
                 </div>
-
-                <AtvBox
-                    materia="materia"
-                    title="Título"
-                    tipo="Trabalho"
-                    data="xx/xx/xxxx"
-                    excluir
-                    className="mb-4"
-                />
-
+                <Row sm={1} md={2} xxl={3} className="mb-2">
+                    <AtvBox
+                        materia="materia"
+                        title="Título"
+                        tipo="Trabalho"
+                        data="xx/xx/xxxx"
+                        excluir
+                        className="mb-5"
+                    />
+                </Row>
             </div>
         </>
     )
