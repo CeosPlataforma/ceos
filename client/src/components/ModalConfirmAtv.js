@@ -19,18 +19,18 @@ function ModalConfirmAtv(props) {
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                    <h4 className="modal-atividade--materia mb-3">&gt; Nome da matéria</h4>
+                    <h4 className="modal-atividade--materia mb-3">&gt; {props.mat_obj.name}</h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
-                                <input className="form-control modal--input" placeholder="Título da atividade" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.name} readOnly={true} disabled={true}/>
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Data de entrega</p>
-                                <input className="form-control modal--input" placeholder="XX/XX/XX" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.fixedDate} readOnly={true} />
                             </div>
                         </Col>
                     </Row>
@@ -38,13 +38,13 @@ function ModalConfirmAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Tipo</p>
-                                <input className="form-control modal--input" placeholder="Tipo da atividade" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.type} readOnly={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Descrição</p>
-                                <input className="form-control modal--input" placeholder="Descrição da atividade" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.description} readOnly={true} />
                             </div>
                         </Col>
                     </Row>

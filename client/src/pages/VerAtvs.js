@@ -24,7 +24,7 @@ export default function VerAtvs() {
     axios.defaults.withCredentials = true
 
     const onSubmit = async (values, actions) => {
-        console.log(values)
+        //console.log(values)
         await axios.post("http://localhost:3333/atividades", {
             name: values.name,
             description: values.description,
@@ -33,11 +33,11 @@ export default function VerAtvs() {
             materia_uuid: materiaID
         })
             .then((response) => {
-                console.log(response);
+                //console.log(response);
                 if (response.data.success) {
                     setShowAdd(false)
                 } else if (response.data.error) {
-                    console.log(response.data.error)
+                    //console.log(response.data.error)
                     actions.setFieldError("name", "erro!!!");
                 } else if (response.data.exists) {
                     actions.setFieldError("name", "Esta atividade já existe!!!");
@@ -55,6 +55,7 @@ export default function VerAtvs() {
 
                 if (response.data.message !== "sem-atividades") {
                     setAtividades(response.data)
+                    //console.log(response.data);
                 } else {
                     console.log("sem atividade");
                 }
@@ -75,7 +76,7 @@ export default function VerAtvs() {
             .then((response) => {
 
                 setMateria(response.data)
-
+                //console.log(response.data);
             }).catch((error) => { console.log(error) })
 
     }, [])
@@ -141,20 +142,25 @@ export default function VerAtvs() {
                                         tipo = "Prova"
                                         break;
                                 }
-                                console.log(atividade.dueBy)
+                                
 
-                                let day = atividade.dueBy.substring(8, 10)
-                                console.log(day)
+                                const day = atividade.dueBy.substring(8, 10)
+                                //console.log(day)
                                 //day = day.length>1 ? day : `0${day}`
 
-                                let month = atividade.dueBy.substring(5, 7)
+                                const month = atividade.dueBy.substring(5, 7)
                                 //month = month.length>1 ? month : `0${month}`
 
-                                let year = atividade.dueBy.substring(0, 4)
+                                const year = atividade.dueBy.substring(0, 4)
 
-                                let date = `${day}/${month}/${year}`
+                                const date = `${day}/${month}/${year}`
 
-                                return <AtvBox title={atividade.name} tipo={tipo} data={date} excluir className="mb-4" />
+                                //console.log(`date: ${date}`)
+
+                                atividade.fixedDate = date
+                                atividade.type = tipo
+
+                                return <AtvBox /*materia={atividade.name}*/ mat_obj={materia} atv_obj={atividade} title={atividade.name} tipo={tipo} data={date} excluir className="mb-4" />
                             })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
                         </div>
