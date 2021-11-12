@@ -1920,23 +1920,15 @@ ol, ul {
 .materias--container {
   background-color: #216AA7;
   padding: 30px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 49%;
   margin-bottom: 30px;
   cursor: pointer;
-}
-@media screen and (max-width: 767.98px) {
-  .materias--container {
-    width: 100%;
-  }
 }
 .materias--arrow {
   background: #FFFFFF;
   height: 3px;
   width: 80px;
-  margin: auto 30px auto 30px;
   position: relative;
   transform: rotate(0deg);
 }

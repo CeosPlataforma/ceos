@@ -55,22 +55,16 @@
     &--container {
         background-color: $blue;
         padding: 30px;
-        display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 49%;
         margin-bottom: 30px;
         cursor: pointer;
-        @include device(sm) {
-            width: 100%;
-        }
     }
 
     &--arrow {
         background: $white;
         height: 3px;
         width: 80px;
-        margin: auto 30px auto 30px;
         position: relative;
         transform: rotate(0deg);
         
@@ -107,4 +101,3 @@
         cursor: pointer;
     }
 }
-
