@@ -35,20 +35,6 @@
             color: $black;
             margin-bottom: 0;
         }
-
-        .acessar--input {
-            font: $font-sm;
-            color: $black;
-            font-weight: $regular;
-            padding: 12px;
-            border: 2px solid $gray;
-            border-radius: 10px;
-        
-            &:focus, &:active {
-                border: 2px solid $gray;
-            }
-        }
-
         .esqueci-minha-senha {
             float: right;
             cursor: pointer;

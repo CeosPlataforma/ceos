@@ -37,6 +37,19 @@
     }
 }
 
+.form-control {
+  padding: 12px;
+  border: 2px solid $gray;
+  border-radius: 10px;  
+  font-weight: $regular;
+  font: $font-sm;
+  font-weight: 400;             
+  color: $black;
+  &:focus, &:active {
+      border: 2px solid $gray;
+  }
+}
+
 .dark-mode {
     background-color: $black;
     color: $gray-light;

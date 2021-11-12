@@ -34,20 +34,6 @@
             font: $font-sm;
             color: $black;
         }
-
-        input {
-            font: $font-sm;
-            color: $black;
-            font-weight: $regular;
-            padding: 12px;
-            border: 2px solid $gray;
-            border-radius: 10px;
-        
-            &:focus, &:active {
-                border: 2px solid $gray;
-            }
-        }
-
         .esqueci-minha-senha {
             font: $font-sm;
             color: $gray-dark;
@@ -57,12 +43,10 @@
                 float: none;
             }
         }
-
         .permanecer-conectado {
             font: $font-sm !important;
             color: $gray-dark !important;
         }
-
         .hasborder {
             border: 2px solid $gray-dark;
             margin-left: 10px;
