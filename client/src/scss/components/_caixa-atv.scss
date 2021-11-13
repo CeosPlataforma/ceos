@@ -14,9 +14,10 @@
     }
     hr {
         width: 100%;
-        height: 1.3px;
+        height: 1.5px;
         background-color: $white;
         margin-bottom: 30px;
+        opacity: 1;
     }
     h4 {
         font: $font-sm !important;
@@ -143,17 +144,19 @@
     }
 }
 
-.atividade-dropdown {
-    outline: none;
+.form-select {
+    background-image: url(./../assets/icons/dropdownpreto.svg);
+    outline: none !important;
     width: 100%;
     color: $gray-dark;
     border-color: $gray;
-    &:focus-visible {        
+    &:focus-visible {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-color: $gray-dark;
         background-color: $gray-dark;
         color: $white !important;
+        background-image: url(./../assets/icons/dropdownbranco.svg);
     }
     option {
         background-color: $white;

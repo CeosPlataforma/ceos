@@ -26,16 +26,6 @@
             font: $font-sm;
             color: $black;
         }
-
-        input, textarea {
-            font: $font-sm;
-            color: $black;
-            font-weight: $regular;
-            padding: 12px;
-            border: 2px solid $gray;
-            border-radius: 10px;
-        }
-
         textarea {
             min-height: 160px;
         }

@@ -34,20 +34,6 @@
             font: $font-sm;
             color: $black;
         }
-
-        input {
-            font: $font-sm;
-            color: $black;
-            font-weight: $regular;
-            padding: 12px;
-            border: 2px solid $gray;
-            border-radius: 10px;
-        
-            &:focus, &:active {
-                border: 2px solid $gray;
-            }
-        }
-
         .esqueci-minha-senha {
             font: $font-sm;
             color: $gray-dark;
@@ -57,12 +43,10 @@
                 float: none;
             }
         }
-
         .permanecer-conectado {
             font: $font-sm !important;
             color: $gray-dark !important;
         }
-
         .hasborder {
             border: 2px solid $gray-dark;
             margin-left: 10px;
@@ -72,6 +56,21 @@
             overflow: hidden; 
             border-radius: 50%;
             box-shadow:0px 0px 0px 4px white inset;
+        }
+    }
+    .termos {
+        font: $font-sm;
+        font-weight: $regular;
+        span {
+            margin-right: 5px;
+        }
+        &--checkbox {
+            -webkit-appearance: auto;
+            margin-right: 10px;
+            height: 20px;
+            width: 20px;
+            margin-bottom: 2px;
+            cursor: pointer;
         }
     }
 }

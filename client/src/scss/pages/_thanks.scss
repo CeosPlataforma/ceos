@@ -1,0 +1,20 @@
+.thanks {    
+    margin: 140px auto 160px auto;
+    &--text {
+        font: $font-sm;
+        color: $gray-dark;
+        max-width: 95%;
+    }
+    &--form {
+        label {
+            font: $font-sm;
+            color: $black;
+            margin-bottom: 0;
+        }
+    }
+    h2 {
+        font: $font-sm;
+        font-weight: $regular;
+        color: $gray;
+    }
+}

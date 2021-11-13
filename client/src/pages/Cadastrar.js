@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
+import FormCheck from 'react-bootstrap/FormCheck'
 
 import ModalCadastro from "../components/ModalCadastro";
 
@@ -112,6 +113,8 @@ export default function Cadastrar() {
                         </div>
                         <ErrorMessage component="span" className="error-msg" name="confirmPassword" />
                     </div>
+
+                    <div className="d-flex align-items-center mb-4 termos"><input type="checkbox" className="termos--checkbox" /><span>Eu concordo com os<a href="/termos" target="_blank"> Termos e condições de Uso da CEOS</a></span></div>
 
                     <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
                 </Form>

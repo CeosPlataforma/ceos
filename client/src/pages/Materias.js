@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import ModalAddMateria from "../components/ModalAddMateria";
 import PlataformaHeader from "../components/PlataformaHeader";
@@ -71,18 +73,20 @@ export default function Materias() {
                     </ul>
                 </div>
 
-                <div className="materias--holder">
+                <Row xs={1} xl={2}>
 
                     {materias.map((materia) => (
-                        <div className="materias--container" style={{ cursor: 'default' }}>
-                            <h5>{materia.name}</h5>
-                            <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
-                                <div className="materias--arrow" />
+                        <Col>
+                            <div className="materias--container d-md-flex" style={{ cursor: 'default' }}>
+                                <h5>{materia.name}</h5>
+                                <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
+                                    <div className="materias--arrow" />
+                                </div>
                             </div>
-                        </div>
+                        </Col>
                     ))}
 
-                </div>
+                </Row>
 
                 <ModalAddMateria onSubmit={onSubmit} show={show} onHide={() => setShow(false)} onExited={reload} />
 

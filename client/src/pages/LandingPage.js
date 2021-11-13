@@ -11,7 +11,6 @@ import StuffComponent from "../components/StuffComponent";
 
 export default function Home() {
 
-
     useEffect(() => {
 
         axios.get("http://localhost:3333/userinfo")

@@ -32,6 +32,9 @@ import Desempenho from "./pages/Desempenho";
 import DadosPessoais from "./pages/DadosPessoais";
 import VerAtvs from "./pages/VerAtvs";
 
+import Thanks from "./pages/Thanks";
+import Termos from "./pages/Termos";
+
 function App() {
 
     const [theme, toggleTheme] = useDarkMode();
@@ -57,6 +60,16 @@ function App() {
                 <Route path="/contato">
                     <Header />
                     <Contato />
+                    <Footer />
+                </Route>
+                <Route path="/desativado">
+                    <Header />
+                    <Thanks />
+                    <Footer />
+                </Route>
+                <Route path="/termos">
+                    <Header />
+                    <Termos />
                     <Footer />
                 </Route>
 
