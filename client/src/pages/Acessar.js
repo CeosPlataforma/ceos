@@ -25,7 +25,7 @@ export default function Acessar() {
     const history = useHistory();
 
     const redirect = () => {
-        history.push(`/dados-pessoais`)
+        history.push(`/painel`)
     }
 
     const initialValues = {

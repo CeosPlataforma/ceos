@@ -131,7 +131,7 @@ export default function DadosPessoais() {
 
                 } else if (message === "name-success") {
 
-                    actions.setFieldError("password", `Nome mudado com sucesso`);
+                    actions.setFieldError("password", `Nome alterado com sucesso`);
                     setTimeout(function () { reload() }, 4000)
 
                 } else if (message === "email-success") {

@@ -55,7 +55,7 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                     </button>
                 </div>
 
-                <ModalConfirmAtv mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
+                {/* <ModalConfirmAtv mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} /> */}
                 <ModalDeleteAtv show={show2} onHide={() => { setShow2(false) }} onEnter={toggleDrag} />
                 {/* <ModalEditAtv show={show} onHide={() => setShow(false)} onEnter={toggleDrag} /> */}
             </div>
