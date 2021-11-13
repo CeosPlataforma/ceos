@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Col from 'react-bootstrap/Col';
 
 import ModalConfirmAtv from "../components/ModalConfirmAtv";
-// import ModalEditAtv from "../components/ModalEditAtv";
+import ModalEditAtv from "../components/ModalEditAtv";
 import ModalDeleteAtv from "../components/ModalDeleteAtv";
 
 export default function AtvBox({ mat_obj, atv_obj, className, title, materia, tipo, data, excluir, toggleDrag }) {
 
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
 
     return (
         <Col>
@@ -55,9 +56,9 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                     </button>
                 </div>
 
-                {/* <ModalConfirmAtv mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} /> */}
+                <ModalConfirmAtv mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
                 <ModalDeleteAtv show={show2} onHide={() => { setShow2(false) }} onEnter={toggleDrag} />
-                {/* <ModalEditAtv show={show} onHide={() => setShow(false)} onEnter={toggleDrag} /> */}
+                <ModalEditAtv show={show3} onHide={() => setShow3(false)} onEnter={toggleDrag} />
             </div>
         </Col>
     );

@@ -130,42 +130,27 @@ export default function VerAtvs() {
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
                             {atividades.map((atividade) => {
-
-                                let tipo;
-
                                 switch (atividade.atv_type) {
                                     case "trabalho":
-                                        tipo = "Trabalho"
+                                        atividade.tipo = "Trabalho"
                                         break;
                                     case "atividade":
-                                        tipo = "Atividade"
+                                        atividade.tipo = "Atividade"
                                         break;
                                     case "licao-de-casa":
-                                        tipo = "Lição de casa"
+                                        atividade.tipo = "Lição de casa"
                                         break;
                                     case "prova":
-                                        tipo = "Prova"
+                                        atividade.tipo = "Prova"
                                         break;
                                 }
-
-
-                                const day = atividade.dueBy.substring(8, 10)
-                                //console.log(day)
-                                //day = day.length>1 ? day : `0${day}`
-
-                                const month = atividade.dueBy.substring(5, 7)
-                                //month = month.length>1 ? month : `0${month}`
-
-                                const year = atividade.dueBy.substring(0, 4)
-
-                                const date = `${day}/${month}/${year}`
-
-                                //console.log(`date: ${date}`)
-
+                                let day = atividade.dueBy.substring(8, 10)
+                                let month = atividade.dueBy.substring(5, 7)
+                                let year = atividade.dueBy.substring(0, 4)
+                                let date = `${day}/${month}/${year}`
                                 atividade.fixedDate = date
-                                atividade.type = tipo
-
-                                return <AtvBox /*materia={atividade.name}*/ mat_obj={materia} atv_obj={atividade} title={atividade.name} tipo={tipo} data={date} excluir className="mb-5" />
+                                console.log("map", atividade.tipo)
+                                return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
                             })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
                         </Row>
