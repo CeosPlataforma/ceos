@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
 interface Atividade {
     name: string;
@@ -6,7 +6,7 @@ interface Atividade {
     dueBy: Date;
     uuid: string;
     user: string;
-    materia: string;
+    materia: Types.ObjectId;
     atv_type: string;
     description: string;
 }
@@ -48,7 +48,7 @@ const schema = new Schema<Atividade>({
     },
 
     materia: { 
-        type: String,
+        type: 'ObjectId',
         ref: 'Materia',
         required: true
     }

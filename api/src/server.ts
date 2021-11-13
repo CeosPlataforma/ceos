@@ -12,11 +12,7 @@ app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors({
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST", "PATCH", "DELETE"],
-    credentials: true
-}));
+app.use(cors({origin: true, credentials: true}))
 
 app.use(session({
     secret: process.env.COOKIE_SECRET,
@@ -24,6 +20,7 @@ app.use(session({
     saveUninitialized: true,
     store: new MongoStore({
         mongoUrl: process.env.MONGO_CONN,
+        ttl: 24 * 60 * 60
     })
 }));
 

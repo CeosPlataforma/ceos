@@ -195,7 +195,7 @@ class UserController {
 
     async mudarDados(request: Request, response: Response) {
 
-        console.log(request.body)
+        /*console.log(request.body)*/
 
         const { name, email, password } = request.body;
         const old_name = request.session.user.name;
@@ -210,7 +210,7 @@ class UserController {
         }
 
         const user: Document = await UserModel.findOne({ email: old_email }, (error, user) => user)
-        console.log(user);
+        /*console.log(user);*/
 
         //@ts-ignore
         if (!user.validPassword(password)) {

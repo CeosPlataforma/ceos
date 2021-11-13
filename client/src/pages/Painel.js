@@ -16,6 +16,9 @@ import { useDrag } from "../components/useDrag";
 export default function Painel() {
 
     const [drag, toggleDrag] = useDrag();
+    const [materiasFetched, setMateriasFetched] = useState(false)
+    const [atividadesFetched, setAtividadesFetched] = useState(false)
+    //const [emptyAtv, setEmptyAtv] = useState(false)
 
     var settings = {
         nextArrow: <NextArrow />,
@@ -58,39 +61,6 @@ export default function Painel() {
         },
     ]
 
-    const atvs = [
-        {
-            title: "Título da atividade",
-            materia: "Matéria",
-            tipo: "Lição de casa",
-            data: "xx/xx/xxxx"
-        },
-        {
-            title: "Título da atividade",
-            materia: "Matéria",
-            tipo: "Lição de casa",
-            data: "xx/xx/xxxx"
-        },
-        {
-            title: "Título da atividade",
-            materia: "Matéria",
-            tipo: "Lição de casa",
-            data: "xx/xx/xxxx"
-        },
-        {
-            title: "Título da atividade",
-            materia: "Matéria",
-            tipo: "Lição de casa",
-            data: "xx/xx/xxxx"
-        },
-        {
-            title: "Título da atividade",
-            materia: "Matéria",
-            tipo: "Lição de casa",
-            data: "xx/xx/xxxx"
-        },
-    ]
-
     function NextArrow(props) {
         const { className, style, onClick } = props;
         return (
@@ -116,9 +86,14 @@ export default function Painel() {
     axios.defaults.withCredentials = true
 
     const [materias, setMaterias] = useState([]);
+    const [atividades, setAtividades] = useState([]);
 
     function onClick(materiaID) {
         window.location = `http://localhost:3000/materia/${materiaID}`
+    }
+
+    function redirect(url) {
+        window.location = url;
     }
 
     const fetchMaterias = async () => {
@@ -127,7 +102,7 @@ export default function Painel() {
 
                 if (response.data.message !== "sem-materias") {
                     setMaterias(response.data)
-                    console.log(response.data)
+                    setMateriasFetched(true)
                 } else {
                     console.log("sem materia");
                 }
@@ -135,10 +110,36 @@ export default function Painel() {
             }).catch((error) => { console.log(error); })
     }
 
+    const fetchAtividades = async () => {
+        let atividade_array = [];
+        materias.map((materia, index, array) => {
+            axios.post('http://localhost:3333/get-atividades', { materia_id: materia._id })
+                .then((response) => {
+                    if (!response.data.message) {
+                        console.log("res", response)
+                        atividade_array = atividade_array.concat(response.data)
+                    }
+                }).catch((error) => {
+                    console.log("erro no fetch das atividades", error)
+                })
+                .finally(() => {
+                    console.log("array", atividade_array)
+                    setAtividades(atividade_array)
+                    if (index == array.length - 1) {
+                        setAtividadesFetched(true)
+                    }
+                })
+        })
+    }
+
+    // <AtvBox materia={materia.name} mat_obj={materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+
     useEffect(() => {
         fetchMaterias()
     }, [])
-
+    useEffect(() => {
+        fetchAtividades()
+    }, [materiasFetched])
 
     return (
         <div className="container-xxl painel content">
@@ -183,88 +184,72 @@ export default function Painel() {
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Matérias</h4></div>
 
-            <Slider
-                {...settings}
-                className="painel--materias"
-                slidesToShow={3}
-                responsive={[
-                    {
-                        breakpoint: 1570,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    }]}>
-                {materias.map((materia) => (
+            {materias.length === 0
+                ?
+                <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
                     <Row>
                         <Col>
-                            <div className="painel--materia text-center" onClick={() => onClick(materia.uuid)}><p>{materia.name}</p></div>
+                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma materia.</p></div>
                         </Col>
                     </Row>
-                ))}
-            </Slider>
+                </Slider>
+                :
+                <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
+                    {materias.map((materia) => (
+                        <Row>
+                            <Col>
+                                <div className="painel--materia text-center" onClick={() => onClick(materia.uuid)}><p>{materia.name}</p></div>
+                            </Col>
+                        </Row>
+                    ))}
+                </Slider>
+            }
+
+           
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Atividades recentes</h4></div>
 
-            <Slider
-                {...settings}
-                className="painel--atvs-recentes"
-                slidesToShow={3}
-                draggable={drag}
-                responsive={[
-                    {
-                        breakpoint: 1450,
-                        settings: {
-                            slidesToShow: 2
+            {atividades.length === 0
+                ?
+                <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
+                    <Row>
+                        <Col>
+                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div>
+                        </Col>
+                    </Row>
+                </Slider>
+                :
+                <Slider {...settings} className="painel--atvs-recentes" slidesToShow={3} draggable={drag} responsive={[{ breakpoint: 1450, settings: { slidesToShow: 2 } }, { breakpoint: 888, settings: { slidesToShow: 1 } }]}>
+                    {atividades.map((atividade) => {
+                        switch (atividade.atv_type) {
+                            case "trabalho":
+                                atividade.tipo = "Trabalho"
+                                break;
+                            case "atividade":
+                                atividade.tipo = "Atividade"
+                                break;
+                            case "licao-de-casa":
+                                atividade.tipo = "Lição de casa"
+                                break;
+                            case "prova":
+                                atividade.tipo = "Prova"
+                                break;
                         }
-                    },
-                    {
-                        breakpoint: 888,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }
-                ]}>
-                {atvs.map((card) => {
-                    return (
-                        <Row>
-                            <AtvBox
-                                title={card.title}
-                                materia={card.materia}
-                                tipo={card.tipo}
-                                data={card.data}
-                                excluir={false}
-                                toggleDrag={toggleDrag}
-                            />
-                        </Row>
-                    );
-                })}
-            </Slider>
+                        let day = atividade.dueBy.substring(8, 10)
+                        let month = atividade.dueBy.substring(5, 7)
+                        let year = atividade.dueBy.substring(0, 4)
+                        let date = `${day}/${month}/${year}`
+                        atividade.fixedDate = date
+                        console.log("map", atividade.tipo)
+                        return <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                    })}
+                </Slider>
+            }
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Desempenho geral</h4></div>
 
-            <Slider
-                {...settings}
-                slidesToShow={4}
-                responsive={[
-                    {
-                        breakpoint: 1350,
-                        settings: {
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 820,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }
-                ]}>
+            <Slider {...settings} slidesToShow={4}
+                responsive={[{ breakpoint: 1350, settings: { slidesToShow: 3 } }, { breakpoint: 820, settings: { slidesToShow: 2 } }, { breakpoint: 600, settings: { slidesToShow: 1 } }]}>
                 {geral.map((card) => {
                     return (
                         <Row>
@@ -276,7 +261,6 @@ export default function Painel() {
                     );
                 })}
             </Slider>
-
         </div>
     )
 }

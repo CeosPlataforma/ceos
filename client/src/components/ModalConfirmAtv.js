@@ -38,7 +38,7 @@ function ModalConfirmAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Tipo</p>
-                                <input className="form-control modal--input" placeholder={props.atv_obj.type} readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.tipo} readOnly={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>

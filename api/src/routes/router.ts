@@ -49,4 +49,6 @@ const atividadeController = new AtividadeController();
 router.post('/atividades', atividadeController.criarAtividade)
 router.post('/get-atividades', atividadeController.getAtividades)
 
+//router.get('/atv-test', atividadeController.poptest)
+
 export { router };

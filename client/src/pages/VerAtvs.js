@@ -32,7 +32,7 @@ export default function VerAtvs() {
             description: values.description,
             type: values.type,
             dueByDate: values.dueByDate,
-            materia_uuid: materiaID
+            materia_id: materia._id
         })
             .then((response) => {
                 //console.log(response);
@@ -52,7 +52,7 @@ export default function VerAtvs() {
     }
 
     const fetchAtividades = async () => {
-        axios.post('http://localhost:3333/get-atividades', { materia_uuid: materiaID })
+        axios.post('http://localhost:3333/get-atividades', { materia_id: materia._id })
             .then((response) => {
 
                 if (response.data.message !== "sem-atividades") {
@@ -72,16 +72,18 @@ export default function VerAtvs() {
 
     useEffect(() => {
 
-        fetchAtividades()
-
         axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
-            .then((response) => {
-
-                setMateria(response.data)
-                //console.log(response.data);
-            }).catch((error) => { console.log(error) })
+        .then((response) => {
+            setMateria(response.data)
+        }).catch((error) => { console.log(error) })
 
     }, [])
+
+    useEffect(() => {
+        
+        fetchAtividades()
+        
+    }, [materia])
 
 
     return (

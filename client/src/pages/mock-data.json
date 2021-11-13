@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "hora": "7:20",
+        "seg": "mat",
+        "ter": "fis",
+        "qua": "soc",
+        "qui": "fil",
+        "sex": "ef",
+        "sab": "sexo",
+        "dom": "geo"
+    },
+    {
+        "id": 2,
+        "hora": "8:10",
+        "seg": "geo",
+        "ter": "icp",
+        "qua": "emi",
+        "qui": "ppw",
+        "sex": "paw",
+        "sab": "sexo",
+        "dom": "mkw"
+    },
+    {
+        "id": 3,
+        "hora": "9:00",
+        "seg": "his",
+        "ter": "bio",
+        "qua": "lpc",
+        "qui": "lpc",
+        "sex": "pdn",
+        "sab": "sexo",
+        "dom": "qui"
+    },
+    {
+        "id": 4,
+        "hora": "9:50",
+        "seg": "his",
+        "ter": "fis",
+        "qua": "mat",
+        "qui": "geo",
+        "sex": "ef",
+        "sab": "sexo",
+        "dom": "mkw"
+    }
+]

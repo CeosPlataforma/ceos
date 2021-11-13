@@ -1,14 +1,36 @@
 import crypto from 'crypto';
 import { Request, Response } from 'express';
 import { AtividadeModel } from '../models/Atividade';
+import { MateriaModel } from '../models/Materia';
 import { UserModel } from '../models/User';
+import { Types } from 'mongoose'
 
 class AtividadeController {
 
+
+    async poptest(request: Request, response: Response) {
+        const materia_id = Types.ObjectId("618dbcc0ff180a3178b34534");
+        AtividadeModel.find({ materia: materia_id })
+        .populate('materia')
+        .exec(async (error, atividades) => {
+            if (error) {
+                console.log(error)
+            } else if (!atividades.length) {
+                return response.json({ message: "sem-atividades" });
+            } else {
+                return response.send(atividades);
+            }
+        })
+    }
+
     async getAtividades(request: Request, response: Response) {
-        const materia_uuid = request.body.materia_uuid;
-        AtividadeModel.find({ materia: materia_uuid }, async (error, atividades) => {
-            if (!atividades.length) {
+        const materia_id = Types.ObjectId(request.body.materia_id);
+        AtividadeModel.find({ materia: materia_id })
+        .populate('materia')
+        .exec(async (error, atividades) => {
+            if (error) {
+                console.log(error)
+            } else if (!atividades.length) {
                 return response.json({ message: "sem-atividades" });
             } else {
                 return response.send(atividades);
@@ -22,7 +44,7 @@ class AtividadeController {
         //console.log(request.session.user)
 
         const user_uuid = request.session.user.uuid;
-        const materia_uuid = request.body.materia_uuid;
+        const materia_id = request.body.materia_id;
 
         const new_atividade = new AtividadeModel();
         new_atividade.name = request.body.name;
@@ -31,7 +53,7 @@ class AtividadeController {
         new_atividade.atv_type = request.body.type;
 
         new_atividade.user = user_uuid;
-        new_atividade.materia = materia_uuid;
+        new_atividade.materia = materia_id;
 
         new_atividade.uuid = crypto.randomUUID({ disableEntropyCache: true });
 

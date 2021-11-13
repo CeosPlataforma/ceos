@@ -5,7 +5,6 @@ interface Materia {
     createdAt: Date;
     uuid: string;
     user: string;
-    atividades: Array<String>;
 }
 
 const schema = new Schema<Materia>({
@@ -30,12 +29,7 @@ const schema = new Schema<Materia>({
         type: String,
         ref: 'User',
         required: true
-    },
-
-    atividades: [{
-        type: String,
-        ref: 'Atividade'
-    }]
+    }
 
 });
 
