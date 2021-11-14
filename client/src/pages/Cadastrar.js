@@ -72,9 +72,9 @@ export default function Cadastrar() {
 
     return (
         <div className="container cadastrar" id="acessar">
-            <h2 className="cadastrar--title text-center mb-4">
+            <h1 className="cadastrar--title text-center mb-4">
                 Crie sua conta
-            </h2>
+            </h1>
 
             <p className="cadastrar--text">
                 Já possui uma conta? <span> <Link to="/acessar"> Entre agora mesmo. </Link> </span>
@@ -114,7 +114,7 @@ export default function Cadastrar() {
                         <ErrorMessage component="span" className="error-msg" name="confirmPassword" />
                     </div>
 
-                    <div className="d-flex align-items-center mb-4 termos"><input type="checkbox" className="termos--checkbox" /><span>Eu concordo com os<a href="/termos" target="_blank"> Termos e condições de Uso da CEOS</a></span></div>
+                    <div className="d-flex align-items-center mb-4 termos"><input type="checkbox" className="termos--checkbox" /><span>Eu concordo com os<a href="/termos" target="_blank"> termos e condições de uso da CEOS</a></span></div>
 
                     <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
                 </Form>

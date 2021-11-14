@@ -127,21 +127,4 @@
     }
 }
 
-.modal-cronograma {
-    .modal-content {
-        padding: 30px 30px;
-    }
-    .modal-body {
-        padding-bottom: 0px;
-    }
-    .modal--subtitle {
-        @include device(sm) {            
-            margin-top: 50px;
-        }
-    }
-    &--linha {
-        margin-bottom: 50px;
-    }
-}
-
 @import "//node_modules/bootstrap/scss/bootstrap";

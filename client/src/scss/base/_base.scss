@@ -37,6 +37,24 @@
     }
 }
 
+.red-btn {
+  background: $red !important;
+  color: $white;
+  fill: $white;
+  &:hover {
+    background: $red !important;
+  }
+}
+
+.green-btn {
+  background: $green !important;
+  color: $white;
+  fill: $white;
+  &:hover {
+    background: $green !important;
+  }
+}
+
 .form-control {
   padding: 12px;
   border: 2px solid $gray;
@@ -49,6 +67,12 @@
       border: 2px solid $gray;
   }
 }
+
+.gutter {
+  --bs-gutter-y: .75rem;
+}
+
+// Dark Mode
 
 .dark-mode {
     background-color: $black;
@@ -117,6 +141,9 @@
     }
     .card {
       background-color: $black;
+    }
+    td {
+      color: $gray-light;
     }
   }
   

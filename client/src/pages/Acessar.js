@@ -81,9 +81,9 @@ export default function Acessar() {
     return (
         <>
             <div className="container acessar" id="acessar">
-                <h2 className="acessar--title text-center mb-4">
+                <h1 className="acessar--title text-center mb-4">
                     Entre com a sua conta
-                </h2>
+                </h1>
 
                 <p className="acessar--text">
                     Novo por aqui? <span> <Link to="/cadastrar"> Crie sua conta. </Link > </span>

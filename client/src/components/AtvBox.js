@@ -41,7 +41,7 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                         <path d="m128.25 0h30v53.589844h-30zm0 0" />
                         <path d="m353.75 0h30v53.589844h-30zm0 0" />
                         <path d="m413.53125 0h30v53.589844h-30zm0 0" />
-                    </svg> <h5>{data}</h5>
+                    </svg><h5>{data}</h5>
                 </div>
 
                 <div className="d-flex justify-content-between atv-botoes">

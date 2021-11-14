@@ -3,35 +3,48 @@
         text-align: center;
         font: $font-sm;
         border: 2px solid $blue !important;
+        vertical-align: middle;
     }
     th {
         border: 0;
         background-color: $blue;
         color: $white;        
     }
-    &--hint {
-        padding: 0;
-        svg {            
-            height: 60px;
-            width: 60px;
-            fill: $blue;
-            cursor: pointer;
+    .form-control {
+        width: 100px;
+        padding: 5px;
+        text-align: center;
+    }
+    &--table-btn {
+        width: 100%;
+        height: 35px;
+        border-radius: 10px;
+        background-color: $yellow;
+        cursor: pointer;
+        border: none;
+        text-align: center;
+        color: $white;
+        svg {
+            height: 20px;
+            padding: 0;
+            margin: 0;
+            fill: $white;
         }
     }
-    .editable-row ::before {
-        @extend .cronograma--removeline, .cronograma--removeline--text;
-        content: 'x';
-        position: absolute;
-        left: -30px;
-        color: $gray-semidark !important;
-        background-color: $yellow-light !important;
+    &--btn {
+        @extend .acessar--btn;
+        padding: 10px;
+        font: $font-xs;
+        &--acoes {
+            display: inline-block;
+            padding: 0px 6px;
+            width: 50%;
+            @include device(lg) {
+                width: 100%;
+                padding: 4px;
+            }
+        }
     }
-
-    // th:last-child ::after {
-    //     @extend .cronograma--removeline, .cronograma--removeline--text;
-    //     content: '+';
-    //     position: absolute;
-    // }
 
     @include device(lg) {            
         width: calc(85% - 78px);
@@ -91,23 +104,6 @@
     }
 }
 
-.modal-cronograma {
-    p {
-        text-align: inherit;
-    }
-    h3 {
-        text-align: center;
-    }
-    &--title {
-        margin-bottom: 0 !important;
-    }
-    &--body {
-        padding-top: 0 !important;
-    }
-    &--header {
-        padding-bottom: 0 !important;
-    }
-    .modal-footer {
-        justify-content: center !important;
-    }
+.green-btn {
+    font-weight: $bold;
 }

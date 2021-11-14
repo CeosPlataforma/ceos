@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import { Link } from "react-router-dom";
 // import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 export default function Thanks() {
@@ -83,8 +84,8 @@ export default function Thanks() {
                 </Row>
 
                 <div className="mt-5">
-                    <h1 className="mb-2 text-center"> Por que você desativou sua conta? </h1>
-                    <h2 className="mb-4 text-center">Agradecemos por nos dizer por que você acha que a plataforma CEOS merece parar de ser utilizada e prometemos levar sua nota em consideração.</h2>
+                    <h1 className="motivo-title mb-4 text-center"> Por que você desativou sua conta? </h1>
+                    <p className="motivo-sub text-center">Agradecemos por nos dizer por que você acha que a plataforma CEOS merece parar de ser utilizada e prometemos levar sua nota em consideração.</p>
                 </div>
 
                 <form className="thanks--form">
@@ -93,17 +94,16 @@ export default function Thanks() {
                             <label htmlFor="acessar--senha" className="form-label"> Qual o motivo da desativação da conta? </label>
                             <Form.Select className="modal--input thanks-dropdown mb-4 shadow-none" required>
                                 <option className="thanks-dropdown--select">Selecione um motivo</option>
-                                <option value="1">Não funciona</option>
-                                <option value="2">Não oferece o que promete</option>
-                                <option value="3">Não entendi como usa</option>
-                                <option value="3">Encontrei funções mal-feitas</option>
-                                <option value="3">Outro</option>
+                                <option value="1">Não entendi o funcionamento</option>
+                                <option value="2">Não gostei da interface</option>
+                                <option value="3">Não achei a plataforma intuitiva</option>
+                                <option value="4">Outro (especifique no campo de mensagem)</option>
                             </Form.Select>
 
                             <label htmlFor="acessar--senha" className="form-label"> E-mail (caso precisemos contatá-lo) </label>
                             <input className="form-control" required />
                         </Col>
-                        <Col className="mb-5">
+                        <Col className="mb-4">
                             <label htmlFor="contato--mensagem" className="form-label"> Mensagem </label>
                             <textarea className="form-control" id="thanks--mensagem" name="mensagem" required />
                         </Col>
@@ -112,6 +112,20 @@ export default function Thanks() {
                         </Col>
                     </Row>
                 </form>
+            </Container>
+
+            <Container fluid className="cta px-0">
+                <Container fluid className="container-padding">
+                    <h2 className="cta--title text-center pb-4">
+                        Comece agora mesmo a usar a plataforma Ceos!
+                    </h2>
+
+                    <div className="cta--arrow"></div>
+
+                    <div className="d-grid d-md-flex justify-content-center">
+                        <Link to={"/acessar"} type="button" className="cta--btn"> Acessar </Link>
+                    </div>
+                </Container>
             </Container>
         </>
     );

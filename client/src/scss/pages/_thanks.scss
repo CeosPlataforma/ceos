@@ -9,12 +9,18 @@
         label {
             font: $font-sm;
             color: $black;
-            margin-bottom: 0;
         }
     }
-    h2 {
+    textarea {
+        min-height: 188px;
+    }
+    .motivo-title {
+        font-weight: $bold !important;
+    }
+    .motivo-sub {
+        margin-bottom: 16px;
+        margin-top: -20px;
         font: $font-sm;
-        font-weight: $regular;
-        color: $gray;
+        color: $gray-dark;
     }
 }

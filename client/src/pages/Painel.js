@@ -205,7 +205,7 @@ export default function Painel() {
                 </Slider>
             }
 
-           
+
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Atividades recentes</h4></div>
 
@@ -241,7 +241,7 @@ export default function Painel() {
                         let date = `${day}/${month}/${year}`
                         atividade.fixedDate = date
                         console.log("map", atividade.tipo)
-                        return <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                        return <Row><AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" /></Row>
                     })}
                 </Slider>
             }

@@ -14,7 +14,7 @@ function ModalAddAtv(props) {
     }
 
     const formRef = useRef();
-    
+
     const handleSubmit = () => {
         if (formRef.current) {
             formRef.current.handleSubmit();
@@ -46,7 +46,7 @@ function ModalAddAtv(props) {
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg">Título</label>
-                                        <Field type="text" style={{ 'marginBottom': '0px' }} name="name" className="form-control modal--input" placeholder="Título da atividade" required/>
+                                        <Field type="text" style={{ 'marginBottom': '0px' }} name="name" className="form-control modal--input" placeholder="Título da atividade" required />
                                         <ErrorMessage component="span" className="error-msg" name="name" />
                                     </div>
                                 </Col>
@@ -62,7 +62,7 @@ function ModalAddAtv(props) {
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg" style={{ 'marginTop': '25px' }}>Tipo</label>
-                                        <Field name="type" as="select" className="modal--input atividade-dropdown">
+                                        <Field name="type" as="select" className="form-select modal--input atividade-dropdown shadow-none">
                                             <option className="atividade-dropdown--select" value="selecione">Selecione um tipo</option>
                                             <option value="licao-de-casa">Lição de casa</option>
                                             <option value="trabalho">Trabalho</option>
@@ -74,11 +74,11 @@ function ModalAddAtv(props) {
                                 <Col xs={12} lg={6}>
                                     <div>
                                         <label className="text-lg" style={{ 'marginTop': '25px' }}>Descrição</label>
-                                        <Field name="description" as="textarea" className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" required/>
+                                        <Field name="description" as="textarea" className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" required />
                                     </div>
                                 </Col>
                             </Row>
-                            
+
                         </Form>
                     </Formik>
                 </Container>

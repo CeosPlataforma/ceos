@@ -46,6 +46,11 @@
 //     }
 // }
 
+.invis-btn {
+    border: none !important;
+    background: none !important;
+}
+
 .underline {
     background: linear-gradient(0deg, $yellow, 30px, transparent 7px) 0 3em;
 }
