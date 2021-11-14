@@ -108,8 +108,7 @@ class UserController {
     }
 
     async logout(request: Request, response: Response) {
-        request.session.destroy((err) => { })
-        console.log("session destruida")
+        request.session.destroy((error) => error ? console.log(error) : console.log("sesison destruida"));
     }
 
     async resetPassword(request: Request, response: Response) {
@@ -251,7 +250,7 @@ class UserController {
             try {
                 await SendMail.execute(email, "Confirmação do Email", variables, pathConfirmar);
                 await SendMail.execute(old_email, "Seu email mudou", variables, pathNotif);
-                
+
                 user.save();
 
                 if (nameChanged) {

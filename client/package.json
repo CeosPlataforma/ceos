@@ -1,6 +1,6 @@
 {
-  "name": "react_playground",
-  "version": "0.1.0",
+  "name": "ceos_frontend",
+  "version": "0.7.0",
   "private": true,
   
   "dependencies": {

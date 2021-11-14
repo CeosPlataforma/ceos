@@ -149,7 +149,7 @@ export default function VerAtvs() {
                                 let year = atividade.dueBy.substring(0, 4)
                                 let date = `${day}/${month}/${year}`
                                 atividade.fixedDate = date
-                                console.log("map", atividade.tipo)
+                                //console.log("map", atividade.tipo)
                                 return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
                             })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}

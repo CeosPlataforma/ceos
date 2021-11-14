@@ -116,14 +116,14 @@ export default function Painel() {
             axios.post('http://localhost:3333/get-atividades', { materia_id: materia._id })
                 .then((response) => {
                     if (!response.data.message) {
-                        console.log("res", response)
+                        //console.log("res", response)
                         atividade_array = atividade_array.concat(response.data)
                     }
                 }).catch((error) => {
                     console.log("erro no fetch das atividades", error)
                 })
                 .finally(() => {
-                    console.log("array", atividade_array)
+                    //console.log("array", atividade_array)
                     setAtividades(atividade_array)
                     if (index == array.length - 1) {
                         setAtividadesFetched(true)
@@ -240,7 +240,7 @@ export default function Painel() {
                         let year = atividade.dueBy.substring(0, 4)
                         let date = `${day}/${month}/${year}`
                         atividade.fixedDate = date
-                        console.log("map", atividade.tipo)
+                        //console.log("map", atividade.tipo)
                         return <Row><AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" /></Row>
                     })}
                 </Slider>

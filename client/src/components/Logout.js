@@ -7,15 +7,17 @@ function Logout() {
     const history = useHistory();
     const [done, setDone] = useState(false);
 
-    axios.defaults.withCredentials = true
-    axios.post("http://localhost:3333/logout").then((response) => {
-        console.log(response);
-        setDone(true);
-    }).catch((err) => {
-        console.log(err)
-        setDone(true);
-    });
-
+    useEffect(() => {
+        axios.defaults.withCredentials = true
+        axios.post("http://localhost:3333/logout").then((response) => {
+            console.log(response);
+            setDone(true);
+        }).catch((err) => {
+            console.log(err)
+            setDone(true);
+        });
+    })
+  
     useEffect(() => {
         history.replace('/')
     }, [done])

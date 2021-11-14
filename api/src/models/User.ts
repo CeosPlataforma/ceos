@@ -10,7 +10,6 @@ interface User {
     uuid: string;
     verifiedMail: boolean;
     avatar?: string;
-    materias?: Array<String>;
 }
 
 const schema = new Schema<User>({
@@ -44,11 +43,6 @@ const schema = new Schema<User>({
         default: Date.now()
     },
     
-    materias: [{
-        type: String,
-        ref: 'Materia'
-    }],
-
     uuid: {
         type: String,
         index: true

@@ -3,6 +3,7 @@ import { AtividadeController } from '../controllers/AtividadeController';
 import { MailController } from '../controllers/MailController';
 import { MateriaController } from '../controllers/MateriaController';
 import { UserController } from '../controllers/UserController';
+import { CronogramaController } from '../controllers/CronogramaController'
 import('../database/')
 const router = Router();
 
@@ -49,6 +50,9 @@ const atividadeController = new AtividadeController();
 router.post('/atividades', atividadeController.criarAtividade)
 router.post('/get-atividades', atividadeController.getAtividades)
 
-//router.get('/atv-test', atividadeController.poptest)
+// CRONOGRAMA
+const cronogramaController = new CronogramaController();
+router.get('/cronograma', cronogramaController.getCronograma)
+router.post('/cronograma', cronogramaController.saveCronograma)
 
 export { router };
