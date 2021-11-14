@@ -12,9 +12,10 @@ import AddRow from "../components/AddRow";
 
 export default function Cronograma() {
 
-    const [data, setData] = useState(mock_data);
+    const [cronograma, setCronograma] = useState(mock_data);
+    //const [cronograma_temporario, setCronogamaTemporario] = useState(mock_data);
 
-    const [addForm, setAddForm] = useState({
+    const [cancel_linha_buffer, setCancelLinhaBuffer] = useState({
         hora: '0:00',
         seg: '',
         ter: '',
@@ -25,7 +26,7 @@ export default function Cronograma() {
         dom: ''
     })
 
-    const [edited, setEdited] = useState({
+    const [linha_buffer, setLinhaBuffer] = useState({
         hora: '0:00',
         seg: '',
         ter: '',
@@ -36,99 +37,86 @@ export default function Cronograma() {
         dom: ''
     })
 
-    const [lineId, setLineId] = useState(null)
+    //const [iddois, setIddois] = useState(null)
 
-    const handleUpdate = (e) => {
+    const [linha_id, setLinhaId] = useState(null)
 
-        e.preventDefault();
+    const handleAdd = (event) => {
 
-        const fieldName = e.target.getAttribute('name');
-        const fieldValue = e.target.value;
+        console.log("add event", event)
 
-        const newForm = { ...addForm };
-        newForm[fieldName] = fieldValue;
+        const nova_linha = {
+            id: nanoid(),
+            hora: '',
+            seg: '',
+            ter: '',
+            qua: '',
+            qui: '',
+            sex: '',
+            sab: '',
+            dom: ''
+        }
+        console.log("nova linha", nova_linha)
 
-        setAddForm(newForm);
-
+        const novo_cronograma = [...cronograma]
+        const index = cronograma.length
+        novo_cronograma[index] = nova_linha;
+        setCronograma(novo_cronograma)
+        setLinhaId(nova_linha.id)
+        let { hora, seg, ter, qua, qui, sex, sab, dom } = nova_linha
+        const buffer = { hora, seg, ter, qua, qui, sex, sab, dom }
+        setCancelLinhaBuffer(buffer)
+        setLinhaBuffer(buffer)
     }
 
+    // on editable input change
     const handleEditUpdate = (e) => {
         e.preventDefault();
 
-        const fieldName = e.target.getAttribute('name');
-        const fieldValue = e.target.value;
+        const celula_nome = e.target.getAttribute('name');
+        const celula_valor = e.target.value;
 
-        const newForm = { ...edited };
-        newForm[fieldName] = fieldValue;
+        const temp_crono_linha = { ...linha_buffer };
+        temp_crono_linha[celula_nome] = celula_valor;
 
-        setEdited(newForm);
+        setLinhaBuffer(temp_crono_linha);
     }
 
-    const onSubmitEdit = (e) => {
-
-        e.preventDefault();
-
-        if (e.nativeEvent.submitter.id === "addRow") {
-
-            const newLine = {
-                id: nanoid(),
-                hora: addForm.hora,
-                seg: addForm.seg,
-                ter: addForm.ter,
-                qua: addForm.qua,
-                qui: addForm.qui,
-                sex: addForm.sex,
-                sab: addForm.sab,
-                dom: addForm.dom
-            }
-
-            const newLines = [...data, newLine]
-            setData(newLines)
-            setLineId(newLine.id)
-
-        } else {
-            const editedLine = {
-                id: lineId,
-                hora: edited.hora,
-                seg: edited.seg,
-                ter: edited.ter,
-                qua: edited.qua,
-                qui: edited.qui,
-                sex: edited.sex,
-                sab: edited.sab,
-                dom: edited.dom
-            }
-
-            const newLines = [...data]
-
-            const index = data.findIndex((linha) => linha.id === lineId)
-
-            newLines[index] = editedLine;
-
-            setData(newLines)
-            setLineId(null)
-        }
-    }
-
+    // botão de cancelar
     const handleCancel = () => {
-        setLineId(null)
+        
+        if (cancel_linha_buffer === linha_buffer) {
+            const cronograma_buffer = [...cronograma]
+            const index = cronograma.findIndex((table_linha) => linha_id == table_linha.id)
+            cronograma_buffer.splice(index, 1)
+            setCronograma(cronograma_buffer)
+            setCancelLinhaBuffer(null)
+        }
+        setLinhaId(null)
+        setLinhaBuffer([])
     }
 
-    const handleDeleteClick = (linhaId) => {
-        const newLines = [...data]
-
-        const index = data.findIndex((linha) => linha.id == linhaId)
-
-        newLines.splice(index, 1)
-
-        setData(newLines);
+    // deletar linha
+    const handleDeleteClick = (e, evento_linha) => {
+        const novo_cronograma = [...cronograma]
+        const index = cronograma.findIndex((table_linha) => evento_linha.id == table_linha.id)
+        novo_cronograma.splice(index, 1)
+        setCronograma(novo_cronograma);
     }
 
+    // quando aperta o botão de editar
     const handleEditClick = (e, linha) => {
-
         e.preventDefault();
-        setLineId(linha.id);
 
+        if (cancel_linha_buffer === linha_buffer) {
+            const cronograma_buffer = [...cronograma]
+            const index = cronograma.findIndex((table_linha) => linha_id == table_linha.id)
+            cronograma_buffer.splice(index, 1)
+            setCronograma(cronograma_buffer)
+            setCancelLinhaBuffer(null)
+        }
+
+        setLinhaId(linha.id);
         const values = {
             hora: linha.hora,
             seg: linha.seg,
@@ -139,9 +127,35 @@ export default function Cronograma() {
             sab: linha.sab,
             dom: linha.dom
         }
+        setLinhaBuffer(values);
+    }
 
-        setEdited(values);
+    // salvando a edição
+    const onSubmitEdit = (e) => {
 
+        e.preventDefault();
+        const novos_valores = {
+            id: linha_id,
+            hora: linha_buffer.hora,
+            seg: linha_buffer.seg,
+            ter: linha_buffer.ter,
+            qua: linha_buffer.qua,
+            qui: linha_buffer.qui,
+            sex: linha_buffer.sex,
+            sab: linha_buffer.sab,
+            dom: linha_buffer.dom
+        }
+        const novo_cronograma = [...cronograma]
+        const index = cronograma.findIndex((linha) => linha.id === linha_id)
+        novo_cronograma[index] = novos_valores;
+        setCronograma(novo_cronograma)
+        setLinhaId(null)
+    }
+
+    const onKeyPress = (event) => {
+        if (event.which === 13 /* Enter */) {
+            event.preventDefault();
+        }
     }
 
     return (
@@ -153,7 +167,7 @@ export default function Cronograma() {
                 <div className="row align-items-center" style={{ marginTop: '10px' }}>
                     <div className="col-12">
 
-                        <form onSubmit={onSubmitEdit}>
+                        <form onSubmit={onSubmitEdit} onKeyPress={(e) => onKeyPress(e)}>
                             <Table bordered hover responsive /*tirar responsive se quiser tirar scroll da tabela*/>
                                 <thead>
                                     <tr>
@@ -169,16 +183,16 @@ export default function Cronograma() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {data.map((linha) => (
+                                    {cronograma.map((linha) => (
                                         <>
-                                            {lineId === linha.id ? (
-                                                <Editable editFormData={edited} handleEditUpdate={handleEditUpdate} handleCancel={handleCancel} />
+                                            {linha_id === linha.id ? (
+                                                <Editable editFormData={linha_buffer} handleEditUpdate={handleEditUpdate} handleCancel={handleCancel} />
                                             ) : (
                                                 <ReadOnly linha={linha} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} />
                                             )}
                                         </>
                                     ))}
-                                    <AddRow handleUpdate={handleUpdate} />
+                                    <AddRow handleAdd={handleAdd} />
                                 </tbody>
                             </Table>
                         </form>

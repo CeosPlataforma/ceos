@@ -92,14 +92,14 @@ export default function Acessar() {
                     <Form className="acessar--form col-lg-6 mx-auto">
                         <div className="mb-4">
                             <label htmlFor="acessar--email" className="form-label"> E-mail </label>
-                            <Field name="email" type="email" className="form-control acessar--input" id="acessar--email" required />
+                            <Field name="email" autocomplete="email" type="email" className="form-control acessar--input" id="acessar--email" required />
                             <ErrorMessage component="span" className="error-msg" name="email" />
                         </div>
 
                         <div className="mb-4">
                             <label htmlFor="acessar--senha" className="form-label"> Senha </label>
                             <div className="acessar--senha--container senha--container">
-                                <Field name="password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
+                                <Field name="password" autocomplete="current-password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                             </div>
                             <ErrorMessage component="span" className="error-msg" name="password" />

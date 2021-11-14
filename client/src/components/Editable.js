@@ -6,14 +6,14 @@ import Col from 'react-bootstrap/Col';
 const Editable = ({ editFormData, handleEditUpdate, handleCancel }) => {
     return (
         <tr>
-            <td><input type="time" pattern="[0-9]{2}:[0-9]{2}" name="hora" className="form-control mx-auto" placeholder="Horário" value={editFormData.hora} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="seg" className="form-control mx-auto" placeholder="Segunda" value={editFormData.seg} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="ter" className="form-control mx-auto" placeholder="Terça" value={editFormData.ter} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="qua" className="form-control mx-auto" placeholder="Quarta" value={editFormData.qua} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="qui" className="form-control mx-auto" placeholder="Quinta" value={editFormData.qui} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="sex" className="form-control mx-auto" placeholder="Sexta" value={editFormData.sex} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="sab" className="form-control mx-auto" placeholder="Sábado" value={editFormData.sab} onChange={handleEditUpdate} /></td>
-            <td><input type="text" name="dom" className="form-control mx-auto" placeholder="Domingo" value={editFormData.dom} onChange={handleEditUpdate} /></td>
+            <td><input type="time" pattern="[0-9]{2}:[0-9]{2}" autoComplete="off" name="hora" className="form-control mx-auto" placeholder="Horário" value={editFormData.hora} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="seg" autoComplete="off" className="form-control mx-auto" placeholder="Segunda" value={editFormData.seg} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="ter" autoComplete="off" className="form-control mx-auto" placeholder="Terça" value={editFormData.ter} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="qua" autoComplete="off" className="form-control mx-auto" placeholder="Quarta" value={editFormData.qua} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="qui" autoComplete="off" className="form-control mx-auto" placeholder="Quinta" value={editFormData.qui} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="sex" autoComplete="off" className="form-control mx-auto" placeholder="Sexta" value={editFormData.sex} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="sab" autoComplete="off" className="form-control mx-auto" placeholder="Sábado" value={editFormData.sab} onChange={handleEditUpdate} /></td>
+            <td><input type="text" name="dom" autoComplete="off" className="form-control mx-auto" placeholder="Domingo" value={editFormData.dom} onChange={handleEditUpdate} /></td>
             <td>
                 <Container>
                     <Row className="justify-content-between gutter">

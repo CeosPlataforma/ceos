@@ -42,13 +42,15 @@ export default function Cadastrar() {
         email: '',
         name: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        checkbox: false
     };
 
     const validationSchema = Yup.object({
         email: Yup.string().email("Email inválido").required('Obrigatório'),
         name: Yup.string().required('Obrigatório'),
         password: Yup.string().required('Obrigatório'),
+        checkbox: Yup.bool().oneOf([true], 'Você precisa aceitar os termos de uso.'),
         confirmPassword: Yup.string().oneOf([Yup.ref('password'), ''], 'As senhas devem ser iguais').required('Obrigatório')
     });
 
@@ -86,20 +88,20 @@ export default function Cadastrar() {
 
                     <div className="mb-4">
                         <label htmlFor="cadastrar--nome" className="form-label"> Nome completo </label>
-                        <Field name="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
+                        <Field name="name" autoComplete="name" type="text" className="form-control cadastrar--input" id="cadastrar--nome" required />
                         <ErrorMessage component="span" className="error-msg" name="name" />
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="cadastrar--email" className="form-label"> E-mail </label>
-                        <Field name="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
+                        <Field name="email" autoComplete="email" type="email" className="form-control acessar--input" id="cadastrar--email" required />
                         <ErrorMessage component="span" className="error-msg" name="email" />
                     </div>
 
                     <div className="mb-4">
                         <label htmlFor="cadastrar--senha" className="form-label"> Senha </label>
                         <div className="cadastrar--senha--container senha--container">
-                            <Field name="password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
+                            <Field name="password" autoComplete="new-password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
                             <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
                         </div>
                         <ErrorMessage component="span" className="error-msg" name="password" />
@@ -108,15 +110,21 @@ export default function Cadastrar() {
                     <div className="mb-4">
                         <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
                         <div className="cadastrar--senha--container senha--container">
-                            <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
+                            <Field name="confirmPassword" autoComplete="new-password" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
                             <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
                         </div>
                         <ErrorMessage component="span" className="error-msg" name="confirmPassword" />
                     </div>
 
-                    <div className="d-flex align-items-center mb-4 termos"><input type="checkbox" className="termos--checkbox" /><span>Eu concordo com os<a href="/termos" target="_blank"> termos e condições de uso da CEOS</a></span></div>
+                    <div className="d-flex align-items-center termos">
+                        <Field type="checkbox" name="checkbox" className="termos--checkbox" />
+                        <span>
+                            Eu concordo com os<a href="/termos" target="_blank"> termos e condições de uso da CEOS</a>
+                        </span>
+                    </div>
+                    <ErrorMessage component="span" className="error-msg" name="checkbox" />
 
-                    <button type="submit" className="cadastrar--btn w-100"> Cadastrar </button>
+                    <button type="submit" className="cadastrar--btn mt-4 w-100"> Cadastrar </button>
                 </Form>
 
             </Formik>
