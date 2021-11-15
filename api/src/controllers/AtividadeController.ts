@@ -8,8 +8,23 @@ import { Types } from 'mongoose'
 class AtividadeController {
 
 
-    async poptest(request: Request, response: Response) {
+    /*async poptest(request: Request, response: Response) {
         const materia_id = Types.ObjectId("618dbcc0ff180a3178b34534");
+        AtividadeModel.find({ materia: materia_id })
+        .populate('materia')
+        .exec(async (error, atividades) => {
+            if (error) {
+                console.log(error)
+            } else if (!atividades.length) {
+                return response.json({ message: "sem-atividades" });
+            } else {
+                return response.send(atividades);
+            }
+        })
+    }*/
+
+    async getAtividades(request: Request, response: Response) {
+        const materia_id = Types.ObjectId(request.body.materia_id);
         AtividadeModel.find({ materia: materia_id })
         .populate('materia')
         .exec(async (error, atividades) => {
@@ -23,9 +38,9 @@ class AtividadeController {
         })
     }
 
-    async getAtividades(request: Request, response: Response) {
-        const materia_id = Types.ObjectId(request.body.materia_id);
-        AtividadeModel.find({ materia: materia_id })
+    async getAllAtividades(request: Request, response: Response) {
+        const user_uuid = request.session.user.uuid
+        AtividadeModel.find({ user: user_uuid })
         .populate('materia')
         .exec(async (error, atividades) => {
             if (error) {

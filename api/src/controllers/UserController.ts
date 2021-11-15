@@ -101,12 +101,6 @@ class UserController {
         }
     }
 
-    async userinfo(request: Request, response: Response) {
-        response.json({
-            session: request.session
-        });
-    }
-
     async logout(request: Request, response: Response) {
         request.session.destroy((error) => error ? console.log(error) : console.log("sesison destruida"));
     }
@@ -157,7 +151,6 @@ class UserController {
     }
 
     async getFoto(request: Request, response: Response) {
-        //console.log(request.session)
         const { uuid } = request.session.user;
 
         await UserModel.findOne({ uuid }, (error, user) => {
@@ -333,6 +326,13 @@ class UserController {
                 }
             }
         });
+    }
+
+    async userinfo(request: Request, response: Response) {
+        //console.log(request.session)
+        //console.log(request.session)
+        //console.log("session ID!!!!!!!!!", request.sessionID)
+        return response.json({ session: request.session });
     }
 
 }

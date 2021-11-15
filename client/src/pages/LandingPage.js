@@ -13,14 +13,6 @@ export default function Home() {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3333/userinfo")
-            .then((response) => {
-                console.log(response)
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
         Aos.init({ duration: 1000 });
 
     }, [])

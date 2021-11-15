@@ -49,6 +49,7 @@ router.post('/deletar-usuario/', userController.deletarUsuario)
 const atividadeController = new AtividadeController();
 router.post('/atividades', atividadeController.criarAtividade)
 router.post('/get-atividades', atividadeController.getAtividades)
+router.get('/get-atividades', atividadeController.getAllAtividades)
 
 // CRONOGRAMA
 const cronogramaController = new CronogramaController();

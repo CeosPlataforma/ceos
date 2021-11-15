@@ -1,17 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Row from 'react-bootstrap/Row';
-
-import AtvBox from "../components/AtvBox";
+import { Link } from "react-router-dom";
 import PlataformaHeader from "../components/PlataformaHeader";
-
+import AtvBox from "../components/AtvBox";
+import Button from "@restart/ui/esm/Button";
 export default function Atividades() {
 
+    const [atvTipo, setAtvTipo] = useState("all")
+    const [atividades, setAtividades] = useState([])
     const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active")
     const [casaButton, setCasaButton] = useState("atividades--btn atividades--btn--inactive")
     const [trabButton, setTrabButton] = useState("atividades--btn atividades--btn--inactive")
     const [provButton, setProvButton] = useState("atividades--btn atividades--btn--inactive")
     const [lixoButton, setLixoButton] = useState("atividades--btn atividades--btn--inactive")
+
+    const fetchAtividades = async () => {
+        axios.get('http://localhost:3333/get-atividades')
+            .then((response) => {
+                setAtividades(response.data)
+            }).catch((error) => {
+                console.log("erro no fetch das atividades", error)
+            })
+    }
+
+    const atvFiltro = (atividade) => {
+        if (atvTipo === "all") {
+            return true
+        } else if (atvTipo === "casa" && atividade.atv_type === "licao-de-casa") {
+            return true
+        } else if (atvTipo === "trabalho" && atividade.atv_type === "trabalho") {
+            return true
+        } else if (atvTipo === "prova" && atividade.atv_type === "prova") {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    useEffect(() => {
+        fetchAtividades()
+    }, [])
+
+    function redirect(url) {
+        window.location = url;
+    }
+
 
     return (
         <>
@@ -21,8 +55,7 @@ export default function Atividades() {
 
                 <div className="row d-flex justify-content-between row-atividades">
 
-                    <Link
-                        to={"/atividades"}
+                    <Button
                         className={atvButton}
                         onClick={() => {
                             setAtvButton("atividades--btn atividades--btn--active")
@@ -30,11 +63,12 @@ export default function Atividades() {
                             setTrabButton("atividades--btn atividades--btn--inactive")
                             setProvButton("atividades--btn atividades--btn--inactive")
                             setLixoButton("atividades--btn atividades--btn--inactive")
+                            setAtvTipo("all")
                         }}>
                         Todas atividades
-                    </Link>
+                    </Button>
 
-                    <Link
+                    <Button
                         className={casaButton}
                         onClick={() => {
                             setAtvButton("atividades--btn atividades--btn--inactive")
@@ -42,11 +76,12 @@ export default function Atividades() {
                             setTrabButton("atividades--btn atividades--btn--inactive")
                             setProvButton("atividades--btn atividades--btn--inactive")
                             setLixoButton("atividades--btn atividades--btn--inactive")
+                            setAtvTipo("casa")
                         }}>
                         Lição de casa
-                    </Link>
+                    </Button>
 
-                    <Link
+                    <Button
                         className={trabButton}
                         onClick={() => {
                             setAtvButton("atividades--btn atividades--btn--inactive")
@@ -54,11 +89,12 @@ export default function Atividades() {
                             setTrabButton("atividades--btn atividades--btn--active")
                             setProvButton("atividades--btn atividades--btn--inactive")
                             setLixoButton("atividades--btn atividades--btn--inactive")
+                            setAtvTipo("trabalho")
                         }}>
                         Trabalho
-                    </Link>
+                    </Button>
 
-                    <Link
+                    <Button
                         className={provButton}
                         onClick={() => {
                             setAtvButton("atividades--btn atividades--btn--inactive")
@@ -66,11 +102,12 @@ export default function Atividades() {
                             setTrabButton("atividades--btn atividades--btn--inactive")
                             setProvButton("atividades--btn atividades--btn--active")
                             setLixoButton("atividades--btn atividades--btn--inactive")
+                            setAtvTipo("prova")
                         }}>
                         Prova
-                    </Link>
+                    </Button>
 
-                    <Link
+                    <Button
                         className={lixoButton}
                         onClick={() => {
                             setAtvButton("atividades--btn atividades--btn--inactive")
@@ -78,9 +115,10 @@ export default function Atividades() {
                             setTrabButton("atividades--btn atividades--btn--inactive")
                             setProvButton("atividades--btn atividades--btn--inactive")
                             setLixoButton("atividades--btn atividades--btn--active")
+                            setAtvTipo("lixeira")
                         }}>
                         Lixeira
-                    </Link>
+                    </Button>
 
                 </div>
 
@@ -99,14 +137,42 @@ export default function Atividades() {
                     </ul>
                 </div>
                 <Row sm={1} md={2} xxl={3} className="mb-2">
-                    <AtvBox
-                        materia="materia"
-                        title="Título"
-                        tipo="Trabalho"
-                        data="xx/xx/xxxx"
-                        excluir
-                        className="mb-5"
-                    />
+                    {atividades.length === 0
+                        ?
+                        <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div>
+                        :
+                        <React.Fragment>
+                            {atividades.filter((atividade) => atvFiltro(atividade)).map((atividade) => {
+
+                                switch (atividade.atv_type) {
+                                    case "trabalho":
+                                        atividade.tipo = "Trabalho"
+                                        break;
+                                    case "atividade":
+                                        atividade.tipo = "Atividade"
+                                        break;
+                                    case "licao-de-casa":
+                                        atividade.tipo = "Lição de casa"
+                                        break;
+                                    case "prova":
+                                        atividade.tipo = "Prova"
+                                        break;
+                                }
+
+
+
+
+                                let day = atividade.dueBy.substring(8, 10)
+                                let month = atividade.dueBy.substring(5, 7)
+                                let year = atividade.dueBy.substring(0, 4)
+                                let date = `${day}/${month}/${year}`
+                                atividade.fixedDate = date
+                                //console.log("map", atividade.tipo)
+                                return <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                            })}
+                        </React.Fragment>
+
+                    }
                 </Row>
             </div>
         </>

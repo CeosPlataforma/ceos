@@ -114,21 +114,21 @@ export default function Painel() {
         let atividade_array = [];
         materias.map((materia, index, array) => {
             axios.post('http://localhost:3333/get-atividades', { materia_id: materia._id })
-                .then((response) => {
-                    if (!response.data.message) {
-                        //console.log("res", response)
-                        atividade_array = atividade_array.concat(response.data)
-                    }
-                }).catch((error) => {
-                    console.log("erro no fetch das atividades", error)
-                })
-                .finally(() => {
-                    //console.log("array", atividade_array)
-                    setAtividades(atividade_array)
-                    if (index == array.length - 1) {
-                        setAtividadesFetched(true)
-                    }
-                })
+            .then((response) => {
+                if (!response.data.message) {
+                    //console.log("res", response)
+                    atividade_array = atividade_array.concat(response.data)
+                }
+            }).catch((error) => {
+                console.log("erro no fetch das atividades", error)
+            })
+            .finally(() => {
+                //console.log("array", atividade_array)
+                setAtividades(atividade_array)
+                if (index == array.length - 1) {
+                    setAtividadesFetched(true)
+                }
+            })
         })
     }
 
