@@ -189,7 +189,7 @@ export default function Painel() {
                 <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
                     <Row>
                         <Col>
-                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma materia.</p></div>
+                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma matéria.</p></div>
                         </Col>
                     </Row>
                 </Slider>
@@ -241,7 +241,7 @@ export default function Painel() {
                         let date = `${day}/${month}/${year}`
                         atividade.fixedDate = date
                         //console.log("map", atividade.tipo)
-                        return <Row><AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" /></Row>
+                        return <Row><AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir /></Row>
                     })}
                 </Slider>
             }

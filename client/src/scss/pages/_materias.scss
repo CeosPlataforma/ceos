@@ -59,6 +59,11 @@
         justify-content: space-between;
         margin-bottom: 30px;
         cursor: pointer;
+        display: flex;
+        @include device(md) {
+            flex-direction: column;
+            // --bs-gutter-y: .5rem;
+        }
     }
 
     &--arrow {
@@ -67,7 +72,10 @@
         width: 80px;
         position: relative;
         transform: rotate(0deg);
-        
+        @include device(md) {
+            width: 150px;
+        }
+
         &:before,
         &:after {
             content: "";
@@ -93,6 +101,9 @@
         color: $white;
         text-align: center;
         margin-bottom: 0;
+        @include device(md) {
+            margin-bottom: 10px;
+        }
     }
     .arrow-container {
         display: flex;

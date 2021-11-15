@@ -81,6 +81,9 @@
     .form-label {
       color: $gray-light;
     }
+    .table-hover>tbody>tr:hover>* {
+      color: $gray-light;
+    }
     .underline {
       color: $gray-light;
       background: linear-gradient(0deg, $blue, 30px, transparent 7px) 0 3em !important;
@@ -123,8 +126,8 @@
       border-color: $gray;
       color: $gray-light;
     }
-    .form-control[readOnly] {
-      background-color: $gray-dark;
+    .form-control[readOnly] {      
+      background-color: $gray-superdark;
       border-color: $gray;
       color: $gray-light;
       cursor: default;

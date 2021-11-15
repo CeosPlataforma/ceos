@@ -94,14 +94,16 @@ export default function Desempenho() {
                     </Col>
                 </Row>
 
-                <div className="materias--holder">
+                <Row sm={2}>
                     {materias.map((materia) => (
-                        <div className="materias--container" onClick={() => onClick(materia.uuid)}>
-                            <h5 className="materias--name">{materia.name}</h5>
-                            <div className="materias--arrow" />
-                        </div>
+                        <Col>
+                            <div className="materias--container" onClick={() => onClick(materia.uuid)}>
+                                <h5 className="materias--name">{materia.name}</h5>
+                                <div className="materias--arrow" />
+                            </div>
+                        </Col>
                     ))}
-                </div>
+                </Row>
             </Container>
         </>
     )
