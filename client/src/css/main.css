@@ -154,6 +154,9 @@ label:focus,
 .dark-mode .form-label {
   color: #E5E5E5;
 }
+.dark-mode .table-hover > tbody > tr:hover > * {
+  color: #E5E5E5;
+}
 .dark-mode .underline {
   color: #E5E5E5;
   background: linear-gradient(0deg, #216AA7, 30px, transparent 7px) 0 3em !important;
@@ -197,7 +200,7 @@ label:focus,
   color: #E5E5E5;
 }
 .dark-mode .form-control[readOnly] {
-  background-color: #707070;
+  background-color: #414141;
   border-color: #AFAFAF;
   color: #E5E5E5;
   cursor: default;
@@ -1962,6 +1965,12 @@ ol, ul {
   justify-content: space-between;
   margin-bottom: 30px;
   cursor: pointer;
+  display: flex;
+}
+@media screen and (max-width: 991.98px) {
+  .materias--container {
+    flex-direction: column;
+  }
 }
 .materias--arrow {
   background: #FFFFFF;
@@ -1969,6 +1978,11 @@ ol, ul {
   width: 80px;
   position: relative;
   transform: rotate(0deg);
+}
+@media screen and (max-width: 991.98px) {
+  .materias--arrow {
+    width: 150px;
+  }
 }
 .materias--arrow:before, .materias--arrow:after {
   content: "";
@@ -1991,6 +2005,11 @@ ol, ul {
   color: #FFFFFF;
   text-align: center;
   margin-bottom: 0;
+}
+@media screen and (max-width: 991.98px) {
+  .materias--name {
+    margin-bottom: 10px;
+  }
 }
 .materias .arrow-container {
   display: flex;

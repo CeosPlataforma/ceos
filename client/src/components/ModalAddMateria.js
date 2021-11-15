@@ -10,7 +10,7 @@ function ModalAddMateria(props) {
     }
 
     const validationSchema = Yup.object({
-        name: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário")
+        name: Yup.string().min(2, "Nome muito pequeno").max(18, "Nome muito grande").required("Campo necessário")
     });
 
 

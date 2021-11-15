@@ -15,17 +15,16 @@ function ModalEsqueceuSenha(props) {
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--website" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h1 className="modal--title modal--title--website">Verificação de e-mail</h1>
+                    <h1 className="modal--title modal--title--website">Recuperação de senha</h1>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>
-                    Sua senha foi atualizada,
-                    Agora só basta fazer login!
+                <p className="text-center">
+                    Sua senha foi atualizada, faça o login novamente!
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md w-100 modal--btn" onClick={redirect}>Ir para a pagina inicial</Button>
+                <Button variant="primary" className="text-md w-100 modal--btn" onClick={redirect}>Ir para a página inicial</Button>
             </Modal.Footer>
         </Modal>
     );
