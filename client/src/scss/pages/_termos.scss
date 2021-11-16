@@ -3,6 +3,9 @@
     width: 85%;
     margin: 200px auto;
     justify-content: space-between;
+    @include device(lg) {
+        width: 92%;
+    }
     .menu-item {
         color: $blue;
         padding-left: 10px;
@@ -20,9 +23,21 @@
     }
     .termos-navbar {
         position: relative;
+        @include device(lg) {
+            margin-right: 35px;
+        }
+        @include device(sm) {
+            display: none;
+        }
     }
     .termos-text {
         width: 70%;
+        @include device(xl) {
+            width: 60%;
+        }
+        @include device(sm) {
+            width: 100%;
+        }
     }
     .termos-title {
         @extend .acessar--title;

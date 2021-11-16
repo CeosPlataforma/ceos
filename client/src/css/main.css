@@ -2264,6 +2264,11 @@ ol, ul {
   margin: 200px auto;
   justify-content: space-between;
 }
+@media screen and (max-width: 1199.98px) {
+  .termos-page {
+    width: 92%;
+  }
+}
 .termos-page .menu-item {
   color: #216AA7;
   padding-left: 10px;
@@ -2282,8 +2287,28 @@ ol, ul {
 .termos-page .termos-navbar {
   position: relative;
 }
+@media screen and (max-width: 1199.98px) {
+  .termos-page .termos-navbar {
+    margin-right: 35px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .termos-page .termos-navbar {
+    display: none;
+  }
+}
 .termos-page .termos-text {
   width: 70%;
+}
+@media screen and (max-width: 1399.98px) {
+  .termos-page .termos-text {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .termos-page .termos-text {
+    width: 100%;
+  }
 }
 .termos-page .menu {
   position: sticky;

@@ -1,11 +1,11 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ModalEsqueceuSenha(props) {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const redirect = () => {
         history.push(`/logout`)

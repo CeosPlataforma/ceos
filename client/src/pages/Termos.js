@@ -38,7 +38,7 @@ export default function Termos() {
 
                     <hr />
 
-                    <section id="section-1" className="section">
+                    <section id="section-1" className="section scrollspy">
                         <h2 id="art1">1. DA FUNÇÃO DO SITE</h2>
 
                         <p>
@@ -57,7 +57,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-2" className="section">
+                    <section id="section-2" className="section scrollspy">
                         <h2 id="art2">2. DO ACEITE DOS TERMOS</h2>
 
                         <p>
@@ -69,7 +69,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-3" className="section">
+                    <section id="section-3" className="section scrollspy">
                         <h2 id="art3">3. DO GLOSSÁRIO</h2>
 
                         <p>
@@ -85,7 +85,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-4" className="section">
+                    <section id="section-4" className="section scrollspy">
                         <h2 id="art4">4. DO ACESSO AO SITE</h2>
 
                         <p>
@@ -103,7 +103,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-5" className="section">
+                    <section id="section-5" className="section scrollspy">
                         <h2 id="art5">5. DA LICENÇA DE USO E CÓPIA</h2>
 
                         <p>
@@ -117,7 +117,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-6" className="section">
+                    <section id="section-6" className="section scrollspy">
                         <h2 id="art6">6. DAS OBRIGAÇÕES</h2>
 
                         <p>
@@ -130,7 +130,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-7" className="section">
+                    <section id="section-7" className="section scrollspy">
                         <h2 id="art7">7. DA MONETIZAÇÃO E PUBLICIDADE</h2>
 
                         <p>
@@ -144,7 +144,7 @@ export default function Termos() {
                         </p>
                     </section>
 
-                    <section id="section-8" className="section">
+                    <section id="section-8" className="section scrollspy">
                         <h2 id="art8">8. DOS TERMOS GERAIS</h2>
 
                         <p>

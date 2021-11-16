@@ -64,7 +64,7 @@ export default function Cronograma() {
 
         if (cancel_linha_buffer === linha_buffer) {
             const cronograma_buffer = [...cronograma]
-            const index = cronograma.findIndex((table_linha) => linha_id == table_linha.id)
+            const index = cronograma.findIndex((table_linha) => linha_id === table_linha.id)
 
             cronograma_buffer.splice(index, 1)
 
@@ -79,17 +79,17 @@ export default function Cronograma() {
     // deletar linha
     const handleDeleteClick = (e, evento_linha) => {
         const novo_cronograma = [...cronograma]
-        const index = cronograma.findIndex((table_linha) => evento_linha.id == table_linha.id)
+        const index = cronograma.findIndex((table_linha) => evento_linha.id === table_linha.id)
 
         novo_cronograma.splice(index, 1)
         setCronograma(novo_cronograma);
 
         axios.post('http://localhost:3333/cronograma', { novo_cronograma: novo_cronograma })
-        .then((response) => {
-            if (!response.data.success) {
-                console.error("não salvou", response.data.error)
-            } 
-        }).catch((error) => { console.log(error) })
+            .then((response) => {
+                if (!response.data.success) {
+                    console.error("não salvou", response.data.error)
+                }
+            }).catch((error) => { console.log(error) })
     }
 
     // quando aperta o botão de editar
@@ -98,7 +98,7 @@ export default function Cronograma() {
 
         if (cancel_linha_buffer === linha_buffer) {
             const cronograma_buffer = [...cronograma]
-            const index = cronograma.findIndex((table_linha) => linha_id == table_linha.id)
+            const index = cronograma.findIndex((table_linha) => linha_id === table_linha.id)
 
             cronograma_buffer.splice(index, 1)
 
@@ -144,11 +144,11 @@ export default function Cronograma() {
         setLinhaId(null)
 
         axios.post('http://localhost:3333/cronograma', { novo_cronograma: novo_cronograma })
-        .then((response) => {
-            if (!response.data.success) {
-                console.error("não salvou", response.data.error)
-            } 
-        }).catch((error) => { console.log(error) })
+            .then((response) => {
+                if (!response.data.success) {
+                    console.error("não salvou", response.data.error)
+                }
+            }).catch((error) => { console.log(error) })
     }
 
     // cancelar enter no cronograma pq da umas zoadas

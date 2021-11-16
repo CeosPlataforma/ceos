@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 
 import ModalSenha from "../components/ModalSenha";
@@ -22,7 +22,7 @@ export default function Acessar() {
         }
     }
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const redirect = () => {
         history.push(`/painel`)

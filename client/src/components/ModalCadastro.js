@@ -1,11 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 function ModalCadastro(props) {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const redirect = () => {
         history.push(`/acessar`)

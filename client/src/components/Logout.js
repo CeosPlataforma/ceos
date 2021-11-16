@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 function Logout() {
 
-    const history = useHistory();
+    const history = useNavigate();
     const [done, setDone] = useState(false);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function Logout() {
             setDone(true);
         });
     })
-  
+
     useEffect(() => {
         history.replace('/')
     }, [done])

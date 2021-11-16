@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
@@ -41,101 +41,130 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Switch>
-                <Route exact path="/">
-                    <Header />
-                    <Home />
-                    <Footer />
-                </Route>
-                <Route path="/cadastrar">
+            <Routes>
+                <Route exact path="/" element={
+                    <Fragment>
+                        <Header />
+                        <Home />
+                        <Footer />
+                    </Fragment>
+                } />
+                <Route path="/cadastrar" element={<Fragment>
                     <Header />
                     <Cadastrar />
                     <Footer />
-                </Route>
-                <Route path="/acessar">
-                    <Header />
-                    <Acessar />
-                    <Footer />
-                </Route>
-                <Route path="/contato">
-                    <Header />
-                    <Contato />
-                    <Footer />
-                </Route>
-                <Route path="/desativado">
-                    <Header />
-                    <Thanks />
-                    <Footer />
-                </Route>
-                <Route path="/termos">
-                    <Header />
-                    <Termos />
-                    <Footer />
-                </Route>
+                </Fragment>
+                } />
+                <Route path="/acessar" element={
+                    <Fragment>
+                        <Header />
+                        <Acessar />
+                        <Footer />
+                    </Fragment>
+                } />
+                <Route path="/contato" element={
+                    <Fragment>
+                        <Header />
+                        <Contato />
+                        <Footer />
+                    </Fragment>
+                } />
+                <Route path="/desativado" element={
+                    <Fragment>
+                        <Header />
+                        <Thanks />
+                        <Footer />
+                    </Fragment>
+                } />
+                <Route path="/termos" element={
+                    <Fragment>
+                        <Header />
+                        <Termos />
+                        <Footer />
+                    </Fragment>
+                } />
 
-                <Route path="/painel">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <Painel />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/cronograma">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <Cronograma />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/materias">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <Materias />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/materia/:materiaID">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <VerAtvs />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/atividades">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <Atividades />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/desempenho">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <Desempenho />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/dados-pessoais">
-                    <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                        <Sidebar />
-                        <SidebarMob />
-                        <DadosPessoais />
-                    </div>
-                    <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                </Route>
-                <Route path="/redefinir-senha/:userID">
-                    <ResetSenha />
-                </Route>
-                <Route path="/logout">
-                    <Logout />
-                </Route>
-            </Switch>
+                <Route path="/painel" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <Painel />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/cronograma" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <Cronograma />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/materias" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <Materias />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/materia/:materiaID" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <VerAtvs />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/atividades" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <Atividades />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/desempenho" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <Desempenho />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/dados-pessoais" element={
+                    <Fragment>
+                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                            <Sidebar />
+                            <SidebarMob />
+                            <DadosPessoais />
+                        </div>
+                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                    </Fragment>
+                } />
+
+                <Route path="/redefinir-senha/:userID" element={<ResetSenha />} />
+
+                <Route path="/logout" element={<Logout />} />
+            </Routes>
         </BrowserRouter>
     )
 }
