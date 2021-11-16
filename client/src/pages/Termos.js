@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ScrollSpy from 'simple-scrollspy';
 
 import BlueFooter from "../components/BlueFooter";
@@ -10,7 +10,9 @@ export default function Termos() {
         offset: 120,
         menuActiveTarget: '.menu-item'
     }
-    ScrollSpy('#main-menu', options);
+    useEffect(() => {
+        ScrollSpy('#main-menu', options);
+    }, [])
 
     return (
         <>

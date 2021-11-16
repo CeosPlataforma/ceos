@@ -25,7 +25,7 @@ export default function Acessar() {
     const history = useNavigate();
 
     const redirect = () => {
-        history.push(`/painel`)
+        history(`/painel`)
     }
 
     const initialValues = {
@@ -45,7 +45,7 @@ export default function Acessar() {
                 if (response.data.error === "inexistent") {
                     actions.setFieldError("email", `Este usuário não existe`);
                 } else if (response.data.error === "verify") {
-                    actions.setFieldError("email", `Por favor verifique seu email antes de se logar`);
+                    actions.setFieldError("email", `Por favor, verifique seu e-mail antes de se logar`);
                 } else if (response.data.error === "password") {
                     actions.setFieldError("password", `Senha incorreta`);
                 } else if (response.status === 201) {

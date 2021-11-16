@@ -8,7 +8,7 @@ function ModalCadastro(props) {
     const history = useNavigate();
 
     const redirect = () => {
-        history.push(`/acessar`)
+        history(`/acessar`)
     }
 
     return (

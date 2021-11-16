@@ -12,7 +12,6 @@
     &--btn {
         @extend .btn--common;
         padding: 10px 10px;
-        width: 19%;
         border: 2px solid $gray-dark;
         color: $gray-dark;
         margin: 10px 0 10px 0;    
@@ -20,7 +19,7 @@
         align-items: center;
         justify-content: center;
         flex-wrap: nowrap;
-        white-space: nowrap;
+        white-space: nowrap !important;
         @include device(lg) {
             width: 30%;
         }
@@ -47,7 +46,6 @@
 }
 
 .row-atividades {
-    padding: 0 15px;
     flex-wrap: wrap;
 }
 

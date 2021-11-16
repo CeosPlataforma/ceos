@@ -19,7 +19,7 @@ function Logout() {
     })
 
     useEffect(() => {
-        history.replace('/')
+        history('/')
     }, [done])
 
     return (<div></div>)

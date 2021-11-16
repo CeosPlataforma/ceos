@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Row from 'react-bootstrap/Row';
 import { Link } from "react-router-dom";
+import Col from 'react-bootstrap/Col';
+
 import PlataformaHeader from "../components/PlataformaHeader";
 import AtvBox from "../components/AtvBox";
 import Button from "@restart/ui/esm/Button";
@@ -9,11 +11,11 @@ export default function Atividades() {
 
     const [atvTipo, setAtvTipo] = useState("all")
     const [atividades, setAtividades] = useState([])
-    const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active")
-    const [casaButton, setCasaButton] = useState("atividades--btn atividades--btn--inactive")
-    const [trabButton, setTrabButton] = useState("atividades--btn atividades--btn--inactive")
-    const [provButton, setProvButton] = useState("atividades--btn atividades--btn--inactive")
-    const [lixoButton, setLixoButton] = useState("atividades--btn atividades--btn--inactive")
+    const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active w-100")
+    const [casaButton, setCasaButton] = useState("atividades--btn atividades--btn--inactive w-100")
+    const [trabButton, setTrabButton] = useState("atividades--btn atividades--btn--inactive w-100")
+    const [provButton, setProvButton] = useState("atividades--btn atividades--btn--inactive w-100")
+    const [lixoButton, setLixoButton] = useState("atividades--btn atividades--btn--inactive w-100")
 
     const fetchAtividades = async () => {
         axios.get('http://localhost:3333/get-atividades')
@@ -54,72 +56,76 @@ export default function Atividades() {
                 <PlataformaHeader title="Atividades" user={false} />
 
                 <div className="row d-flex justify-content-between row-atividades">
-
-                    <Button
-                        className={atvButton}
-                        onClick={() => {
-                            setAtvButton("atividades--btn atividades--btn--active")
-                            setCasaButton("atividades--btn atividades--btn--inactive")
-                            setTrabButton("atividades--btn atividades--btn--inactive")
-                            setProvButton("atividades--btn atividades--btn--inactive")
-                            setLixoButton("atividades--btn atividades--btn--inactive")
-                            setAtvTipo("all")
-                        }}>
-                        Todas atividades
-                    </Button>
-
-                    <Button
-                        className={casaButton}
-                        onClick={() => {
-                            setAtvButton("atividades--btn atividades--btn--inactive")
-                            setCasaButton("atividades--btn atividades--btn--active")
-                            setTrabButton("atividades--btn atividades--btn--inactive")
-                            setProvButton("atividades--btn atividades--btn--inactive")
-                            setLixoButton("atividades--btn atividades--btn--inactive")
-                            setAtvTipo("casa")
-                        }}>
-                        Lição de casa
-                    </Button>
-
-                    <Button
-                        className={trabButton}
-                        onClick={() => {
-                            setAtvButton("atividades--btn atividades--btn--inactive")
-                            setCasaButton("atividades--btn atividades--btn--inactive")
-                            setTrabButton("atividades--btn atividades--btn--active")
-                            setProvButton("atividades--btn atividades--btn--inactive")
-                            setLixoButton("atividades--btn atividades--btn--inactive")
-                            setAtvTipo("trabalho")
-                        }}>
-                        Trabalho
-                    </Button>
-
-                    <Button
-                        className={provButton}
-                        onClick={() => {
-                            setAtvButton("atividades--btn atividades--btn--inactive")
-                            setCasaButton("atividades--btn atividades--btn--inactive")
-                            setTrabButton("atividades--btn atividades--btn--inactive")
-                            setProvButton("atividades--btn atividades--btn--active")
-                            setLixoButton("atividades--btn atividades--btn--inactive")
-                            setAtvTipo("prova")
-                        }}>
-                        Prova
-                    </Button>
-
-                    <Button
-                        className={lixoButton}
-                        onClick={() => {
-                            setAtvButton("atividades--btn atividades--btn--inactive")
-                            setCasaButton("atividades--btn atividades--btn--inactive")
-                            setTrabButton("atividades--btn atividades--btn--inactive")
-                            setProvButton("atividades--btn atividades--btn--inactive")
-                            setLixoButton("atividades--btn atividades--btn--active")
-                            setAtvTipo("lixeira")
-                        }}>
-                        Lixeira
-                    </Button>
-
+                    <Col>
+                        <Button
+                            className={atvButton}
+                            onClick={() => {
+                                setAtvButton("atividades--btn atividades--btn--active w-100")
+                                setCasaButton("atividades--btn atividades--btn--inactive w-100")
+                                setTrabButton("atividades--btn atividades--btn--inactive w-100")
+                                setProvButton("atividades--btn atividades--btn--inactive w-100")
+                                setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setAtvTipo("all")
+                            }}>
+                            Todas atividades
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            className={casaButton}
+                            onClick={() => {
+                                setAtvButton("atividades--btn atividades--btn--inactive w-100")
+                                setCasaButton("atividades--btn atividades--btn--active w-100")
+                                setTrabButton("atividades--btn atividades--btn--inactive w-100")
+                                setProvButton("atividades--btn atividades--btn--inactive w-100")
+                                setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setAtvTipo("casa")
+                            }}>
+                            Lição de casa
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            className={trabButton}
+                            onClick={() => {
+                                setAtvButton("atividades--btn atividades--btn--inactive w-100")
+                                setCasaButton("atividades--btn atividades--btn--inactive w-100")
+                                setTrabButton("atividades--btn atividades--btn--active w-100")
+                                setProvButton("atividades--btn atividades--btn--inactive w-100")
+                                setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setAtvTipo("trabalho")
+                            }}>
+                            Trabalho
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            className={provButton}
+                            onClick={() => {
+                                setAtvButton("atividades--btn atividades--btn--inactive w-100")
+                                setCasaButton("atividades--btn atividades--btn--inactive w-100")
+                                setTrabButton("atividades--btn atividades--btn--inactive w-100")
+                                setProvButton("atividades--btn atividades--btn--active w-100")
+                                setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setAtvTipo("prova")
+                            }}>
+                            Prova
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            className={lixoButton}
+                            onClick={() => {
+                                setAtvButton("atividades--btn atividades--btn--inactive w-100")
+                                setCasaButton("atividades--btn atividades--btn--inactive w-100")
+                                setTrabButton("atividades--btn atividades--btn--inactive w-100")
+                                setProvButton("atividades--btn atividades--btn--inactive w-100")
+                                setLixoButton("atividades--btn atividades--btn--active w-100")
+                                setAtvTipo("lixeira")
+                            }}>
+                            Lixeira
+                        </Button>
+                    </Col>
                 </div>
 
                 <div className="dropdown">
@@ -139,7 +145,7 @@ export default function Atividades() {
                 <Row sm={1} md={2} xxl={3} className="mb-2">
                     {atividades.length === 0
                         ?
-                        <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div>
+                        <Col><div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div></Col>
                         :
                         <React.Fragment>
                             {atividades.filter((atividade) => atvFiltro(atividade)).map((atividade) => {

@@ -41,7 +41,7 @@ export default function Acessar() {
     const history = useNavigate();
 
     const redirect = () => {
-        history.push(`/dados-pessoais`)
+        history(`/dados-pessoais`)
     }
 
     const initialValues = {
@@ -70,7 +70,7 @@ export default function Acessar() {
     }
 
     return (
-        <div>
+        <div className="d-flex align-items-center" style={{ height: '100vh' }}>
             <div className="container acessar" id="acessar">
                 <h2 className="acessar--title text-center mb-4">
                     Esqueceu sua senha?

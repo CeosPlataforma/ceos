@@ -73,16 +73,16 @@ export default function VerAtvs() {
     useEffect(() => {
 
         axios.post("http://localhost:3333/materia-details", { materia_uuid: materiaID })
-        .then((response) => {
-            setMateria(response.data)
-        }).catch((error) => { console.log(error) })
+            .then((response) => {
+                setMateria(response.data)
+            }).catch((error) => { console.log(error) })
 
     }, [])
 
     useEffect(() => {
-        
+
         fetchAtividades()
-        
+
     }, [materia])
 
 
@@ -90,7 +90,11 @@ export default function VerAtvs() {
         <>
             <div className="container-xxl ver-atividades content">
 
-                <PlataformaHeader title={materia.name} user={false} retornarmsg={"Voltar às matérias"} link={"/materias"} />
+                <PlataformaHeader
+                    title={materia.name}
+                    editmateria
+                    retornarmsg={"Voltar às matérias"}
+                    link={"/materias"} />
 
                 <div className="d-flex justify-content-between p-0 flex-wrap">
                     <button

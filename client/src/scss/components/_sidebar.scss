@@ -8,7 +8,7 @@
     height: 100vh;
     width: 78px;
     background: $black;
-    padding: 0px 14px 30px 14px;
+    padding: 0px 14px 0px 14px;
     z-index: 99;
     transition: all 0.5s ease;
     border-top-right-radius: 50px;
@@ -50,6 +50,7 @@
     .logo_content {
         display: flex;
         justify-content: center;
+        margin-top: 40px;
         @media screen and (max-height: 675px) {
             display: none;
         }
@@ -66,9 +67,9 @@
         }
     }
     ul {
-        @media screen and (max-height: 675px) {
-            margin: 50px 0px 0px 0px;
-        }
+        // @media screen and (max-height: 675px) {
+        //     margin: 50px 0px 0px 0px;
+        // }
         &:first-child {
             margin-top: 20px;
         }

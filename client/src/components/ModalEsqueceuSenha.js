@@ -8,11 +8,11 @@ function ModalEsqueceuSenha(props) {
     const history = useNavigate();
 
     const redirect = () => {
-        history.push(`/logout`)
+        history(`/logout`)
     }
 
     return (
-        <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--website" centered>
+        <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--website modal-esqueceu-senha-amaral" centered>
             <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--website">Recuperação de senha</h1>
