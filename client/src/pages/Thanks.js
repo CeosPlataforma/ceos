@@ -7,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 // import { ErrorMessage, Field, Form, Formik } from 'formik';
 
+import BlueFooter from "../components/BlueFooter";
+
 export default function Thanks() {
     return (
         <>
@@ -114,19 +116,7 @@ export default function Thanks() {
                 </form>
             </Container>
 
-            <Container fluid className="cta px-0">
-                <Container fluid className="container-padding">
-                    <h2 className="cta--title text-center pb-4">
-                        Comece agora mesmo a usar a plataforma Ceos!
-                    </h2>
-
-                    <div className="cta--arrow"></div>
-
-                    <div className="d-grid d-md-flex justify-content-center">
-                        <Link to={"/acessar"} type="button" className="cta--btn"> Acessar </Link>
-                    </div>
-                </Container>
-            </Container>
+            <BlueFooter />
         </>
     );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import { ErrorMessage, Field, Form, Formik } from 'formik';
 
+import BlueFooter from "../components/BlueFooter";
+
 export default function Contato() {
     return (
         <>
@@ -65,18 +67,7 @@ export default function Contato() {
                 </form>
             </div>
 
-            <div className="container-fluid cta px-0">
-                <div className="container container-padding">
-                    <h2 className="cta--title text-center pb-4">
-                        Comece agora mesmo a usar a plataforma Ceos!
-                    </h2>
-                    <div className="cta--arrow"></div>
-
-                    <div className="d-grid d-md-flex justify-content-center">
-                        <Link to="/acessar" type="button" className="cta--btn"> Acessar </Link>
-                    </div>
-                </div>
-            </div>
+            <BlueFooter />
         </>
     );
 }

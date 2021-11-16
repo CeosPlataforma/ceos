@@ -1,7 +1,6 @@
 import React from "react";
 import { HashLink } from 'react-router-hash-link';
 import Container from 'react-bootstrap/Container';
-import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 
 import logo from "../assets/logo/svg/LogoVB(SemNome).svg";

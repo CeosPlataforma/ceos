@@ -1564,7 +1564,7 @@ ol, ul {
     padding: 40px 40px 120px 40px !important;
   }
 }
-.acessar--title {
+.acessar--title, .termos-page .termos-title {
   font: 700 48px "Baloo Bhai 2", cursive;
   color: #23272a;
   line-height: 1.15;
@@ -2256,6 +2256,55 @@ ol, ul {
 }
 .cropper--aplicar, .cropper--cancelar {
   display: inherit;
+}
+
+.termos-page {
+  display: flex;
+  width: 85%;
+  margin: 200px auto;
+  justify-content: space-between;
+}
+.termos-page .menu-item {
+  color: #216AA7;
+  padding-left: 10px;
+  border-left: 2px solid transparent;
+}
+.termos-page .menu-item.active {
+  border-left: 2px solid #216AA7;
+  background-color: #E5E5E5;
+}
+.termos-page hr {
+  margin: 50px 0;
+  color: #216AA7;
+  height: 3px;
+  opacity: 1;
+}
+.termos-page .termos-navbar {
+  position: relative;
+}
+.termos-page .termos-text {
+  width: 70%;
+}
+.termos-page .menu {
+  position: sticky;
+  top: 100px;
+  background-color: #FFFFFF;
+  border: 2px solid #216AA7;
+  border-radius: 10px;
+  padding: 30px;
+  display: block;
+}
+.termos-page .menu {
+  display: flex;
+  flex-direction: column;
+}
+.termos-page .container-padding {
+  width: 50%;
+  margin: 0px auto 200px auto;
+}
+.termos-page p {
+  font: 400 18px "Baloo Bhai 2", cursive;
+  margin: 30px 0;
 }
 
 .thanks {
