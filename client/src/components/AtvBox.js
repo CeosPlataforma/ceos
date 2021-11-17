@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Col from 'react-bootstrap/Col';
+import axios from "axios";
 
 import ModalConfirmAtv from "../components/ModalConfirmAtv";
 import ModalEditAtv from "../components/ModalEditAtv";
@@ -10,6 +11,31 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
+
+    const showEdit = () => {
+        setShow(false)
+        setShow3(true)
+    }
+
+    const onSubmitExcluir = async (values, actions) => {
+        axios.post("http://localhost:3333/delete-atividade", { id: atv_obj._id })
+            .then((response) => {
+                console.log(response)
+                const { success, error } = response.data;
+                if (success) {
+                    actions.setFieldError("pele", `Atividade deletada com sucesso.`);
+                    setShow2(false)
+                } else {
+                    actions.setFieldError("pele", `erro!!!.`);
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+        // setShowExcluir(false);
+        // console.log("excluir")
+    }
+
 
     return (
         <Col>
@@ -56,8 +82,8 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                     </button>
                 </div>
 
-                <ModalConfirmAtv mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
-                <ModalDeleteAtv show={show2} onHide={() => { setShow2(false) }} onEnter={toggleDrag} />
+                <ModalConfirmAtv showEdit={showEdit} mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
+                <ModalDeleteAtv onSubmit={onSubmitExcluir} tipo={tipo} data={data} atv_obj={atv_obj} show={show2} onHide={() => { setShow2(false) }} onExited={() => { window.location.reload() }} onEnter={toggleDrag} />
                 <ModalEditAtv show={show3} onHide={() => setShow3(false)} onEnter={toggleDrag} />
             </div>
         </Col>

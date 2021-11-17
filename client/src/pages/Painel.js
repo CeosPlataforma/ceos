@@ -16,8 +16,8 @@ import { useDrag } from "../components/useDrag";
 export default function Painel() {
 
     const [drag, toggleDrag] = useDrag();
-    const [materiasFetched, setMateriasFetched] = useState(false)
-    const [atividadesFetched, setAtividadesFetched] = useState(false)
+    //const [materiasFetched, setMateriasFetched] = useState(false)
+    //const [atividadesFetched, setAtividadesFetched] = useState(false)
     //const [emptyAtv, setEmptyAtv] = useState(false)
 
     var settings = {
@@ -101,8 +101,8 @@ export default function Painel() {
             .then((response) => {
 
                 if (response.data.message !== "sem-materias") {
+                    
                     setMaterias(response.data)
-                    setMateriasFetched(true)
                 } else {
                     console.log("sem materia");
                 }
@@ -111,36 +111,22 @@ export default function Painel() {
     }
 
     const fetchAtividades = async () => {
-        let atividade_array = [];
-        materias.map((materia, index, array) => {
-            axios.post('http://localhost:3333/get-atividades', { materia_id: materia._id })
-                .then((response) => {
-                    if (!response.data.message) {
-                        //console.log("res", response)
-                        atividade_array = atividade_array.concat(response.data)
-                    }
-                }).catch((error) => {
-                    console.log("erro no fetch das atividades", error)
-                })
-                .finally(() => {
-                    //console.log("array", atividade_array)
-                    setAtividades(atividade_array)
-                    if (index == array.length - 1) {
-                        setAtividadesFetched(true)
-                    }
-                })
-        })
+        axios.get('http://localhost:3333/get-atividades')
+            .then((response) => {
+                if (!response.data.message) {
+                    console.log(response.data)
+                    setAtividades(response.data)
+                }
+            }).catch((error) => {
+                console.log("erro no fetch das atividades", error)
+            })
     }
-
-    // <AtvBox materia={materia.name} mat_obj={materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
 
     useEffect(() => {
         fetchMaterias()
-    }, [])
-    useEffect(() => {
         fetchAtividades()
-    }, [materiasFetched])
-
+    }, [])
+    
     return (
         <div className="container-xxl painel content">
 
@@ -220,7 +206,11 @@ export default function Painel() {
                 </Slider>
                 :
                 <Slider {...settings} className="painel--atvs-recentes" slidesToShow={3} draggable={drag} responsive={[{ breakpoint: 1450, settings: { slidesToShow: 2 } }, { breakpoint: 888, settings: { slidesToShow: 1 } }]}>
-                    {atividades.map((atividade) => {
+                    {atividades.sort((a, b) => {
+                        const a_date = new Date(a.dueBy)
+                        const b_date = new Date(b.dueBy)
+                        return a_date - b_date
+                    }).map((atividade) => {
                         switch (atividade.atv_type) {
                             case "trabalho":
                                 atividade.tipo = "Trabalho"
@@ -240,7 +230,6 @@ export default function Painel() {
                         let year = atividade.dueBy.substring(0, 4)
                         let date = `${day}/${month}/${year}`
                         atividade.fixedDate = date
-                        //console.log("map", atividade.tipo)
                         return <Row><AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} toggleDrag={toggleDrag} excluir /></Row>
                     })}
                 </Slider>

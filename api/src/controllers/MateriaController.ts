@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import { MateriaModel } from '../models/Materia';
 import { UserModel } from '../models/User';
 import crypto from 'crypto'
+import { AtividadeModel } from '../models/Atividade';
+import { Types } from 'mongoose';
 
 class MateriaController {
 
@@ -19,7 +21,7 @@ class MateriaController {
     }
 
     async createMateria(request: Request, response: Response) {
-        
+
         const userUuid = request.session.user.uuid;
         const newMateria = new MateriaModel();
         newMateria.name = request.body.name;
@@ -28,14 +30,14 @@ class MateriaController {
         await UserModel.findOne({ uuid: userUuid }).then((user) => {
             newMateria.user = userUuid;
         });
-        
+
         MateriaModel.exists({ name: newMateria.name, user: newMateria.user }, function (error, doc) {
             if (error) {
                 console.log(error)
             } else if (!doc) {
                 try {
                     const savedMateria = newMateria.save()
-                    return response.status(200).send({success: true});
+                    return response.status(200).send({ success: true });
                 } catch (err) {
                     console.error(err);
                     return response.status(200).send(err);
@@ -44,7 +46,7 @@ class MateriaController {
                 console.log("existe materia")
                 MateriaModel.findOne({ name: newMateria.name, user: newMateria.user }).then((materia) => {
                     console.log(materia)
-                    return response.json({message: "Esta matéria já existe", materiaAlreadyExists: true});
+                    return response.json({ message: "Esta matéria já existe", materiaAlreadyExists: true });
                 });
             }
         })
@@ -65,17 +67,37 @@ class MateriaController {
         const userUuid = request.session.user.uuid;
         await MateriaModel.deleteMany({ user: userUuid }, async (result) => {
             console.log(result)
-            return response.json({message: "ok"})
+            return response.json({ message: "ok" })
         })
     }
 
-    /*async deleteMateria(request: Request, response: Response) {
-        const materiaUuid = request.body.uuid;
+    async delete(request: Request, response: Response) {
+        const materia_id = request.body.id;
         try {
-            MateriaModel.deleteOne({ uuid: materiaUuid });
+            AtividadeModel.deleteMany({ materia: Types.ObjectId(materia_id) }, async (result) => {})
+            MateriaModel.findByIdAndRemove(materia_id, { useFindAndModify: false })
+                .exec().finally(() => {
+                    return response.json({ success: true })
+                })
         } catch (error) {
             return console.error(error);
         }
+    }
+
+    async rename(request: Request, response: Response) {
+        const { materia_id, new_name } = request.body
+        console.log(request.body)
+        try {
+            const materia = await MateriaModel.findById(materia_id);
+            materia.name = new_name;
+            materia.save();
+            return response.json({ success: true })
+        }
+        catch (error) { console.log(error); return response.json({ success: false }) }
+    }
+
+    /*async deleteMateria(request: Request, response: Response) {
+        
     }*/
 
 }

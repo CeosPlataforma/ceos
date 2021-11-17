@@ -11,15 +11,17 @@ export default function Atividades() {
 
     const [atvTipo, setAtvTipo] = useState("all")
     const [atividades, setAtividades] = useState([])
-    const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active w-100")
+    const [ atvButton, setAtvButton ] = useState("atividades--btn atividades--btn--active w-100")
     const [casaButton, setCasaButton] = useState("atividades--btn atividades--btn--inactive w-100")
     const [trabButton, setTrabButton] = useState("atividades--btn atividades--btn--inactive w-100")
     const [provButton, setProvButton] = useState("atividades--btn atividades--btn--inactive w-100")
     const [lixoButton, setLixoButton] = useState("atividades--btn atividades--btn--inactive w-100")
+    const [concButton, setConcButton] = useState("atividades--btn atividades--btn--inactive w-100")
 
     const fetchAtividades = async () => {
         axios.get('http://localhost:3333/get-atividades')
             .then((response) => {
+                console.log(response.data)
                 setAtividades(response.data)
             }).catch((error) => {
                 console.log("erro no fetch das atividades", error)
@@ -42,6 +44,7 @@ export default function Atividades() {
 
     useEffect(() => {
         fetchAtividades()
+        console.log(atividades)
     }, [])
 
     function redirect(url) {
@@ -65,6 +68,7 @@ export default function Atividades() {
                                 setTrabButton("atividades--btn atividades--btn--inactive w-100")
                                 setProvButton("atividades--btn atividades--btn--inactive w-100")
                                 setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setConcButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("all")
                             }}>
                             Todas atividades
@@ -79,6 +83,7 @@ export default function Atividades() {
                                 setTrabButton("atividades--btn atividades--btn--inactive w-100")
                                 setProvButton("atividades--btn atividades--btn--inactive w-100")
                                 setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setConcButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("casa")
                             }}>
                             Lição de casa
@@ -93,6 +98,7 @@ export default function Atividades() {
                                 setTrabButton("atividades--btn atividades--btn--active w-100")
                                 setProvButton("atividades--btn atividades--btn--inactive w-100")
                                 setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setConcButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("trabalho")
                             }}>
                             Trabalho
@@ -107,6 +113,7 @@ export default function Atividades() {
                                 setTrabButton("atividades--btn atividades--btn--inactive w-100")
                                 setProvButton("atividades--btn atividades--btn--active w-100")
                                 setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setConcButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("prova")
                             }}>
                             Prova
@@ -121,9 +128,25 @@ export default function Atividades() {
                                 setTrabButton("atividades--btn atividades--btn--inactive w-100")
                                 setProvButton("atividades--btn atividades--btn--inactive w-100")
                                 setLixoButton("atividades--btn atividades--btn--active w-100")
+                                setConcButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("lixeira")
                             }}>
                             Lixeira
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            className={concButton}
+                            onClick={() => {
+                                setAtvButton("atividades--btn atividades--btn--inactive w-100")
+                                setCasaButton("atividades--btn atividades--btn--inactive w-100")
+                                setTrabButton("atividades--btn atividades--btn--inactive w-100")
+                                setProvButton("atividades--btn atividades--btn--inactive w-100")
+                                setLixoButton("atividades--btn atividades--btn--inactive w-100")
+                                setConcButton("atividades--btn atividades--btn--active w-100")
+                                setAtvTipo("concluida")
+                            }}>
+                            Concluídas
                         </Button>
                     </Col>
                 </div>
@@ -143,7 +166,7 @@ export default function Atividades() {
                     </ul>
                 </div>
                 <Row sm={1} md={2} xxl={3} className="mb-2">
-                    {atividades.length === 0
+                    {!atividades.length
                         ?
                         <Col><div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div></Col>
                         :
@@ -164,9 +187,6 @@ export default function Atividades() {
                                         atividade.tipo = "Prova"
                                         break;
                                 }
-
-
-
 
                                 let day = atividade.dueBy.substring(8, 10)
                                 let month = atividade.dueBy.substring(5, 7)

@@ -21,9 +21,9 @@ router.post('/contato', mailController.contato);
 const materiaController = new MateriaController();
 router.post('/materia', materiaController.createMateria);
 router.get('/materia', materiaController.getAllMaterias);
-
+router.post('/materia-rename', materiaController.rename)
 router.post('/materia-details', materiaController.getMateria)
-
+router.post('/materia-deletar', materiaController.delete)
 // USUARIO
 
 const userController = new UserController();
@@ -50,6 +50,8 @@ const atividadeController = new AtividadeController();
 router.post('/atividades', atividadeController.criarAtividade)
 router.post('/get-atividades', atividadeController.getAtividades)
 router.get('/get-atividades', atividadeController.getAllAtividades)
+router.post('/delete-atividade', atividadeController.delete)
+router.patch('/editar-atividade', atividadeController.edit)
 
 // CRONOGRAMA
 const cronogramaController = new CronogramaController();

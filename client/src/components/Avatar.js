@@ -18,7 +18,7 @@ class Avatar extends Component {
     componentDidMount() {
         axios.get("http://localhost:3333/get-foto")
             .then((response) => {
-                console.log(response.data.foto.data.data);
+                //console.log(response.data.foto.data.data);
                 var base64Flag = `data:image/jpeg;base64,`;
                 var imageString = arrayBufferToBase64(response.data.foto.data.data);
                 this.setState({

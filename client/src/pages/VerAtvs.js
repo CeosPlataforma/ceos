@@ -9,7 +9,6 @@ import ModalDeleteMateria from "../components/ModalDeleteMateria";
 import PlataformaHeader from "../components/PlataformaHeader";
 import VerAtvsInfo from "./VerAtvs-Info";
 
-
 export default function VerAtvs() {
 
     const { materiaID } = useParams()
@@ -25,6 +24,25 @@ export default function VerAtvs() {
 
     axios.defaults.withCredentials = true
 
+    const onSubmitExcluir = async (values, actions) => {
+        axios.post("http://localhost:3333/materia-deletar", { id: materia._id })
+            .then((response) => {
+                console.log(response)
+                const { success, error } = response.data;
+                if (success) {
+                    actions.setFieldError("name", `Materia deletada com sucesso.`);
+                    setTimeout(() => { window.location = "http://localhost:3000/materias" }, 2000)
+                } else {
+                    actions.setFieldError("name", `erro!!!.`); 
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+        // setShowExcluir(false);
+        // console.log("excluir")
+    }
+
     const onSubmit = async (values, actions) => {
         //console.log(values)
         await axios.post("http://localhost:3333/atividades", {
@@ -33,33 +51,33 @@ export default function VerAtvs() {
             type: values.type,
             dueByDate: values.dueByDate,
             materia_id: materia._id
-        })
-            .then((response) => {
-                //console.log(response);
-                if (response.data.success) {
-                    setShowAdd(false)
-                } else if (response.data.error) {
-                    //console.log(response.data.error)
-                    actions.setFieldError("name", "erro!!!");
-                } else if (response.data.exists) {
-                    actions.setFieldError("name", "Esta atividade já existe!!!");
-                } else {
-                    console.log(response.data);
-                }
-            }).catch((error) => {
-                console.log(error)
-            });
+        }).then((response) => {
+            //console.log(response);
+            if (response.data.success) {
+                setShowAdd(false)
+            } else if (response.data.error) {
+                //console.log(response.data.error)
+                actions.setFieldError("name", "erro!!!");
+            } else if (response.data.exists) {
+                actions.setFieldError("name", "Esta atividade já existe!!!");
+            } else {
+                console.log(response.data);
+            }
+        }).catch((error) => {
+            console.log(error)
+        });
     }
 
     const fetchAtividades = async () => {
+        //console.log(materia)
         axios.post('http://localhost:3333/get-atividades', { materia_id: materia._id })
             .then((response) => {
 
-                if (response.data.message !== "sem-atividades") {
+                if (!response.data.message) {
                     setAtividades(response.data)
                     //console.log(response.data);
                 } else {
-                    console.log("sem atividade");
+                    console.log("sem atividade", response.data);
                 }
 
             }).catch((error) => { console.log(error); })
@@ -92,6 +110,7 @@ export default function VerAtvs() {
 
                 <PlataformaHeader
                     title={materia.name}
+                    materia={materia}
                     editmateria
                     retornarmsg={"Voltar às matérias"}
                     link={"/materias"} />
@@ -147,6 +166,9 @@ export default function VerAtvs() {
                                     case "prova":
                                         atividade.tipo = "Prova"
                                         break;
+                                    default: 
+                                        atividade.tipo = "sexo"
+                                        break;
                                 }
                                 let day = atividade.dueBy.substring(8, 10)
                                 let month = atividade.dueBy.substring(5, 7)
@@ -168,7 +190,7 @@ export default function VerAtvs() {
                 }
 
                 <ModalAddAtv onSubmit={onSubmit} show={showAdd} onHide={() => { setShowAdd(false) }} onExited={() => { reload() }} />
-                <ModalDeleteMateria show={showExcluir} onHide={() => { setShowExcluir(false) }} />
+                <ModalDeleteMateria materia_name={materia.name} onSubmit={onSubmitExcluir} show={showExcluir} onHide={() => { setShowExcluir(false) }} />
 
             </div>
         </>

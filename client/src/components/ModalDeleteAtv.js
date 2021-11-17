@@ -4,9 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Formik, Form, ErrorMessage, Field } from 'formik';
 // import Form from 'react-bootstrap/Form';
 
 function ModalDeleteAtv(props) {
+
+    const initialValues = {
+        name: ""
+    }
+
     return (
         <Modal {...props} size="lg" className="modal-atividade" contentClassName="modal-content--plataforma" centered>
             <Modal.Header className="modal-atividade--header">
@@ -16,17 +22,17 @@ function ModalDeleteAtv(props) {
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                    <Row className="justify-content-between">
+                <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
-                                <input className="form-control modal--input" placeholder="Título da atividade" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.name} readOnly={true} disabled={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Data de entrega</p>
-                                <input className="form-control modal--input" placeholder="XX/XX/XX" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.fixedDate} readOnly={true} />
                             </div>
                         </Col>
                     </Row>
@@ -34,22 +40,28 @@ function ModalDeleteAtv(props) {
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Tipo</p>
-                                <input className="form-control modal--input" placeholder="Tipo da atividade" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.tipo} readOnly={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Descrição</p>
-                                <textarea className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" readOnly={true} />
+                                <input className="form-control modal--input" placeholder={props.atv_obj.description} readOnly={true} />
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md modal--btn modal-atividade--btn mt-4 confirmar-exclusao" onClick={props.onHide}>Confirmar exclusão</Button>
+                <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
+                    <Form>
+                        <Field name="pele" type="hidden"/>
+                        <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
+                        <Button variant="primary" name="submit" type="submit" className="text-md modal--btn modal-atividade--btn confirmar-exclusao">Confirmar exclusão</Button>
+                    </Form>
+                </Formik>
             </Modal.Footer>
-        </Modal >
+        </Modal>
     );
 }
 
