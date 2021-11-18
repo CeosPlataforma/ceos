@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import * as Yup from 'yup';
 
 function ModalEditAtv(props) {
-    
+
     const initialValues = {
         name: '',
         description: ''
@@ -80,11 +80,13 @@ function ModalEditAtv(props) {
                             </Row>
                             <Row>
                                 <Col>
-                                    <Field type="checkbox" className="modal--checkbox mt-4" name="checkbox"/>
-                                    <span>
-                                        Atividade Concluida
-                                    </span>
-                                    <ErrorMessage component="span" className="error-msg" name="checkbox" />
+                                    <div className="d-flex align-items-center mt-4">
+                                        <Field type="checkbox" className="modal--checkbox" name="checkbox" />
+                                        <span>
+                                            Atividade Concluida
+                                        </span>
+                                        <ErrorMessage component="span" className="error-msg" name="checkbox" />
+                                    </div>
                                 </Col>
                             </Row>
                         </Container>
@@ -92,7 +94,7 @@ function ModalEditAtv(props) {
                 </Formik>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md modal--btn modal-atividade--btn mt-4" onClick={props.onHide}>Salvar</Button>
+                <Button variant="primary" className="text-md modal--btn modal-atividade--btn mt-4 w-50" onClick={props.onHide}>Salvar</Button>
             </Modal.Footer>
         </Modal >
     );

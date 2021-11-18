@@ -9,6 +9,10 @@
         @include device(sm) {
             width: 100% !important;
         }
+        &--active {
+            background-color: $gray-dark;
+            color: $white !important;
+        }
     }
     // &--holder {
     //     margin: 0;
@@ -18,6 +22,15 @@
     }
     .logged--header {
         flex-wrap: wrap !important;
+        .form-control {
+            width: 80%;
+            // margin-top: 17px;
+            // margin-bottom: 8px;
+        }
+        &--margin {
+            margin-top: 8px;
+            margin-bottom: 48px;
+        }
     }
     .return--arrow {
         margin: auto 30px auto 30px;
@@ -35,13 +48,6 @@
         svg {
             width: 15px;
             height: 15px;
-        }
-    }
-    .logged--header {
-        .form-control {
-            width: 80%;
-            margin-top: 17px;
-            margin-bottom: 8px;
         }
     }
 }

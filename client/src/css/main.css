@@ -146,6 +146,10 @@ label:focus,
   --bs-gutter-y: .75rem;
 }
 
+.btn-green {
+  background-color: #2B9E33 !important;
+}
+
 .dark-mode {
   background-color: #23272a;
   color: #E5E5E5;
@@ -1109,6 +1113,15 @@ button {
   padding-bottom: 40px;
 }
 
+.modal--checkbox {
+  -webkit-appearance: checkbox !important;
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+}
+
 .senha--container {
   position: relative;
 }
@@ -1699,15 +1712,6 @@ ol, ul {
   cursor: pointer;
 }
 
-.modal--checkbox {
-  -webkit-appearance: auto;
-  margin-right: 10px;
-  height: 20px;
-  width: 20px;
-  margin-bottom: 2px;
-  cursor: pointer;
-}
-
 .contato {
   padding-top: 40px;
   padding-bottom: 120px;
@@ -2041,8 +2045,19 @@ ol, ul {
     width: 100% !important;
   }
 }
+.ver-atividades--btn--active {
+  background-color: #707070;
+  color: #FFFFFF !important;
+}
 .ver-atividades .logged--header {
   flex-wrap: wrap !important;
+}
+.ver-atividades .logged--header .form-control {
+  width: 80%;
+}
+.ver-atividades .logged--header--margin {
+  margin-top: 8px;
+  margin-bottom: 48px;
 }
 .ver-atividades .return--arrow {
   margin: auto 30px auto 30px;
@@ -2062,11 +2077,6 @@ ol, ul {
 .ver-atividades .btn-edit--materia svg {
   width: 15px;
   height: 15px;
-}
-.ver-atividades .logged--header .form-control {
-  width: 80%;
-  margin-top: 17px;
-  margin-bottom: 8px;
 }
 
 .atividades--holder {

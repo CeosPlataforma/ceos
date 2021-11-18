@@ -22,7 +22,7 @@ function ModalDeleteAtv(props) {
             </Modal.Header>
             <Modal.Body className="modal-atividade--body">
                 <Container>
-                <Row className="justify-content-between">
+                    <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
@@ -54,10 +54,12 @@ function ModalDeleteAtv(props) {
             </Modal.Body>
             <Modal.Footer>
                 <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
-                    <Form>
-                        <Field name="pele" type="hidden"/>
-                        <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
-                        <Button variant="primary" name="submit" type="submit" className="text-md modal--btn modal-atividade--btn confirmar-exclusao">Confirmar exclusão</Button>
+                    <Form className="d-flex justify-content-center w-100">
+                        <div className="d-flex justify-content-center w-100">
+                            <Field name="pele" type="hidden" />
+                            <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
+                            <Button variant="primary" name="submit" type="submit" className="text-md modal--btn modal-atividade--btn confirmar-exclusao">Confirmar exclusão</Button>
+                        </div>
                     </Form>
                 </Formik>
             </Modal.Footer>

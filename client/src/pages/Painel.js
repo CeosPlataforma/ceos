@@ -20,11 +20,73 @@ export default function Painel() {
     //const [atividadesFetched, setAtividadesFetched] = useState(false)
     //const [emptyAtv, setEmptyAtv] = useState(false)
 
-    var settings = {
+    const settingsDefault = {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        slidesToScroll: 1,
         infinite: false
     };
+
+    const settingsEmpty = {
+        slidesToShow: 1
+    }
+
+    const settingsMaterias = {
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 1570,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    }
+
+    const settingsAtvs = {
+        // draggable: { drag },
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 1450,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 888,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    }
+
+    const settingsDesempenho = {
+        slidesToShow: 4,
+        responsive: [
+            {
+                breakpoint: 1350,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 820,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    }
 
     const geral = [
         {
@@ -101,7 +163,6 @@ export default function Painel() {
             .then((response) => {
 
                 if (response.data.message !== "sem-materias") {
-                    
                     setMaterias(response.data)
                 } else {
                     console.log("sem materia");
@@ -126,7 +187,7 @@ export default function Painel() {
         fetchMaterias()
         fetchAtividades()
     }, [])
-    
+
     return (
         <div className="container-xxl painel content">
 
@@ -172,40 +233,60 @@ export default function Painel() {
 
             {materias.length === 0
                 ?
-                <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
+                <Slider
+                    {...settingsDefault}
+                    {...settingsEmpty}
+                    className="painel--materias">
+
                     <Row>
                         <Col>
-                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma matéria.</p></div>
+                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}>
+                                <p>Você não criou nenhuma matéria.</p>
+                            </div>
                         </Col>
                     </Row>
                 </Slider>
                 :
-                <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
+                <Slider
+                    {...settingsDefault}
+                    {...settingsMaterias}
+                    className="painel--materias">
+
                     {materias.map((materia) => (
                         <Row>
                             <Col>
-                                <div className="painel--materia text-center" onClick={() => onClick(materia.uuid)}><p>{materia.name}</p></div>
+                                <div className="painel--materia text-center" onClick={() => onClick(materia.uuid)}>
+                                    <p>{materia.name}</p>
+                                </div>
                             </Col>
                         </Row>
                     ))}
                 </Slider>
             }
 
-
-
             <div className="section-title d-flex"><span className="bar">|</span><h4>Atividades recentes</h4></div>
 
             {atividades.length === 0
                 ?
-                <Slider {...settings} className="painel--materias" slidesToShow={3} responsive={[{ breakpoint: 1570, settings: { slidesToShow: 2, } }]}>
+                <Slider
+                    {...settingsDefault}
+                    {...settingsEmpty}
+                    className="painel--materias">
+
                     <Row>
                         <Col>
-                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div>
+                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}>
+                                <p>Você não criou nenhuma atividade.</p>
+                            </div>
                         </Col>
                     </Row>
                 </Slider>
                 :
-                <Slider {...settings} className="painel--atvs-recentes" slidesToShow={3} draggable={drag} responsive={[{ breakpoint: 1450, settings: { slidesToShow: 2 } }, { breakpoint: 888, settings: { slidesToShow: 1 } }]}>
+                <Slider
+                    {...settingsDefault}
+                    {...settingsAtvs}
+                    className="painel--atvs-recentes">
+
                     {atividades.sort((a, b) => {
                         const a_date = new Date(a.dueBy)
                         const b_date = new Date(b.dueBy)
@@ -230,15 +311,30 @@ export default function Painel() {
                         let year = atividade.dueBy.substring(0, 4)
                         let date = `${day}/${month}/${year}`
                         atividade.fixedDate = date
-                        return <Row><AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} toggleDrag={toggleDrag} excluir /></Row>
+                        return (
+                            <Row>
+                                <AtvBox
+                                    materia={atividade.materia.name}
+                                    mat_obj={atividade.materia}
+                                    atv_obj={atividade}
+                                    title={atividade.name}
+                                    tipo={atividade.tipo}
+                                    data={atividade.fixedDate}
+                                    toggleDrag={toggleDrag}
+                                    excluir />
+                            </Row>
+                        )
                     })}
                 </Slider>
             }
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Desempenho geral</h4></div>
 
-            <Slider {...settings} slidesToShow={4}
-                responsive={[{ breakpoint: 1350, settings: { slidesToShow: 3 } }, { breakpoint: 820, settings: { slidesToShow: 2 } }, { breakpoint: 600, settings: { slidesToShow: 1 } }]}>
+            <Slider
+                {...settingsDefault}
+                {...settingsDesempenho}
+            >
+
                 {geral.map((card) => {
                     return (
                         <Row>
