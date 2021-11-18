@@ -20,7 +20,7 @@ function ModalDeleteMateria(props) {
 
     return (
         <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
-            <Modal.Header>
+            <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--plataforma">Para confirmar a exclusão, confirme o nome da matéria</h1>
                 </Modal.Title>
@@ -30,7 +30,7 @@ function ModalDeleteMateria(props) {
                     <Form>
                         <div className="modal-body mb-4">
                             <p className="text-lg mb-0">Nome</p>
-                            <Field name="confirm" autoComplete="off" type="text" className="form-control modal--input" aria-describedby="materiaDelete" required readOnly={true}/>
+                            <Field name="confirm" autoComplete="off" type="text" className="form-control modal--input" aria-describedby="materiaDelete" required readOnly={true} />
                             <p className="text-lg mb-0 mt-4">Confirmação</p>
                             <Field name="name" autoComplete="off" type="text" className="form-control modal--input" aria-describedby="materiaDelete" required />
                             <ErrorMessage component="span" className="error-msg" name="name" />

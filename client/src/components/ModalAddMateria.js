@@ -16,7 +16,7 @@ function ModalAddMateria(props) {
 
     return (
         <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
-            <Modal.Header>
+            <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--plataforma">Adicione uma matéria</h1>
                 </Modal.Title>

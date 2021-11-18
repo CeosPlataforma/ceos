@@ -251,7 +251,7 @@ export default function DadosPessoais() {
 
             {image ? (
                 <Modal size="lg" show={showCrop} onHide={handleCloseCrop} className="dados-pessoais--modal-cropper" contentClassName="modal-content--plataforma" centered>
-                    <Modal.Header>
+                    <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">
                             <h1 className="modal--title modal--title--plataforma">Edite a imagem</h1>
                         </Modal.Title>

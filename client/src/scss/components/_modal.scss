@@ -87,11 +87,16 @@
     flex-wrap: wrap;
     justify-content: center;
     border-bottom: none;
-}
-
-.modal-header p {
-    color: $gray-dark;
-    margin-bottom: 0;
+    .btn-close {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    p {
+        color: $gray-dark;
+        margin-bottom: 0;
+    }
+    
 }
 
 .modal-body {

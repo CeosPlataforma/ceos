@@ -21,7 +21,7 @@ function ModalSenha(props) {
             contentClassName="modal-content--website"
             centered
         >
-            <Modal.Header>
+            <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--website">Esqueceu sua senha?</h1>
                     <p className="modal--subtitle modal--subtitle--website">Sem problemas! É fácil recuperá-la!</p>

@@ -50,15 +50,13 @@ export default function Painel() {
             {
                 breakpoint: 1450,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
+                    slidesToShow: 2
                 }
             },
             {
                 breakpoint: 888,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: 1
                 }
             }
         ]
@@ -236,7 +234,8 @@ export default function Painel() {
                 <Slider
                     {...settingsDefault}
                     {...settingsEmpty}
-                    className="painel--materias">
+                // className="painel--materias"
+                >
 
                     <Row>
                         <Col>
@@ -250,7 +249,8 @@ export default function Painel() {
                 <Slider
                     {...settingsDefault}
                     {...settingsMaterias}
-                    className="painel--materias">
+                // className="painel--materias"
+                >
 
                     {materias.map((materia) => (
                         <Row>
@@ -264,14 +264,15 @@ export default function Painel() {
                 </Slider>
             }
 
-            <div className="section-title d-flex"><span className="bar">|</span><h4>Atividades recentes</h4></div>
+            <div className="section-title d-flex" style={{ 'marginTop': '60px' }}><span className="bar">|</span><h4>Atividades recentes</h4></div>
 
             {atividades.length === 0
                 ?
                 <Slider
                     {...settingsDefault}
                     {...settingsEmpty}
-                    className="painel--materias">
+                // className="painel--materias"
+                >
 
                     <Row>
                         <Col>
@@ -285,7 +286,8 @@ export default function Painel() {
                 <Slider
                     {...settingsDefault}
                     {...settingsAtvs}
-                    className="painel--atvs-recentes">
+                // className="painel--atvs-recentes"
+                >
 
                     {atividades.sort((a, b) => {
                         const a_date = new Date(a.dueBy)
@@ -328,7 +330,7 @@ export default function Painel() {
                 </Slider>
             }
 
-            <div className="section-title d-flex"><span className="bar">|</span><h4>Desempenho geral</h4></div>
+            <div className="section-title d-flex" style={{ 'marginTop': '60px' }}><span className="bar">|</span><h4>Desempenho geral</h4></div>
 
             <Slider
                 {...settingsDefault}

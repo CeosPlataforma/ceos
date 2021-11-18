@@ -17,7 +17,7 @@ function ModalCadastro(props) {
             aria-labelledby="contained-modal-title-vcenter"
             contentClassName="modal-content--website modal-content--website--verify"
             centered>
-            <Modal.Header>
+            <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--website">Verificação de e-mail</h1>
                 </Modal.Title>

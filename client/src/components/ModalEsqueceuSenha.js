@@ -13,7 +13,7 @@ function ModalEsqueceuSenha(props) {
 
     return (
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--website modal-esqueceu-senha-amaral" centered>
-            <Modal.Header>
+            <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--website">Recuperação de senha</h1>
                 </Modal.Title>

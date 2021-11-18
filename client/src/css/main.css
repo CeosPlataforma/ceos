@@ -1068,7 +1068,11 @@ button {
   justify-content: center;
   border-bottom: none;
 }
-
+.modal-header .btn-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
 .modal-header p {
   color: #707070;
   margin-bottom: 0;
@@ -2170,6 +2174,9 @@ ol, ul {
   color: #216AA7 !important;
 }
 
+.dados-pessoais .title {
+  margin-bottom: 40px;
+}
 .dados-pessoais--sub-title {
   margin-bottom: 40px;
 }

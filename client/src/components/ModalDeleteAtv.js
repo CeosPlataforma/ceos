@@ -15,7 +15,7 @@ function ModalDeleteAtv(props) {
 
     return (
         <Modal {...props} size="lg" className="modal-atividade" contentClassName="modal-content--plataforma" centered>
-            <Modal.Header className="modal-atividade--header">
+            <Modal.Header closeButton className="modal-atividade--header">
                 <Modal.Title id="contained-modal-title-vcenter">
                     <h1 className="modal--title modal--title--plataforma">Confirmar a exclusão da atividade</h1>
                 </Modal.Title>

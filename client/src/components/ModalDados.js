@@ -49,7 +49,7 @@ function ModalDados(props) {
 
 
             <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
-                <Modal.Header>
+                <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
                         <h1 className="modal--title modal--title--plataforma">Altere seus dados</h1>
                     </Modal.Title>
