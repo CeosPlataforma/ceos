@@ -5,8 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 
 import AtvBox from "../components/AtvBox";
 import PlataformaHeader from "../components/PlataformaHeader";
@@ -20,71 +18,65 @@ export default function Painel() {
     //const [atividadesFetched, setAtividadesFetched] = useState(false)
     //const [emptyAtv, setEmptyAtv] = useState(false)
 
-    const settingsDefault = {
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        slidesToScroll: 1,
-        infinite: false
-    };
+    // const settingsDefault = {
+    //     nextArrow: <NextArrow />,
+    //     prevArrow: <PrevArrow />,
+    //     slidesToScroll: 1,
+    //     infinite: false,
+    // };
 
-    const settingsEmpty = {
-        slidesToShow: 1
-    }
+    // const settingsEmpty = {
+    //     slidesToShow: 1,
+    // };
 
-    const settingsMaterias = {
-        slidesToShow: 3,
-        responsive: [
-            {
-                breakpoint: 1570,
-                settings: {
-                    slidesToShow: 2
-                }
-            }
-        ]
-    }
+    // const settingsMaterias = {
+    //     slidesToShow: 3,
+    //     responsive: [{
+    //         breakpoint: 1570,
+    //         settings: {
+    //             slidesToShow: 2,
+    //         }
+    //     }]
+    // };
 
-    const settingsAtvs = {
-        // draggable: { drag },
-        slidesToShow: 3,
-        responsive: [
-            {
-                breakpoint: 1450,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 888,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    }
+    // const settingsAtvs = {
+    //     // draggable: { drag },
+    //     slidesToShow: 3,
+    //     responsive: [{
+    //         breakpoint: 1450,
+    //         settings: {
+    //             slidesToShow: 2,
+    //         }
+    //     },
+    //     {
+    //         breakpoint: 888,
+    //         settings: {
+    //             slidesToShow: 1,
+    //         }
+    //     }]
+    // };
 
-    const settingsDesempenho = {
-        slidesToShow: 4,
-        responsive: [
-            {
-                breakpoint: 1350,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 820,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    }
+    // const settingsDesempenho = {
+    //     slidesToShow: 4,
+    //     responsive: [{
+    //         breakpoint: 1350,
+    //         settings: {
+    //             slidesToShow: 3,
+    //         }
+    //     },
+    //     {
+    //         breakpoint: 820,
+    //         settings: {
+    //             slidesToShow: 2,
+    //         }
+    //     },
+    //     {
+    //         breakpoint: 600,
+    //         settings: {
+    //             slidesToShow: 1,
+    //         }
+    //     }]
+    // };
 
     const geral = [
         {
@@ -232,8 +224,11 @@ export default function Painel() {
             {materias.length === 0
                 ?
                 <Slider
-                    {...settingsDefault}
-                    {...settingsEmpty}
+                    nextArrow={<NextArrow />}
+                    prevArrow={<PrevArrow />}
+                    slidesToScroll={1}
+                    infinite={false}
+                    slidesToShow={1}
                 // className="painel--materias"
                 >
 
@@ -247,8 +242,18 @@ export default function Painel() {
                 </Slider>
                 :
                 <Slider
-                    {...settingsDefault}
-                    {...settingsMaterias}
+                    nextArrow={<NextArrow />}
+                    prevArrow={<PrevArrow />}
+                    slidesToScroll={1}
+                    infinite={false}
+                    slidesToShow={3}
+                    responsive={{
+                        breakpoint: 1570,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    }}
                 // className="painel--materias"
                 >
 
@@ -269,8 +274,11 @@ export default function Painel() {
             {atividades.length === 0
                 ?
                 <Slider
-                    {...settingsDefault}
-                    {...settingsEmpty}
+                    nextArrow={<NextArrow />}
+                    prevArrow={<PrevArrow />}
+                    slidesToScroll={1}
+                    infinite={false}
+                    slidesToShow={1}
                 // className="painel--materias"
                 >
 
@@ -284,8 +292,26 @@ export default function Painel() {
                 </Slider>
                 :
                 <Slider
-                    {...settingsDefault}
-                    {...settingsAtvs}
+                    nextArrow={<NextArrow />}
+                    prevArrow={<PrevArrow />}
+                    slidesToScroll={1}
+                    infinite={false}
+                    draggable={drag}
+                    slidesToShow={3}
+                    responsive={[{
+                        breakpoint: 1450,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 888,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }]}
                 // className="painel--atvs-recentes"
                 >
 
@@ -333,8 +359,32 @@ export default function Painel() {
             <div className="section-title d-flex" style={{ 'marginTop': '60px' }}><span className="bar">|</span><h4>Desempenho geral</h4></div>
 
             <Slider
-                {...settingsDefault}
-                {...settingsDesempenho}
+                nextArrow={<NextArrow />}
+                prevArrow={<PrevArrow />}
+                slidesToScroll={1}
+                infinite={false}
+                slidesToShow={4}
+                responsive={[{
+                    breakpoint: 1350,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 820,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }]}
             >
 
                 {geral.map((card) => {

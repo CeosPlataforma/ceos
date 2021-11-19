@@ -74,6 +74,63 @@
 
 .btn-green {
   background-color: $green !important;
+  border-color: $green !important;
+  &:hover, &:focus, &:active {
+    color: $white;
+    background: $green;
+  }
+}
+
+.btn-red {
+  background-color: $red !important;
+  border-color: $red !important;
+  &:hover, &:focus, &:active {
+    color: $white;
+    background: $red;
+  }
+}
+
+.text-blue {
+  color: $blue !important;
+}
+
+.btn-primary {
+  color: $white;
+  padding: 14px 0;
+  border-radius: 10px;
+  font: $font-sm;
+  background: $blue;
+  cursor: pointer;
+  border-color: $blue;
+  &:hover, &:focus, &:active {
+      color: $white;
+      background: $blue;
+      border-color: $blue;
+  }
+  @include device(sm) {            
+      word-wrap: break-word;
+  }
+}
+
+.btn-secondary {
+  background: $white;
+  color: $blue;
+  font: $font-sm;
+  border: 3px solid $blue;
+  padding: 12px 0;
+  border-radius: 10px;
+  &:active, &:hover {
+      background: $blue;
+      color: $white;
+      border: 3px solid $blue;
+  }
+  @include device(sm) {            
+    word-wrap: break-word;
+  }
+}
+
+.btn-padding {
+  padding: 14px 15%;
 }
 
 // Dark Mode
@@ -85,7 +142,7 @@
     .form-label {
       color: $gray-light;
     }
-    .table-hover>tbody>tr:hover>* {
+    .table-hover>tbody>tr>* {
       color: $gray-light;
     }
     .underline {
@@ -121,7 +178,7 @@
     .user--photo {
       border-color: $gray-light;
     }
-    .materias--adicionar-materias, .atividades--btn--inactive, .modal--btn--secondary {
+    .materias--adicionar-materias, .atividades--btn--inactive, .--secondary {
       background-color: $black;
       color: $gray-light;
     }
@@ -152,7 +209,7 @@
     td {
       color: $gray-light;
     }
-  }
+}
 
 .light-mode {
   background-color: $white;

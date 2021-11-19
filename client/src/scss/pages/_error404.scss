@@ -1,0 +1,22 @@
+.error404 {
+    @extend .hero;
+    &--title {
+        font-size: 200px;
+        line-height: 200px;
+    }
+    &--subtitle {
+        font-size: 40px;
+        width: 75%;
+    }
+    h3 {
+        color: $gray-dark;
+    }
+    &--btn {
+        border: 3px solid $blue;
+        width: 30%;
+        padding: 16px 0 !important;
+        @include device(md) {
+            width: 80%;
+        }
+    }
+}

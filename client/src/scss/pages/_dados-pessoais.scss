@@ -112,14 +112,6 @@
     }
 }
 
-.desativar-conta--btn, .confirmar-exclusao, .excluir-materia--btn, .cronograma-red {
-    background: $red !important;
-    color: $white;
-    &:hover, &:focus, &:active{
-        background: $red !important;
-    }
-}
-
 .container-cropper {
     height: 400px;
     width: 400px;
@@ -134,8 +126,8 @@
         margin: 30px 0;
         svg {
             margin: 0 20px;
-            fill: $black;
-            stroke: $black;
+            fill: $gray-dark;
+            stroke: $gray-dark;
         }
     }
     &--aplicar, &--cancelar {

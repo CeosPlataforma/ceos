@@ -275,7 +275,7 @@ export default function DadosPessoais() {
                     </Modal.Body>
                     <Modal.Footer>
                         <div className="cropper--slider mx-auto">
-                            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height='25' width='25'><path fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49,5v40H1V5H49z" /><path d="M17.318,18.269c0.195-0.182,0.458-0.297,0.721-0.268c0.267,0.01,0.518,0.127,0.698,0.323l10.294,11.23l4.261-4.261c0.391-0.391,1.023-0.391,1.414,0L46,36.586V8H4v22.698L17.318,18.269z M35,15c1.657,0,3,1.343,3,3s-1.343,3-3,3s-3-1.343-3-3S33.343,15,35,15z" /><path d="M34 27.414L26.414 35 23.586 35 27.616 30.97 17.945 20.42 4 33.435 4 42 46 42 46 39.414z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height='25' width='25'><path fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49,5v40H1V5H49z" /><path d="M17.318,18.269c0.195-0.182,0.458-0.297,0.721-0.268c0.267,0.01,0.518,0.127,0.698,0.323l10.294,11.23l4.261-4.261c0.391-0.391,1.023-0.391,1.414,0L46,36.586V8H4v22.698L17.318,18.269z M35,15c1.657,0,3,1.343,3,3s-1.343,3-3,3s-3-1.343-3-3S33.343,15,35,15z" /><path d="M34 27.414L26.414 35 23.586 35 27.616 30.97 17.945 20.42 4 33.435 4 42 46 42 46 39.414z" /></svg>
                             <Slider
                                 min={1}
                                 max={3}
@@ -283,15 +283,15 @@ export default function DadosPessoais() {
                                 value={zoom}
                                 onChange={(e, zoom) => setZoom(zoom)}
                             />
-                            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height='50' width='50'><path fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49,5v40H1V5H49z" /><path d="M17.318,18.269c0.195-0.182,0.458-0.297,0.721-0.268c0.267,0.01,0.518,0.127,0.698,0.323l10.294,11.23l4.261-4.261c0.391-0.391,1.023-0.391,1.414,0L46,36.586V8H4v22.698L17.318,18.269z M35,15c1.657,0,3,1.343,3,3s-1.343,3-3,3s-3-1.343-3-3S33.343,15,35,15z" /><path d="M34 27.414L26.414 35 23.586 35 27.616 30.97 17.945 20.42 4 33.435 4 42 46 42 46 39.414z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height='50' width='50'><path fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49,5v40H1V5H49z" /><path d="M17.318,18.269c0.195-0.182,0.458-0.297,0.721-0.268c0.267,0.01,0.518,0.127,0.698,0.323l10.294,11.23l4.261-4.261c0.391-0.391,1.023-0.391,1.414,0L46,36.586V8H4v22.698L17.318,18.269z M35,15c1.657,0,3,1.343,3,3s-1.343,3-3,3s-3-1.343-3-3S33.343,15,35,15z" /><path d="M34 27.414L26.414 35 23.586 35 27.616 30.97 17.945 20.42 4 33.435 4 42 46 42 46 39.414z" /></svg>
                         </div>
 
                         <div className="d-flex justify-content-around w-100">
-                            <Button className="text-md modal--btn cropper--cancelar mx-auto" onClick={() => {
+                            <Button className="btn-secondary btn-padding cropper--cancelar mx-auto" onClick={() => {
                                 handleCloseCrop();
                                 setImage(null);
                             }}>Cancelar</Button>
-                            <Button className="text-md modal--btn cropper--aplicar mx-auto" onClick={onUpload}>Aplicar</Button>
+                            <Button className="btn-primary btn-padding cropper--aplicar mx-auto" onClick={onUpload}>Aplicar</Button>
                         </div>
                     </Modal.Footer>
                 </Modal>
@@ -318,8 +318,8 @@ export default function DadosPessoais() {
                                 <label htmlFor="dados-pessoais--email" className="form-label">E-mail</label>
                                 <Field name="email" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--email" readOnly={true} />
 
-                                <Button className="dados-pessoais--btn w-100 mb-4 mt-2" onClick={() => setShowMudarDados(true)}>Alterar dados</Button>
-                                <Button className="text-md w-100 modal--btn--secondary mb-4 mt-2" onClick={() => setShowMudarSenha(true)} >Alterar senha</Button>
+                                <Button className="dados-pessoais--btn btn-primary w-100 mb-4 mt-2" onClick={() => setShowMudarDados(true)}>Alterar dados</Button>
+                                <Button className="btn-secondary w-100 mb-4 mt-2" onClick={() => setShowMudarSenha(true)} >Alterar senha</Button>
 
                                 <a className="dados-pessoais--desativar" onClick={() => { setShowExcluir(true) }}>&gt; Desativar conta</a>
                             </Form>

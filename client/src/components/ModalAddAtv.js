@@ -84,7 +84,7 @@ function ModalAddAtv(props) {
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                <button onClick={handleSubmit} style={{ 'color': 'white' }} className="text-md modal--btn modal-atividade--btn mt-4">Salvar</button>
+                <button onClick={handleSubmit} style={{ 'color': 'white' }} className="btn btn-primary btn-padding modal-atividade--btn w-50 mt-4">Salvar</button>
             </Modal.Footer>
         </Modal >
     );

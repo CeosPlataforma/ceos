@@ -38,32 +38,7 @@
             border: 2px solid $gray;
         }
     }
-    &--btn {
-        padding: 16px 14.84375%;
-        border-radius: 10px;
-        font: $font-sm;
-        background: $blue;
-        border: none;
-        cursor: pointer;
-        &:hover, &:focus, &:active {
-            background: $blue !important;
-        }
-        @include device(sm) {            
-            word-wrap: break-word;
-        }
-        &--secondary {
-            background: $white;
-            color: $blue;
-            font: $font-sm;
-            border: 3px solid $blue;
-            padding: 12px 14.84375%;
-            border-radius: 10px;
-            &:active, &:hover {
-                background: $blue !important;
-                color: $white;
-                border: 3px solid $blue;
-            }
-        }
+    &--btn {            
         &--verify {
             width: 85%;
         }

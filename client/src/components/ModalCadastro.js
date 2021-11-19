@@ -15,7 +15,7 @@ function ModalCadastro(props) {
         <Modal {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
-            contentClassName="modal-content--website modal-content--website--verify"
+            contentClassName="modal-content--website modal-content--website modal--btn--verify"
             centered>
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
@@ -28,7 +28,7 @@ function ModalCadastro(props) {
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md modal--btn mx-auto modal--btn--verify" onClick={redirect}>Ir para o login</Button>
+                <Button variant="primary" className="btn-primary mx-auto" onClick={redirect}>Ir para o login</Button>
             </Modal.Footer>
         </Modal>
     );

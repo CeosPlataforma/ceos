@@ -34,6 +34,7 @@ import VerAtvs from "./pages/VerAtvs";
 
 import Thanks from "./pages/Thanks";
 import Termos from "./pages/Termos";
+import Error404 from "./pages/Error404";
 
 function App() {
 
@@ -164,6 +165,14 @@ function App() {
                 <Route path="/redefinir-senha/:userID" element={<ResetSenha />} />
 
                 <Route path="/logout" element={<Logout />} />
+
+                <Route path="*" element={
+                    <Fragment>
+                        <Header />
+                        <Error404 />
+                        <Footer />
+                    </Fragment>
+                } />
             </Routes>
         </BrowserRouter>
     )

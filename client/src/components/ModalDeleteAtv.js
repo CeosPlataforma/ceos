@@ -58,7 +58,7 @@ function ModalDeleteAtv(props) {
                         <div className="d-flex justify-content-center w-100">
                             <Field name="pele" type="hidden" />
                             <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
-                            <Button variant="primary" name="submit" type="submit" className="text-md modal--btn modal-atividade--btn confirmar-exclusao">Confirmar exclusão</Button>
+                            <Button variant="primary" name="submit" type="submit" className="btn-primary btn-padding modal-atividade--btn btn-red">Confirmar exclusão</Button>
                         </div>
                     </Form>
                 </Formik>

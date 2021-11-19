@@ -31,7 +31,7 @@ function ModalAddMateria(props) {
                     <input name="name" type="text" className="form-control modal--input mb-4" aria-describedby="emailRecover" required />
                 </div>
                 <div className="modal-footer">
-                    <button type="submit" className="btn btn-primary text-md w-100 mx-auto modal--btn">Salvar</button>
+                    <button type="submit" className="btn btn-primary text-md w-100 mx-auto">Salvar</button>
                 </div>
                 {/* </Form>
                 </Formik> */}

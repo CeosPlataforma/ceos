@@ -94,7 +94,7 @@ function ModalEditAtv(props) {
                 </Formik>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="text-md modal--btn modal-atividade--btn mt-4 w-50" onClick={props.onHide}>Salvar</Button>
+                <Button className="btn-primary modal-atividade--btn mt-4 w-50" onClick={props.onHide}>Salvar</Button>
             </Modal.Footer>
         </Modal >
     );

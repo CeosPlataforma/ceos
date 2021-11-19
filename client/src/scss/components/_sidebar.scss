@@ -22,8 +22,8 @@
             opacity: 1;
             pointer-events: none;
         }
-        .sidebar--collapse {            left: 85%;
-            
+        .sidebar--collapse {            
+            left: 85%;            
         }
         ul li .tooltip {
             display: none;
@@ -32,11 +32,12 @@
             transition: 0s;
             opacity: 1;
             pointer-events: auto;
-        }        
+        }     
     }
     &--collapse {
         position: absolute;
         color: $white;
+        transition: color .3s;
         top: 30px;
         left: 50%;
         font-size: 35px;

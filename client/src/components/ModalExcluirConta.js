@@ -58,7 +58,7 @@ function ModalExcluirConta(props) {
                             <ErrorMessage component="span" className="error-msg" name="password" />
                         </div>
 
-                        <Button type="submit" className="text-md w-100 modal--btn desativar-conta--btn" >Confirmar desativação</Button>
+                        <Button type="submit" className="btn-primary w-100 btn-red">Confirmar desativação</Button>
                     </Form>
                 </Formik>
             </Modal.Body>

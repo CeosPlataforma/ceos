@@ -33,7 +33,7 @@ export default function VerAtvs() {
                     actions.setFieldError("name", `Materia deletada com sucesso.`);
                     setTimeout(() => { window.location = "http://localhost:3000/materias" }, 2000)
                 } else {
-                    actions.setFieldError("name", `erro!!!.`); 
+                    actions.setFieldError("name", `erro!!!.`);
                 }
             })
             .catch(error => {
@@ -140,7 +140,7 @@ export default function VerAtvs() {
                 {index === 0 &&
                     <>
                         <div className="dropdown">
-                            <button className="btn btn-primary dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
                             </button>
                             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -166,7 +166,7 @@ export default function VerAtvs() {
                                     case "prova":
                                         atividade.tipo = "Prova"
                                         break;
-                                    default: 
+                                    default:
                                         atividade.tipo = "sexo"
                                         break;
                                 }
