@@ -4,7 +4,6 @@ import { AtividadeModel } from '../models/Atividade';
 import { MateriaModel } from '../models/Materia';
 import { UserModel } from '../models/User';
 import { Document, Types } from 'mongoose'
-import { toolresults } from 'googleapis/build/src/apis/toolresults';
 
 class AtividadeController {
 
