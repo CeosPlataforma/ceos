@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import * as Yup from 'yup';
 import ModalSenha from './ModalSenha';
+import axios from 'axios'
 
 function ModalAltSenha(props) {
 
@@ -14,6 +15,26 @@ function ModalAltSenha(props) {
         newPassword: '',
         newPasswordConfirm: '',
 
+    }
+
+    axios.defaults.withCredentials = true
+    const onSubmitModal = async (values, actions) => {
+        await axios.post("http://localhost:3333/redefinir-senha", { email: values.email })
+            .then(function (response) {
+                if (response.data.error === "inexistent") {
+                    actions.setFieldError("email", `Este usuário não existe`);
+                } else if (response.data.success) {
+                    actions.setFieldError("email", `Sucesso! Verifique seu email.`)
+                    setTimeout(function () {
+                        setShow(false)
+                    }, 2000)
+                } else {
+                    actions.setFieldError("email", response.data.error)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     const validationSchema = Yup.object({
@@ -105,7 +126,7 @@ function ModalAltSenha(props) {
                 </Modal.Body>
             </Modal>
 
-            <ModalSenha show={show} onHide={() => setShow(false)} />
+            <ModalSenha onSubmit={onSubmitModal} show={show} onHide={() => setShow(false)} />
         </>
     );
 }

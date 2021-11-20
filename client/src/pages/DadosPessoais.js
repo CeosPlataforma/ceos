@@ -84,7 +84,7 @@ export default function DadosPessoais() {
                 } else if (message === "success") {
 
                     actions.setFieldError("password", `Conta desativada com sucesso`)
-                    setTimeout(() => { window.location = "http://localhost:3000" }, 5000)
+                    setTimeout(() => { window.location = "http://localhost:3000/desativado" }, 5000)
 
                 } else if (error === "email") {
                     actions.setFieldError("email", `Email incorreto`)
