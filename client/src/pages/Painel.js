@@ -315,7 +315,8 @@ export default function Painel() {
                 // className="painel--atvs-recentes"
                 >
 
-                    {atividades.sort((a, b) => {
+                    {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
+                    .sort((a, b) => {
                         const a_date = new Date(a.dueBy)
                         const b_date = new Date(b.dueBy)
                         return a_date - b_date

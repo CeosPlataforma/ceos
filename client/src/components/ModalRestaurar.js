@@ -3,9 +3,14 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import { Formik, Form, ErrorMessage, Field } from 'formik';
 import Col from 'react-bootstrap/Col';
 
 function ModalRestaurar(props) {
+    const initialValues = {
+        name: ""
+    }
+
     return (
         <Modal {...props}
             size="lg"
@@ -20,14 +25,14 @@ function ModalRestaurar(props) {
             <Modal.Body className="modal-atividade--body">
                 <Container>
                     <h4 className="modal-atividade--materia mb-3">
-                        {/* &gt; {props.mat_obj.name} */}
+                        &gt; {props.mat_obj.name}
                     </h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.name} 
+                                    placeholder={props.atv_obj.name} 
                                     readOnly={true}
                                     disabled={true} />
                             </div>
@@ -36,7 +41,7 @@ function ModalRestaurar(props) {
                             <div>
                                 <p>Data de entrega</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.fixedDate} 
+                                    placeholder={props.atv_obj.fixedDate} 
                                     readOnly={true} />
                             </div>
                         </Col>
@@ -46,7 +51,7 @@ function ModalRestaurar(props) {
                             <div>
                                 <p>Tipo</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.tipo} 
+                                    placeholder={props.atv_obj.tipo} 
                                     readOnly={true} />
                             </div>
                         </Col>
@@ -54,7 +59,7 @@ function ModalRestaurar(props) {
                             <div>
                                 <p>Descrição</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.description} 
+                                    placeholder={props.atv_obj.description} 
                                     readOnly={true} />
                             </div>
                         </Col>
@@ -62,7 +67,14 @@ function ModalRestaurar(props) {
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="btn-primary btn-padding modal-atividade--btn" onClick={props.onHide}>Confirmar restauração</Button>
+                <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
+                    <Form className="d-flex justify-content-center w-100">
+                        <div className="d-flex justify-content-center w-100">
+                            <Button variant="primary" name="pele" type="submit" className="text-md modal--btn modal-atividade--btn btn-primary btn-padding modal-atividade--btn">Confirmar exclusão</Button>
+                            <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
+                        </div>
+                    </Form>
+                </Formik>
             </Modal.Footer>
         </Modal >
     );

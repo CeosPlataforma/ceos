@@ -9,9 +9,10 @@ import { Formik, Form, ErrorMessage, Field } from 'formik';
 
 function ModalPermDelete(props) {
 
-    // const initialValues = {
-    //     name: ""
-    // }
+    const initialValues = {
+        name: "",
+        pele: ""
+    }
 
     return (
         <Modal {...props} size="lg" className="modal-atividade" contentClassName="modal-content--plataforma" centered>
@@ -23,14 +24,14 @@ function ModalPermDelete(props) {
             <Modal.Body className="modal-atividade--body">
                 <Container>
                     <h4 className="modal-atividade--materia mb-3">
-                        {/* &gt; {props.mat_obj.name} */}
+                        &gt; {props.mat_obj.name}
                     </h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
                             <div>
                                 <p>Título</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.name} 
+                                    placeholder={props.atv_obj.name}
                                     readOnly={true}
                                     disabled={true}
                                 />
@@ -40,7 +41,7 @@ function ModalPermDelete(props) {
                             <div>
                                 <p>Data de entrega</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.fixedDate} 
+                                    placeholder={props.atv_obj.fixedDate}
                                     readOnly={true}
                                 />
                             </div>
@@ -51,7 +52,7 @@ function ModalPermDelete(props) {
                             <div>
                                 <p>Tipo</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.tipo} 
+                                    placeholder={props.atv_obj.tipo}
                                     readOnly={true} />
                             </div>
                         </Col>
@@ -59,7 +60,7 @@ function ModalPermDelete(props) {
                             <div>
                                 <p>Descrição</p>
                                 <input className="form-control modal--input"
-                                    // placeholder={props.atv_obj.description} 
+                                    placeholder={props.atv_obj.description}
                                     readOnly={true} />
                             </div>
                         </Col>
@@ -67,15 +68,15 @@ function ModalPermDelete(props) {
                 </Container>
             </Modal.Body>
             <Modal.Footer>
-                {/* <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
-                    <Form className="d-flex justify-content-center w-100"> */}
-                <div className="d-flex justify-content-center w-100">
-                    {/* <Field name="pele" type="hidden" />
-                    <ErrorMessage component="span" className="error-msg mt-4" name="pele" /> */}
-                    <Button variant="primary" name="submit" type="submit" className="btn-primary btn-padding modal-atividade--btn btn-red">Confirmar exclusão permanente</Button>
-                </div>
-                {/* </Form>
-                </Formik> */}
+                <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
+                    <Form className="d-flex justify-content-center w-100">
+                        <div className="d-flex justify-content-center w-100">
+                            <Field name="pele" type="hidden" />
+                            <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
+                            <Button variant="primary" name="submit" type="submit" className="btn-primary btn-padding modal-atividade--btn btn-red">Confirmar exclusão permanente</Button>
+                        </div>
+                    </Form>
+                </Formik>
             </Modal.Footer>
         </Modal>
     );

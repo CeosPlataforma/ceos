@@ -4,6 +4,7 @@ import { AtividadeModel } from '../models/Atividade';
 import { MateriaModel } from '../models/Materia';
 import { UserModel } from '../models/User';
 import { Document, Types } from 'mongoose'
+import { toolresults } from 'googleapis/build/src/apis/toolresults';
 
 class AtividadeController {
 
@@ -86,14 +87,39 @@ class AtividadeController {
 
     async delete(request: Request, response: Response) {
         const atividade_id = request.body.id;
-        try {
-            AtividadeModel.findByIdAndRemove(atividade_id, { useFindAndModify: false })
-                .exec().finally(() => {
-                    return response.json({ success: true })
-                })
-        } catch (error) {
-            return console.error(error);
+        const atividade_uuid = request.body.uuid
+        const operation = request.body.operation
+        
+        const atividade = await AtividadeModel.findOne({ uuid: atividade_uuid }, (error, res) => error ? console.log(error) : console.log(res))
+
+        if (operation === "trash") {
+            try {
+                atividade.trashed = true
+                atividade.save()
+                return response.json({ success: true })
+            } catch (error) {
+                console.log(error)
+                return response.json({ success: false })
+            }
+        } else if (operation === "restore") {
+            try {
+                atividade.trashed = false
+                atividade.save()
+                return response.json({ success: true })
+            } catch (error) {
+                console.log(error)
+                return response.json({ success: false })
+            }
+        } else if (operation === "delete") {
+            try {
+                AtividadeModel.findByIdAndRemove(atividade_id, { useFindAndModify: false }).exec().finally(() => { return response.json({ success: true }) })
+            } catch (error) {
+                console.log(error)
+                return response.json({ success: false })
+            }
         }
+
+
     }
 
     /*async poptest(request: Request, response: Response) {

@@ -17,6 +17,7 @@ export default function VerAtvs() {
     const [materia, setMateria] = useState({})
     const [showAdd, setShowAdd] = useState(false);
     const [showExcluir, setShowExcluir] = useState(false);
+    const [atvTipo, setAtvTipo] = useState("")
 
     const reload = () => {
         window.location.reload();
@@ -87,6 +88,8 @@ export default function VerAtvs() {
 
     const [atvButton, setAtvButton] = useState("ver-atividades--btn ver-atividades--btn--active")
     const [infoButton, setInfoButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
+    const [lixeiraButton, setLixeiraButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
+    const [concluidasButton, setConcluidasButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
 
     useEffect(() => {
 
@@ -122,6 +125,8 @@ export default function VerAtvs() {
                             setIndex(0)
                             setAtvButton("ver-atividades--btn ver-atividades--btn--active")
                             setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive")
                         }}>
                         Ver atividades
                     </button>
@@ -132,8 +137,32 @@ export default function VerAtvs() {
                             setIndex(1)
                             setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
                             setInfoButton("ver-atividades--btn ver-atividades--btn--active")
+                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive")
                         }}>
                         Informações
+                    </button>
+                    <button
+                        className={concluidasButton}
+                        onClick={() => {
+                            setIndex(2)
+                            setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--active")
+                        }}>
+                        Concluidas
+                    </button>
+                    <button
+                        className={lixeiraButton}
+                        onClick={() => {
+                            setIndex(3)
+                            setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
+                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--active")
+                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive")
+                        }}>
+                        Lixeira
                     </button>
                 </div>
 
@@ -152,7 +181,8 @@ export default function VerAtvs() {
 
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
-                            {atividades.map((atividade) => {
+                            {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
+                            .map((atividade) => {
                                 switch (atividade.atv_type) {
                                     case "trabalho":
                                         atividade.tipo = "Trabalho"
@@ -183,9 +213,106 @@ export default function VerAtvs() {
                         <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
                     </>
                 }
+
                 {index === 1 &&
                     <>
                         <VerAtvsInfo />
+                    </>
+                }
+
+                {index === 2 &&
+                    <>
+                        <div className="dropdown">
+                            <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Classificar por:
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a className="dropdown-item">Ordem Alfabética (crescente)</a></li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li><a className="dropdown-item">Ordem Alfabética (decrescente)</a></li>
+                            </ul>
+                        </div>
+
+                        <Row sm={1} md={2} xxl={3} className="mb-2">
+                            {/* ver-atividades--holder */}
+                            {atividades.filter((atividade) => atividade.concluida && !atividade.trashed ? true : false)
+                            .map((atividade) => {
+                                switch (atividade.atv_type) {
+                                    case "trabalho":
+                                        atividade.tipo = "Trabalho"
+                                        break;
+                                    case "atividade":
+                                        atividade.tipo = "Atividade"
+                                        break;
+                                    case "licao-de-casa":
+                                        atividade.tipo = "Lição de casa"
+                                        break;
+                                    case "prova":
+                                        atividade.tipo = "Prova"
+                                        break;
+                                    default: 
+                                        atividade.tipo = "??? erro ???"
+                                        break;
+                                }
+                                let day = atividade.dueBy.substring(8, 10)
+                                let month = atividade.dueBy.substring(5, 7)
+                                let year = atividade.dueBy.substring(0, 4)
+                                let date = `${day}/${month}/${year}`
+                                atividade.fixedDate = date
+                                //console.log("map", atividade.tipo)
+                                return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                            })}
+                            {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
+                        </Row>
+                        <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
+                    </>
+                }
+
+                {index === 3 &&
+                    <>
+                        <div className="dropdown">
+                            <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Classificar por:
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a className="dropdown-item">Ordem Alfabética (crescente)</a></li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li><a className="dropdown-item">Ordem Alfabética (decrescente)</a></li>
+                            </ul>
+                        </div>
+
+                        <Row sm={1} md={2} xxl={3} className="mb-2">
+                            {/* ver-atividades--holder */}
+                            {atividades.filter((atividade) => atividade.trashed ? true : false)
+                            .map((atividade) => {
+                                switch (atividade.atv_type) {
+                                    case "trabalho":
+                                        atividade.tipo = "Trabalho"
+                                        break;
+                                    case "atividade":
+                                        atividade.tipo = "Atividade"
+                                        break;
+                                    case "licao-de-casa":
+                                        atividade.tipo = "Lição de casa"
+                                        break;
+                                    case "prova":
+                                        atividade.tipo = "Prova"
+                                        break;
+                                    default: 
+                                        atividade.tipo = "??? erro ???"
+                                        break;
+                                }
+                                let day = atividade.dueBy.substring(8, 10)
+                                let month = atividade.dueBy.substring(5, 7)
+                                let year = atividade.dueBy.substring(0, 4)
+                                let date = `${day}/${month}/${year}`
+                                atividade.fixedDate = date
+                                //console.log("map", atividade.tipo)
+                                return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar permexcluir className="mb-5" />
+                            })}
+                            {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
+                        </Row>
+                        <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
                     </>
                 }
 

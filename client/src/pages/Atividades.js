@@ -31,13 +31,17 @@ export default function Atividades() {
 
     const atvFiltro = (atividade) => {
         if (atvTipo === "all") {
-            return true
+            return atividade.trashed || atividade.concluida ?  false : true
         } else if (atvTipo === "casa" && atividade.atv_type === "licao-de-casa") {
-            return true
+            return atividade.trashed || atividade.concluida ?  false : true
         } else if (atvTipo === "trabalho" && atividade.atv_type === "trabalho") {
-            return true
+            return atividade.trashed || atividade.concluida ?  false : true
         } else if (atvTipo === "prova" && atividade.atv_type === "prova") {
+            return atividade.trashed || atividade.concluida ?  false : true
+        } else if (atvTipo === "lixeira" && atividade.trashed) {
             return true
+        } else if (atvTipo === "concluida" && atividade.concluida) {
+            return atividade.trashed ?  false : true
         } else {
             return false
         }
@@ -136,7 +140,7 @@ export default function Atividades() {
                                 setLixoButton("atividades--btn atividades--btn--active w-100")
                                 setConcButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("lixeira")
-                                setIndex(1)
+                                //setIndex(1)
                             }}>
                             Lixeira
                         </Button>
@@ -152,7 +156,7 @@ export default function Atividades() {
                                 setLixoButton("atividades--btn atividades--btn--inactive w-100")
                                 setConcButton("atividades--btn atividades--btn--active w-100")
                                 setAtvTipo("concluida")
-                                setIndex(2)
+                                //setIndex(2)
                             }}>
                             Concluídas
                         </Button>
@@ -203,21 +207,25 @@ export default function Atividades() {
                                     let date = `${day}/${month}/${year}`
                                     atividade.fixedDate = date
                                     //console.log("map", atividade.tipo)
-                                    return <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+
+                                    return atvTipo !== "lixeira"
+                                    ? <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                                    : <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar permaexcluir className="mb-5" />
+                                     
                                 })}
                             </React.Fragment>
 
                         }
                     </Row>
                 }
-                {index === 1 &&
+                {/* {index === 1 &&
                     <p>lixeira</p>
                     // <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar className="mb-5" />
                 }
                 {index === 2 &&
                     <p>concluids</p>
                     // <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
-                }
+                } */}
             </div>
         </>
     )

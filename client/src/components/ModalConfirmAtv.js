@@ -48,6 +48,16 @@ function ModalConfirmAtv(props) {
                             </div>
                         </Col>
                     </Row>
+                    <Row>
+                        <Col>
+                            <div className="d-flex align-items-center mb-4">
+                                <input type="checkbox" className="modal--checkbox" name="checkbox" disabled={true} readOnly={true} checked={props.atv_obj.concluida}/>
+                                <span>
+                                    Atividade Concluida
+                                </span>
+                            </div>
+                        </Col>
+                    </Row>
                 </Container>
             </Modal.Body>
             <Modal.Footer>
