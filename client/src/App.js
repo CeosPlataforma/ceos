@@ -50,11 +50,12 @@ function App() {
                         <Footer />
                     </Fragment>
                 } />
-                <Route path="/cadastrar" element={<Fragment>
-                    <Header />
-                    <Cadastrar />
-                    <Footer />
-                </Fragment>
+                <Route path="/cadastrar" element={
+                    <Fragment>
+                        <Header />
+                        <Cadastrar />
+                        <Footer />
+                    </Fragment>
                 } />
                 <Route path="/acessar" element={
                     <Fragment>

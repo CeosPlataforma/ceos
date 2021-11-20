@@ -21,6 +21,7 @@
     "react": "^17.0.2",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-bootstrap": "^2.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-easy-crop": "^3.5.3",
     "react-router-dom": "^6.0.2",
