@@ -166,8 +166,8 @@ export default function VerAtvs() {
                                     case "prova":
                                         atividade.tipo = "Prova"
                                         break;
-                                    default:
-                                        atividade.tipo = "sexo"
+                                    default: 
+                                        atividade.tipo = "??? erro ???"
                                         break;
                                 }
                                 let day = atividade.dueBy.substring(8, 10)

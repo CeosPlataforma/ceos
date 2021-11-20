@@ -15,6 +15,7 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
     const [show3, setShow3] = useState(false);
     const [show4, setShow4] = useState(false);
     const [show5, setShow5] = useState(false);
+    const [touched, setTouched] = useState(false);
 
     const showEdit = () => {
         setShow(false)
@@ -38,6 +39,38 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
             });
         // setShowExcluir(false);
         // console.log("excluir")
+    }
+
+    //console.log(atv_obj)
+
+    const onSubmitEdit = async (values, actions) => {
+        axios.patch("http://localhost:3333/editar-atividade",
+            { 
+                uuid: atv_obj.uuid,
+                velho: {
+                    nome: atv_obj.name,
+                    tipo: atv_obj.atv_type,
+                    desc: atv_obj.description,
+                    data: atv_obj.dueBy,
+                    conc: atv_obj.concluida
+                },
+                novo: {
+                    nome: values.nome,
+                    tipo: values.tipo,
+                    desc: values.descricao,
+                    data: values.data,
+                    conc: values.checkbox
+                }
+            }
+        )
+        .then((response) => {
+            if (response.data.success) {
+                setTouched(true)
+                setShow3(false)
+            } else if (response.data.message === "no-change")  {
+                actions.setFieldError("nome", "Não foi feita nenhuma mudança.")
+            }
+        }).catch(error => console.log(error))
     }
 
 
@@ -104,9 +137,10 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
 
                 <ModalConfirmAtv showEdit={showEdit} mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
                 <ModalDeleteAtv onSubmit={onSubmitExcluir} tipo={tipo} data={data} atv_obj={atv_obj} show={show2} onHide={() => { setShow2(false) }} onExited={() => { window.location.reload() }} onEnter={toggleDrag} />
-                <ModalEditAtv show={show3} onHide={() => setShow3(false)} onEnter={toggleDrag} />
+                
                 <ModalPermDelete show={show4} onHide={() => setShow4(false)} />
                 <ModalRestaurar show={show5} onHide={() => setShow5(false)} />
+                <ModalEditAtv onSubmit={onSubmitEdit} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show3} onHide={() => setShow3(false)} onExited={() => { touched ? window.location.reload() : console.log("no change") }} onEnter={toggleDrag} />
             </div>
         </Col>
     );

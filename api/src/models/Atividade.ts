@@ -9,6 +9,8 @@ interface Atividade {
     materia: Types.ObjectId;
     atv_type: string;
     description: string;
+    trashed: boolean;
+    concluida: boolean;
 }
 
 const schema = new Schema<Atividade>({
@@ -45,6 +47,16 @@ const schema = new Schema<Atividade>({
         type: String,
         ref: 'User',
         required: true
+    },
+
+    trashed: {
+        type: Boolean,
+        default: false
+    },
+
+    concluida: {
+        type: Boolean,
+        default: false
     },
 
     materia: { 
