@@ -177,6 +177,7 @@ label:focus,
   font: 500 20px "Baloo Bhai 2", cursive;
   background: #216AA7;
   cursor: pointer;
+  border: none;
   border-color: #216AA7;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -1444,6 +1445,11 @@ ol, ul {
   flex-direction: column;
   padding: 40px 30px 53px 30px;
 }
+@media screen and (max-width: 767.98px) {
+  .atvBox {
+    padding: 40px 20px 53px 20px;
+  }
+}
 .atvBox h2 {
   color: #FFFFFF;
   text-align: center;
@@ -1475,28 +1481,37 @@ ol, ul {
   color: #216AA7;
   font: 500 20px "Baloo Bhai 2", cursive;
   padding: 8px;
-  width: 70%;
+  width: 60%;
   border-radius: 10px;
   background-color: #FFFFFF;
   margin-right: 5px;
   margin-bottom: 5px;
 }
-.atvBox .btn-delete {
+@media screen and (max-width: 767.98px) {
+  .atvBox .btn-view {
+    width: 100%;
+  }
+}
+.atvBox .btn-delete, .atvBox .btn-restore {
   color: #FFFFFF;
   font-weight: regular;
   font-size: 30px;
   border-radius: 50%;
   padding: 0px 13px;
-  height: 50px;
-  min-width: 50px;
+  height: 51px;
+  min-width: 51px;
   background-color: #C24D4D;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.atvBox .btn-delete:hover, .atvBox .btn-delete:focus, .atvBox .btn-delete:active {
+.atvBox .btn-delete:hover, .atvBox .btn-restore:hover, .atvBox .btn-delete:focus, .atvBox .btn-restore:focus, .atvBox .btn-delete:active, .atvBox .btn-restore:active {
   background-color: #C24D4D;
+}
+.atvBox .btn-restore {
+  background-color: #FFBF5B !important;
+  margin-right: 5px;
 }
 .atvBox .topic {
   display: flex;
@@ -1554,8 +1569,8 @@ ol, ul {
   background-color: #FFBF5B;
   border-radius: 50%;
   border: none;
-  height: 65px;
-  width: 65px;
+  height: 61px;
+  width: 61px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1789,7 +1804,7 @@ ol, ul {
 .painel--materia {
   background: #216AA7;
   border: none;
-  padding: 40px 0px;
+  padding: 40px 10px;
   color: #FFFFFF;
   font: 500 20px "Baloo Bhai 2", cursive;
   cursor: pointer;

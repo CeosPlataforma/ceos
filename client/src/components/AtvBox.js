@@ -5,12 +5,16 @@ import axios from "axios";
 import ModalConfirmAtv from "../components/ModalConfirmAtv";
 import ModalEditAtv from "../components/ModalEditAtv";
 import ModalDeleteAtv from "../components/ModalDeleteAtv";
+import ModalPermDelete from "../components/ModalPermDelete";
+import ModalRestaurar from "../components/ModalRestaurar";
 
-export default function AtvBox({ mat_obj, atv_obj, className, title, materia, tipo, data, excluir, toggleDrag }) {
+export default function AtvBox({ mat_obj, atv_obj, className, title, materia, tipo, data, excluir, restaurar, permexcluir, toggleDrag }) {
 
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
+    const [show4, setShow4] = useState(false);
+    const [show5, setShow5] = useState(false);
 
     const showEdit = () => {
         setShow(false)
@@ -71,7 +75,23 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                 </div>
 
                 <div className="d-flex justify-content-between atv-botoes">
-                    <button className={excluir === true ? "btn btn-view" : "btn btn-view w-100"} onClick={() => { setShow(true) }}>Visualizar</button>
+                    <button className={excluir === true ? "btn btn-view" : "btn btn-view w-100" || restaurar === true ? "btn btn-view" : "btn btn-view w-100"} onClick={() => { setShow(true) }}>Visualizar</button>
+                    <button className="btn btn-restore" id={restaurar === true ? "" : "none"} onClick={() => { setShow5(true) }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 30.272 29.138">
+                            <g id="layer1" transform="translate(-29.262 -1952.731)">
+                                <path id="path855" d="M27.027,1956.034a13.054,13.054,0,1,1,1.482,13.064" transform="translate(6 6)" fill="none" stroke="#fff" strokeLinecap="square" strokeWidth="3" />
+                                <path id="Caminho_355" dataName="Caminho 355" d="M24.913,1956.795l.659,1.559,1.6,3.773.013,0,2.508-.965,2.608-1,.9-.347" transform="translate(5.27 1.486)" fill="none" stroke="#fff" strokeWidth="2" />
+                            </g>
+                        </svg>
+                    </button>
+                    <button className="btn btn-delete" id={permexcluir === true ? "" : "none"} onClick={() => { setShow4(true) }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 20.121 20.121">
+                            <g id="x" transform="translate(1.061 1.061)">
+                                <line id="Linha_6" data-name="Linha 6" x2="18" y2="18" fill="none" stroke="#fff" strokeWidth="3" />
+                                <line id="Linha_7" data-name="Linha 7" x1="18" y2="18" fill="none" stroke="#fff" strokeWidth="3" />
+                            </g>
+                        </svg>
+                    </button>
                     <button className="btn btn-delete" id={excluir === true ? "" : "none"} onClick={() => { setShow2(true) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 20.121 20.121">
                             <g id="x" transform="translate(1.061 1.061)">
@@ -85,6 +105,8 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                 <ModalConfirmAtv showEdit={showEdit} mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
                 <ModalDeleteAtv onSubmit={onSubmitExcluir} tipo={tipo} data={data} atv_obj={atv_obj} show={show2} onHide={() => { setShow2(false) }} onExited={() => { window.location.reload() }} onEnter={toggleDrag} />
                 <ModalEditAtv show={show3} onHide={() => setShow3(false)} onEnter={toggleDrag} />
+                <ModalPermDelete show={show4} onHide={() => setShow4(false)} />
+                <ModalRestaurar show={show5} onHide={() => setShow5(false)} />
             </div>
         </Col>
     );

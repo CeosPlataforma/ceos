@@ -101,6 +101,7 @@
   font: $font-sm;
   background: $blue;
   cursor: pointer;
+  border: none;
   border-color: $blue;
   &:hover, &:focus, &:active {
       color: $white;
