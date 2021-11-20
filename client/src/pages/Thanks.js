@@ -3,13 +3,50 @@ import "aos/dist/aos.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import { Link } from "react-router-dom";
-// import { ErrorMessage, Field, Form, Formik } from 'formik';
+import axios from "axios";
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as Yup from 'yup'
 
 import BlueFooter from "../components/BlueFooter";
 
 export default function Thanks() {
+
+    axios.defaults.withCredentials = true
+    const onSubmit = async (values, actions) => {
+        console.log("values", values)
+        console.log("actions", actions)
+
+        axios.post("http://localhost:3333/feedback", {
+            message: values.message,
+            email: values.email,
+            reason: values.reason
+        }).then(response => {
+            if (response.data.success) {
+                actions.setFieldError("reason", "Enviado com sucesso")
+                setTimeout(() => {
+                    window.location = 'http://localhost:3000'
+                }, 2000)
+            } else {
+                actions.setFieldError("reason", "erro perigo medo terror")
+            }
+        }).catch(error => console.log(error))
+
+
+    }
+
+    const initialValues = {
+        reason: 'padrao',
+        email: '',
+        message: ''
+    }
+
+    const validationSchema = Yup.object({
+        email: Yup.string().email("Este não é um email válido.").required("Campo necessário"),
+        reason: Yup.string().notOneOf(["padrao"], "Escolha uma opção").required("Campo necessário"),
+        message: Yup.string()
+    });
+
+
     return (
         <>
             <Container className="container-padding thanks">
@@ -90,30 +127,35 @@ export default function Thanks() {
                     <p className="motivo-sub text-center">Agradecemos por nos dizer por que você acha que a plataforma CEOS merece parar de ser utilizada e prometemos levar sua nota em consideração.</p>
                 </div>
 
-                <form className="thanks--form">
-                    <Row xs={1} md={2}>
-                        <Col className="mb-4">
-                            <label htmlFor="acessar--senha" className="form-label"> Qual o motivo da desativação da conta? </label>
-                            <Form.Select className="modal--input thanks-dropdown mb-4 shadow-none" required>
-                                <option className="thanks-dropdown--select">Selecione um motivo</option>
-                                <option value="1">Não entendi o funcionamento</option>
-                                <option value="2">Não gostei da interface</option>
-                                <option value="3">Não achei a plataforma intuitiva</option>
-                                <option value="4">Outro (especifique no campo de mensagem)</option>
-                            </Form.Select>
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                    <Form className="thanks--form">
+                        <Row xs={1} md={2}>
+                            <Col className="mb-4">
+                                <label htmlFor="acessar--senha" className="form-label"> Qual o motivo da desativação da conta? </label>
+                                <Field as="select" name="reason" className="modal--input thanks-dropdown mb-4 shadow-none" required>
+                                    <option className="thanks-dropdown--select" value="padrao">Selecione um motivo</option>
+                                    <option value="nao-entendi-como-funciona">Não entendi o funcionamento</option>
+                                    <option value="nao-gostei-inferface">Não gostei da interface</option>
+                                    <option value="nao-achei-intuitivo">Não achei a plataforma intuitiva</option>
+                                    <option value="outro">Outro (especifique no campo de mensagem)</option>
+                                </Field>
+                                <ErrorMessage component="span" className="error-msg" style={{ marginLeft: '10px'}} name="reason" />
 
-                            <label htmlFor="acessar--senha" className="form-label"> E-mail (caso precisemos contatá-lo) </label>
-                            <input className="form-control" required />
-                        </Col>
-                        <Col className="mb-4">
-                            <label htmlFor="contato--mensagem" className="form-label"> Mensagem </label>
-                            <textarea className="form-control" id="thanks--mensagem" name="mensagem" required />
-                        </Col>
-                        <Col className="mt-2">
-                            <button type="submit" className="acessar--btn w-100"> Enviar </button>
-                        </Col>
-                    </Row>
-                </form>
+                                <label htmlFor="acessar--senha" className="form-label"> E-mail (caso precisemos contatá-lo) </label>
+                                <Field name="email" autoComplete="email" className="form-control" required />
+                                <ErrorMessage component="span" className="error-msg" name="email" />
+                            </Col>
+                            <Col className="mb-4">
+                                <label htmlFor="contato--mensagem" className="form-label"> Mensagem </label>
+                                <Field name="message" as="textarea" className="form-control" id="thanks--mensagem" />
+                                <ErrorMessage component="span" className="error-msg" name="message" />
+                            </Col>
+                            <Col className="mt-2">
+                                <button type="submit" className="acessar--btn w-100"> Enviar </button>
+                            </Col>
+                        </Row>
+                    </Form>
+                </Formik>
             </Container>
 
             <BlueFooter />

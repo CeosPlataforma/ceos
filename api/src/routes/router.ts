@@ -4,6 +4,7 @@ import { MailController } from '../controllers/MailController';
 import { MateriaController } from '../controllers/MateriaController';
 import { UserController } from '../controllers/UserController';
 import { CronogramaController } from '../controllers/CronogramaController'
+import { FeedbackController } from '../controllers/FeedbackController';
 import('../database/')
 const router = Router();
 
@@ -57,5 +58,12 @@ router.patch('/editar-atividade', atividadeController.edit)
 const cronogramaController = new CronogramaController();
 router.get('/cronograma', cronogramaController.getCronograma)
 router.post('/cronograma', cronogramaController.saveCronograma)
+
+
+// FEEDBACK (pg /desativado)
+
+const feedbackContoller = new FeedbackController();
+router.post('/feedback', feedbackContoller.save)
+router.get('/feedback', feedbackContoller.get)
 
 export { router };
