@@ -287,11 +287,11 @@ export default function DadosPessoais() {
                         </div>
 
                         <div className="d-flex justify-content-around w-100">
-                            <Button className="btn-secondary btn-padding cropper--cancelar mx-auto" onClick={() => {
+                            <Button className="btn--secondary btn-padding cropper--cancelar mx-auto" onClick={() => {
                                 handleCloseCrop();
                                 setImage(null);
                             }}>Cancelar</Button>
-                            <Button className="btn-primary btn-padding cropper--aplicar mx-auto" onClick={onUpload}>Aplicar</Button>
+                            <Button className="btn--primary btn-padding cropper--aplicar mx-auto" onClick={onUpload}>Aplicar</Button>
                         </div>
                     </Modal.Footer>
                 </Modal>
@@ -318,8 +318,8 @@ export default function DadosPessoais() {
                                 <label htmlFor="dados-pessoais--email" className="form-label">E-mail</label>
                                 <Field name="email" type="text" className="form-control dados-pessoais--input input-main mb-4" id="dados-pessoais--email" readOnly={true} />
 
-                                <Button className="dados-pessoais--btn btn-primary w-100 mb-4 mt-2" onClick={() => setShowMudarDados(true)}>Alterar dados</Button>
-                                <Button className="btn-secondary w-100 mb-4 mt-2" onClick={() => setShowMudarSenha(true)} >Alterar senha</Button>
+                                <Button className="dados-pessoais--btn btn--primary w-100 mb-4 mt-2" onClick={() => setShowMudarDados(true)}>Alterar dados</Button>
+                                <Button className="btn--secondary w-100 mb-4 mt-2" onClick={() => setShowMudarSenha(true)} >Alterar senha</Button>
 
                                 <a className="dados-pessoais--desativar" onClick={() => { setShowExcluir(true) }}>&gt; Desativar conta</a>
                             </Form>

@@ -115,7 +115,7 @@ label:focus,
 }
 .red-btn {
   background: #C24D4D !important;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   fill: #FFFFFF;
 }
 .red-btn:hover {
@@ -144,6 +144,10 @@ label:focus,
   border: 2px solid #AFAFAF;
 }
 
+textarea {
+  min-height: 160px !important;
+}
+
 .gutter {
   --bs-gutter-y: .75rem;
 }
@@ -170,7 +174,7 @@ label:focus,
   color: #216AA7 !important;
 }
 
-.btn-primary {
+.btn--primary {
   color: #FFFFFF;
   padding: 14px 0;
   border-radius: 10px;
@@ -180,32 +184,32 @@ label:focus,
   border: none;
   border-color: #216AA7;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btn--primary:hover, .btn--primary:focus, .btn--primary:active {
   color: #FFFFFF;
   background: #216AA7;
   border-color: #216AA7;
 }
 @media screen and (max-width: 767.98px) {
-  .btn-primary {
+  .btn--primary {
     word-wrap: break-word;
   }
 }
 
-.btn-secondary {
+.btn--secondary {
   background: #FFFFFF;
   color: #216AA7;
   font: 500 20px "Baloo Bhai 2", cursive;
   border: 3px solid #216AA7;
-  padding: 12px 0;
+  padding: 11px 0;
   border-radius: 10px;
 }
-.btn-secondary:active, .btn-secondary:hover {
+.btn--secondary:active, .btn--secondary:hover {
   background: #216AA7;
   color: #FFFFFF;
   border: 3px solid #216AA7;
 }
 @media screen and (max-width: 767.98px) {
-  .btn-secondary {
+  .btn--secondary {
     word-wrap: break-word;
   }
 }
@@ -632,7 +636,7 @@ input:checked + .slider:before {
   padding-top: 40px;
 }
 .cta--arrow {
-  background: #fff;
+  background: #FFFFFF;
   height: 3px;
   width: 130px;
   margin: 60px auto 60px auto;
@@ -641,7 +645,7 @@ input:checked + .slider:before {
 }
 .cta--arrow:before, .cta--arrow:after {
   content: "";
-  background: #fff;
+  background: #FFFFFF;
   position: absolute;
   height: 3px;
   width: 15px;
@@ -842,8 +846,11 @@ input:checked + .slider:before {
 
 .error-msg {
   font: 500 20px "Baloo Bhai 2", cursive;
-  color: #C24D4D !important;
+  color: #C24D4D;
   font-weight: 400;
+}
+.error-msg--green {
+  color: #2B9E33 !important;
 }
 
 .return--arrow {
@@ -1084,6 +1091,14 @@ button {
 .modal--btn--verify {
   width: 85%;
 }
+.modal--checkbox {
+  -webkit-appearance: checkbox !important;
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+}
 
 .modal-backdrop.show {
   background-color: #23272a;
@@ -1150,15 +1165,6 @@ button {
 
 .modal-esqueceu-senha-amaral .modal-body {
   padding-bottom: 40px;
-}
-
-.modal--checkbox {
-  -webkit-appearance: checkbox !important;
-  margin-right: 10px;
-  height: 20px;
-  width: 20px;
-  margin-bottom: 0 !important;
-  cursor: pointer;
 }
 
 .senha--container {
@@ -1538,7 +1544,7 @@ ol, ul {
 .modal-atividade--materia {
   color: #707070 !important;
 }
-.modal-atividade input {
+.modal-atividade .input-holder {
   margin-bottom: 20px;
 }
 .modal-atividade--btn {
@@ -1576,12 +1582,10 @@ ol, ul {
   align-items: center;
   text-align: center;
   margin: 0;
-  position: absolute;
-  right: 60px;
 }
 @media screen and (max-width: 575.98px) {
   .btn-edit, .ver-atividades .btn-edit--materia {
-    right: 35px;
+    margin: 10px auto;
   }
 }
 .btn-edit svg, .ver-atividades .btn-edit--materia svg {
@@ -1791,9 +1795,6 @@ ol, ul {
 .contato .contato--form label {
   font: 500 20px "Baloo Bhai 2", cursive;
   color: #23272a;
-}
-.contato .contato--form textarea {
-  min-height: 160px;
 }
 
 @media screen and (max-width: 991.98px) {
@@ -2086,18 +2087,7 @@ ol, ul {
 }
 
 .ver-atividades--btn {
-  width: 31% !important;
   background-color: #FFFFFF;
-}
-@media screen and (max-width: 991.98px) {
-  .ver-atividades--btn {
-    width: 49% !important;
-  }
-}
-@media screen and (max-width: 767.98px) {
-  .ver-atividades--btn {
-    width: 100% !important;
-  }
 }
 .ver-atividades--btn--active {
   background-color: #707070;
@@ -2457,12 +2447,155 @@ ol, ul {
   color: #707070;
 }
 .error404--btn {
-  border: 3px solid #216AA7;
   width: 30%;
-  padding: 16px 0 !important;
 }
 @media screen and (max-width: 991.98px) {
   .error404--btn {
     width: 80%;
   }
+}
+
+.sidebar-admin {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 248px;
+  background: #23272a;
+  padding: 0px 14px 0px 14px;
+  z-index: 99;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.sidebar-admin .logo_content {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.sidebar-admin .logo_content .logo {
+  color: #FFFFFF;
+  /*display: flex;
+  align-items: center;*/
+  pointer-events: none;
+  transition: all 0.3s ease;
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+}
+.sidebar-admin ul:first-child {
+  margin-top: 20px;
+}
+.sidebar-admin ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+  margin: 60px 0px;
+}
+.sidebar-admin ul li a {
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.sidebar-admin ul li a:hover {
+  color: #23272a;
+  background: #FFFFFF;
+}
+.sidebar-admin ul li a:hover svg {
+  fill: #23272a;
+  stroke: #23272a;
+}
+.sidebar-admin ul li svg {
+  font-size: 18px;
+  font-weight: 400;
+  height: 35px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  fill: #FFFFFF;
+  stroke: #FFFFFF;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+.sidebar-admin .links_name {
+  font-size: 1.25rem;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.dashboard--info {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  background-color: #216AA7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.dashboard--info h1 {
+  color: #FFFFFF;
+}
+.dashboard--info h2 {
+  color: #FFBF5B;
+}
+.dashboard--info svg {
+  width: 100px;
+  height: 100px;
+  fill: #FFFFFF;
+  margin-bottom: 30px;
+  stroke: #FFFFFF;
+}
+.dashboard .msg-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #216AA7;
+  width: 50%;
+  border-radius: 20px;
+  padding: 20px;
+  color: #FFFFFF;
+  position: relative;
+}
+.dashboard .msg-box svg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 20px;
+}
+.dashboard .msg-box svg.pendente {
+  fill: #FFBF5B;
+  stroke: #FFBF5B;
+}
+.dashboard .msg-box svg.concluido {
+  fill: #2B9E33;
+  stroke: #2B9E33;
+}
+.dashboard .msg-box p {
+  font: 500 20px "Baloo Bhai 2", cursive;
+}
+.dashboard .msg-box .btn-solved:hover {
+  background-color: #FFFFFF;
+  color: #216AA7;
+}
+.dashboard--user-img {
+  height: 100px !important;
+  width: 100px !important;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.modal-admin-user .input-holder {
+  margin-bottom: 20px;
 }

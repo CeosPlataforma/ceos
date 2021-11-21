@@ -12,6 +12,7 @@ export const Toggle = ({ theme, toggleTheme }) => {
                     <input
                         type="checkbox"
                         onChange={toggleTheme}
+                        checked={theme === 'dark' ? true : false}
                     />
                     <span className="slider round"> </span>
                 </label>

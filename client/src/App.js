@@ -9,6 +9,7 @@ import "./css/main.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import SidebarMob from './components/SidebarMob';
+import MenuAdmin from './components/MenuAdmin';
 import Footer from "./components/Footer";
 import MiniFooter from "./components/MiniFooter";
 
@@ -36,6 +37,12 @@ import Thanks from "./pages/Thanks";
 import Termos from "./pages/Termos";
 import Error404 from "./pages/Error404";
 
+// import AdminLogin from "./pages/AdminLogin";
+import Dashboard from "./pages/Dashboard";
+import Usuarios from "./pages/Usuarios";
+import Mensagens from "./pages/Mensagens";
+import Tickets from "./pages/Tickets";
+
 function App() {
 
     const [theme, toggleTheme] = useDarkMode();
@@ -43,6 +50,9 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
+
+                {/* ------------------------------------------- WEBSITE ------------------------------------------- */}
+
                 <Route exact path="/" element={
                     <Fragment>
                         <Header />
@@ -85,6 +95,8 @@ function App() {
                         <Footer />
                     </Fragment>
                 } />
+
+                {/* ---------------------------------------- PLATAFORMA ------------------------------------------- */}
 
                 <Route path="/painel" element={
                     <Fragment>
@@ -163,6 +175,8 @@ function App() {
                     </Fragment>
                 } />
 
+                {/* ------------------------------------------- EXTRAS -------------------------------------------- */}
+
                 <Route path="/redefinir-senha/:userID" element={<ResetSenha />} />
 
                 <Route path="/logout" element={<Logout />} />
@@ -172,6 +186,41 @@ function App() {
                         <Header />
                         <Error404 />
                         <Footer />
+                    </Fragment>
+                } />
+
+                {/* <Route path="/adminlogin" element={<AdminLogin />} /> */}
+
+                <Route exact path="/dashboard" element={
+                    <Fragment>
+                        <div className="d-flex index-div">
+                            <MenuAdmin />
+                            <Dashboard />
+                        </div>
+                    </Fragment>
+                } />
+                <Route path="/dashboard/usuarios" element={
+                    <Fragment>
+                        <div className="d-flex index-div">
+                            <MenuAdmin />
+                            <Usuarios />
+                        </div>
+                    </Fragment>
+                } />
+                <Route path="/dashboard/mensagens" element={
+                    <Fragment>
+                        <div className="d-flex index-div">
+                            <MenuAdmin />
+                            <Mensagens />
+                        </div>
+                    </Fragment>
+                } />
+                <Route path="/dashboard/tickets" element={
+                    <Fragment>
+                        <div className="d-flex index-div">
+                            <MenuAdmin />
+                            <Tickets />
+                        </div>
                     </Fragment>
                 } />
             </Routes>

@@ -8,7 +8,7 @@ import ModalDeleteAtv from "../components/ModalDeleteAtv";
 import ModalPermDelete from "../components/ModalPermDelete";
 import ModalRestaurar from "../components/ModalRestaurar";
 
-export default function AtvBox({ mat_obj, atv_obj, className, title, materia, tipo, data, excluir, restaurar, permexcluir, toggleDrag }) {
+export default function AtvBox({ mat_obj, atv_obj, className, title, materia, tipo, data, excluir, restaurar, toggleDrag }) {
 
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -86,7 +86,7 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
 
     const onSubmitEdit = async (values, actions) => {
         axios.patch("http://localhost:3333/editar-atividade",
-            { 
+            {
                 uuid: atv_obj.uuid,
                 velho: {
                     nome: atv_obj.name,
@@ -104,14 +104,14 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                 }
             }
         )
-        .then((response) => {
-            if (response.data.success) {
-                setTouched(true)
-                setShow3(false)
-            } else if (response.data.message === "no-change")  {
-                actions.setFieldError("nome", "Não foi feita nenhuma mudança.")
-            }
-        }).catch(error => console.log(error))
+            .then((response) => {
+                if (response.data.success) {
+                    setTouched(true)
+                    setShow3(false)
+                } else if (response.data.message === "no-change") {
+                    actions.setFieldError("nome", "Não foi feita nenhuma mudança.")
+                }
+            }).catch(error => console.log(error))
     }
 
 
@@ -125,7 +125,7 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                     <svg viewBox="-77 0 512 512" xmlns="http://www.w3.org/2000/svg" className="atvSvg">
                         <path d="m234.324219 387.695312h124.304687v-387.695312h-358.628906v512h234.324219zm-149.800781-299.476562h190.492187v30h-190.492187zm0 69.78125h190.492187v30h-190.492187zm0 69.78125h190.492187v30h-190.492187zm0 69.78125h190.492187v30h-190.492187zm0 0" />
                         <path d="m349.84375 417.695312h-85.519531v85.519532zm0 0" />
-                    </svg><h5><a href={`http://localhost:3000/materia/${mat_obj.uuid}`} style={{'textDecoration': 'none currentcolor solid', 'color': '#fff'}}>{materia}</a></h5>
+                    </svg><h5><a href={`http://localhost:3000/materia/${mat_obj.uuid}`} style={{ 'textDecoration': 'none currentcolor solid', 'color': '#fff' }}>{materia}</a></h5>
                 </div> : ""}
 
                 <div className="topic">
@@ -158,7 +158,7 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                             </g>
                         </svg>
                     </button>
-                    <button className="btn btn-delete" id={permexcluir === true ? "" : "none"} onClick={() => { setShow4(true) }}>
+                    <button className="btn btn-delete" id={restaurar === true ? "" : "none"} onClick={() => { setShow4(true) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20.121" height="20.121" viewBox="0 0 20.121 20.121">
                             <g id="x" transform="translate(1.061 1.061)">
                                 <line id="Linha_6" data-name="Linha 6" x2="18" y2="18" fill="none" stroke="#fff" strokeWidth="3" />
@@ -176,11 +176,11 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
                     </button>
                 </div>
 
-                <ModalConfirmAtv showEdit={showEdit} mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} />
+                <ModalConfirmAtv showEdit={showEdit} mat_obj={mat_obj} atv_obj={atv_obj} show={show} onHide={() => { setShow(false) }} onEnter={toggleDrag} noedit={restaurar} />
                 <ModalDeleteAtv onSubmit={onSubmitLixeira} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show2} onHide={() => { setShow2(false) }} onExited={() => { window.location.reload() }} onEnter={toggleDrag} />
                 <ModalEditAtv onSubmit={onSubmitEdit} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show3} onHide={() => setShow3(false)} onExited={() => { touched ? window.location.reload() : console.log("no change") }} onEnter={toggleDrag} />
-                <ModalPermDelete onSubmit={onSubmitExcluir} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show4} onHide={() => setShow4(false)} onExited={() => { touched ? window.location.reload() : console.log("no change") }}/>
-                <ModalRestaurar onSubmit={onSubmitRestore} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show5} onHide={() => setShow5(false)} onExited={() => { touched ? window.location.reload() : console.log("no change") }}/>
+                <ModalPermDelete onSubmit={onSubmitExcluir} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show4} onHide={() => setShow4(false)} onExited={() => { touched ? window.location.reload() : console.log("no change") }} />
+                <ModalRestaurar onSubmit={onSubmitRestore} tipo={tipo} data={data} atv_obj={atv_obj} mat_obj={mat_obj} show={show5} onHide={() => setShow5(false)} onExited={() => { touched ? window.location.reload() : console.log("no change") }} />
             </div>
         </Col>
     );

@@ -31,7 +31,7 @@ function ModalAddMateria(props) {
                             <ErrorMessage component="span" className="error-msg" name="name" />
                         </div>
                         <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary w-100 mx-auto ">Confirmar</button>
+                            <button type="submit" className="btn btn--primary w-100 mx-auto ">Confirmar</button>
                         </div>
                     </Form>
                 </Formik>

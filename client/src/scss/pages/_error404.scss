@@ -12,9 +12,7 @@
         color: $gray-dark;
     }
     &--btn {
-        border: 3px solid $blue;
         width: 30%;
-        padding: 16px 0 !important;
         @include device(md) {
             width: 80%;
         }

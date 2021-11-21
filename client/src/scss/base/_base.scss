@@ -39,7 +39,7 @@
 
 .red-btn {
   background: $red !important;
-  color: $white;
+  color: $white !important;
   fill: $white;
   &:hover {
     background: $red !important;
@@ -68,6 +68,10 @@
   }
 }
 
+textarea {
+  min-height: 160px !important;
+}
+
 .gutter {
   --bs-gutter-y: .75rem;
 }
@@ -94,7 +98,7 @@
   color: $blue !important;
 }
 
-.btn-primary {
+.btn--primary {
   color: $white;
   padding: 14px 0;
   border-radius: 10px;
@@ -113,12 +117,12 @@
   }
 }
 
-.btn-secondary {
+.btn--secondary {
   background: $white;
   color: $blue;
   font: $font-sm;
   border: 3px solid $blue;
-  padding: 12px 0;
+  padding: 11px 0;
   border-radius: 10px;
   &:active, &:hover {
       background: $blue;

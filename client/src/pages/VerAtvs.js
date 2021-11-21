@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import AtvBox from "../components/AtvBox";
 import ModalAddAtv from "../components/ModalAddAtv";
@@ -86,10 +87,10 @@ export default function VerAtvs() {
 
     const [index, setIndex] = useState(0)
 
-    const [atvButton, setAtvButton] = useState("ver-atividades--btn ver-atividades--btn--active")
-    const [infoButton, setInfoButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
-    const [lixeiraButton, setLixeiraButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
-    const [concluidasButton, setConcluidasButton] = useState("ver-atividades--btn ver-atividades--btn--inactive")
+    const [atvButton, setAtvButton] = useState("ver-atividades--btn ver-atividades--btn--active w-100")
+    const [infoButton, setInfoButton] = useState("ver-atividades--btn ver-atividades--btn--inactive w-100")
+    const [lixeiraButton, setLixeiraButton] = useState("ver-atividades--btn ver-atividades--btn--inactive w-100")
+    const [concluidasButton, setConcluidasButton] = useState("ver-atividades--btn ver-atividades--btn--inactive w-100")
 
     useEffect(() => {
 
@@ -118,53 +119,63 @@ export default function VerAtvs() {
                     retornarmsg={"Voltar às matérias"}
                     link={"/materias"} />
 
-                <div className="d-flex justify-content-between p-0 flex-wrap">
-                    <button
-                        className={atvButton}
-                        onClick={() => {
-                            setIndex(0)
-                            setAtvButton("ver-atividades--btn ver-atividades--btn--active")
-                            setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive")
-                        }}>
-                        Ver atividades
-                    </button>
-                    <button className="ver-atividades--btn ver-atividades--btn--inactive" onClick={() => { setShowAdd(true) }}>Adicionar atividade</button>
-                    <button
-                        className={infoButton}
-                        onClick={() => {
-                            setIndex(1)
-                            setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setInfoButton("ver-atividades--btn ver-atividades--btn--active")
-                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive")
-                        }}>
-                        Informações
-                    </button>
-                    <button
-                        className={concluidasButton}
-                        onClick={() => {
-                            setIndex(2)
-                            setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--active")
-                        }}>
-                        Concluidas
-                    </button>
-                    <button
-                        className={lixeiraButton}
-                        onClick={() => {
-                            setIndex(3)
-                            setAtvButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setInfoButton("ver-atividades--btn ver-atividades--btn--inactive")
-                            setLixeiraButton("ver-atividades--btn ver-atividades--btn--active")
-                            setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive")
-                        }}>
-                        Lixeira
-                    </button>
-                </div>
+                <Row className="d-flex justify-content-between p-0 flex-wrap">
+                    <Col>
+                        <button
+                            className={atvButton}
+                            onClick={() => {
+                                setIndex(0)
+                                setAtvButton("ver-atividades--btn ver-atividades--btn--active w-100")
+                                setInfoButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                            }}>
+                            Ver atividades
+                        </button>
+                    </Col>
+                    <Col>
+                        <button className="ver-atividades--btn ver-atividades--btn--inactive w-100" onClick={() => { setShowAdd(true) }}>Adicionar atividade</button>
+                    </Col>
+                    <Col>
+                        <button
+                            className={infoButton}
+                            onClick={() => {
+                                setIndex(1)
+                                setAtvButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setInfoButton("ver-atividades--btn ver-atividades--btn--active w-100")
+                                setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                            }}>
+                            Informações
+                        </button>
+                    </Col>
+                    <Col>
+                        <button
+                            className={concluidasButton}
+                            onClick={() => {
+                                setIndex(2)
+                                setAtvButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setInfoButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setLixeiraButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setConcluidasButton("ver-atividades--btn ver-atividades--btn--active w-100")
+                            }}>
+                            Concluidas
+                        </button>
+                    </Col>
+                    <Col>
+                        <button
+                            className={lixeiraButton}
+                            onClick={() => {
+                                setIndex(3)
+                                setAtvButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setInfoButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                                setLixeiraButton("ver-atividades--btn ver-atividades--btn--active w-100")
+                                setConcluidasButton("ver-atividades--btn ver-atividades--btn--inactive w-100")
+                            }}>
+                            Lixeira
+                        </button>
+                    </Col>
+                </Row>
 
                 {index === 0 &&
                     <>
@@ -182,32 +193,32 @@ export default function VerAtvs() {
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
                             {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
-                            .map((atividade) => {
-                                switch (atividade.atv_type) {
-                                    case "trabalho":
-                                        atividade.tipo = "Trabalho"
-                                        break;
-                                    case "atividade":
-                                        atividade.tipo = "Atividade"
-                                        break;
-                                    case "licao-de-casa":
-                                        atividade.tipo = "Lição de casa"
-                                        break;
-                                    case "prova":
-                                        atividade.tipo = "Prova"
-                                        break;
-                                    default: 
-                                        atividade.tipo = "??? erro ???"
-                                        break;
-                                }
-                                let day = atividade.dueBy.substring(8, 10)
-                                let month = atividade.dueBy.substring(5, 7)
-                                let year = atividade.dueBy.substring(0, 4)
-                                let date = `${day}/${month}/${year}`
-                                atividade.fixedDate = date
-                                //console.log("map", atividade.tipo)
-                                return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
-                            })}
+                                .map((atividade) => {
+                                    switch (atividade.atv_type) {
+                                        case "trabalho":
+                                            atividade.tipo = "Trabalho"
+                                            break;
+                                        case "atividade":
+                                            atividade.tipo = "Atividade"
+                                            break;
+                                        case "licao-de-casa":
+                                            atividade.tipo = "Lição de casa"
+                                            break;
+                                        case "prova":
+                                            atividade.tipo = "Prova"
+                                            break;
+                                        default:
+                                            atividade.tipo = "??? erro ???"
+                                            break;
+                                    }
+                                    let day = atividade.dueBy.substring(8, 10)
+                                    let month = atividade.dueBy.substring(5, 7)
+                                    let year = atividade.dueBy.substring(0, 4)
+                                    let date = `${day}/${month}/${year}`
+                                    atividade.fixedDate = date
+                                    //console.log("map", atividade.tipo)
+                                    return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                                })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
                         </Row>
                         <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
@@ -236,32 +247,32 @@ export default function VerAtvs() {
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
                             {atividades.filter((atividade) => atividade.concluida && !atividade.trashed ? true : false)
-                            .map((atividade) => {
-                                switch (atividade.atv_type) {
-                                    case "trabalho":
-                                        atividade.tipo = "Trabalho"
-                                        break;
-                                    case "atividade":
-                                        atividade.tipo = "Atividade"
-                                        break;
-                                    case "licao-de-casa":
-                                        atividade.tipo = "Lição de casa"
-                                        break;
-                                    case "prova":
-                                        atividade.tipo = "Prova"
-                                        break;
-                                    default: 
-                                        atividade.tipo = "??? erro ???"
-                                        break;
-                                }
-                                let day = atividade.dueBy.substring(8, 10)
-                                let month = atividade.dueBy.substring(5, 7)
-                                let year = atividade.dueBy.substring(0, 4)
-                                let date = `${day}/${month}/${year}`
-                                atividade.fixedDate = date
-                                //console.log("map", atividade.tipo)
-                                return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
-                            })}
+                                .map((atividade) => {
+                                    switch (atividade.atv_type) {
+                                        case "trabalho":
+                                            atividade.tipo = "Trabalho"
+                                            break;
+                                        case "atividade":
+                                            atividade.tipo = "Atividade"
+                                            break;
+                                        case "licao-de-casa":
+                                            atividade.tipo = "Lição de casa"
+                                            break;
+                                        case "prova":
+                                            atividade.tipo = "Prova"
+                                            break;
+                                        default:
+                                            atividade.tipo = "??? erro ???"
+                                            break;
+                                    }
+                                    let day = atividade.dueBy.substring(8, 10)
+                                    let month = atividade.dueBy.substring(5, 7)
+                                    let year = atividade.dueBy.substring(0, 4)
+                                    let date = `${day}/${month}/${year}`
+                                    atividade.fixedDate = date
+                                    //console.log("map", atividade.tipo)
+                                    return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                                })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
                         </Row>
                         <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>
@@ -284,32 +295,32 @@ export default function VerAtvs() {
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
                             {atividades.filter((atividade) => atividade.trashed ? true : false)
-                            .map((atividade) => {
-                                switch (atividade.atv_type) {
-                                    case "trabalho":
-                                        atividade.tipo = "Trabalho"
-                                        break;
-                                    case "atividade":
-                                        atividade.tipo = "Atividade"
-                                        break;
-                                    case "licao-de-casa":
-                                        atividade.tipo = "Lição de casa"
-                                        break;
-                                    case "prova":
-                                        atividade.tipo = "Prova"
-                                        break;
-                                    default: 
-                                        atividade.tipo = "??? erro ???"
-                                        break;
-                                }
-                                let day = atividade.dueBy.substring(8, 10)
-                                let month = atividade.dueBy.substring(5, 7)
-                                let year = atividade.dueBy.substring(0, 4)
-                                let date = `${day}/${month}/${year}`
-                                atividade.fixedDate = date
-                                //console.log("map", atividade.tipo)
-                                return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar permexcluir className="mb-5" />
-                            })}
+                                .map((atividade) => {
+                                    switch (atividade.atv_type) {
+                                        case "trabalho":
+                                            atividade.tipo = "Trabalho"
+                                            break;
+                                        case "atividade":
+                                            atividade.tipo = "Atividade"
+                                            break;
+                                        case "licao-de-casa":
+                                            atividade.tipo = "Lição de casa"
+                                            break;
+                                        case "prova":
+                                            atividade.tipo = "Prova"
+                                            break;
+                                        default:
+                                            atividade.tipo = "??? erro ???"
+                                            break;
+                                    }
+                                    let day = atividade.dueBy.substring(8, 10)
+                                    let month = atividade.dueBy.substring(5, 7)
+                                    let year = atividade.dueBy.substring(0, 4)
+                                    let date = `${day}/${month}/${year}`
+                                    atividade.fixedDate = date
+                                    //console.log("map", atividade.tipo)
+                                    return <AtvBox /*materia={atividade.materia.name}*/ mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar className="mb-5" />
+                                })}
                             {/*<AtvBox tile="aaaa" tipo="aaa" data="aaa" excluir className="mb-4" />*/}
                         </Row>
                         <a className="ver-atividades--excluir" onClick={() => { setShowExcluir(true) }}>&gt; Excluir matéria</a>

@@ -118,8 +118,11 @@
 
 .error-msg {
     font: $font-sm;
-    color: $red !important;
+    color: $red;
     font-weight: $regular;
+    &--green {
+        color: $green !important;
+    }
 }
 
 .return {

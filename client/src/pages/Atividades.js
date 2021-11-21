@@ -31,17 +31,17 @@ export default function Atividades() {
 
     const atvFiltro = (atividade) => {
         if (atvTipo === "all") {
-            return atividade.trashed || atividade.concluida ?  false : true
+            return atividade.trashed || atividade.concluida ? false : true
         } else if (atvTipo === "casa" && atividade.atv_type === "licao-de-casa") {
-            return atividade.trashed || atividade.concluida ?  false : true
+            return atividade.trashed || atividade.concluida ? false : true
         } else if (atvTipo === "trabalho" && atividade.atv_type === "trabalho") {
-            return atividade.trashed || atividade.concluida ?  false : true
+            return atividade.trashed || atividade.concluida ? false : true
         } else if (atvTipo === "prova" && atividade.atv_type === "prova") {
-            return atividade.trashed || atividade.concluida ?  false : true
+            return atividade.trashed || atividade.concluida ? false : true
         } else if (atvTipo === "lixeira" && atividade.trashed) {
             return true
         } else if (atvTipo === "concluida" && atividade.concluida) {
-            return atividade.trashed ?  false : true
+            return atividade.trashed ? false : true
         } else {
             return false
         }
@@ -209,9 +209,9 @@ export default function Atividades() {
                                     //console.log("map", atividade.tipo)
 
                                     return atvTipo !== "lixeira"
-                                    ? <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
-                                    : <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar permaexcluir className="mb-5" />
-                                     
+                                        ? <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
+                                        : <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar className="mb-5" />
+
                                 })}
                             </React.Fragment>
 

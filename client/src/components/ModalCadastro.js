@@ -28,7 +28,7 @@ function ModalCadastro(props) {
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" className="btn-primary btn-padding mx-auto" onClick={redirect}>Ir para o login</Button>
+                <Button className="btn--primary btn-padding mx-auto" onClick={redirect}>Ir para o login</Button>
             </Modal.Footer>
         </Modal>
     );
