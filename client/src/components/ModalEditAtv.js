@@ -92,7 +92,7 @@ function ModalEditAtv(props) {
                     </Modal.Body>
                     <Modal.Footer>
                         <div className="d-flex justify-content-center w-100">
-                            <Button name="submit" type="submit" className="modal--btn modal-atividade--btn w-50">Salvar</Button>
+                            <Button name="submit" type="submit" className="btn--primary modal--btn modal-atividade--btn w-50">Salvar</Button>
                         </div>
                     </Modal.Footer>
                 </Form>

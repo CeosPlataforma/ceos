@@ -214,6 +214,13 @@ textarea {
     td {
       color: $gray-light;
     }
+    .btn--secondary {
+      background: $black;
+      color: $white;
+      &:hover {
+        background: $blue;
+      }
+    }
 }
 
 .light-mode {

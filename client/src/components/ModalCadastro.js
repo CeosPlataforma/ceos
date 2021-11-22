@@ -13,7 +13,7 @@ function ModalCadastro(props) {
 
     return (
         <Modal {...props}
-            size="lg"
+            size="xl"
             aria-labelledby="contained-modal-title-vcenter"
             contentClassName="modal-content--website modal-content--website modal--btn--verify"
             centered>

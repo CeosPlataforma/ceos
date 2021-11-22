@@ -293,6 +293,13 @@ textarea {
 .dark-mode td {
   color: #E5E5E5;
 }
+.dark-mode .btn--secondary {
+  background: #23272a;
+  color: #FFFFFF;
+}
+.dark-mode .btn--secondary:hover {
+  background: #216AA7;
+}
 
 .light-mode {
   background-color: #FFFFFF;
@@ -1075,7 +1082,7 @@ button {
 }
 .modal--textarea {
   height: 63px;
-  min-height: 63px;
+  min-height: 63px !important;
 }
 .modal--input {
   font: 500 20px "Baloo Bhai 2", cursive;

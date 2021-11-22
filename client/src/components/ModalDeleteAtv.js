@@ -59,7 +59,7 @@ function ModalDeleteAtv(props) {
                 <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
                     <Form className="d-flex justify-content-center w-100">
                         <div className="d-flex justify-content-center w-100">
-                            <Button name="pele" type="submit" className="modal--btn modal-atividade--btn btn-padding btn-red">Confirmar exclusão</Button>
+                            <Button name="pele" type="submit" className="modal--btn modal-atividade--btn btn--primary btn-padding btn-red">Confirmar exclusão</Button>
                             <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
                         </div>
                     </Form>
