@@ -3,10 +3,12 @@ import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
+//import api from '../utils/api'
+import jwtDecode from 'jwt-decode'
 
 import ModalSenha from "../components/ModalSenha";
 
-export default function Acessar() {
+export default function Acessar(props) {
 
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
@@ -38,7 +40,6 @@ export default function Acessar() {
         password: Yup.string().required('Obrigatório'),
     });
 
-    axios.defaults.withCredentials = true
     const onSubmit = async (values, actions) => {
         await axios.post("http://localhost:3333/login", { email: values.email, password: values.password })
             .then(function (response) {
@@ -49,6 +50,9 @@ export default function Acessar() {
                 } else if (response.data.error === "password") {
                     actions.setFieldError("password", `Senha incorreta`);
                 } else if (response.status === 201) {
+                    const { token } = response.data
+                    localStorage.setItem('token', token)
+                    props.onLogin(jwtDecode(token))
                     redirect();
                 }
             })

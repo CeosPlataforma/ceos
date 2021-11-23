@@ -6,6 +6,7 @@ import { validate } from 'uuid';
 import { UserModel } from '../models/User';
 import SendMail from "../services/SendMail";
 import { MateriaModel } from '../models/Materia';
+import { signToken } from '../middlewares/serverAuth'
 
 class UserController {
     async registerUser(request: Request, response: Response) {
@@ -51,6 +52,7 @@ class UserController {
                 console.log("existente")
                 if (user.validPassword(request.body.password)) {
                     if (user.verifiedMail == true) {
+
                         request.session.user = {
                             email,
                             name: user.name,
@@ -58,16 +60,13 @@ class UserController {
                             uuid: user.uuid
                         };
 
-                        request.session.save()
+                        const token = signToken(user)
 
-                        console.log({
-                            message: "session",
-                            "session.user": request.session.user
-                        });
+                        console.log({ "user": request.session.user });
 
                         console.log("sucesso")
 
-                        return response.status(201).json({ message: "User logged in", user: request.session.user });
+                        return response.status(201).json({ message: "User logged in", user: request.session.user, token: token });
                     } else {
                         console.log("verificar")
                         return response.json({ error: "verify" });
@@ -102,7 +101,18 @@ class UserController {
     }
 
     async logout(request: Request, response: Response) {
-        request.session.destroy((error) => error ? console.log(error) : console.log("sesison destruida"));
+        request.session.destroy(
+            (error) => {
+                if (error) {
+                    console.log(error)
+                    return response.json({ success: false })
+                }
+                else {
+                    console.log("sesison destruida")
+                    return response.json({ success: true })
+                }
+            }
+        )
     }
 
     async resetPassword(request: Request, response: Response) {

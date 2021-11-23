@@ -20,10 +20,11 @@
     "@types/passport-local": "^1.0.34",
     "@types/uuid": "^8.3.0",
     "ts-node-dev": "^1.1.6",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "@types/express-flash": "^0.0.2",
+    "@types/jsonwebtoken": "^8.5.6"
   },
   "dependencies": {
-    "@types/express-flash": "^0.0.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "connect-mongo": "^4.4.1",
@@ -31,14 +32,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
-    "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
-    "googleapis": "^85.0.0",
     "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.11",
     "nodemailer": "^6.6.1",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
     "uuid": "^8.3.2"
   }
 }

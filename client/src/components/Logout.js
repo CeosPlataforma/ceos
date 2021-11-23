@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
+import axios from "axios";
 
-function Logout() {
+export default function Logout({ onLogOut }) {
 
     const history = useNavigate();
+    axios.defaults.withCredentials = true
     const [done, setDone] = useState(false);
 
     useEffect(() => {
-        axios.defaults.withCredentials = true
-        axios.post("http://localhost:3333/logout").then((response) => {
-            console.log(response);
-            setDone(true);
-        }).catch((err) => {
-            console.log(err)
-            setDone(true);
-        });
+
+        console.log("use effect")
+
+        axios.post('http://localhost:3333/logout').then((response) => {
+            console.log("sucesso ao deletar session", response.data.success)
+            onLogOut()
+            setDone(true)
+        }).catch((error) => console.log(error))
+        
+        // axios.post("http://localhost:3333/logout").then((response) => {
+        //     console.log("aaaaaa");
+        //     onLogOut()
+        //     setDone(true);
+        // }).catch((err) => {
+        //     console.log(err)
+        //     setDone(true);
+        // });
     })
 
     useEffect(() => {
@@ -25,5 +35,3 @@ function Logout() {
     return (<div></div>)
 
 }
-
-export default Logout
