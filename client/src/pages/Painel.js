@@ -14,7 +14,7 @@ import { useDrag } from "../components/useDrag";
 export default function Painel() {
 
     const [drag, toggleDrag] = useDrag();
-    //const [materiasFetched, setMateriasFetched] = useState(false)
+    /*//const [materiasFetched, setMateriasFetched] = useState(false)
     //const [atividadesFetched, setAtividadesFetched] = useState(false)
     //const [emptyAtv, setEmptyAtv] = useState(false)
 
@@ -76,42 +76,10 @@ export default function Painel() {
     //             slidesToShow: 1,
     //         }
     //     }]
-    // };
+    // };*/
 
-    const geral = [
-        {
-            counter: "000",
-            title: "Lições de casa concluídas"
-        },
-        {
-            counter: "000",
-            title: "Trabalhos concluídos"
-        },
-        {
-            counter: "000",
-            title: "Provas concluídas"
-        },
-        {
-            counter: "000",
-            title: "Atividades concluídas"
-        },
-        {
-            counter: "000",
-            title: "Lições de casa pendentes"
-        },
-        {
-            counter: "000",
-            title: "Trabalhos pendentes"
-        },
-        {
-            counter: "000",
-            title: "Provas pendentes"
-        },
-        {
-            counter: "000",
-            title: "Atividades pendentes"
-        },
-    ]
+
+    const [cronograma, setCronograma] = useState([])
 
     function NextArrow(props) {
         const { className, style, onClick } = props;
@@ -161,6 +129,21 @@ export default function Painel() {
             }).catch((error) => { console.log(error); })
     }
 
+    const fetchCronograma = async () => {
+        axios.get("http://localhost:3333/cronograma")
+            .then((response) => {
+                console.log(response.data)
+                if (!response.data.message) {
+                    setCronograma(response.data)
+                } else if (response.data.message === "erro") {
+                    console.error("erro", response.data.error)
+                } else if (response.data.message === "inexistent") {
+                    console.error("não achou")
+                }
+            }).catch((error) => { console.log(error) })
+    }
+
+
     const fetchAtividades = async () => {
         axios.get('http://localhost:3333/get-atividades')
             .then((response) => {
@@ -173,9 +156,32 @@ export default function Painel() {
             })
     }
 
+    /**
+    * @param {string} tipo O tipo da atividade
+    * @param {boolean} conc Se é para atividades concluidas
+    * @param {boolean} all Se é pra filtrar por tipo
+    * @returns {string} quantidade de atividades que servem pro filtro
+    */
+    const getAtvCount = (tipo, conc, all) => {
+        if (conc) {
+            if (all) {
+                return atividades.filter((atividade) => !atividade.trashed && atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
+            } else {
+                return atividades.filter((atividade) => (atividade.atv_type === tipo && !atividade.trashed) && atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
+            }
+        } else {
+            if (all) {
+                return atividades.filter((atividade) => !atividade.trashed && !atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
+            } else {
+                return atividades.filter((atividade) => (atividade.atv_type === tipo && !atividade.trashed) && !atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
+            }
+        }
+    }
+
     useEffect(() => {
         fetchMaterias()
         fetchAtividades()
+        fetchCronograma()
     }, [])
 
     return (
@@ -202,16 +208,24 @@ export default function Painel() {
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>XX: XX</td>
-                                <td>Matéria</td>
-                                <td>Matéria</td>
-                                <td>Matéria</td>
-                                <td>Matéria</td>
-                                <td>Matéria</td>
-                                <td>Matéria</td>
-                                <td>Matéria</td>
+                            {cronograma.filter(function (linha) {
+                                if (this.count < 3) {
+                                    this.count++;
+                                    return true
+                                }
+                            }, {count: 0}).map((linha) => {
+                                console.log(linha)
+                                return <tr>
+                                <td>{linha.hora}</td>
+                                <td>{linha.seg}</td>
+                                <td>{linha.ter}</td>
+                                <td>{linha.qua}</td>
+                                <td>{linha.qui}</td>
+                                <td>{linha.sex}</td>
+                                <td>{linha.sab}</td>
+                                <td>{linha.dom}</td>
                             </tr>
+                            })}
                         </tbody>
                     </Table>
 
@@ -271,7 +285,7 @@ export default function Painel() {
 
             <div className="section-title d-flex" style={{ 'marginTop': '60px' }}><span className="bar">|</span><h4>Atividades recentes</h4></div>
 
-            {atividades.length === 0
+            {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true).length === 0
                 ?
                 <Slider
                     nextArrow={<NextArrow />}
@@ -285,7 +299,7 @@ export default function Painel() {
                     <Row>
                         <Col>
                             <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}>
-                                <p>Você não criou nenhuma atividade.</p>
+                                <p>Não há nenhuma atividade pendente.</p>
                             </div>
                         </Col>
                     </Row>
@@ -316,44 +330,44 @@ export default function Painel() {
                 >
 
                     {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
-                    .sort((a, b) => {
-                        const a_date = new Date(a.dueBy)
-                        const b_date = new Date(b.dueBy)
-                        return a_date - b_date
-                    }).map((atividade) => {
-                        switch (atividade.atv_type) {
-                            case "trabalho":
-                                atividade.tipo = "Trabalho"
-                                break;
-                            case "atividade":
-                                atividade.tipo = "Atividade"
-                                break;
-                            case "licao-de-casa":
-                                atividade.tipo = "Lição de casa"
-                                break;
-                            case "prova":
-                                atividade.tipo = "Prova"
-                                break;
-                        }
-                        let day = atividade.dueBy.substring(8, 10)
-                        let month = atividade.dueBy.substring(5, 7)
-                        let year = atividade.dueBy.substring(0, 4)
-                        let date = `${day}/${month}/${year}`
-                        atividade.fixedDate = date
-                        return (
-                            <Row>
-                                <AtvBox
-                                    materia={atividade.materia.name}
-                                    mat_obj={atividade.materia}
-                                    atv_obj={atividade}
-                                    title={atividade.name}
-                                    tipo={atividade.tipo}
-                                    data={atividade.fixedDate}
-                                    toggleDrag={toggleDrag}
-                                    excluir />
-                            </Row>
-                        )
-                    })}
+                        .sort((a, b) => {
+                            const a_date = new Date(a.dueBy)
+                            const b_date = new Date(b.dueBy)
+                            return a_date - b_date
+                        }).map((atividade) => {
+                            switch (atividade.atv_type) {
+                                case "trabalho":
+                                    atividade.tipo = "Trabalho"
+                                    break;
+                                case "atividade":
+                                    atividade.tipo = "Atividade"
+                                    break;
+                                case "licao-de-casa":
+                                    atividade.tipo = "Lição de casa"
+                                    break;
+                                case "prova":
+                                    atividade.tipo = "Prova"
+                                    break;
+                            }
+                            let day = atividade.dueBy.substring(8, 10)
+                            let month = atividade.dueBy.substring(5, 7)
+                            let year = atividade.dueBy.substring(0, 4)
+                            let date = `${day}/${month}/${year}`
+                            atividade.fixedDate = date
+                            return (
+                                <Row>
+                                    <AtvBox
+                                        materia={atividade.materia.name}
+                                        mat_obj={atividade.materia}
+                                        atv_obj={atividade}
+                                        title={atividade.name}
+                                        tipo={atividade.tipo}
+                                        data={atividade.fixedDate}
+                                        toggleDrag={toggleDrag}
+                                        excluir />
+                                </Row>
+                            )
+                        })}
                 </Slider>
             }
 
@@ -388,16 +402,54 @@ export default function Painel() {
                 }]}
             >
 
-                {geral.map((card) => {
-                    return (
-                        <Row>
-                            <SimpleBox
-                                counter={card.counter}
-                                title={card.title}
-                            />
-                        </Row>
-                    );
-                })}
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("licao-de-casa", true)}
+                        title="Lições de casa concluídas"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("trabalho", true)}
+                        title="Trabalhos concluídos"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("prova", true)}
+                        title="Provas concluídas"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("prova", true, true)}
+                        title="Atividades concluídas"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("licao-de-casa", false)}
+                        title="Lições de casa pendentes"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("trabalho", false)}
+                        title="Trabalhos pendentes"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("prova", false)}
+                        title="Provas pendentes"
+                    />
+                </Row>
+                <Row>
+                    <SimpleBox
+                        counter={getAtvCount("prova", false, true)}
+                        title="Atividades pendentes"
+                    />
+                </Row>
             </Slider>
         </div>
     )

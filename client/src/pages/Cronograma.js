@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 
 import PlataformaHeader from "../components/PlataformaHeader";
 
-import mock_data from "./mock-data.json";
+//import mock_data from "./mock-data.json";
 import ReadOnly from "../components/ReadOnly";
 import Editable from "../components/Editable";
 import AddRow from "../components/AddRow";

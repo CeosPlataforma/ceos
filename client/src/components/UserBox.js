@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 import Avatar from "./Avatar"
 
-export default function UserBox() {
+export default function UserBox({ userImage, user }) {
 
     const [show, setShow] = useState(false);
 
@@ -14,14 +14,15 @@ export default function UserBox() {
         <>
             <Col>
                 <div className="msg-box mb-4">
-                    <Avatar className="dashboard--user-img" />
-                    <p>UUID: asdasd</p>
-                    <p>Nome: asdasd</p>
-                    <p>E-mail: asdasd</p>
-                    <p>Verificado: asdasd</p>
-                    <p>Hash: asdasd</p>
-                    <p>Salt: asdasd</p>
-                    <p>Criado em: xx/xx/xxxx</p>
+                    <Avatar className="dashboard--user-img" userImage={userImage}/>
+                    <p>UUID: {user.uuid}</p>
+                    <p>ID: {user._id}</p>
+                    <p>Nome: {user.name}</p>
+                    <p>E-mail: {user.email}</p>
+                    <p>Verificado: <input type="checkbox" className="modal--checkbox" checked={user.verifiedMail} disabled={true} /></p>
+                    {/* <p>Hash: {user.hash}</p>
+                    <p>Salt: {user.salt}</p> */}
+                    <p>Criado em: {new Date(user.createdAt).toISOString().substr(0, 10)}</p>
                     <div className="mt-4">
                         <button className="btn--secondary w-100 btn-solved" onClick={() => setShow(true)}>Editar usuário</button>
                     </div>

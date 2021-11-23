@@ -4,11 +4,38 @@ import { Document } from 'mongoose';
 import { resolve } from 'path';
 import { validate } from 'uuid';
 import { UserModel } from '../models/User';
+import jwt from 'jsonwebtoken'
 import SendMail from "../services/SendMail";
 import { MateriaModel } from '../models/Materia';
 import { signToken } from '../middlewares/serverAuth'
+import * as dotenv from 'dotenv';
 
 class UserController {
+
+    tokenlogin(request: Request, response: Response) {
+        const token = request.body.token
+        if (token) {
+
+            if (token.adm) {
+                request.session.adm = {
+                    isAdmin: true
+                }
+                return response.status(200).json({ message: "adm-login" })
+            }
+
+            request.session.user = {
+                email: token.email,
+                name: token.name,
+                id: token._id,
+                uuid: token.uuid
+            };
+
+            return response.status(201).json({ message: "User logged in", user: request.session.user, token: token, success: true });
+        } else {
+            return response.json({ success: false })
+        }
+    }
+
     async registerUser(request: Request, response: Response) {
         const newUser = new UserModel();
         newUser.name = request.body.name;
@@ -42,8 +69,19 @@ class UserController {
     }
 
     async login(request: Request, response: Response) {
+        dotenv.config();
         const { email, password } = request.body;
         console.log({ email, password });
+        const JWT_SECRET = process.env.JWT_SECRET
+
+        if (email === process.env.ADM_EMAIL && password === process.env.ADM_PASSWORD) {
+            const user = {
+                adm: true
+            }
+            const token = jwt.sign(user, JWT_SECRET, { expiresIn: "2h" })
+            return response.json({ message: "adm-login", token })
+        }
+
         await UserModel.findOne({ email }, (error, user) => {
             if (user === null) {
                 console.log("inexistente")
@@ -161,7 +199,9 @@ class UserController {
     }
 
     async getFoto(request: Request, response: Response) {
-        const { uuid } = request.session.user;
+        const uuid = request.session.user ? request.session.user.uuid : null
+        //console.log("req", request.session)
+        if (uuid === null) return response.json({ error: 'inexistent' });
 
         await UserModel.findOne({ uuid }, (error, user) => {
             if (user === null) {

@@ -18,7 +18,7 @@ const schema = new Schema<Cronograma>({
         required: true,
         default: [{
             id: 0,
-            hora: '7:00', seg: '', ter: '', qua: '', qui: '', sex: '', sab: '', dom: ''
+            hora: '', seg: '', ter: '', qua: '', qui: '', sex: '', sab: '', dom: ''
         }]
     },
 

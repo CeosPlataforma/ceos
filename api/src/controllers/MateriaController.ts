@@ -96,6 +96,17 @@ class MateriaController {
         catch (error) { console.log(error); return response.json({ success: false }) }
     }
 
+    async edit(request: Request, response: Response) {
+        const { materia_id, professor } = request.body
+        try {
+            const materia = await MateriaModel.findById(materia_id);
+            materia.professor = professor;
+            materia.save();
+            return response.json({ success: true })
+        }
+        catch (error) { console.log(error); return response.json({ success: false }) }
+    }
+
     /*async deleteMateria(request: Request, response: Response) {
         
     }*/

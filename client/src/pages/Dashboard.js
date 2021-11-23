@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios'
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 export default function Dashboard() {
+
+    const [userCount, setUserCount] = useState(0)
+    const [ticketCount, setTicketCount] = useState(0)
+    const [msgCount, setMsgCount] = useState(0)
+    const fetch = async () => {
+        axios.get('http://localhost:3333/dashboard').then((response) => {
+            setUserCount(response.data.userCount)
+            setTicketCount(response.data.ticketCount)
+            setMsgCount(response.data.feedbackCount)
+        })
+    }
+
+    useEffect(() => {
+        fetch()
+    }, [])
+
     return (
         <>
             <Container fluid={"xxl"} className="dashboard content">
@@ -23,17 +40,17 @@ export default function Dashboard() {
                                         z"/>
                         </svg>
                         <h1>Total de usuários cadastrados</h1>
-                        <h2>000</h2>
+                        <h2>{userCount.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })}</h2>
                     </div>
                     <div className="dashboard--info">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 12H16V14H8zM8 16H16V18H8z" /><path fill="none" stroke-miterlimit="10" stroke-width="1.5" d="M19,20c0,0.551-0.449,1-1,1H6c-0.551,0-1-0.449-1-1V4c0-0.551,0.449-1,1-1h7.586L19,8.414V20z" /><path d="M18.5 9L13 9 13 3.5z" /></svg>
                         <h1>Total de mensagens recebidas</h1>
-                        <h2>000</h2>
+                        <h2>{msgCount.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })}</h2>
                     </div>
                     <div className="dashboard--info">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke-miterlimit="10" stroke-width="2" d="M17 3h2c1.105 0 2 .895 2 2v2h-4M14 21H5c-1.105 0-2-.895-2-2v-2h10" /><path fill="none" stroke-miterlimit="10" stroke-width="1.5" d="M15.027 20.986c-1.104.015-2.012-.868-2.027-1.972l-.028-3M19 3H8C6.895 3 6 3.895 6 5v12" /><path fill="none" stroke-miterlimit="10" stroke-width="2" d="M14,21h1c1.105,0,2-0.895,2-2V5c0-1.105,0.895-2,2-2" /></svg>
                         <h1>Total de tickets recebidos</h1>
-                        <h2>000</h2>
+                        <h2>{ticketCount.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })}</h2>
                     </div>
                 </div>
             </Container>

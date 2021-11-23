@@ -5,6 +5,7 @@ interface Materia {
     createdAt: Date;
     uuid: string;
     user: string;
+    professor: string;
 }
 
 const schema = new Schema<Materia>({
@@ -13,6 +14,12 @@ const schema = new Schema<Materia>({
         type: String,
         default: '',
         required: true
+    },
+
+    professor: {
+        type: String,
+        default: '',
+        required: false
     },
     
     createdAt: {

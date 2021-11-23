@@ -227,7 +227,7 @@ export default function VerAtvs() {
 
                 {index === 1 &&
                     <>
-                        <VerAtvsInfo />
+                        <VerAtvsInfo atividades={atividades} materia={materia} />
                     </>
                 }
 

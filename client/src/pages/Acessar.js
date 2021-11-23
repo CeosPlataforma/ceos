@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Link, useNavigate } from "react-router-dom";
@@ -23,12 +23,18 @@ export default function Acessar(props) {
             setTextoMostrar("Ocultar")
         }
     }
-
     const history = useNavigate();
 
-    const redirect = () => {
-        history(`/painel`)
-    }
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            axios.post("http://localhost:3333/token-login", { token: jwtDecode(token) })
+            .then((response) => {
+                if (response.data.message === "adm-login") history('/dashboard')
+                if (response.data.success) history('/painel')
+            })
+        }
+    }, [])
 
     const initialValues = {
         email: '',
@@ -43,7 +49,12 @@ export default function Acessar(props) {
     const onSubmit = async (values, actions) => {
         await axios.post("http://localhost:3333/login", { email: values.email, password: values.password })
             .then(function (response) {
-                if (response.data.error === "inexistent") {
+
+                if (response.data.message === "adm-login") {
+                    localStorage.setItem('token', response.data.token)
+                    props.onLogin(jwtDecode(response.data.token))
+                    history(`/dashboard`)
+                } else if (response.data.error === "inexistent") {
                     actions.setFieldError("email", `Este usuário não existe`);
                 } else if (response.data.error === "verify") {
                     actions.setFieldError("email", `Por favor, verifique seu e-mail antes de se logar`);
@@ -53,7 +64,7 @@ export default function Acessar(props) {
                     const { token } = response.data
                     localStorage.setItem('token', token)
                     props.onLogin(jwtDecode(token))
-                    redirect();
+                    history(`/painel`)
                 }
             })
             .catch(function (error) {

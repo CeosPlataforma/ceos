@@ -7,6 +7,7 @@ function arrayBufferToBase64(buffer) {
     bytes.forEach((b) => binary += String.fromCharCode(b));
     return window.btoa(binary);
 }
+
 class Avatar extends Component {
     constructor(props) {
         super(props)
@@ -16,18 +17,29 @@ class Avatar extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3333/get-foto")
-            .then((response) => {
-                //console.log(response.data.foto.data.data);
-                var base64Flag = `data:image/jpeg;base64,`;
-                var imageString = arrayBufferToBase64(response.data.foto.data.data);
-                this.setState({
-                    image: base64Flag + imageString
-                });
-            })
-            .catch((error) => {
-                console.log(error);
+
+        if (this.props.userImage) {
+            this.setState({
+                image: this.props.userImage
             });
+        } else {
+            axios.get("http://localhost:3333/get-foto")
+                .then((response) => {
+                    //console.log(response.data.foto.data.data);
+                    console.log("res body",response.data)
+                    if (response.data.error !== "inexistent") {
+                        var base64Flag = `data:image/jpeg;base64,`;
+                        var imageString = arrayBufferToBase64(response.data.foto.data.data);
+                        this.setState({
+                            image: base64Flag + imageString
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+
     }
 
     render() {

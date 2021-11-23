@@ -59,7 +59,6 @@ function App() {
 
     function onLogOut() {
         localStorage.removeItem('token')
-        console.log("alo")
         setUser(null)
     }
 
@@ -120,61 +119,61 @@ function App() {
                 <Route path="/painel" element={
                     user
                         ? <Fragment>
-                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                            <Sidebar />
-                            <SidebarMob />
-                            <Painel />
-                        </div>
-                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                    </Fragment> : <Navigate to="/acessar" />
+                            <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                                <Sidebar />
+                                <SidebarMob />
+                                <Painel />
+                            </div>
+                            <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                        </Fragment> : <Navigate to="/acessar" />
                 } />
 
                 <Route path="/cronograma" element={
                     user
                         ? <Fragment>
-                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                            <Sidebar />
-                            <SidebarMob />
-                            <Cronograma />
-                        </div>
-                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                    </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
+                            <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                                <Sidebar />
+                                <SidebarMob />
+                                <Cronograma />
+                            </div>
+                            <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
                 } />
 
                 <Route path="/materias" element={
                     user
                         ? <Fragment>
-                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                            <Sidebar />
-                            <SidebarMob />
-                            <Materias />
-                        </div>
-                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                    </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
+                            <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                                <Sidebar />
+                                <SidebarMob />
+                                <Materias />
+                            </div>
+                            <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
                 } />
 
                 <Route path="/materia/:materiaID" element={
                     user
                         ? <Fragment>
-                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                            <Sidebar />
-                            <SidebarMob />
-                            <VerAtvs />
-                        </div>
-                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                    </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
+                            <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                                <Sidebar />
+                                <SidebarMob />
+                                <VerAtvs />
+                            </div>
+                            <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
                 } />
 
                 <Route path="/atividades" element={
                     user
                         ? <Fragment>
-                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                            <Sidebar />
-                            <SidebarMob />
-                            <Atividades />
-                        </div>
-                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                    </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
+                            <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                                <Sidebar />
+                                <SidebarMob />
+                                <Atividades />
+                            </div>
+                            <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
                 } />
 
                 <Route path="/desempenho" element={
@@ -194,14 +193,14 @@ function App() {
                 <Route path="/dados-pessoais" element={
                     user
                         ? <Fragment>
-                        <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
-                            <Sidebar />
-                            <SidebarMob />
-                            <DadosPessoais />
-                        </div>
-                        <MiniFooter theme={theme} toggleTheme={toggleTheme} />
-                    </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
-                } /> 
+                            <div className={theme === 'dark' ? "d-flex index-div dark-mode" : "d-flex index-div light-mode"}>
+                                <Sidebar />
+                                <SidebarMob />
+                                <DadosPessoais />
+                            </div>
+                            <MiniFooter theme={theme} toggleTheme={toggleTheme} />
+                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
+                } />
 
                 {/* ------------------------------------------- EXTRAS -------------------------------------------- */}
 
@@ -219,37 +218,52 @@ function App() {
 
                 {/* <Route path="/adminlogin" element={<AdminLogin />} /> */}
 
+                {/* ------------------------------------------- ADM -------------------------------------------- */}
+
                 <Route exact path="/dashboard" element={
-                    <Fragment>
-                        <div className="d-flex index-div">
-                            <MenuAdmin />
-                            <Dashboard />
-                        </div>
-                    </Fragment>
+                    user
+                        ? <Fragment>
+                            <div className="d-flex index-div">
+                                <MenuAdmin />
+                                <Dashboard />
+                            </div>
+                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
                 } />
                 <Route path="/dashboard/usuarios" element={
-                    <Fragment>
-                        <div className="d-flex index-div">
-                            <MenuAdmin />
-                            <Usuarios />
-                        </div>
-                    </Fragment>
+                    user
+                    ? (user.adm
+                        ? (<Fragment>
+                            <div className="d-flex index-div">
+                                <MenuAdmin />
+                                <Usuarios />
+                            </div>
+                        </Fragment>)
+                        : (<Fragment><Navigate to="/acessar" /></Fragment>))
+                    : (<Fragment><Navigate to="/acessar" /></Fragment>)
                 } />
                 <Route path="/dashboard/mensagens" element={
-                    <Fragment>
-                        <div className="d-flex index-div">
-                            <MenuAdmin />
-                            <Mensagens />
-                        </div>
-                    </Fragment>
+                    user
+                    ? (user.adm
+                        ? (<Fragment>
+                            <div className="d-flex index-div">
+                                <MenuAdmin />
+                                <Mensagens />
+                            </div>
+                        </Fragment>)
+                        : (<Fragment><Navigate to="/acessar" /></Fragment>))
+                    : (<Fragment><Navigate to="/acessar" /></Fragment>)
                 } />
                 <Route path="/dashboard/tickets" element={
-                    <Fragment>
-                        <div className="d-flex index-div">
-                            <MenuAdmin />
-                            <Tickets />
-                        </div>
-                    </Fragment>
+                    user
+                        ? (user.adm
+                            ? (<Fragment>
+                                <div className="d-flex index-div">
+                                    <MenuAdmin />
+                                    <Tickets />
+                                </div>
+                            </Fragment>)
+                            : (<Fragment><Navigate to="/acessar" /></Fragment>))
+                        : (<Fragment><Navigate to="/acessar" /></Fragment>)
                 } />
             </Routes>
         </BrowserRouter>
