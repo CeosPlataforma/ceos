@@ -28,7 +28,7 @@ function ModalPermDelete(props) {
                     </h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Título</p>
                                 <input className="form-control modal--input"
                                     placeholder={props.atv_obj.name}
@@ -38,7 +38,7 @@ function ModalPermDelete(props) {
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Data de entrega</p>
                                 <input className="form-control modal--input"
                                     placeholder={props.atv_obj.fixedDate}
@@ -49,7 +49,7 @@ function ModalPermDelete(props) {
                     </Row>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Tipo</p>
                                 <input className="form-control modal--input"
                                     placeholder={props.atv_obj.tipo}
@@ -57,7 +57,7 @@ function ModalPermDelete(props) {
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Descrição</p>
                                 <input className="form-control modal--input"
                                     placeholder={props.atv_obj.description}
@@ -73,7 +73,7 @@ function ModalPermDelete(props) {
                         <div className="d-flex justify-content-center w-100">
                             <Field name="pele" type="hidden" />
                             <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
-                            <Button variant="primary" name="submit" type="submit" className="btn-primary btn-padding modal-atividade--btn btn-red">Confirmar exclusão permanente</Button>
+                            <Button name="submit" type="submit" className="btn--primary btn-padding modal-atividade--btn btn-red">Confirmar exclusão permanente</Button>
                         </div>
                     </Form>
                 </Formik>

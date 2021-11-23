@@ -18,7 +18,7 @@
     }
 
     &--arrow {
-        background: #fff;
+        background: $white;
         height: 3px;
         width: 130px;
         margin: 60px auto 60px auto;
@@ -28,7 +28,7 @@
         &:before,
         &:after {
             content: "";
-            background: #fff;
+            background: $white;
             position: absolute;
             height: 3px;
             width: 15px;

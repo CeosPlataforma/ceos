@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 
 function ModalEditAtv(props) {
 
-    const atv_date = new Date(props.atv_obj.dueBy).toISOString().substr(0,10)
+    const atv_date = new Date(props.atv_obj.dueBy).toISOString().substr(0, 10)
 
     const initialValues = {
         nome: props.atv_obj.name,
@@ -36,21 +36,21 @@ function ModalEditAtv(props) {
                     <h1 className="modal--title modal--title--plataforma">Edite a atividade</h1>
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body className="modal-atividade--body">
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
-                    <Form>
+            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
+                <Form>
+                    <Modal.Body className="modal-atividade--body">
                         <Container>
                             <h4 className="modal-atividade--materia mb-3">&gt; {props.mat_obj.name}</h4>
                             <Row className="justify-content-between">
                                 <Col xs={12} lg={6}>
-                                    <div>
+                                    <div className="input-holder">
                                         <p>Título</p>
                                         <Field type="text" name="nome" autoComplete="off" className="form-control modal--input" />
                                         <ErrorMessage component="span" className="error-msg" name="nome" />
                                     </div>
                                 </Col>
                                 <Col xs={12} lg={6}>
-                                    <div>
+                                    <div className="input-holder">
                                         <p>Data de entrega</p>
                                         <Field type="date" name="data" autoComplete="off" className="form-control modal--input" type="date" />
                                         <ErrorMessage component="span" className="error-msg" name="data" />
@@ -59,7 +59,7 @@ function ModalEditAtv(props) {
                             </Row>
                             <Row className="justify-content-between">
                                 <Col xs={12} lg={6}>
-                                    <div>
+                                    <div className="input-holder">
                                         <p>Tipo</p>
                                         <Field name="tipo" as="select" className="form-select modal--input atividade-dropdown shadow-none">
                                             <option className="atividade-dropdown--select" value="selecione">Selecione um tipo</option>
@@ -71,7 +71,7 @@ function ModalEditAtv(props) {
                                     </div>
                                 </Col>
                                 <Col xs={12} lg={6}>
-                                    <div>
+                                    <div className="input-holder">
                                         <p>Descrição</p>
                                         <Field name="descricao" as="textarea" className="form-control modal--input modal--textarea" placeholder="Descrição da atividade" required />
                                     </div>
@@ -79,7 +79,7 @@ function ModalEditAtv(props) {
                             </Row>
                             <Row>
                                 <Col>
-                                    <div className="d-flex align-items-center mt-4">
+                                    <div className="d-flex align-items-center" style={{ 'marginBottom': '8px' }}>
                                         <Field type="checkbox" className="modal--checkbox" name="checkbox" />
                                         <span>
                                             Atividade Concluida
@@ -88,13 +88,15 @@ function ModalEditAtv(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <div className="d-flex justify-content-center w-100">
-                                <Button variant="primary" name="submit" type="submit" className="text-md modal--btn modal-atividade--btn mt-4 w-50">Salvar</Button>
-                            </div>
                         </Container>
-                    </Form>
-                </Formik>
-            </Modal.Body>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <div className="d-flex justify-content-center w-100">
+                            <Button name="submit" type="submit" className="btn--primary modal--btn modal-atividade--btn w-50">Salvar</Button>
+                        </div>
+                    </Modal.Footer>
+                </Form>
+            </Formik>
         </Modal >
     );
 }

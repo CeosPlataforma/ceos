@@ -67,7 +67,7 @@ function Footer() {
                                 </li>
 
                                 <li className="nav-item">
-                                    <Link className="nav-link" aria-current="page" to="/"> Twitter </Link>
+                                    <a className="nav-link" target="_blank" href="https://twitter.com/CEOS_Plataforma"> Twitter </a>
                                 </li>
 
                                 <li className="nav-item">

@@ -119,7 +119,7 @@ export default function Cadastrar() {
                     <div className="d-flex align-items-center termos">
                         <Field type="checkbox" name="checkbox" className="termos--checkbox" />
                         <span>
-                            Eu concordo com os<a href="/termos" target="_blank"> termos e condições de uso da CEOS</a>
+                            Eu li e concordo com os<a href="/termos" target="_blank"> termos e condições de uso da CEOS</a>
                         </span>
                     </div>
                     <ErrorMessage component="span" className="error-msg" name="checkbox" />

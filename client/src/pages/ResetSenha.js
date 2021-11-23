@@ -85,16 +85,16 @@ export default function Acessar() {
                             <div className="acessar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                 <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
-                                <ErrorMessage name="password" />
                             </div>
+                            <ErrorMessage component="span" className="error-msg" name="password" />
                         </div>
                         <div className="mb-4">
                             <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="confirmPassword" type={passwordConfirmShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
                                 <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
-                                <ErrorMessage name="confirmPassword" />
                             </div>
+                            <ErrorMessage component="span" className="error-msg" name="confirmPassword" />
                         </div>
                         <button type="submit" className="acessar--btn w-100"> Confirmar </button>
                     </Form>

@@ -17,8 +17,8 @@ export default function Error404() {
                     <h2 className="error404--subtitle">Lamentamos o transtorno, a página que você está procurando não foi encontrada ou se encontra indisponível</h2>
                     <h3>Se você acha que há algum problema, contate-nos</h3>
                     <div className="d-flex flex-column align-items-center mt-5">
-                        <Link to={"/"} className="btn-primary error404--btn mb-3">Voltar ao website</Link>
-                        <Link to={"/contato"} className="btn-secondary error404--btn">Reportar problema</Link>
+                        <Link to={"/"} className="btn--primary error404--btn mb-3">Voltar ao website</Link>
+                        <Link to={"/contato"} className="btn--secondary error404--btn">Reportar problema</Link>
                     </div>
                 </Row>
             </Container>

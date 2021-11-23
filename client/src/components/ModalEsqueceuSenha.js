@@ -24,7 +24,7 @@ function ModalEsqueceuSenha(props) {
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button className="btn-primary w-100" onClick={redirect}>Ir para a página inicial</Button>
+                <Button className="btn--primary w-100" onClick={redirect}>Ir para a página inicial</Button>
             </Modal.Footer>
         </Modal>
     );

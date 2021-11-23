@@ -76,7 +76,7 @@ function ModalDados(props) {
                                 <ErrorMessage component="span" className="error-msg" name="password" />
                             </div>
 
-                            <Button type="submit" className="btn-primary w-100 ">Confirmar alteração</Button>
+                            <Button type="submit" className="btn--primary w-100 ">Confirmar alteração</Button>
                         </Form>
                     </Formik>
                 </Modal.Body>

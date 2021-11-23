@@ -117,7 +117,7 @@ function ModalAltSenha(props) {
                             </div>
                             <ErrorMessage component="span" className="error-msg" name="newPasswordConfirm" />
 
-                            <Button type="submit" className="btn-primary w-100 mt-4 mb-2">Confirmar alteração</Button>
+                            <Button type="submit" className="btn--primary w-100 mt-4 mb-2">Confirmar alteração</Button>
 
                             <a onClick={() => { setShow(true) }}>&gt; Esqueci minha senha</a>
 

@@ -131,19 +131,23 @@ export default function Thanks() {
                     <Form className="thanks--form">
                         <Row xs={1} md={2}>
                             <Col className="mb-4">
-                                <label htmlFor="acessar--senha" className="form-label"> Qual o motivo da desativação da conta? </label>
-                                <Field as="select" name="reason" className="modal--input thanks-dropdown mb-4 shadow-none" required>
-                                    <option className="thanks-dropdown--select" value="padrao">Selecione um motivo</option>
-                                    <option value="nao-entendi-como-funciona">Não entendi o funcionamento</option>
-                                    <option value="nao-gostei-inferface">Não gostei da interface</option>
-                                    <option value="nao-achei-intuitivo">Não achei a plataforma intuitiva</option>
-                                    <option value="outro">Outro (especifique no campo de mensagem)</option>
-                                </Field>
-                                <ErrorMessage component="span" className="error-msg" style={{ marginLeft: '10px'}} name="reason" />
+                                <div className="mb-4">
+                                    <label htmlFor="acessar--senha" className="form-label"> Qual o motivo da desativação da conta? </label>
+                                    <Field as="select" name="reason" className="modal--input thanks-dropdown w-100 shadow-none" required>
+                                        <option className="thanks-dropdown--select" value="padrao">Selecione um motivo</option>
+                                        <option value="nao-entendi-como-funciona">Não entendi o funcionamento</option>
+                                        <option value="nao-gostei-inferface">Não gostei da interface</option>
+                                        <option value="nao-achei-intuitivo">Não achei a plataforma intuitiva</option>
+                                        <option value="outro">Outro (especifique no campo de mensagem)</option>
+                                    </Field>
+                                    <ErrorMessage component="span" className="error-msg" name="reason" />
+                                </div>
 
-                                <label htmlFor="acessar--senha" className="form-label"> E-mail (caso precisemos contatá-lo) </label>
-                                <Field name="email" autoComplete="email" className="form-control" required />
-                                <ErrorMessage component="span" className="error-msg" name="email" />
+                                <div>
+                                    <label htmlFor="acessar--senha" className="form-label"> E-mail (caso precisemos contatá-lo) </label>
+                                    <Field name="email" autoComplete="email" className="form-control" required />
+                                    <ErrorMessage component="span" className="error-msg" name="email" />
+                                </div>
                             </Col>
                             <Col className="mb-4">
                                 <label htmlFor="contato--mensagem" className="form-label"> Mensagem </label>

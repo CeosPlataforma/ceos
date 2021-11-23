@@ -36,7 +36,7 @@ function ModalDeleteMateria(props) {
                             <ErrorMessage component="span" className="error-msg" name="name" />
                         </div>
                         <div className="modal-footer">
-                            <Button type="submit" className="btn-primary w-100 btn-red">Confirmar exclusão</Button>
+                            <Button type="submit" className="btn--primary w-100 btn-red">Confirmar exclusão</Button>
                         </div>
                     </Form>
                 </Formik>

@@ -27,13 +27,13 @@ function ModalDeleteAtv(props) {
                     </h4>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Título</p>
                                 <input className="form-control modal--input" placeholder={props.atv_obj.name} readOnly={true} disabled={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Data de entrega</p>
                                 <input className="form-control modal--input" placeholder={props.atv_obj.fixedDate} readOnly={true} />
                             </div>
@@ -41,13 +41,13 @@ function ModalDeleteAtv(props) {
                     </Row>
                     <Row className="justify-content-between">
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Tipo</p>
                                 <input className="form-control modal--input" placeholder={props.atv_obj.tipo} readOnly={true} />
                             </div>
                         </Col>
                         <Col xs={12} lg={6}>
-                            <div>
+                            <div className="input-holder">
                                 <p>Descrição</p>
                                 <input className="form-control modal--input" placeholder={props.atv_obj.description} readOnly={true} />
                             </div>
@@ -59,7 +59,7 @@ function ModalDeleteAtv(props) {
                 <Formik onSubmit={props.onSubmit} initialValues={initialValues}>
                     <Form className="d-flex justify-content-center w-100">
                         <div className="d-flex justify-content-center w-100">
-                            <Button variant="primary" name="pele" type="submit" className="text-md modal--btn modal-atividade--btn  btn-padding btn-red confirmar-exclusao">Confirmar exclusão</Button>
+                            <Button name="pele" type="submit" className="modal--btn modal-atividade--btn btn--primary btn-padding btn-red">Confirmar exclusão</Button>
                             <ErrorMessage component="span" className="error-msg mt-4" name="pele" />
                         </div>
                     </Form>

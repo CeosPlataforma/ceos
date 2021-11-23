@@ -110,7 +110,7 @@
     &--materia {
         color: $gray-dark !important;
     }
-    input {
+    .input-holder {
         margin-bottom: 20px;
     }
     &--btn {
@@ -143,10 +143,8 @@
     align-items: center;
     text-align: center;
     margin: 0;
-    position: absolute;
-    right: 60px;
     @include device(xs) {
-        right: 35px;
+        margin: 10px auto;
     }
     svg {
         fill: white;
