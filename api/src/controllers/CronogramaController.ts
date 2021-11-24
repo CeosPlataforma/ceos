@@ -23,7 +23,9 @@ class CronogramaController {
     }
 
     async getCronograma(request: Request, response: Response) {
+        console.log(request.sessionID)
         const user_id = await request.session.user.id
+        //request.
         //console.log(request.session)
         //console.log("user _id", user_id)
         CronogramaModel.findOne({ user: user_id }, (error, doc) => {

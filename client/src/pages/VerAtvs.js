@@ -87,6 +87,8 @@ export default function VerAtvs() {
 
     const [index, setIndex] = useState(0)
 
+    const [filter, setFilter] = useState("crescente")
+
     const [atvButton, setAtvButton] = useState("ver-atividades--btn ver-atividades--btn--active w-100")
     const [infoButton, setInfoButton] = useState("ver-atividades--btn ver-atividades--btn--inactive w-100")
     const [lixeiraButton, setLixeiraButton] = useState("ver-atividades--btn ver-atividades--btn--inactive w-100")
@@ -179,21 +181,31 @@ export default function VerAtvs() {
 
                 {index === 0 &&
                     <>
-                        <div className="dropdown">
+                       <div className="dropdown">
                             <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
                             </button>
                             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a className="dropdown-item">Ordem Alfabética (crescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("crescente")} >Ordem Alfabética (crescente)</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item">Ordem Alfabética (decrescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("decrescente")}>Ordem Alfabética (decrescente)</a></li>
                             </ul>
                         </div>
 
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
                             {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
-                                .map((atividade) => {
+                                .sort((a, b) => {
+                                    if (filter === "crescente") {
+                                        if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                        if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                        return 0
+                                    } else if (filter === "decrescente") {
+                                        if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                        if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                        return 0
+                                    }
+                                }).map((atividade) => {
                                     switch (atividade.atv_type) {
                                         case "trabalho":
                                             atividade.tipo = "Trabalho"
@@ -238,15 +250,27 @@ export default function VerAtvs() {
                                 Classificar por:
                             </button>
                             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a className="dropdown-item">Ordem Alfabética (crescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("crescente")} >Ordem Alfabética (crescente)</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item">Ordem Alfabética (decrescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("decrescente")}>Ordem Alfabética (decrescente)</a></li>
                             </ul>
                         </div>
 
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
-                            {atividades.filter((atividade) => atividade.concluida && !atividade.trashed ? true : false)
+                            {atividades
+                                .filter((atividade) => atividade.concluida && !atividade.trashed ? true : false)
+                                .sort((a, b) => {
+                                    if (filter === "crescente") {
+                                        if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                        if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                        return 0
+                                    } else if (filter === "decrescente") {
+                                        if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                        if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                        return 0
+                                    }
+                                })
                                 .map((atividade) => {
                                     switch (atividade.atv_type) {
                                         case "trabalho":
@@ -281,21 +305,31 @@ export default function VerAtvs() {
 
                 {index === 3 &&
                     <>
-                        <div className="dropdown">
+                       <div className="dropdown">
                             <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
                             </button>
                             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a className="dropdown-item">Ordem Alfabética (crescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("crescente")} >Ordem Alfabética (crescente)</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item">Ordem Alfabética (decrescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("decrescente")}>Ordem Alfabética (decrescente)</a></li>
                             </ul>
                         </div>
 
                         <Row sm={1} md={2} xxl={3} className="mb-2">
                             {/* ver-atividades--holder */}
                             {atividades.filter((atividade) => atividade.trashed ? true : false)
-                                .map((atividade) => {
+                                .sort((a, b) => {
+                                    if (filter === "crescente") {
+                                        if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                        if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                        return 0
+                                    } else if (filter === "decrescente") {
+                                        if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                        if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                        return 0
+                                    }
+                                }).map((atividade) => {
                                     switch (atividade.atv_type) {
                                         case "trabalho":
                                             atividade.tipo = "Trabalho"

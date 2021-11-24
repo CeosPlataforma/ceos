@@ -96,16 +96,16 @@ export default function Cronograma() {
     const handleEditClick = (e, linha) => {
         e.preventDefault();
 
-        if (cancel_linha_buffer === linha_buffer) {
+        
+        if (cancel_linha_buffer === linha_buffer && linha_id) {
             const cronograma_buffer = [...cronograma]
             const index = cronograma.findIndex((table_linha) => linha_id === table_linha.id)
-
+            
             cronograma_buffer.splice(index, 1)
-
+       
             setCronograma(cronograma_buffer)
             setCancelLinhaBuffer(null)
         }
-
         setLinhaId(linha.id);
         const values = {
             hora: linha.hora,

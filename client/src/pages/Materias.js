@@ -52,6 +52,8 @@ export default function Materias() {
         window.location = `http://localhost:3000/materia/${materiaID}`
     }
 
+    const [filter, setFilter] = useState("crescente")
+
     return (
         <>
             <div className="container-xxl materias content">
@@ -67,24 +69,36 @@ export default function Materias() {
                         Classificar por:
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a className="dropdown-item" href="#">Ordem Alfabética (crescente)</a></li>
+                        <li><a className="dropdown-item" onClick={() => setFilter("crescente")}>Ordem Alfabética (crescente)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#">Ordem Alfabética (decrescente)</a></li>
+                        <li><a className="dropdown-item" onClick={() => setFilter("decrescente")}>Ordem Alfabética (decrescente)</a></li>
                     </ul>
                 </div>
 
                 <Row xs={1} xl={2}>
 
-                    {materias.map((materia) => (
-                        <Col>
-                            <div className="materias--container d-md-flex" style={{ cursor: 'default' }}>
-                                <h5>{materia.name}</h5>
-                                <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
-                                    <div className="materias--arrow" />
+                    {materias
+                        .sort((a, b) => {
+                            if (filter === "crescente") {
+                                if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                return 0
+                            } else if (filter === "decrescente") {
+                                if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return 1; }
+                                if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return -1; }
+                                return 0
+                            }
+                        })
+                        .map((materia) => (
+                            <Col>
+                                <div className="materias--container d-md-flex" style={{ cursor: 'default' }}>
+                                    <h5>{materia.name}</h5>
+                                    <div className="arrow-container" style={{ 'height': '30px' }} onClick={() => onClick(materia.uuid)}>
+                                        <div className="materias--arrow" />
+                                    </div>
                                 </div>
-                            </div>
-                        </Col>
-                    ))}
+                            </Col>
+                        ))}
 
                 </Row>
 

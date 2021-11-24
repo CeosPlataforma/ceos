@@ -10,6 +10,7 @@ import ModalSenha from "../components/ModalSenha";
 
 export default function Acessar(props) {
 
+    axios.defaults.withCredentials = true
     const [textoMostrar, setTextoMostrar] = useState("Mostrar")
     const [passwordShown, setPasswordShown] = useState(false)
     const [modalShow, setModalShow] = useState(false);
@@ -73,7 +74,7 @@ export default function Acessar(props) {
     }
 
 
-    axios.defaults.withCredentials = true
+    
     const onSubmitModal = async (values, actions) => {
         await axios.post("http://localhost:3333/redefinir-senha", { email: values.email })
             .then(function (response) {

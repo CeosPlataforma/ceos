@@ -406,7 +406,7 @@ class UserController {
     async userinfo(request: Request, response: Response) {
         //console.log(request.session)
         //console.log(request.session)
-        //console.log("session ID!!!!!!!!!", request.sessionID)
+        console.log("session ID!!!!!!!!!", request.sessionID)
         return response.json({ session: request.session });
     }
 

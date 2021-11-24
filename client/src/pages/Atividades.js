@@ -49,7 +49,7 @@ export default function Atividades() {
 
     useEffect(() => {
         fetchAtividades()
-        console.log(atividades)
+        //console.log(atividades)
     }, [])
 
     function redirect(url) {
@@ -57,6 +57,44 @@ export default function Atividades() {
     }
 
     const [index, setIndex] = useState(0);
+    const [sort, setSort] = useState("nome-cres")
+
+    const sortFunction = (a, b) => {
+        const coisa = sort.substr(0, 4)
+        const tipo = sort.substr(5, 4)
+        switch (coisa) {
+            case "nome":
+                if (tipo === "cres") {
+                    if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return -1; }
+                    if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return 1; }
+                    return 0
+                } else {
+                    if (a.name.toLowerCase().normalize('NFD') < b.name.toLowerCase().normalize('NFD')) { return 1; }
+                    if (a.name.toLowerCase().normalize('NFD') > b.name.toLowerCase().normalize('NFD')) { return -1; }
+                    return 0
+                }
+            case "data":
+                if (tipo === "cres") {
+                    const a_date = new Date(a.dueBy)
+                    const b_date = new Date(b.dueBy)
+                    return a_date - b_date
+                } else {
+                    const a_date = new Date(a.dueBy)
+                    const b_date = new Date(b.dueBy)
+                    return b_date - a_date
+                }
+            case "mate":
+                if (tipo === "cres") {
+                    if (a.materia.name.toLowerCase().normalize('NFD') < b.materia.name.toLowerCase().normalize('NFD')) { return -1; }
+                    if (a.materia.name.toLowerCase().normalize('NFD') > b.materia.name.toLowerCase().normalize('NFD')) { return 1; }
+                    return 0
+                } else {
+                    if (a.materia.name.toLowerCase().normalize('NFD') < b.materia.name.toLowerCase().normalize('NFD')) { return 1; }
+                    if (a.materia.name.toLowerCase().normalize('NFD') > b.materia.name.toLowerCase().normalize('NFD')) { return -1; }
+                    return 0
+                }
+        }
+    }
 
     return (
         <>
@@ -168,23 +206,29 @@ export default function Atividades() {
                         Classificar por:
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a className="dropdown-item">Data (mais próxima)</a></li>
+                        <li><a className="dropdown-item" onClick={() => setSort("data-cres")} >Data (mais próxima)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item">Data (mais distante)</a></li>
+                        <li><a className="dropdown-item" onClick={() => setSort("data-decr")} >Data (mais distante)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item">Matéria (crescente)</a></li>
+                        <li><a className="dropdown-item" onClick={() => setSort("mate-cres")} >Matéria (crescente)</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item">Matéria (decrescente)</a></li>
+                        <li><a className="dropdown-item" onClick={() => setSort("mate-decr")} >Matéria (decrescente)</a></li>
+                        <li><hr className="dropdown-divider" /></li>
+                        <li><a className="dropdown-item" onClick={() => setSort("nome-cres")} >Nome (crescente)</a></li>
+                        <li><hr className="dropdown-divider" /></li>
+                        <li><a className="dropdown-item" onClick={() => setSort("nome-decr")} >Nome (decrescente)</a></li>
                     </ul>
                 </div>
-                {index === 0 &&
-                    <Row sm={1} md={2} xxl={3} className="mb-2">
-                        {!atividades.length
-                            ?
-                            <Col><div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div></Col>
-                            :
-                            <React.Fragment>
-                                {atividades.filter((atividade) => atvFiltro(atividade)).map((atividade) => {
+                <Row sm={1} md={2} xxl={3} className="mb-2">
+                    {!atividades.length
+                        ?
+                        <Col><div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}><p>Você não criou nenhuma atividade.</p></div></Col>
+                        :
+                        <React.Fragment>
+                            {atividades
+                                .filter(atvFiltro)
+                                .sort(sortFunction)
+                                .map((atividade) => {
 
                                     switch (atividade.atv_type) {
                                         case "trabalho":
@@ -213,19 +257,10 @@ export default function Atividades() {
                                         : <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar className="mb-5" />
 
                                 })}
-                            </React.Fragment>
+                        </React.Fragment>
 
-                        }
-                    </Row>
-                }
-                {/* {index === 1 &&
-                    <p>lixeira</p>
-                    // <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} restaurar className="mb-5" />
-                }
-                {index === 2 &&
-                    <p>concluids</p>
-                    // <AtvBox materia={atividade.materia.name} mat_obj={atividade.materia} atv_obj={atividade} title={atividade.name} tipo={atividade.tipo} data={atividade.fixedDate} excluir className="mb-5" />
-                } */}
+                    }
+                </Row>
             </div>
         </>
     )
