@@ -85,7 +85,7 @@ export default function DadosPessoais() {
                 } else if (message === "success") {
 
                     actions.setFieldError("password", `Conta desativada com sucesso`)
-                    setTimeout(() => { window.location = "http://localhost:3000/desativado" }, 5000)
+                    setTimeout(() => { window.location = "http://localhost:3000/logout/true" }, 5000)
 
                 } else if (error === "email") {
                     actions.setFieldError("email", `Email incorreto`)
@@ -110,7 +110,7 @@ export default function DadosPessoais() {
                 } else {
 
                     actions.setFieldError("password", `Senha mudada com sucesso, por favor, faça login novamente`);
-                    setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
+                    setTimeout(function () { window.location = "http://localhost:3000/logout" }, 4000)
 
                 }
 
@@ -138,12 +138,12 @@ export default function DadosPessoais() {
                 } else if (message === "email-success") {
 
                     actions.setFieldError("password", `Email mudado com sucesso, por favor, faça login novamente`);
-                    setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
+                    setTimeout(function () { window.location = "http://localhost:3000/logout" }, 4000)
 
                 } else if (message === "name-email-success") {
 
                     actions.setFieldError("password", `Dados mudados com sucesso, por favor, faça login novamente`);
-                    setTimeout(function () { window.location = "http://localhost:3000/acessar" }, 4000)
+                    setTimeout(function () { window.location = "http://localhost:3000/logout" }, 4000)
 
                 } else if (message === "erro-total") {
 

@@ -206,7 +206,7 @@ function App() {
 
                 <Route path="/redefinir-senha/:userID" element={<ResetSenha />} />
 
-                <Route path="/logout" element={<Logout onLogOut={onLogOut} />} />
+                <Route path="/logout/:desativar" element={<Logout onLogOut={onLogOut} />} />
 
                 <Route path="*" element={
                     <Fragment>
