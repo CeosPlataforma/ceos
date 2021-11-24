@@ -110,7 +110,7 @@ export default function DadosPessoais() {
                 } else {
 
                     actions.setFieldError("password", `Senha mudada com sucesso, por favor, faça login novamente`);
-                    setTimeout(function () { window.location = "http://localhost:3000/logout" }, 4000)
+                    setTimeout(function () { window.location = "http://localhost:3000/logout/false" }, 4000)
 
                 }
 
@@ -138,12 +138,12 @@ export default function DadosPessoais() {
                 } else if (message === "email-success") {
 
                     actions.setFieldError("password", `Email mudado com sucesso, por favor, faça login novamente`);
-                    setTimeout(function () { window.location = "http://localhost:3000/logout" }, 4000)
+                    setTimeout(function () { window.location = "http://localhost:3000/logout/false" }, 4000)
 
                 } else if (message === "name-email-success") {
 
                     actions.setFieldError("password", `Dados mudados com sucesso, por favor, faça login novamente`);
-                    setTimeout(function () { window.location = "http://localhost:3000/logout" }, 4000)
+                    setTimeout(function () { window.location = "http://localhost:3000/logout/false" }, 4000)
 
                 } else if (message === "erro-total") {
 

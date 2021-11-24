@@ -64,7 +64,13 @@ router.get('/feedback', feedbackContoller.get)
 const adminController = new AdminController();
 router.get('/dashboard', adminController.count)
 router.get('/dashboard/mensagens', adminController.getMessages)
+
 router.get('/dashboard/usuarios', adminController.getUsers)
+router.post('/dashboard/usuarios/delete', adminController.deleteUser)
+router.patch('/dashboard/usuarios/edit', adminController.editUser)
+
 router.get('/dashboard/tickets', adminController.getTickets)
+router.post('/dashboard/tickets', adminController.deleteTicket)
+router.post('/dashboard/tickets', adminController.solveTicket)
 
 export { router };

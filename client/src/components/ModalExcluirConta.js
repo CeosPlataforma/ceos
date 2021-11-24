@@ -23,7 +23,7 @@ function ModalExcluirConta(props) {
     const history = useNavigate();
 
     // const redirect = () => {
-    //     history(`/logout`)
+    //     history(`/logout/false`)
     // }
 
     const initialValues = {

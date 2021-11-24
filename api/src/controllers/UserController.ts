@@ -9,6 +9,7 @@ import SendMail from "../services/SendMail";
 import { MateriaModel } from '../models/Materia';
 import { signToken } from '../middlewares/serverAuth'
 import * as dotenv from 'dotenv';
+import { AtividadeModel } from '../models/Atividade';
 
 class UserController {
 
@@ -391,6 +392,7 @@ class UserController {
                 console.log("existente")
                 if (user.validPassword(request.body.password)) {
                     MateriaModel.deleteMany({ user: user.uuid })
+                    AtividadeModel.deleteMany({ user: user.uuid })
                     request.session.destroy((err) => { });
                     user.remove()
                     console.log("usuario removido")

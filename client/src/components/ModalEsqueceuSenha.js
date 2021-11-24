@@ -8,7 +8,7 @@ function ModalEsqueceuSenha(props) {
     const history = useNavigate();
 
     const redirect = () => {
-        history(`/logout`)
+        history(`/logout/false`)
     }
 
     return (

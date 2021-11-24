@@ -35,10 +35,6 @@ class MailController {
             return response.status(500).json({ message: "erro para realizar o envio da mensagem de contato" });
         }
     }
-
-    async get(request: Request, response: Response) {
-
-    }
 }
 
 export { MailController };
