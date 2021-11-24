@@ -29,10 +29,10 @@ export default function Acessar(props) {
         const token = localStorage.getItem('token')
         if (token) {
             axios.post("http://localhost:3333/token-login", { token: jwtDecode(token) })
-            .then((response) => {
-                if (response.data.message === "adm-login") history('/dashboard')
-                if (response.data.success) history('/painel')
-            })
+                .then((response) => {
+                    if (response.data.message === "adm-login") history('/dashboard')
+                    if (response.data.success) history('/painel')
+                })
         }
     }, [])
 
@@ -115,7 +115,7 @@ export default function Acessar(props) {
                             <label htmlFor="acessar--senha" className="form-label"> Senha </label>
                             <div className="acessar--senha--container senha--container">
                                 <Field name="password" autocomplete="current-password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
-                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                                <span onClick={toggleSenha} className="show-password">{textoMostrar} senha</span>
                             </div>
                             <ErrorMessage component="span" className="error-msg" name="password" />
                         </div>

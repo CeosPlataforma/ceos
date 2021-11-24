@@ -14,7 +14,7 @@ export default function UserBox({ userImage, user }) {
         <>
             <Col>
                 <div className="msg-box mb-4">
-                    <Avatar className="dashboard--user-img" userImage={userImage}/>
+                    <Avatar className="dashboard--user-img" userImage={userImage} />
                     <p>UUID: {user.uuid}</p>
                     <p>ID: {user._id}</p>
                     <p>Nome: {user.name}</p>
@@ -23,8 +23,9 @@ export default function UserBox({ userImage, user }) {
                     {/* <p>Hash: {user.hash}</p>
                     <p>Salt: {user.salt}</p> */}
                     <p>Criado em: {new Date(user.createdAt).toISOString().substr(0, 10)}</p>
-                    <div className="mt-4">
-                        <button className="btn--secondary w-100 btn-solved" onClick={() => setShow(true)}>Editar usuário</button>
+                    <div className="d-flex justify-content-between mt-4">
+                        <button className="btn--secondary w-50 red-btn">Excluir usuário</button>
+                        <button className="btn--secondary w-50 btn-solved" onClick={() => setShow(true)}>Editar usuário</button>
                     </div>
                 </div>
             </Col>

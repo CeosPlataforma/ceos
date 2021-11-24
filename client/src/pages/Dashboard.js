@@ -25,7 +25,7 @@ export default function Dashboard() {
         <>
             <Container fluid={"xxl"} className="dashboard content">
                 <h1 className="title mb-5"><span className="underline">Visão Geral</span></h1>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between flex-wrap">
                     <div className="dashboard--info">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 456.368 456.368" xmlSpace="preserve">

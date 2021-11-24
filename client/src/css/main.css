@@ -1095,9 +1095,6 @@ button {
 .modal--input:focus, .modal--input:active {
   border: 2px solid #AFAFAF;
 }
-.modal--btn--verify {
-  width: 85%;
-}
 .modal--checkbox {
   -webkit-appearance: checkbox !important;
   margin-right: 10px;
@@ -1182,8 +1179,10 @@ button {
 }
 .senha--container span {
   position: absolute;
+  font-weight: 400;
   right: 30px;
-  top: 25%;
+  top: 50%;
+  transform: translate(0, -50%);
   color: #707070;
   cursor: pointer;
   user-select: none;
@@ -1352,12 +1351,14 @@ button {
 }
 #active svg {
   fill: #FFBF5B;
+  stroke: #FFBF5B;
 }
 #active:hover {
   color: #23272a;
 }
 #active:hover svg {
   fill: #23272a;
+  stroke: #23272a;
 }
 
 .sidebar--mobile {
@@ -1608,7 +1609,7 @@ ol, ul {
   color: #707070;
   border-color: #AFAFAF;
 }
-.form-select:focus-visible {
+.form-select:focus {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-color: #707070;
@@ -2309,17 +2310,37 @@ ol, ul {
   right: 30px;
   border-radius: 50%;
   border: none;
-  height: 55px;
-  width: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0;
 }
+.btn-edit--photo:hover {
+  background-color: #216AA7 !important;
+}
 .btn-edit--photo svg {
   fill: white;
   width: 32px;
+}
+.btn-edit--photo .dropdown-toggle {
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+}
+.btn-edit--photo .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu svg {
+  fill: #23272a;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-item:active svg {
+  fill: #FFFFFF;
 }
 
 .container-cropper {
@@ -2521,6 +2542,9 @@ ol, ul {
   fill: #23272a;
   stroke: #23272a;
 }
+.sidebar-admin ul li a:hover svgpath {
+  fill: #23272a !important;
+}
 .sidebar-admin ul li svg {
   font-size: 18px;
   font-weight: 400;
@@ -2533,6 +2557,9 @@ ol, ul {
   stroke: #FFFFFF;
   margin-right: 5px;
   transition: all 0.3s ease;
+}
+.sidebar-admin ul li svgpath {
+  fill: #FFFFFF;
 }
 .sidebar-admin .links_name {
   font-size: 1.25rem;

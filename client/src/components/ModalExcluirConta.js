@@ -53,7 +53,7 @@ function ModalExcluirConta(props) {
                             <label htmlFor="cadastrar--senha" style={{ 'marginTop': '25px' }} className="text-lg">Senha atual</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input" aria-describedby="password" required />
-                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                                <span onClick={toggleSenha} className="show-password">{textoMostrar} senha</span>
                             </div>
                             <ErrorMessage component="span" className="error-msg" name="password" />
                         </div>

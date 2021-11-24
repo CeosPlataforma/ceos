@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Field, Form, Formik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Cropper from 'react-easy-crop';
 import * as Yup from 'yup';
 
@@ -304,8 +305,37 @@ export default function DadosPessoais() {
                         <Title title="Dados pessoais" user={false} />
                         <div className="position-relative d-inline-block">
                             <Avatar className="dados-pessoais--user-img" />
-                            <a className="btn btn-edit--photo" onClick={triggerFile}><svg xmlns="http://www.w3.org/2000/svg" width="41.154" height="42.687" viewBox="0 0 41.154 42.687"><g transform="translate(-1044.681 -617.99)"><path d="M1048.433,650.072l-3.752,14.1,13.984-4.32,19.555-19.555-10.574-10.574Z" transform="translate(0 -3.493)" fill="#fff" /><path d="M1081.756,623.5l9.836,9.836,5.282-5.282-10.063-10.063Z" transform="translate(-11.039)" fill="#fff" /></g></svg></a>
-                            <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
+                            <Dropdown className="btn btn-edit--photo">
+                                <Dropdown.Toggle>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="41.154" height="42.687" viewBox="0 0 41.154 42.687"><g transform="translate(-1044.681 -617.99)"><path d="M1048.433,650.072l-3.752,14.1,13.984-4.32,19.555-19.555-10.574-10.574Z" transform="translate(0 -3.493)" /><path d="M1081.756,623.5l9.836,9.836,5.282-5.282-10.063-10.063Z" transform="translate(-11.039)" /></g></svg>
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item as="div" onClick={triggerFile}>
+                                        <svg x="0px" y="0px" viewBox="0 0 374.116 374.116">
+                                            <g>
+                                                <path d="M344.058,207.506c-16.568,0-30,13.432-30,30v76.609h-254v-76.609c0-16.568-13.432-30-30-30c-16.568,0-30,13.432-30,30
+		v106.609c0,16.568,13.432,30,30,30h314c16.568,0,30-13.432,30-30V237.506C374.058,220.938,360.626,207.506,344.058,207.506z"/>
+                                                <path d="M123.57,135.915l33.488-33.488v111.775c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30V102.426l33.488,33.488
+		c5.857,5.858,13.535,8.787,21.213,8.787c7.678,0,15.355-2.929,21.213-8.787c11.716-11.716,11.716-30.71,0-42.426L208.271,8.788
+		c-11.715-11.717-30.711-11.717-42.426,0L81.144,93.489c-11.716,11.716-11.716,30.71,0,42.426
+		C92.859,147.631,111.855,147.631,123.57,135.915z"/>
+                                            </g>
+                                        </svg>
+                                        Alterar foto
+                                        <input type="file" accept="image/*" ref={inputRef} style={{ display: 'none' }} onChange={onSelectFile} />
+                                    </Dropdown.Item>
+
+                                    <Dropdown.Item as="div">
+                                        <a>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5,3h14c0.6,0,1,0.4,1,1v0c0,0.6-0.4,1-1,1H5C4.4,5,4,4.6,4,4v0C4,3.4,4.4,3,5,3z" /><path d="M17,5l-3-3h-4L7,5H17z M5,7v13c0,1.1,0.9,2,2,2h10c1.1,0,2-0.9,2-2V7H5z M9,20L9,20c-0.6,0-1-0.4-1-1v-9c0-0.6,0.4-1,1-1h0	c0.6,0,1,0.4,1,1v9C10,19.6,9.6,20,9,20z M15,20L15,20c-0.6,0-1-0.4-1-1v-9c0-0.6,0.4-1,1-1h0c0.6,0,1,0.4,1,1v9	C16,19.6,15.6,20,15,20z" />
+                                            </svg>
+                                            Remover foto
+                                        </a>
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+
                         </div>
                     </div>
 

@@ -102,7 +102,7 @@ export default function Cadastrar() {
                         <label htmlFor="cadastrar--senha" className="form-label"> Senha </label>
                         <div className="cadastrar--senha--container senha--container">
                             <Field name="password" autoComplete="new-password" type={passwordShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--senha" required />
-                            <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                            <span onClick={toggleSenha} className="show-password">{textoMostrar} senha</span>
                         </div>
                         <ErrorMessage component="span" className="error-msg" name="password" />
                     </div>
@@ -111,7 +111,7 @@ export default function Cadastrar() {
                         <label htmlFor="cadastrar--confirme-sua-senha" className="form-label"> Confirme sua senha </label>
                         <div className="cadastrar--senha--container senha--container">
                             <Field name="confirmPassword" autoComplete="new-password" type={passwordConfirmShown ? "text" : "password"} className="form-control cadastrar--input" id="cadastrar--confirme-sua-senha" required />
-                            <span onClick={toggleSenhaConfirmar} className="show-password text-md">{textoConfirmMostrar} senha</span>
+                            <span onClick={toggleSenhaConfirmar} className="show-password">{textoConfirmMostrar} senha</span>
                         </div>
                         <ErrorMessage component="span" className="error-msg" name="confirmPassword" />
                     </div>

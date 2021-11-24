@@ -99,16 +99,42 @@
     right: 30px;
     border-radius: 50%;
     border: none;
-    height: 55px;
-    width: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0;
+    &:hover {
+        background-color: $blue !important;
+    }
     svg {
         fill: white;
         width: 32px;
+    }
+    .dropdown-toggle {
+        border-radius: 50%;
+        height: 55px;
+        width: 55px;
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.dropdown-menu {
+    svg {
+        fill: $black;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+}
+
+.dropdown-item {
+    &:active {
+        svg {
+            fill: $white;
+        }
     }
 }
 

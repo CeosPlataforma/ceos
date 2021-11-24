@@ -222,36 +222,39 @@ function App() {
 
                 <Route exact path="/dashboard" element={
                     user
-                        ? <Fragment>
-                            <div className="d-flex index-div">
-                                <MenuAdmin />
-                                <Dashboard />
-                            </div>
-                        </Fragment> : <Fragment><Navigate to="/acessar" /></Fragment>
+                        ? (user.adm
+                            ? (<Fragment>
+                                <div className="d-flex index-div">
+                                    <MenuAdmin />
+                                    <Dashboard />
+                                </div>
+                            </Fragment>)
+                            : (<Fragment><Navigate to="/acessar" /></Fragment>))
+                        : (<Fragment><Navigate to="/acessar" /></Fragment>)
                 } />
                 <Route path="/dashboard/usuarios" element={
                     user
-                    ? (user.adm
-                        ? (<Fragment>
-                            <div className="d-flex index-div">
-                                <MenuAdmin />
-                                <Usuarios />
-                            </div>
-                        </Fragment>)
-                        : (<Fragment><Navigate to="/acessar" /></Fragment>))
-                    : (<Fragment><Navigate to="/acessar" /></Fragment>)
+                        ? (user.adm
+                            ? (<Fragment>
+                                <div className="d-flex index-div">
+                                    <MenuAdmin />
+                                    <Usuarios />
+                                </div>
+                            </Fragment>)
+                            : (<Fragment><Navigate to="/acessar" /></Fragment>))
+                        : (<Fragment><Navigate to="/acessar" /></Fragment>)
                 } />
                 <Route path="/dashboard/mensagens" element={
                     user
-                    ? (user.adm
-                        ? (<Fragment>
-                            <div className="d-flex index-div">
-                                <MenuAdmin />
-                                <Mensagens />
-                            </div>
-                        </Fragment>)
-                        : (<Fragment><Navigate to="/acessar" /></Fragment>))
-                    : (<Fragment><Navigate to="/acessar" /></Fragment>)
+                        ? (user.adm
+                            ? (<Fragment>
+                                <div className="d-flex index-div">
+                                    <MenuAdmin />
+                                    <Mensagens />
+                                </div>
+                            </Fragment>)
+                            : (<Fragment><Navigate to="/acessar" /></Fragment>))
+                        : (<Fragment><Navigate to="/acessar" /></Fragment>)
                 } />
                 <Route path="/dashboard/tickets" element={
                     user

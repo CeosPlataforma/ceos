@@ -98,7 +98,7 @@ function ModalAltSenha(props) {
                             <label htmlFor="cadastrar--senha" className="text-lg">Senha atual</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="password" type={passwordShown ? "text" : "password"} className="form-control modal--input" aria-describedby="password" required />
-                                <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                                <span onClick={toggleSenha} className="show-password">{textoMostrar} senha</span>
                             </div>
                             <ErrorMessage component="span" className="error-msg" name="password" />
 
@@ -113,7 +113,7 @@ function ModalAltSenha(props) {
                             <label htmlFor="cadastrar--senha" className="text-lg mt-4">Confirmar nova senha</label>
                             <div className="cadastrar--senha--container senha--container">
                                 <Field name="newPasswordConfirm" type={passwordNewConfirmShown ? "text" : "password"} className="form-control modal--input" aria-describedby="newPasswordConfirm" required />
-                                <span onClick={toggleSenhaNewConfirmar} className="show-password text-md">{textoNewConfirmMostrar} senha</span>
+                                <span onClick={toggleSenhaNewConfirmar} className="show-password">{textoNewConfirmMostrar} senha</span>
                             </div>
                             <ErrorMessage component="span" className="error-msg" name="newPasswordConfirm" />
 

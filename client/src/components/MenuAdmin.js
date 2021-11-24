@@ -107,13 +107,13 @@ export default function MenuAdmin() {
                 </div>
                 <ul className="nav_list">
                     <li>
-                        <Link to={"/dashboard"}>
+                        <Link id={window.location.pathname === "/dashboard" ? "active" : ""} to={"/dashboard"}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke-miterlimit="10" stroke-width="1.5" d="M21,17c0,0.552-0.448,1-1,1H5.586l-2.584,2.584L3.01,4.999C3.01,4.447,3.458,4,4.01,4H20c0.552,0,1,0.448,1,1V17z" /><path d="M11 7H13V9H11zM11 11H13V15H11z" /></svg>
                             <span className="links_name">Visão Geral</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={"/dashboard/usuarios"}>
+                        <Link id={window.location.pathname === "/dashboard/usuarios" ? "active" : ""} to={"/dashboard/usuarios"}>
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 456.368 456.368" xmlSpace="preserve">
                                 <path d="M324.194,220.526c-6.172,7.772-13.106,14.947-21.07,21.423c45.459,26.076,76.149,75.1,76.149,131.158
@@ -130,13 +130,13 @@ export default function MenuAdmin() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={"/dashboard/mensagens"}>
+                        <Link id={window.location.pathname === "/dashboard/mensagens" ? "active" : ""} to={"/dashboard/mensagens"}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 12H16V14H8zM8 16H16V18H8z" /><path fill="none" stroke-miterlimit="10" stroke-width="1.5" d="M19,20c0,0.551-0.449,1-1,1H6c-0.551,0-1-0.449-1-1V4c0-0.551,0.449-1,1-1h7.586L19,8.414V20z" /><path d="M18.5 9L13 9 13 3.5z" /></svg>
                             <span className="links_name">Mensagens</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={"/dashboard/tickets"}>
+                        <Link id={window.location.pathname === "/dashboard/tickets" ? "active" : ""} to={"/dashboard/tickets"}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke-miterlimit="10" stroke-width="2" d="M17 3h2c1.105 0 2 .895 2 2v2h-4M14 21H5c-1.105 0-2-.895-2-2v-2h10" /><path fill="none" stroke-miterlimit="10" stroke-width="1.5" d="M15.027 20.986c-1.104.015-2.012-.868-2.027-1.972l-.028-3M19 3H8C6.895 3 6 3.895 6 5v12" /><path fill="none" stroke-miterlimit="10" stroke-width="2" d="M14,21h1c1.105,0,2-0.895,2-2V5c0-1.105,0.895-2,2-2" /></svg>
                             <span className="links_name">Tickets</span>
                         </Link>

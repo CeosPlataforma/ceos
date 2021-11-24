@@ -133,7 +133,7 @@ export default function Thanks() {
                             <Col className="mb-4">
                                 <div className="mb-4">
                                     <label htmlFor="acessar--senha" className="form-label"> Qual o motivo da desativação da conta? </label>
-                                    <Field as="select" name="reason" className="modal--input thanks-dropdown w-100 shadow-none" required>
+                                    <Field as="select" name="reason" className="form-select modal--input thanks-dropdown w-100 shadow-none" required>
                                         <option className="thanks-dropdown--select" value="padrao">Selecione um motivo</option>
                                         <option value="nao-entendi-como-funciona">Não entendi o funcionamento</option>
                                         <option value="nao-gostei-inferface">Não gostei da interface</option>

@@ -107,19 +107,19 @@ export default function Contato() {
             </div>
 
 
-            <Modal show={show} onHide={() => setShow(false)} onExited={() => { redirect('/') }} size="md" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--plataforma" centered>
+            <Modal show={show} onHide={() => setShow(false)} onExited={() => { redirect('/') }} size="lg" aria-labelledby="contained-modal-title-vcenter" contentClassName="modal-content--website" centered>
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        <h1 className="modal--title modal--title--plataforma">Tudo certo!</h1>
+                        <h1 className="modal--title modal--title--website">Tudo certo!</h1>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>
+                    <p className="text-center">
                         Em breve a nossa equipe de suporte entrara em contato com você.
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button type="button" onClick={() => { setShow(false) }} className="btn--primary w-100 ">OK!</Button>
+                    <Button type="button" onClick={() => { setShow(false) }} className="btn--primary btn-padding mx-auto">OK!</Button>
                 </Modal.Footer>
             </Modal>
 

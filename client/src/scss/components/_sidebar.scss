@@ -150,14 +150,16 @@
 }
 
 #active {
-    color: $yellow;        
+    color: $yellow;
     svg {
         fill: $yellow;
+        stroke: $yellow;
     }
     &:hover {
         color: $black;
         svg {
             fill: $black;
+            stroke: $black;
         }
     }
 }

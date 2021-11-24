@@ -30,7 +30,7 @@ function ModalAddMateria(props) {
                             <ErrorMessage component="span" className="error-msg mb-4" name="professor" />
                         </div>
                         <div className="modal-footer">
-                            <button type="submit" className="btn btn--primary text-md w-100 mx-auto">Salvar</button>
+                            <button type="submit" className="btn btn--primary  w-100 mx-auto">Salvar</button>
                         </div>
                     </Form>
                 </Formik>

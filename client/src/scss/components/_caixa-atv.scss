@@ -159,7 +159,7 @@
     width: 100%;
     color: $gray-dark;
     border-color: $gray;
-    &:focus-visible {
+    &:focus {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-color: $gray-dark;

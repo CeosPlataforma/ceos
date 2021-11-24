@@ -35,7 +35,7 @@ export default function AdminLogin() {
                         <label htmlFor="acessar--senha" className="form-label"> Senha </label>
                         <div className="acessar--senha--container senha--container">
                             <input name="password" autocomplete="current-password" type={passwordShown ? "text" : "password"} className="form-control acessar--input" id="acessar--senha" required />
-                            <span onClick={toggleSenha} className="show-password text-md">{textoMostrar} senha</span>
+                            <span onClick={toggleSenha} className="show-password">{textoMostrar} senha</span>
                         </div>
                         {/* <ErrorMessage component="span" className="error-msg" name="password" /> */}
                     </div>

@@ -15,7 +15,7 @@ function ModalCadastro(props) {
         <Modal {...props}
             size="xl"
             aria-labelledby="contained-modal-title-vcenter"
-            contentClassName="modal-content--website modal-content--website modal--btn--verify"
+            contentClassName="modal-content--website modal-content--website"
             centered>
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
@@ -23,7 +23,7 @@ function ModalCadastro(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>
+                <p className='text-center'>
                     Para finalizar a criação de sua conta e começar a usar a plataforma, você precisa verificar seu endereço de e-mail e seguir as instruções enviadas
                 </p>
             </Modal.Body>

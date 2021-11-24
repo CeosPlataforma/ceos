@@ -5,8 +5,10 @@
     }
     span {
         position: absolute;
+        font-weight: $regular;
         right: 30px;
-        top: 25%;
+        top: 50%;
+        transform: translate(0, -50%);
         color: $gray-dark;
         cursor: pointer;
         user-select: none;
