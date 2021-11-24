@@ -23,7 +23,7 @@ class CronogramaController {
     }
 
     async getCronograma(request: Request, response: Response) {
-        console.log(request.sessionID)
+        //console.log(request.sessionID)
         const user_id = await request.session.user.id
         //request.
         //console.log(request.session)
