@@ -40,6 +40,7 @@ router.get('/get-foto/', userController.getFoto)
 router.patch('/mudar-senha/', userController.mudarSenha)
 router.patch('/mudar-dados/', userController.mudarDados)
 router.post('/deletar-usuario/', userController.deletarUsuario)
+router.post('/remover-foto', userController.removeFoto)
 
 // ATIVIDADES 
 const atividadeController = new AtividadeController();

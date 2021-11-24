@@ -208,8 +208,33 @@ class UserController {
                 return response.json({ error: 'inexistent' });
             } else if (error) {
                 return response.json({ error: error });
+            } else if (user.avatar.data === undefined) {
+                return response.json({ error: 'inexistent' });
             } else {
                 return response.json({ foto: user.avatar });
+            }
+        });
+    }
+
+    async removeFoto(request: Request, response: Response) {
+        const uuid = request.session.user ? request.session.user.uuid : null
+        //console.log("req", request.session)
+        if (uuid === null) return response.json({ error: 'inexistent' });
+
+        await UserModel.findOne({ uuid }, (error, user) => {
+            if (user === null) {
+                return response.json({ error: 'inexistent' });
+            } else if (error) {
+                return response.json({ error: error });
+            } else {
+                try {
+                    user.avatar = undefined;
+                    user.save();
+                    return response.json({ success: true });
+                } catch (error) {
+                    console.log(error)
+                    return response.json({ success: false });
+                }
             }
         });
     }
