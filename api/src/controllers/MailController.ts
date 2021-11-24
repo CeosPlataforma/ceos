@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { resolve } from "path";
 import SendMail from "../services/SendMail"
+import crypto from 'crypto'
 import { TicketModel } from "../models/Ticket"
 
 class MailController {
@@ -16,6 +17,7 @@ class MailController {
         ticket.email = email
         ticket.assunto = assunto
         ticket.mensagem = mensagem
+        ticket.uuid = crypto.randomUUID({ disableEntropyCache: true });
 
         const hbsPath = resolve(__dirname, "..", "views", "email", "supportMail.hbs");
 

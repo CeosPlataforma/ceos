@@ -71,6 +71,6 @@ router.patch('/dashboard/usuarios/edit', adminController.editUser)
 
 router.get('/dashboard/tickets', adminController.getTickets)
 router.post('/dashboard/tickets', adminController.deleteTicket)
-router.post('/dashboard/tickets', adminController.solveTicket)
+router.patch('/dashboard/tickets', adminController.solveTicket)
 
 export { router };

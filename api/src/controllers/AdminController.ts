@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import mongoose, { Types } from 'mongoose';
 import { resolve } from 'path';
 import { AtividadeModel } from '../models/Atividade';
 import { FeedbackModel } from '../models/Feedback'
@@ -8,8 +9,41 @@ import { UserModel } from '../models/User';
 import SendMail from '../services/SendMail';
 
 class AdminController {
-    deleteTicket(arg0: string, deleteTicket: any) {
-        throw new Error('Method not implemented.');
+    
+    async deleteTicket(request: Request, response: Response) {
+        const uuid = request.body.uuid
+        console.log(request.body)
+
+        //const tickets = await TicketModel.findById(id).exec()
+        //console.log(typeof tickets._id)
+
+        //console.log(mongoose.connections)
+        await TicketModel.findOneAndDelete({uuid: uuid}, { useFindAndModify: false })
+        .then(doc => {
+            //console.log(doc)
+        }).catch(error => console.log(error))
+        //console.log(ticket)
+        // ticket.resolvido = true
+        // ticket.save()
+        return response.json({ success: true })
+    }
+
+    async solveTicket(request: Request, response: Response) {
+        const uuid = request.body.uuid
+        console.log(request.body)
+
+        //const tickets = await TicketModel.findById(id).exec()
+        //console.log(typeof tickets._id)
+
+        //console.log(mongoose.connections)
+        await TicketModel.findOneAndUpdate({uuid: uuid}, { $set: { resolvido: true } }, { useFindAndModify: false })
+        .then(doc => {
+            console.log(doc)
+        }).catch(error => console.log(error))
+        //console.log(ticket)
+        // ticket.resolvido = true
+        // ticket.save()
+        return response.json({ success: true })
     }
 
     async editUser(request: Request, response: Response) {
@@ -58,6 +92,19 @@ class AdminController {
         if (changed_v.email) {
             //@ts-ignore
             user.email = newv.email
+            const pathNotif = resolve(__dirname, "..", "views", "email", "emailChangeNotif.hbs");
+
+            const variables = {
+                nome: changed_v.nome ? newv.nome : oldv.nome,
+                link: `http://localhost:3333/register/${uuid}`
+            }
+
+            try {
+                await SendMail.execute(oldv.email, "Seu email mudou", variables, pathNotif);
+            } catch (error) {
+                console.log(error)
+            }
+
         }
 
         if (changed_v.verifiedMail) {
@@ -65,7 +112,6 @@ class AdminController {
             user.verifiedMail = newv.verifiedMail
             if (newv.verifiedMail == false) {
                 const pathConfirmar = resolve(__dirname, "..", "views", "email", "confirmEmail.hbs");
-                const pathNotif = resolve(__dirname, "..", "views", "email", "emailChangeNotif.hbs");
 
                 const variables = {
                     nome: changed_v.nome ? newv.nome : oldv.nome,
@@ -74,9 +120,6 @@ class AdminController {
 
                 try {
                     await SendMail.execute(changed_v.email ? newv.email : oldv.email, "Confirmação do Email", variables, pathConfirmar);
-                    if (changed_v.email) {
-                        await SendMail.execute(oldv.email, "Seu email mudou", variables, pathNotif);
-                    }
                 } catch (error) {
                     console.log(error);
                     return response.json({ message: "erro-total", error });
@@ -91,19 +134,6 @@ class AdminController {
             console.log(error)
             return response.json({ success: false })
         }
-    }
-
-    solveTicket(request: Request, response: Response) {
-        const id = request.body._id
-        TicketModel.find({}).exec(async (error, tickets) => {
-            if (error) {
-                console.log(error)
-            } else if (!tickets.length) {
-                return response.json({ message: "sem-tickets" });
-            } else {
-                return response.send(tickets);
-            }
-        })
     }
 
     async deleteUser(request: Request, response: Response) {

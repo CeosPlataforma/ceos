@@ -6,6 +6,7 @@ interface Ticket {
     mensagem: string;
     nome: string;
     resolvido: boolean;
+    uuid: string;
 }
 
 const schema = new Schema<Ticket>({
@@ -18,6 +19,12 @@ const schema = new Schema<Ticket>({
     assunto: {
         type: String,
         required: true
+    },
+
+    uuid: {
+        type: String,
+        required: true,
+        index: true
     },
 
     mensagem: {

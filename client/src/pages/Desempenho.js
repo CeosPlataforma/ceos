@@ -51,6 +51,11 @@ export default function Desempenho() {
      * @returns {string} quantidade de atividades que servem pro filtro
      */
     const getAtvCount = (tipo, conc, all) => {
+
+        if (!atividades.length) {
+            return "000"
+        }
+
         if (conc) {
             if (all) {
                 return atividades.filter((atividade) => !atividade.trashed && atividade.concluida ? true : false).length.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false})
