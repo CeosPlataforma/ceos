@@ -262,7 +262,7 @@ textarea {
 .dark-mode .user--photo {
   border-color: #E5E5E5;
 }
-.dark-mode .materias--adicionar-materias, .dark-mode .atividades--btn--inactive, .dark-mode .--secondary {
+.dark-mode .materias--adicionar-materias, .dark-mode .atividades--btn--inactive, .dark-mode .--secondary, .dark-mode .ver-atividades--btn--inactive {
   background-color: #23272a;
   color: #E5E5E5;
 }
@@ -1501,9 +1501,9 @@ ol, ul {
   margin-right: 5px;
   margin-bottom: 5px;
 }
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 575.98px) {
   .atvBox .btn-view {
-    width: 100%;
+    width: 80%;
   }
 }
 .atvBox .btn-delete, .atvBox .btn-restore {

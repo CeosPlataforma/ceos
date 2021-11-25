@@ -44,8 +44,8 @@
         background-color: $white;
         margin-right: 5px;
         margin-bottom: 5px;
-        @include device(sm) {
-            width: 100%;
+        @include device(xs) {
+            width: 80%;
         }
     }
     .btn-delete {

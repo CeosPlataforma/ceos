@@ -48,7 +48,7 @@ export default function Tickets() {
             <Container fluid={"xxl"} className="dashboard content">
                 <h1 className="title mb-5"><span className="underline">Tickets</span></h1>
 
-                <div className="row d-flex justify-content-between row-atividades">
+                <div className="row d-flex justify-content-between row-atividades mb-5">
                     <Col>
                         <Button
                             className={atvButton}
@@ -57,7 +57,7 @@ export default function Tickets() {
                                 setCasaButton("atividades--btn atividades--btn--inactive w-100")
                                 setAtvTipo("unsolved")
                             }}>
-                            não resolvidos
+                            Pendentes
                         </Button>
                     </Col>
                     <Col>
@@ -68,7 +68,7 @@ export default function Tickets() {
                                 setCasaButton("atividades--btn atividades--btn--active w-100")
                                 setAtvTipo("solved")
                             }}>
-                            resolvidos
+                            Resolvidos
                         </Button>
                     </Col>
                 </div>
@@ -78,9 +78,9 @@ export default function Tickets() {
                         if (atvTipo == "solved" && ticket.resolvido) return true
                         if (atvTipo == "unsolved" && !ticket.resolvido) return true
                     })
-                    .map((ticket, index) => {
-                        return <TicketBox ticket={ticket} resolver={resolver} deletar={deletar} index={index}/>
-                    })
+                        .map((ticket, index) => {
+                            return <TicketBox ticket={ticket} resolver={resolver} deletar={deletar} index={index} />
+                        })
                     : done ? <div className="painel--materia text-center"><p>Não há nenhum ticket.</p></div> : null
                 }
             </Container>
