@@ -489,6 +489,6 @@ export default function Painel() {
                     />
                 </Row>
             </Slider>
-        </div>
+        </div >
     )
 }

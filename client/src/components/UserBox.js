@@ -19,7 +19,7 @@ export default function UserBox({ userImage, user }) {
     const [touched, setTouched] = useState(false)
 
     const deleteUser = async () => {
-        setTxt(<Spinner animation="border" variant="warning" />)
+        setTxt(<Spinner animation="border" />)
         axios.post("http://localhost:3333/dashboard/usuarios/delete", {
             uuid: user.uuid,
             _id: user._id
@@ -84,7 +84,7 @@ export default function UserBox({ userImage, user }) {
                     <p>Salt: {user.salt}</p> */}
                     <p>Criado em: {new Date(user.createdAt).toISOString().substr(0, 10)}</p>
                     <div className="d-flex justify-content-between mt-4">
-                        <button className="btn--secondary w-50 red-btn" onClick={() => {
+                        <button className="btn--secondary w-50 red-btn text-wrap d-flex justify-content-center align-items-center" style={{ 'paddingRight': '10px', 'paddingLeft': '10px' }} onClick={() => {
                             if (click < 1) setClick(click + 1); setTxt("Aperte novamente para confirmar")
                             if (click == 1) deleteUser()
                         }}>{btnText}</button>
