@@ -213,18 +213,18 @@ export default function Painel() {
                                     this.count++;
                                     return true
                                 }
-                            }, {count: 0}).map((linha) => {
+                            }, { count: 0 }).map((linha) => {
                                 console.log(linha)
                                 return <tr>
-                                <td>{linha.hora}</td>
-                                <td>{linha.seg}</td>
-                                <td>{linha.ter}</td>
-                                <td>{linha.qua}</td>
-                                <td>{linha.qui}</td>
-                                <td>{linha.sex}</td>
-                                <td>{linha.sab}</td>
-                                <td>{linha.dom}</td>
-                            </tr>
+                                    <td>{linha.hora}</td>
+                                    <td>{linha.seg}</td>
+                                    <td>{linha.ter}</td>
+                                    <td>{linha.qua}</td>
+                                    <td>{linha.qui}</td>
+                                    <td>{linha.sex}</td>
+                                    <td>{linha.sab}</td>
+                                    <td>{linha.dom}</td>
+                                </tr>
                             })}
                         </tbody>
                     </Table>
@@ -235,7 +235,7 @@ export default function Painel() {
 
             <div className="section-title d-flex"><span className="bar">|</span><h4>Matérias</h4></div>
 
-            {materias.length === 0
+            {/* {materias.length === 0
                 ?
                 <Slider
                     nextArrow={<NextArrow />}
@@ -243,7 +243,6 @@ export default function Painel() {
                     slidesToScroll={1}
                     infinite={false}
                     slidesToShow={1}
-                // className="painel--materias"
                 >
 
                     <Row>
@@ -254,24 +253,51 @@ export default function Painel() {
                         </Col>
                     </Row>
                 </Slider>
-                :
-                <Slider
-                    nextArrow={<NextArrow />}
-                    prevArrow={<PrevArrow />}
-                    slidesToScroll={1}
-                    infinite={false}
-                    slidesToShow={3}
-                    responsive={{
-                        breakpoint: 1570,
+                : */}
+            <Slider
+                nextArrow={<NextArrow />}
+                prevArrow={<PrevArrow />}
+                slidesToScroll={1}
+                infinite={false}
+                slidesToShow={materias.length === 0
+                    ? 1 : 3}
+                responsive={
+                    // materias.length === 0
+                    //     ? [{}] :
+                    [{
+                        breakpoint: 1350,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 820,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1
                         }
-                    }}
-                // className="painel--materias"
-                >
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }]}
+            >
 
-                    {materias.map((materia) => (
+                {materias.length === 0
+                    ?
+                    <Row>
+                        <Col>
+                            <div className="painel--materia text-center w-100" onClick={() => redirect('http://localhost:3000/materias')}>
+                                <p>Você não criou nenhuma matéria.</p>
+                            </div>
+                        </Col>
+                    </Row>
+                    :
+                    materias.map((materia) => (
                         <Row>
                             <Col>
                                 <div className="painel--materia text-center" onClick={() => onClick(materia.uuid)}>
@@ -279,13 +305,14 @@ export default function Painel() {
                                 </div>
                             </Col>
                         </Row>
-                    ))}
-                </Slider>
-            }
+                    ))
+                }
+            </Slider>
+            {/* } */}
 
             <div className="section-title d-flex" style={{ 'marginTop': '60px' }}><span className="bar">|</span><h4>Atividades recentes</h4></div>
 
-            {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true).length === 0
+            {/* {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true).length === 0
                 ?
                 <Slider
                     nextArrow={<NextArrow />}
@@ -293,7 +320,6 @@ export default function Painel() {
                     slidesToScroll={1}
                     infinite={false}
                     slidesToShow={1}
-                // className="painel--materias"
                 >
 
                     <Row>
@@ -304,32 +330,43 @@ export default function Painel() {
                         </Col>
                     </Row>
                 </Slider>
-                :
-                <Slider
-                    nextArrow={<NextArrow />}
-                    prevArrow={<PrevArrow />}
-                    slidesToScroll={1}
-                    infinite={false}
-                    draggable={drag}
-                    slidesToShow={3}
-                    responsive={[{
-                        breakpoint: 1450,
+                : */}
+            <Slider
+                nextArrow={<NextArrow />}
+                prevArrow={<PrevArrow />}
+                slidesToScroll={1}
+                infinite={false}
+                draggable={drag}
+                slidesToShow={atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true).length === 0
+                    ? 1 : 3}
+                responsive={
+                    // atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true).length === 0
+                    //     ? [{}] :
+                    [{
+                        breakpoint: 1350,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     },
                     {
-                        breakpoint: 888,
+                        breakpoint: 900,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
                         }
                     }]}
-                // className="painel--atvs-recentes"
-                >
-
-                    {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
+            >
+                {atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true).length === 0
+                    ? <Row>
+                        <Col>
+                            <div className="painel--materia text-center" onClick={() => redirect('http://localhost:3000/materias')}>
+                                <p>Não há nenhuma atividade pendente.</p>
+                            </div>
+                        </Col>
+                    </Row>
+                    :
+                    atividades.filter((atividade) => atividade.trashed || atividade.concluida ? false : true)
                         .sort((a, b) => {
                             const a_date = new Date(a.dueBy)
                             const b_date = new Date(b.dueBy)
@@ -367,9 +404,10 @@ export default function Painel() {
                                         excluir />
                                 </Row>
                             )
-                        })}
-                </Slider>
-            }
+                        })
+                }
+            </Slider>
+            {/* } */}
 
             <div className="section-title d-flex" style={{ 'marginTop': '60px' }}><span className="bar">|</span><h4>Desempenho geral</h4></div>
 
@@ -451,6 +489,6 @@ export default function Painel() {
                     />
                 </Row>
             </Slider>
-        </div>
+        </div >
     )
 }

@@ -30,7 +30,7 @@ export default function Mensagens() {
                 <h1 className="title mb-5"><span className="underline">Mensagens</span></h1>
 
                 <select onChange={e => setFilter(e.target.value)} value={filter} name="reason" className="form-select modal--input thanks-dropdown w-100 shadow-none mb-5" required>
-                    <option className="thanks-dropdown--select" value="padrao">sem filtro</option>
+                    <option className="thanks-dropdown--select" value="padrao">Sem filtro</option>
                     <option value="nao-entendi-como-funciona">Não entendi o funcionamento</option>
                     <option value="nao-gostei-inferface">Não gostei da interface</option>
                     <option value="nao-achei-intuitivo">Não achei a plataforma intuitiva</option>

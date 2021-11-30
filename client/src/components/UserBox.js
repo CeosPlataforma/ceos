@@ -19,7 +19,7 @@ export default function UserBox({ userImage, user }) {
     const [touched, setTouched] = useState(false)
 
     const deleteUser = async () => {
-        setTxt(<Spinner animation="border" variant="warning" />)
+        setTxt(<Spinner animation="border" />)
         axios.post("http://localhost:3333/dashboard/usuarios/delete", {
             uuid: user.uuid,
             _id: user._id
@@ -84,7 +84,7 @@ export default function UserBox({ userImage, user }) {
                     <p>Salt: {user.salt}</p> */}
                     <p>Criado em: {new Date(user.createdAt).toISOString().substr(0, 10)}</p>
                     <div className="d-flex justify-content-between mt-4">
-                        <button className="btn--secondary w-50 red-btn" onClick={() => {
+                        <button className="btn--secondary w-50 red-btn text-wrap d-flex justify-content-center align-items-center" style={{ 'paddingRight': '10px', 'paddingLeft': '10px' }} onClick={() => {
                             if (click < 1) setClick(click + 1); setTxt("Aperte novamente para confirmar")
                             if (click == 1) deleteUser()
                         }}>{btnText}</button>
@@ -107,9 +107,9 @@ export default function UserBox({ userImage, user }) {
                         <h1 className="modal--title modal--title--website">Alterar informações do usuário</h1>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <Formik initialValues={initialValues} onSubmit={onSubmitEdit}>
-                        <Form>
+                <Formik initialValues={initialValues} onSubmit={onSubmitEdit}>
+                    <Form>
+                        <Modal.Body>
                             <Row className="justify-content-between">
                                 <Col xs={12} lg={6}>
                                     <div className="input-holder">
@@ -123,7 +123,7 @@ export default function UserBox({ userImage, user }) {
                                     <div className="input-holder">
                                         <p>Nome</p>
                                         <Field name="name" className="form-control modal--input"
-                                            //value={user.name}
+                                        //value={user.name}
                                         />
                                     </div>
                                 </Col>
@@ -133,7 +133,7 @@ export default function UserBox({ userImage, user }) {
                                     <div className="input-holder">
                                         <p>E-mail</p>
                                         <Field name="email" className="form-control modal--input"
-                                            //value={user.email}
+                                        //value={user.email}
                                         />
                                     </div>
                                 </Col>
@@ -164,13 +164,12 @@ export default function UserBox({ userImage, user }) {
                                     </div>
                                 </Col>
                             </Row>
+                        </Modal.Body>
+                        <Modal.Footer>
                             <Button type="submit" className="btn--primary btn-padding mx-auto">Salvar alterações no usuário</Button>
-                        </Form>
-                    </Formik>
-                </Modal.Body>
-                <Modal.Footer>
-                    
-                </Modal.Footer>
+                        </Modal.Footer>
+                    </Form>
+                </Formik>
             </Modal>
         </>
     );

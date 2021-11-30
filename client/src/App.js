@@ -224,7 +224,7 @@ function App() {
                     user
                         ? (user.adm
                             ? (<Fragment>
-                                <div className="d-flex index-div">
+                                <div className="d-flex">
                                     <MenuAdmin />
                                     <Dashboard />
                                 </div>
@@ -236,7 +236,7 @@ function App() {
                     user
                         ? (user.adm
                             ? (<Fragment>
-                                <div className="d-flex index-div">
+                                <div className="d-flex">
                                     <MenuAdmin />
                                     <Usuarios />
                                 </div>
@@ -248,7 +248,7 @@ function App() {
                     user
                         ? (user.adm
                             ? (<Fragment>
-                                <div className="d-flex index-div">
+                                <div className="d-flex">
                                     <MenuAdmin />
                                     <Mensagens />
                                 </div>
@@ -260,7 +260,7 @@ function App() {
                     user
                         ? (user.adm
                             ? (<Fragment>
-                                <div className="d-flex index-div">
+                                <div className="d-flex">
                                     <MenuAdmin />
                                     <Tickets />
                                 </div>
