@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 function ModalEditAtv(props) {
 
     const atv_date = new Date(props.atv_obj.dueBy).toISOString().substr(0, 10)
+    const atv_date_min = new Date(props.atv_obj.dueBy)
 
     const initialValues = {
         nome: props.atv_obj.name,
@@ -18,13 +19,13 @@ function ModalEditAtv(props) {
         tipo: props.atv_obj.atv_type,
         checkbox: props.atv_obj.concluida
     }
-    const today = new Date()
+    //const today = new Date()
 
     const id = props.atv_obj._id
 
     const validationSchema = Yup.object({
         nome: Yup.string().min(2, "Nome muito pequeno").max(25, "Nome muito grande").required("Campo necessário"),
-        data: Yup.date().min(today, "Data inválida").max("2021-12-31", "Data inválida").required("Campo necessário"),
+        data: Yup.date().min(atv_date_min, "Data inválida").max("2021-12-31", "Data inválida").required("Campo necessário"),
         descricao: Yup.string().required("Campo necessário"),
         tipo: Yup.string().notOneOf(["selecione"], "Escolha uma opção").required("Campo necessário")
     });
