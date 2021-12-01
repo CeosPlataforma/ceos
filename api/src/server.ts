@@ -9,6 +9,8 @@ import MongoStore from 'connect-mongo';
 const app = express();
 dotenv.config();
 
+//app.set('trust proxy', '127.0.0.1');
+
 app.use(fileUpload());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -17,18 +19,16 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 
 app.use(session({
     secret: process.env.COOKIE_SECRET,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     cookie: {
         path: '/',
+        sameSite: 'lax',
         domain: 'localhost',
         maxAge: 24 * 4 * 60 * 60,
-        secure: false
+        secure: 'auto'
     },
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGO_CONN,
-        ttl: 14 * 24 * 60 * 60 // = 14 days. Default
-    })
+    
 }));
 
 app.use(function(req, res, next) {
