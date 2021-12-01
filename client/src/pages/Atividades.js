@@ -20,6 +20,8 @@ export default function Atividades() {
     const [lixoButton, setLixoButton] = useState("atividades--btn atividades--btn--inactive w-100")
     const [concButton, setConcButton] = useState("atividades--btn atividades--btn--inactive w-100")
 
+    //axios.defaults.withCredentials = true
+
     const fetchAtividades = async () => {
         axios.get('http://localhost:3333/get-atividades')
             .then((response) => {
@@ -56,7 +58,7 @@ export default function Atividades() {
     function redirect(url) {
         window.location = url;
     }
-
+    
     const [index, setIndex] = useState(0);
     const [sort, setSort] = useState("nome-cres")
 

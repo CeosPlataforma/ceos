@@ -22,6 +22,8 @@ export default function AtvBox({ mat_obj, atv_obj, className, title, materia, ti
         setShow3(true)
     }
 
+    axios.defaults.withCredentials = true
+
     const onSubmitExcluir = async (values, actions) => {
         axios.post("http://localhost:3333/delete-atividade", { id: atv_obj._id, operation: "delete", uuid: atv_obj.uuid })
             .then((response) => {

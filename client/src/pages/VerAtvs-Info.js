@@ -9,6 +9,8 @@ export default function VerAtvsInfo({ atividades, materia }) {
     const [show, setShow] = useState(false);
     const [touched, setTouched] = useState(false);
 
+    axios.defaults.withCredentials = true
+
     const onSubmit = async (values, actions) => {
         axios.post("http://localhost:3333/materia-edit", {
             materia_id: materia._id,
