@@ -10,6 +10,7 @@ import AtvBox from "../components/AtvBox";
 
 export default function Atividades() {
 
+    axios.defaults.withCredentials = true
     const [atvTipo, setAtvTipo] = useState("all")
     const [atividades, setAtividades] = useState([])
     const [atvButton, setAtvButton] = useState("atividades--btn atividades--btn--active w-100")
