@@ -1,6 +1,4 @@
-# Ceos
-
-<img width="200px" src="client/src/assets/logo/png/LogoHP.png"/>
+# <img width="200px" src="client/src/assets/logo/png/LogoHP.png"/>
 
 Organize seus estudos, criando matérias e gerenciando suas atividades, além de criar o seu próprio cronograma.
 > Este projeto foi feito para a conclusão do curso técnico de Informática para Internet na Etec Lauro Gomes
