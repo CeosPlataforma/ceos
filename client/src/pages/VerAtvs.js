@@ -61,7 +61,7 @@ export default function VerAtvs() {
                 //console.log(response.data.error)
                 actions.setFieldError("name", "erro!!!");
             } else if (response.data.exists) {
-                actions.setFieldError("name", "Esta atividade já existe!!!");
+                actions.setFieldError("name", "Esta atividade já existe.");
             } else {
                 console.log(response.data);
             }
@@ -181,7 +181,7 @@ export default function VerAtvs() {
 
                 {index === 0 &&
                     <>
-                       <div className="dropdown">
+                        <div className="dropdown">
                             <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
                             </button>
@@ -305,7 +305,7 @@ export default function VerAtvs() {
 
                 {index === 3 &&
                     <>
-                       <div className="dropdown">
+                        <div className="dropdown">
                             <button className="btn dropdown-toggle materias--classificar-por" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Classificar por:
                             </button>
