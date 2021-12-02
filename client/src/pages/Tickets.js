@@ -75,8 +75,8 @@ export default function Tickets() {
 
                 {tickets && tickets.length > 0
                     ? tickets.filter((ticket) => {
-                        if (atvTipo == "solved" && ticket.resolvido) return true
-                        if (atvTipo == "unsolved" && !ticket.resolvido) return true
+                        if (atvTipo === "solved" && ticket.resolvido) return true
+                        if (atvTipo === "unsolved" && !ticket.resolvido) return true
                     })
                         .map((ticket, index) => {
                             return <TicketBox ticket={ticket} resolver={resolver} deletar={deletar} index={index} />

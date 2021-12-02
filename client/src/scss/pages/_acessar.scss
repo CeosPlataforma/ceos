@@ -1,9 +1,6 @@
 .acessar {
     padding-top: 40px;
     padding-bottom: 120px;
-    padding-left: auto;
-    padding-right: auto;
-
     @include device(lg) {
         padding: 40px 40px 120px 40px !important;
     }

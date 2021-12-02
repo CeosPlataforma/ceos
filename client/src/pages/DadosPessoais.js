@@ -41,9 +41,6 @@ export default function DadosPessoais() {
         window.location.reload();
     }
 
-    // const [textoMostrar, setTextoMostrar] = useState("Mostrar")
-    const [passwordShown, setPasswordShown] = useState(false)
-
     const initialValues = {
         name: nome,
         email: email

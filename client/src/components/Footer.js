@@ -67,7 +67,7 @@ function Footer() {
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link" target="_blank" href="https://twitter.com/CEOS_Plataforma"> Twitter </a>
+                                    <a className="nav-link" target="_blank" rel="noreferrer" href="https://twitter.com/CEOS_Plataforma"> Twitter </a>
                                 </li>
 
                                 <li className="nav-item">

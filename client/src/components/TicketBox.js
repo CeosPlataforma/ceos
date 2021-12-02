@@ -1,6 +1,5 @@
 import React from "react";
 import Col from 'react-bootstrap/Col';
-import axios from "axios";
 
 export default function TicketBox({ ticket, resolver, index, deletar }) {
 

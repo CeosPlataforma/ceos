@@ -186,7 +186,7 @@ export default function VerAtvs() {
                                 Classificar por:
                             </button>
                             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a className="dropdown-item" onClick={() => setFilter("crescente")} >Ordem Alfabética (crescente)</a></li>
+                                <li><a className="dropdown-item" onClick={() => setFilter("crescente")}>Ordem Alfabética (crescente)</a></li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <li><a className="dropdown-item" onClick={() => setFilter("decrescente")}>Ordem Alfabética (decrescente)</a></li>
                             </ul>

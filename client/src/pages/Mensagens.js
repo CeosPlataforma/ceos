@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 
 import MsgBox from "../components/MsgBox";
 

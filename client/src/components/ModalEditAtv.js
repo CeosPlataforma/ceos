@@ -53,7 +53,7 @@ function ModalEditAtv(props) {
                                 <Col xs={12} lg={6}>
                                     <div className="input-holder">
                                         <p>Data de entrega</p>
-                                        <Field type="date" name="data" autoComplete="off" className="form-control modal--input" type="date" />
+                                        <Field type="date" name="data" autoComplete="off" className="form-control modal--input" />
                                         <ErrorMessage component="span" className="error-msg" name="data" />
                                     </div>
                                 </Col>

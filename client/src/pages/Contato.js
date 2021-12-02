@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import axios from "axios";
 import * as Yup from 'yup';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Navigator, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import BlueFooter from "../components/BlueFooter";
 
 export default function Contato() {

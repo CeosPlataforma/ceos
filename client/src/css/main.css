@@ -527,8 +527,6 @@ input:checked + .slider:before {
 .visao-geral {
   padding-top: 80px;
   padding-bottom: 110px;
-  padding-left: auto;
-  padding-right: auto;
 }
 .visao-geral--title {
   font: 700 48px "Baloo Bhai 2", cursive;
@@ -556,7 +554,8 @@ input:checked + .slider:before {
 }
 
 .funcionalidades {
-  padding: 80px 0 110px 0;
+  padding-top: 80px;
+  padding-bottom: 110px;
   background: linear-gradient(rgba(33, 106, 167, 0.8), rgba(33, 106, 167, 0.8)), url("https://wallpaperaccess.com/full/951548.jpg") center center/cover no-repeat fixed;
 }
 .funcionalidades--title {
@@ -589,8 +588,6 @@ input:checked + .slider:before {
 .depoimentos {
   padding-top: 80px;
   padding-bottom: 110px;
-  padding-left: auto;
-  padding-right: auto;
 }
 .depoimentos--title {
   font: 700 48px "Baloo Bhai 2", cursive;
@@ -1635,8 +1632,6 @@ ol, ul {
 .acessar {
   padding-top: 40px;
   padding-bottom: 120px;
-  padding-left: auto;
-  padding-right: auto;
 }
 @media screen and (max-width: 1199.98px) {
   .acessar {
@@ -1709,8 +1704,6 @@ ol, ul {
 .cadastrar {
   padding-top: 40px;
   padding-bottom: 120px;
-  padding-left: auto;
-  padding-right: auto;
 }
 @media screen and (max-width: 1199.98px) {
   .cadastrar {
@@ -1781,8 +1774,6 @@ ol, ul {
 .contato {
   padding-top: 40px;
   padding-bottom: 120px;
-  padding-left: auto;
-  padding-right: auto;
 }
 @media screen and (max-width: 1199.98px) {
   .contato {

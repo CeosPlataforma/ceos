@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 
 import UserBox from '../components/UserBox';
 
@@ -46,11 +45,11 @@ export default function Usuarios() {
                         const avatar = user.avatar ? user.avatar.data.data : null
                         const avatarbs64 = avatar ? base64Flag + arrayBufferToBase64(avatar) : null
                         //console.log("user:",user.name,"verified?", user.verifiedMail)
-                        return <UserBox user={user} userImage={avatarbs64}/>
+                        return <UserBox user={user} userImage={avatarbs64} />
                     })
                     : done ? <div className="painel--materia text-center"><p>Não há nenhum usuario.</p></div> : null
                 }
-                
+
             </Container>
         </>
     );

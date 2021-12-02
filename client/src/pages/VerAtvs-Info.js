@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import ModalEditProf from "../components/ModalEditProf";
 
@@ -14,7 +13,7 @@ export default function VerAtvsInfo({ atividades, materia }) {
     const onSubmit = async (values, actions) => {
         axios.post("http://localhost:3333/materia-edit", {
             materia_id: materia._id,
-            professor: values.professor 
+            professor: values.professor
         }).then((response) => {
             if (response.data.success) {
                 console.log("sucesO! eba")
@@ -29,15 +28,15 @@ export default function VerAtvsInfo({ atividades, materia }) {
     const getAtvCount = (tipo, conc, all) => {
         if (conc) {
             if (all) {
-                return atividades.filter((atividade) => !atividade.trashed && atividade.concluida ? true : false).length.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false})
+                return atividades.filter((atividade) => !atividade.trashed && atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
             } else {
-                return atividades.filter((atividade) => (atividade.atv_type === tipo && !atividade.trashed) && atividade.concluida ? true : false).length.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false})
+                return atividades.filter((atividade) => (atividade.atv_type === tipo && !atividade.trashed) && atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
             }
         } else {
             if (all) {
-                return atividades.filter((atividade) => !atividade.trashed && !atividade.concluida ? true : false).length.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false})
+                return atividades.filter((atividade) => !atividade.trashed && !atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
             } else {
-                return atividades.filter((atividade) => (atividade.atv_type === tipo && !atividade.trashed) && !atividade.concluida ? true : false).length.toLocaleString('en-US', {minimumIntegerDigits: 3, useGrouping:false})
+                return atividades.filter((atividade) => (atividade.atv_type === tipo && !atividade.trashed) && !atividade.concluida ? true : false).length.toLocaleString('en-US', { minimumIntegerDigits: 3, useGrouping: false })
             }
         }
     }

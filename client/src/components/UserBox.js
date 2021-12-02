@@ -3,11 +3,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner'
-import * as Yup from 'yup'
-import Avatar from "./Avatar"
+import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 import { Field, Form, Formik } from 'formik';
+
+import Avatar from "./Avatar";
 
 export default function UserBox({ userImage, user }) {
 
@@ -86,7 +86,7 @@ export default function UserBox({ userImage, user }) {
                     <div className="d-flex justify-content-between mt-4">
                         <button className="btn--secondary w-50 red-btn text-wrap d-flex justify-content-center align-items-center" style={{ 'paddingRight': '10px', 'paddingLeft': '10px' }} onClick={() => {
                             if (click < 1) setClick(click + 1); setTxt("Aperte novamente para confirmar")
-                            if (click == 1) deleteUser()
+                            if (click === 1) deleteUser()
                         }}>{btnText}</button>
                         <button className="btn--secondary w-50 btn-solved" onClick={() => setShow(true)}>Editar usuário</button>
                     </div>
